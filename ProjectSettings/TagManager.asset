@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - GameManager
+  - Stage
+  - Abl_ClassName1
+  - Abl_ClassName2
+  - Abl_ClassName3
+  - Abl_ClassName4
+  - Abl_ClassName5
+  - Abl_ClassName6
+  - Abl_ClassName7
+  - Abl_ClassName8
+  - Abl_ClassName9
+  - Abl_ClassName10
+  - Abl_ClassName11
+  - Abl_ClassName12
+  - Abl_ClassName13
+  - Abl_ClassName14
+  - Abl_ClassName15
+  - Abl_ClassName0
+  - Abl_SetAbilityName1
+  - Abl_SetAbilityName2
+  - Abl_SetAbilityName3
+  - Abl_SetAbilityName4
+  - Abl_SetAbilityName5
+  - Abl_SetAbilityName6
+  - Abl_SetAbilityName7
+  - Abl_SetAbilityName8
+  - Abl_SetAbilityName9
+  - Abl_SetAbilityName10
+  - Abl_SetAbilityName11
+  - Abl_SetAbilityName12
+  - Abl_SetAbilityName13
+  - Abl_SetAbilityName14
+  - Abl_SetAbilityName15
+  - Canvas
+  - Abl_SetAbilityName0
+  - Nam_UnitName0
+  - Nam_UnitName1
+  - Nam_UnitName2
+  - Nam_UnitName3
+  - Nam_UnitName4
+  - Nam_UnitName5
+  - Nam_UnitName6
+  - Nam_UnitName7
+  - Nam_UnitName8
+  - Nam_UnitName9
+  - Nam_UnitName10
+  - Nam_UnitName11
+  - Nam_UnitName12
+  - Nam_UnitName13
+  - Nam_UnitName14
+  - Nam_UnitName15
+  - Roby_PlayersNum
+  - InsideRoomButton
+  - Roby_RoomsNum
+  - Abl_AbilityArea
+  - Abl_UnitArea
+  - Unit_CounterSold
+  - Unit_CounterWiz
+  - Unit_UnitButton_Sol
+  - Unit_UnitButton_Wiz
+  - Login_InputField_Name
+  - Login_InputField_Guid
+  - Canvas_MW
+  - TextField_MW
+  - Sprite_Ability
+  - FadeDisplayImages
+  - Canvas_FadeDisplay
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Test
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: 1
+    uniqueID: 3507716531
+    locked: 0
+  - name: 2
+    uniqueID: 3260892613
+    locked: 0
+  - name: 3
+    uniqueID: 1117468769
+    locked: 0
+  - name: 4
+    uniqueID: 2544769845
+    locked: 0
+  - name: 5
+    uniqueID: 1251019333
+    locked: 0
