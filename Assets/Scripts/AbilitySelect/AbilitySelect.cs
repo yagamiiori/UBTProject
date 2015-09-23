@@ -9,7 +9,6 @@ public class AbilitySelect : MonoBehaviour
 {
     private GameManager gameManager;                    // マネージャコンポ
     private GameObject canVas;                          // ゲームオブジェクト"Canvas"
-    private GameObject abilityArea;                     // アビリティエリア統括オブジェクト
     private GameObject unitArea;                        // ユニットエリア統括オブジェクト
     private AbilitySubject subjectComp;                 // サブジェクトコンポ
     public int unitSelect = Defines.ABL_NON_VALUE;      // ユニットID（選択したユニットの判定）（初期化値:100）
@@ -35,9 +34,6 @@ public class AbilitySelect : MonoBehaviour
 
         // ゲームオブジェクト"Canvas"取得
         canVas = GameObject.FindWithTag("Canvas");
-
-        // アビリティエリア統括オブジェクト取得
-        abilityArea = GameObject.FindWithTag("Abl_AbilityArea");
 
         // ユニットエリア統括オブジェクト取得
         unitArea = GameObject.FindWithTag("Abl_UnitArea");
