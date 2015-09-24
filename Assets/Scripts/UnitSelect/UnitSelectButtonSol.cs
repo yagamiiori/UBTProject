@@ -100,7 +100,7 @@ public class UnitSelectButtonSol :
                     counterUnitValue.text = gameManager.unt_Sodler.ToString();
 
                     // クリックエフェクト表示メソッドをコール(this.gameObjectとするとなぜかバグる)
-                    playEffect.PlayOnce(effectSprite, canVas, new Vector3(-162f, 162f, 0f));
+                    playEffect.PlayOnce(effectSprite, canVas, new Vector3(-299f, 135f, 0f));
 
                     // ソルジャーのスライダー値をインクリメント
                     if (sliderSolder.value < sliderSolder.maxValue) sliderSolder.value += 1;

@@ -1647,7 +1647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Guest
   rank: 
-  rip: 0
+  battlePoint: 0
   battleCnt: 0
 --- !u!1 &1500875734
 GameObject:

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 //　機能：ユニットセレクトシーンにおいてスライダーの動作を行う
 //　継承：MonoBehaviour
 //　種別：通常クラス
-//　アタッチ先：スライダー専用Canvas（Canvas_Sliders）
+//　アタッチ先：メインCanvas
 //　保持メソッド：
 //　リダイレクト：なし
 //

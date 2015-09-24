@@ -100,7 +100,7 @@ public class UnitSelectButtonWiz :
                     counterUnitValue.text = gameManager.unt_Wizard.ToString();
 
                     // クリックエフェクト表示メソッドをコール(this.gameObjectとするとなぜかバグる)
-                    playEffect.PlayOnce(effectSprite, canVas, new Vector3(-84.1f, 162f, 0f));
+                    playEffect.PlayOnce(effectSprite, canVas, new Vector3(-199f, 135f, 0f));
 
                     // ウィザードのスライダー値をインクリメント
                     if (sliderWizard.value < sliderWizard.maxValue) sliderWizard.value += 1;
