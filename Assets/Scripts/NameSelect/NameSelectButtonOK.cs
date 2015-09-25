@@ -12,7 +12,7 @@ public class NameSelectButtonOK : MonoBehaviour
     private string nextScene = "AbilitySelect";         // スタートボタンプッシュ時遷移先シーン
     private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
     public AudioSource audioCompo;                      // オーディオコンポ
-    public AudioClip clickSE_OKbutton;                  // OKボタンクリックSE
+    public AudioClip clickSE;                           // OKボタンクリックSE
 
 	void Start ()
     {
@@ -24,7 +24,7 @@ public class NameSelectButtonOK : MonoBehaviour
 
         // オーディオコンポ取得とOKボタンクリック時SEの設定
         audioCompo = this.gameObject.GetComponent<AudioSource>();
-        clickSE_OKbutton = (AudioClip)Resources.Load("Sounds/SE/OKButtonSE");
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/OKButtonSE");
 	}
 
     // -------------------------------
@@ -38,8 +38,7 @@ public class NameSelectButtonOK : MonoBehaviour
         if (0 == isStarted)
         {
             // クリックSEを設定および再生
-            audioCompo.clip = clickSE_OKbutton;
-            audioCompo.Play();
+            audioCompo.PlayOneShot(clickSE);
 
             // スタートボタンプッシュ判定フラグをONにしてスタートボタンプッシュ後に
             // 内容が変更されたりスタートボタン連打を抑止する。
@@ -48,10 +47,17 @@ public class NameSelectButtonOK : MonoBehaviour
             // ユニットステートリスト内を最大ユニット数分ループ
             for (int i = 0; i < gameManager.unitStateList.Count; i++)
             {
+                if ("InputName" == nameSelect.UnitNameList[i].text ||
+                    "" == nameSelect.UnitNameList[i].text)
+                {
+                    // 名前が初期値のInputNameもしくは未入力の場合はNameLessとする
+                    string reNameString = "NameLess";
+                    nameSelect.UnitNameList[i].text = reNameString;
+                }
+
                 // 設定したユニット名をユニットステートリストに格納
                 gameManager.unitStateList[i].unitName = nameSelect.UnitNameList[i].text;
             }
-
             // Scene遷移実施（アビリティセレクトへ）
             // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
             gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.6f, 0.1f, Color.black, nextScene);

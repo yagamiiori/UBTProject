@@ -54,7 +54,7 @@ public class UnitSelectButtonSol :
         mouseOverJug = 1;
 
         // マウスクリック用イベントハンドラをコール
-        StartCoroutine("MouseClickHandler");
+        StartCoroutine(MouseClickHandler());
     }
 
     // -----------------------------------
@@ -66,7 +66,7 @@ public class UnitSelectButtonSol :
         mouseOverJug = 0;
 
         // マウスクリック用イベントハンドラを停止
-        StopCoroutine("MouseClickHandler");
+        StopCoroutine(MouseClickHandler());
     }
 
     // -----------------------------------
@@ -85,10 +85,8 @@ public class UnitSelectButtonSol :
                 {
                     // クリックSEを設定
                     clickSE = (AudioClip)Resources.Load("Sounds/SE/UnitSelect_Decided");
-                    audioCompo.clip = clickSE;
-
-                    // クリックSEを鳴らす
-                    audioCompo.Play();
+                    // 設定したSEを鳴らす
+                    audioCompo.PlayOneShot(clickSE);
 
                     // ソルジャー数をインクリメント
                     gameManager.unt_Sodler += 1;
@@ -114,7 +112,7 @@ public class UnitSelectButtonSol :
                 {
                     // クリックSEを設定
                     clickSE = (AudioClip)Resources.Load("Sounds/SE/Cancel");
-                    audioCompo.clip = clickSE;
+                    audioCompo.PlayOneShot(clickSE);
 
                     // クリックSEを鳴らす
                     audioCompo.Play();

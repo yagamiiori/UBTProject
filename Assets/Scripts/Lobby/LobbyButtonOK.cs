@@ -7,7 +7,7 @@ public class LobbyButtonOK : Photon.MonoBehaviour
     private string nextScene = "UnitForm";              // スタートボタンプッシュ時遷移先シーン
     private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
     public AudioSource audioCompo;                      // オーディオコンポ
-    public AudioClip clickSE_OKbutton;                  // OKボタンクリックSE
+    public AudioClip clickSE;                  // OKボタンクリックSE
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class LobbyButtonOK : Photon.MonoBehaviour
 
         // オーディオコンポ取得とOKボタンクリック時SEの設定
         audioCompo = this.gameObject.GetComponent<AudioSource>();
-        clickSE_OKbutton = (AudioClip)Resources.Load("Sounds/SE/OKButtonSE");
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/OKButtonSE");
     }
 
     // -------------------------------
@@ -30,8 +30,7 @@ public class LobbyButtonOK : Photon.MonoBehaviour
         if (0 == isStarted)
         {
             // クリックSEを設定および再生
-            audioCompo.clip = clickSE_OKbutton;
-            audioCompo.Play();
+            audioCompo.PlayOneShot(clickSE);
 
             // スタートボタンプッシュ判定フラグをONにしてスタートボタンプッシュ後に
             // オプションが変更されたりスタートボタン連打を抑止する。

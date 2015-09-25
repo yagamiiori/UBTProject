@@ -54,7 +54,7 @@ public class UnitSelectButtonWiz :
         mouseOverJug = 1;
 
         // マウスクリック用イベントハンドラをコール
-        StartCoroutine("MouseClickHandler");
+        StartCoroutine(MouseClickHandler());
     }
 
     // -----------------------------------
@@ -66,7 +66,7 @@ public class UnitSelectButtonWiz :
         mouseOverJug = 0;
 
         // マウスクリック用イベントハンドラを停止
-        StopCoroutine("MouseClickHandler");
+        StopCoroutine(MouseClickHandler());
     }
 
     // -----------------------------------
@@ -85,10 +85,8 @@ public class UnitSelectButtonWiz :
                 {
                     // クリックSEを設定
                     clickSE = (AudioClip)Resources.Load("Sounds/SE/UnitSelect_Decided");
-                    audioCompo.clip = clickSE;
-
-                    // クリックSEを鳴らす
-                    audioCompo.Play();
+                    // 設定したSEを鳴らす
+                    audioCompo.PlayOneShot(clickSE);
 
                     // ウィザード数をインクリメント
                     gameManager.unt_Wizard += 1;
@@ -114,10 +112,8 @@ public class UnitSelectButtonWiz :
                 {
                     // クリックSEを設定
                     clickSE = (AudioClip)Resources.Load("Sounds/SE/Cancel");
-                    audioCompo.clip = clickSE;
-
                     // クリックSEを鳴らす
-                    audioCompo.Play();
+                    audioCompo.PlayOneShot(clickSE);
 
                     // ウィザード数をデクリメント
                     gameManager.unt_Wizard -= 1;

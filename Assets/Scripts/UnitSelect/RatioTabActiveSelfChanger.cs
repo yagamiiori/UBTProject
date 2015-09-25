@@ -39,6 +39,10 @@ public class RatioTabActiveSelfChanger : MonoBehaviour
     private Text ratio3TabTextCompo;
     /// <summary>レシオ４タブのテキストコンポ</summary>
     private Text ratio4TabTextCompo;
+    /// <summary>オーディオコンポ</summary>
+    private AudioSource audioCompo;
+    /// <summary>クリックSEのファイル</summary>
+    public AudioClip clickSE;
 
     /// <summary>コンストラクタ/// </summary>
     private RatioTabActiveSelfChanger() { }
@@ -67,6 +71,9 @@ public class RatioTabActiveSelfChanger : MonoBehaviour
         ratio2TabTextCompo.color = Color.grey;
         ratio3TabTextCompo.color = Color.grey;
         ratio4TabTextCompo.color = Color.grey;
+
+        // オーディオコンポを取得
+        audioCompo = gameObject.GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -80,6 +87,11 @@ public class RatioTabActiveSelfChanger : MonoBehaviour
     /// <param name="onClickTabType"></param>
     public void RatioTabActiveSelfChange(int onClickTabType)
     {
+        // クリックSEを設定
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/Click2");
+        // 設定したSEを鳴らす
+        audioCompo.PlayOneShot(clickSE);
+
         switch (onClickTabType)
         {
             case RATIO1_TAB:
