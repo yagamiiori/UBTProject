@@ -16,14 +16,11 @@ public class StreamReaderSingleLine : MonoBehaviour
     /// </summary>
     public string ReadFromStream(string filename)
     {
-        // 読み込むファイル名とパスを指定
-        // TODO Application.datapathが使えない？
-        var fi = new FileInfo(filename);
+        // 指定されたファイルのストリームを開く
+        // TODO Unity的には簡易パラメータ保存にはPlayerprefsクラスを使うべき。いずれ修正すること。
+        StreamReader sr = new StreamReader(filename);
 
-        // 読み出し準備
-        var sr = fi.OpenText();
-
-        // ファイルから読み出す
+        // 開いたストリームから読み出し、完了後クローズする
         string gettingTxt = sr.ReadLine();
         sr.Close();
 

@@ -17,21 +17,15 @@ public class StreamWriterSingleLine : MonoBehaviour
     /// </summary>
     public bool WriteToStream(string filename, string writingtxt)
     {
-        // 書き出すファイル名とパスを指定
-        // TODO 普通に開いて書いて閉じたいだけだがよく分からんので一度諦める。要修正。
-        var fi = new FileInfo(filename);
-
-        // ファイルが既に存在していたら一度削除する
-        if (fi.Exists) fi.Delete();
-
-        // 書き出し準備（これだと末尾に追記するメソッドなのでおかしい要修正）
-        var sw = fi.AppendText();
+        // 指定されたファイルのストリームを開く
+        // TODO Unity的には簡易パラメータ保存にはPlayerprefsクラスを使うべき。いずれ修正すること。
+        StreamWriter sw = File.CreateText(filename);
 
         // ファイルに改行なしで書き出し
         sw.Write(writingtxt);
         sw.Close();
 
-        // 書き込み失敗した場合はfalseを返す
+        // 書き込みに失敗した場合はfalseを返す
         if (null == sw) return false;
 
         return true;
