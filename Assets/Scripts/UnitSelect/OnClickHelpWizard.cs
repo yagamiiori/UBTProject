@@ -12,6 +12,10 @@ public class OnClickHelpWizard : MonoBehaviour
     private GameObject canVas;
     /// <summary>ヘルプメッセージCanvasの親オブジェクト状態クラス</summary>
     private HelpMsgParentGOstate helpMsgParentState;
+    /// <summary>オーディオコンポ</summary>
+    private AudioSource audioCompo;
+    /// <summary>クリックSE</summary>
+    private AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
     private OnClickHelpWizard() { }
@@ -23,6 +27,11 @@ public class OnClickHelpWizard : MonoBehaviour
 
         // ヘルプメッセージCanvasの親オブジェクト状態クラスを取得
         helpMsgParentState = GameObject.Find("Canvas_MessageWindow").GetComponent<HelpMsgParentGOstate>();
+
+        // オーディオコンポを取得
+        audioCompo = this.gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = this.gameObject.AddComponent<AudioSource>();
     }
 
     /// <summary>
@@ -32,6 +41,11 @@ public class OnClickHelpWizard : MonoBehaviour
     /// </summary>
     public void OnclickHelpMessage()
     {
+        // クリックSEを設定
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/Click5");
+        // 設定したSEを鳴らす
+        audioCompo.PlayOneShot(clickSE);
+
         string helpMessage = "クラス名　　　：ウィザード\n" +
                          "武器　　　　　：杖\n" +
                          "クラスタイプ　：遠距離攻撃魔法型\n" +

@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .407843143}
+  m_Color: {r: .0147058964, g: .0147058964, b: .0147058964, a: .407843143}
   m_Sprite: {fileID: 21300000, guid: e6a4cf9e5a127cb4493e3df9432da352, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -8386,13 +8386,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 801847972}
   m_Father: {fileID: 892390185}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -4.5, y: 0}
-  m_SizeDelta: {x: 120, y: 36}
+  m_AnchoredPosition: {x: 66, y: 3}
+  m_SizeDelta: {x: 60, y: 36}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &736341315
 MonoBehaviour:
@@ -8406,10 +8407,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f4bd2fadd9ac9724384d19c0847c3b47, type: 3}
-    m_FontSize: 30
+    m_FontSize: 28
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -8879,12 +8880,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 892390185}
-  m_RootOrder: 1
+  m_Father: {fileID: 736341314}
+  m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -4.5, y: 0}
-  m_SizeDelta: {x: 120, y: 36}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 60, y: 36}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &801847973
 MonoBehaviour:
@@ -8898,10 +8899,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f4bd2fadd9ac9724384d19c0847c3b47, type: 3}
-    m_FontSize: 30
+    m_FontSize: 28
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -10219,13 +10220,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 736341314}
-  - {fileID: 801847972}
   m_Father: {fileID: 36364496}
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 247, y: 256}
-  m_SizeDelta: {x: 119.800049, y: 35.5}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &892390186
 MonoBehaviour:
@@ -10239,7 +10239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioCompo: {fileID: 0}
-  clickSE_OKbutton: {fileID: 0}
+  clickSE: {fileID: 0}
 --- !u!114 &892390187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10259,9 +10259,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .0313725509, g: .0313725509, b: .0313725509, a: .525490224}
-    m_HighlightedColor: {r: .0313725509, g: .0313725509, b: .0313725509, a: .525490224}
-    m_PressedColor: {r: .0313725509, g: .0313725509, b: .0313725509, a: .525490224}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: .525490224}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
@@ -10305,9 +10305,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: 8578e4aff23dbb143bd9965edd0d0ede, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -14918,7 +14918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .409000009}
+  m_Color: {r: .0156862754, g: .0156862754, b: .0156862754, a: .409000009}
   m_Sprite: {fileID: 21300000, guid: e6a4cf9e5a127cb4493e3df9432da352, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
