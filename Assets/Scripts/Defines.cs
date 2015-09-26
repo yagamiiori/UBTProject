@@ -149,5 +149,25 @@ public static class Defines
     public const int BTL_HYTE_8  = 8;     // ハイト8
     public const int BTL_HYTE_9  = 9;     // ハイト9
     public const int BTL_HYTE_10 = 10;    // ハイト10
+
+    // ステータス異常種別（バトルフィールドシーン）
+    public const int STATUS_NORMAL     = 1;    // ステータス異常なし
+    public const int STATUS_FMOVE      = 2;    // ファストムーブ（WTが早くなっている状態）
+    public const int STATUS_SWORD      = 3;    // ソード（物理攻撃力が上がっている状態）
+    public const int STATUS_SEALD      = 4;    // シールド（物理防御力補正が上がっている状態
+    public const int STATUS_ENCHANT    = 5;    // エンチャント（魔法攻撃力が上がっている上昇）
+    public const int STATUS_BARRIER    = 6;    // バリア（全属性に対する魔法防御力に補正がついている状態。デバリアで解除）
+    public const int STATUS_PATCHFIRE  = 7;    // ファイアパッチ  （炎に対する魔法防御力が上がっている状態）
+    public const int STATUS_PATCHWATER = 8;    // ウォーターパッチ（水に対する魔法防御力が上がっている状態）
+    public const int STATUS_PATCHEARTH = 9;    // アースパッチ    （土に対する魔法防御力が上がっている状態）
+    public const int STATUS_PATCHWIND  = 10;   // ウィンドパッチ  （風に対する魔法防御力が上がっている状態）
+    public const int STATUS_PATCHLIGHT = 11;   // ライトパッチ    （聖に対する魔法防御力が上がっている状態）
+    public const int STATUS_PATCHDARK  = 12;   // ダークパッチ    （暗黒に対する魔法防御力が上がっている状態）
+    public const int STATUS_BLAIN      = 13;   // 暗闇（命中率が半減している状態）
+    public const int STATUS_STOP       = 14;   // ストップ（数ターン動けない状態）
+    public const int STATUS_INSANITY   = 15;   // 混乱（コマンドオーダーできない状態）
+    public const int STATUS_STONE      = 16;   // 石化（石化している状態）
+    public const int STATUS_DEAD       = 17;   // 死亡（死亡して倒れている状態）
+    public const int STATUS_UNDEAD     = 18;   // アンデッド（死亡しているが動ける状態）
 }
 

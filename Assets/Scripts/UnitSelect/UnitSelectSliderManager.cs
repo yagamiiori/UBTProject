@@ -55,18 +55,18 @@ public class UnitSelectSliderManager : MonoBehaviour
     void Update()
     {
         // 全スライダーの最大値を動的に変更
-        sliderSolder.maxValue = gameManager.opt_unitNum - gameManager.unt_Wizard;
-        sliderWizard.maxValue = gameManager.opt_unitNum - gameManager.unt_Sodler;
+        sliderSolder.maxValue = gameManager.opt_unitNum - gameManager.wizardNum;
+        sliderWizard.maxValue = gameManager.opt_unitNum - gameManager.sodlerNum;
     }
 
     /// <summary>ソルジャースライダー値変更メソッド</summary>
     public void OnValueChangedSolder()
     {
         // スライダーで変更された値をGMに設定
-        gameManager.unt_Sodler = (int)sliderSolder.value;
+        gameManager.sodlerNum = (int)sliderSolder.value;
 
         // ユニット数表示カウンターのTextにスライダーで変更された値を表示
-        counterSolderValue.text = gameManager.unt_Sodler.ToString();
+        counterSolderValue.text = gameManager.sodlerNum.ToString();
 
         // 現選択済みユニット数算出メソッドをコールして選択済みユニット数を算出
         gameManager.unt_NowAllUnits = AllSelectedUnitsCulc();
@@ -76,10 +76,10 @@ public class UnitSelectSliderManager : MonoBehaviour
     public void OnValueChangedWizard()
     {
         // スライダーで変更された値をGMに設定
-        gameManager.unt_Wizard = (int)sliderWizard.value;
+        gameManager.wizardNum = (int)sliderWizard.value;
 
         // ユニット数表示カウンターのTextにスライダーで変更された値を表示
-        counterWizardValue.text = gameManager.unt_Wizard.ToString();
+        counterWizardValue.text = gameManager.wizardNum.ToString();
 
         // 現選択済みユニット数算出メソッドをコールして選択済みユニット数を算出
         AllSelectedUnitsCulc();
@@ -97,8 +97,8 @@ public class UnitSelectSliderManager : MonoBehaviour
     private int AllSelectedUnitsCulc()
     {
         int allSelectedUnitsNum =
-                gameManager.unt_Sodler +
-                gameManager.unt_Wizard;
+                gameManager.sodlerNum +
+                gameManager.wizardNum;
 
         return allSelectedUnitsNum;
     }

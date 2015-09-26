@@ -61,10 +61,10 @@ public class UnitSelectButtonOK : MonoBehaviour
         int unitVal = 0;        // ユニットID
 
         // ソルジャーがいる場合
-        if (0 < gameManager.unt_Sodler)
+        if (0 < gameManager.sodlerNum)
         {
             // ソルジャー数分ループ
-            for (int j = 0; j < gameManager.unt_Sodler; j++)
+            for (int j = 0; j < gameManager.sodlerNum; j++)
             {
                 // ユニットステート用GOのインスタンス化とコンポ取得
                 GameObject unitState = Instantiate(Resources.Load("UnitState"), transform.position, Quaternion.identity) as GameObject;
@@ -97,10 +97,10 @@ public class UnitSelectButtonOK : MonoBehaviour
         }
 
         // ウィザードがいる場合
-        if (0 < gameManager.unt_Wizard)
+        if (0 < gameManager.wizardNum)
         {
             // ウィザード数分ループ
-            for (int j = 0; j < gameManager.unt_Wizard; j++)
+            for (int j = 0; j < gameManager.wizardNum; j++)
             {
                 // ユニットステート用GOのインスタンス化とコンポ取得
                 GameObject unitState = Instantiate(Resources.Load("UnitState"), transform.position, Quaternion.identity) as GameObject;

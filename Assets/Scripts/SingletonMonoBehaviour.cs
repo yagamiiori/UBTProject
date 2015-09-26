@@ -10,6 +10,10 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour
     // 型引数TはMonoBehaviourを継承している
     where T : MonoBehaviour
 {
+    /// <summary>コンストラクタ</summary>
+    private SingletonMonoBehaviour() { }
+
+    /// <summary>インスタンス</summary>
     private static T instance;
     public static T Instance
     {

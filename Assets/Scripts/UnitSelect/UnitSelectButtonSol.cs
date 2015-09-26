@@ -89,13 +89,13 @@ public class UnitSelectButtonSol :
                     audioCompo.PlayOneShot(clickSE);
 
                     // ソルジャー数をインクリメント
-                    gameManager.unt_Sodler += 1;
+                    gameManager.sodlerNum += 1;
 
                     // 現在選択されている選択参加ユニットの総数をインクリメント
                     gameManager.unt_NowAllUnits += 1;
 
                     // ユニット数表示Textコンポに現ユニット数を表示
-                    counterUnitValue.text = gameManager.unt_Sodler.ToString();
+                    counterUnitValue.text = gameManager.sodlerNum.ToString();
 
                     // クリックエフェクト表示メソッドをコール(this.gameObjectとするとなぜかバグる)
                     playEffect.PlayOnce(effectSprite, canVas, new Vector3(-299f, 135f, 0f));
@@ -108,7 +108,7 @@ public class UnitSelectButtonSol :
             else if (Input.GetMouseButtonDown(1))
             {
                 // ソルジャーが1以上選択されている場合
-                if (1 <= gameManager.unt_Sodler)
+                if (1 <= gameManager.sodlerNum)
                 {
                     // クリックSEを設定
                     clickSE = (AudioClip)Resources.Load("Sounds/SE/Cancel");
@@ -118,13 +118,13 @@ public class UnitSelectButtonSol :
                     audioCompo.Play();
 
                     // ソルジャー数をデクリメント
-                    gameManager.unt_Sodler -= 1;
+                    gameManager.sodlerNum -= 1;
 
                     // 現在選択されている選択参加ユニットの総数をデクリメント
                     gameManager.unt_NowAllUnits -= 1;
 
                     // ユニット数表示Textコンポに現ユニット数を表示
-                    counterUnitValue.text = gameManager.unt_Sodler.ToString();
+                    counterUnitValue.text = gameManager.sodlerNum.ToString();
 
                     // ソルジャーのスライダー値をデクリメント
                     if (sliderSolder.value > sliderSolder.minValue) sliderSolder.value -= 1;

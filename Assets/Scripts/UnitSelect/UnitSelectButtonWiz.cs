@@ -89,13 +89,13 @@ public class UnitSelectButtonWiz :
                     audioCompo.PlayOneShot(clickSE);
 
                     // ウィザード数をインクリメント
-                    gameManager.unt_Wizard += 1;
+                    gameManager.wizardNum += 1;
 
                     // 現在選択されている選択参加ユニットの総数をインクリメント
                     gameManager.unt_NowAllUnits += 1;
 
                     // ユニット数表示Textコンポに現ユニット数を表示
-                    counterUnitValue.text = gameManager.unt_Wizard.ToString();
+                    counterUnitValue.text = gameManager.wizardNum.ToString();
 
                     // クリックエフェクト表示メソッドをコール(this.gameObjectとするとなぜかバグる)
                     playEffect.PlayOnce(effectSprite, canVas, new Vector3(-199f, 135f, 0f));
@@ -108,7 +108,7 @@ public class UnitSelectButtonWiz :
             else if (Input.GetMouseButtonDown(1))
             {
                 // ウィザードが1以上選択されている場合
-                if (1 <= gameManager.unt_Wizard)
+                if (1 <= gameManager.wizardNum)
                 {
                     // クリックSEを設定
                     clickSE = (AudioClip)Resources.Load("Sounds/SE/Cancel");
@@ -116,13 +116,13 @@ public class UnitSelectButtonWiz :
                     audioCompo.PlayOneShot(clickSE);
 
                     // ウィザード数をデクリメント
-                    gameManager.unt_Wizard -= 1;
+                    gameManager.wizardNum -= 1;
 
                     // 現在選択されている選択参加ユニットの総数をデクリメント
                     gameManager.unt_NowAllUnits -= 1;
 
                     // ユニット数表示Textコンポに現ユニット数を表示
-                    counterUnitValue.text = gameManager.unt_Wizard.ToString();
+                    counterUnitValue.text = gameManager.wizardNum.ToString();
 
                     // ウィザードのスライダー値をデクリメント
                     if (sliderWizard.value > sliderWizard.minValue) sliderWizard.value -= 1;
