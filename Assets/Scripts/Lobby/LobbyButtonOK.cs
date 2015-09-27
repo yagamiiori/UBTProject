@@ -16,7 +16,7 @@ public class LobbyButtonOK : Photon.MonoBehaviour
 
         // オーディオコンポ取得とOKボタンクリック時SEの設定
         audioCompo = this.gameObject.GetComponent<AudioSource>();
-        clickSE = (AudioClip)Resources.Load("Sounds/SE/OKButtonSE");
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
     }
 
     // -------------------------------

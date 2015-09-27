@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using Hashtable = ExitGames.Client.Photon.Hashtable;    //CP専用Hashtable
 
 // =======================================================================================
 // ロビーシーンマネージャー
@@ -25,11 +24,12 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;    //CP専用Hashtable
 // =======================================================================================
 public class LobbyManager : MonoBehaviour
 {
+    /// <summary>クリックしたボタンのルーム情報</summary>
     private GameManager gameManager;         // マネージャコンポ
     private GameObject canVas;               // ゲームオブジェクト"Canvas"
-    private GameObject insideRoomButton;     // 入室ボタンオブジェクト
     private Text playerAllText;              // 全ユーザー数表示用テキストコンポ
     private Text roomAllText;                // 全ルーム数表示用テキストコンポ
+    private GameObject[] roomRuzack;         // 部屋ボタン - ルザック平原
 
     // ---- プレイヤーCP用フィールド ----
     public string name = "Guest";            // ユーザー名
@@ -39,80 +39,60 @@ public class LobbyManager : MonoBehaviour
 
     void Awake()
     {
-        // ロビーに入室するためマスターサーバーへ接続
-        PhotonNetwork.ConnectUsingSettings("v0.1");
+        if (!PhotonNetwork.connected)
+        {
+            // Photonにまだ接続していなければ、マスターサーバーへ接続
+            PhotonNetwork.ConnectUsingSettings("v0.1");
+        }
     }
 
 	void Start ()
     {
         // マネージャコンポ取得
-        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         // ゲームオブジェクト"Canvas"取得
-        canVas = GameObject.FindWithTag("Canvas");
+        canVas = GameObject.Find("Canvas");
 
-        // 入室ボタンオブジェクト取得し非アクティブ化
-        insideRoomButton = GameObject.FindWithTag("InsideRoomButton");
-        insideRoomButton.SetActive(false);
-
+        // 全ルームボタンオブジェクトを取得し非アクティブ化
+        roomRuzack = GameObject.FindGameObjectsWithTag("RoomButtons");
+        foreach (GameObject go in roomRuzack)
+        {
+            go.SetActive(false);
+        }
         // 全ユーザ数表示Textコンポを取得
-        playerAllText = GameObject.FindWithTag("Roby_PlayersNum").GetComponent<Text>();
+        playerAllText = GameObject.Find("Text_ALLPlayerNum").GetComponent<Text>();
 
         // 全ルーム数表示Textコンポを取得
-        roomAllText = GameObject.FindWithTag("Roby_RoomsNum").GetComponent<Text>();
-        
+        roomAllText = GameObject.Find("Text_ALLRoomsNum").GetComponent<Text>();
 
-        // プレイヤーCP要素を定義
-        gameManager.customPropeties = new Hashtable()
-                                        {
-                                            { "UserName", name },
-                                            { "BP", battlePoint },
-                                            { "BattleCnt", battleCnt },
-                                            { "Rank", rank }
-                                        };
-
-        // プレイヤーCPを設定
-        PhotonNetwork.SetPlayerCustomProperties(gameManager.customPropeties);
-
-        // ゲーム中プレイヤー数取得メソッドをコール
+        // 総プレイヤー人数取得メソッドをコール
         StartCoroutine(GetPlayerAll());
+
+        if (PhotonNetwork.insideLobby)
+        {
+            // ロビーにすでに入室している場合は、部屋ボタンをアクティブ化する
+            foreach (GameObject go in roomRuzack)
+            {
+                go.SetActive(true);
+            }
+        }
 	}
 
-    // -------------------------------------------------------------
-    // マスターサーバーのロビーに入った場合にコールされる
-    // ロビーに入ったらとりあえず部屋を生成する
-    // -------------------------------------------------------------
+    /// <summary>
+    /// ロビーに入室した場合のコールバックメソッド
+    /// </summary>
     void OnJoinedLobby()
     {
-        Debug.Log("ロビーに入室");
-
-        // ロビー入室確定後、入室ボタンをアクティブ化
-        insideRoomButton.SetActive(true);
-    }
-
-    // -------------------------------------------------------------------
-    // 入室ボタンがクリックした時に入室ボタンのOnClickからコールされ、
-    // バトルフィールドへ遷移する。
-    // -------------------------------------------------------------------
-    public void RoomIn()
-    {
-        Application.LoadLevel("BattleStage");
-    }
-
-    // -------------------------------------------------------------------
-    // ユニット編成ボタンがクリックした時にユニット編成ボタンのOnClickから
-    // コールされ、ユニット編成シーンへ遷移する。
-    // ★★★★★★★★★　ボツメソッド　★★★★★★★★★★
-    // -------------------------------------------------------------------
-    public void UnitForm()
-    {
-        // メインサーバから一度切断
-        PhotonNetwork.Disconnect();
-        Application.LoadLevel("UnitForm");
+        // ロビーにすでに入室している場合は、部屋ボタンをアクティブ化する
+        foreach (GameObject go in roomRuzack)
+        {
+            go.SetActive(true);
+        }
     }
 
     // -------------------------------------------------------------
-    // 全プレイヤー数取得メソッド
+    // 総プレイヤー人数取得メソッド
     // 全ゲーム中のプレイヤー数を取得し、Textコンポに表示する
     // Start()メソッドからコールされ、コルーチンとして定期的に更新する
     // -------------------------------------------------------------

@@ -1726,6 +1726,7 @@ GameObject:
   - 114: {fileID: 602414015}
   - 114: {fileID: 602414014}
   - 82: {fileID: 602414013}
+  - 114: {fileID: 602414019}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -1849,27 +1850,15 @@ MonoBehaviour:
   userName: 
   userGuid: 
   opt_unitNum: 0
-  opt_giftJud: 0
   opt_haveTime: 0
-  opt_abilityJud: 0
   opt_lang: 0
-  opt_volume: 0
-  opt_compJud: 0
-  unt_Sodler: 0
-  unt_Wizard: 0
-  unt_Archer: 0
-  unt_Knight: 0
-  unt_Guard: 0
-  unt_Undead: 0
-  unt_DeepOne: 0
-  unt_Commander: 0
+  sodlerNum: 0
+  wizardNum: 0
+  archerNum: 0
+  knightNum: 0
   unt_NowAllUnits: 0
   unitStateList: []
-  unt_compJud: 0
-  C_List: 
-  A_List: 
-  btl_WtTime: 0
-  btl_UnitST: 0
+  stateAbnormality: 1
   isDontDestroy: 1
 --- !u!4 &602414018
 Transform:
@@ -1883,6 +1872,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &602414019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602414012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf7d58d48ae06b4abaf62d91dd2a3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &613000292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3536,7 +3536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df838658e6dfb8a40a73e265ed091f65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioCompo: {fileID: 0}
   clickSE: {fileID: 0}
 --- !u!82 &1052898733
 AudioSource:

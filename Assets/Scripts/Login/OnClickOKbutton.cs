@@ -10,12 +10,14 @@ public class OnClickOKbutton :
     MonoBehaviour,
     IMessageWriteToMW                                 // メッセージウィンドウ書き込みIF
 {
+    public AudioClip clickSE;                         // OKボタンクリックSE
+    public InputField nameField;                      // 名前のインプットフィールド
     private GameManager gameManager;                  // マネージャコンポ
     private GameObject messageWindow;                 // メッセージウィンドウCanvas
     private Text messageText;                         // メッセージウィンドウのTextコンポ
-    public InputField nameField;                      // 名前のインプットフィールド
     private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
     private string nextScene = "UnitSelect";          // 遷移先シーン名
+    private AudioSource audioCompo;                   // オーディオコンポ
 
     void Start()
     {
@@ -24,6 +26,10 @@ public class OnClickOKbutton :
 
         // 名前入力フィールド取得
         nameField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
+
+        // オーディオコンポ取得とOKボタンクリック時SEの設定
+        audioCompo = this.gameObject.GetComponent<AudioSource>();
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
 	}
 
     // =====================================
@@ -88,6 +94,9 @@ public class OnClickOKbutton :
     // -------------------------------
     public void NextScene()
     {
+        // クリックSEを設定および再生
+        audioCompo.PlayOneShot(clickSE);
+
         // Scene遷移
         // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
         gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.4f, 0.1f, Color.black, nextScene);

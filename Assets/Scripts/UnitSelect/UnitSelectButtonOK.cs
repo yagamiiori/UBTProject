@@ -5,11 +5,11 @@ using System.Linq;
 
 public class UnitSelectButtonOK : MonoBehaviour
 {
+    public AudioClip clickSE;                           // OKボタンクリックSE
     private GameManager gameManager;                    // マネージャコンポ
     private string nextScene = "NameSelect";            // スタートボタンプッシュ時遷移先シーン
     private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
-    public AudioSource audioCompo;                      // オーディオコンポ
-    public AudioClip clickSE;                           // OKボタンクリックSE
+    private AudioSource audioCompo;                      // オーディオコンポ
 
     // ----------------------------------------
     // Startメソッド
@@ -21,7 +21,7 @@ public class UnitSelectButtonOK : MonoBehaviour
 
         // オーディオコンポ取得とOKボタンクリック時SEの設定
         audioCompo = this.gameObject.GetComponent<AudioSource>();
-        clickSE = (AudioClip)Resources.Load("Sounds/SE/OKButtonSE");
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
     }
 
     // -------------------------------

@@ -71,6 +71,7 @@ TagManager:
   - Sprite_Ability
   - FadeDisplayImages
   - Canvas_FadeDisplay
+  - RoomButtons
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class RegisterManager :
     IMessageWriteToMW,                                // メッセージウィンドウ書き込みIF
     IOnMessageWindowOK                                // OKボタンクリックIF（メッセージウィンドウ専用）
 {
+    public AudioClip clickSE;                         // OKボタンクリックSE
     private GameManager gameManager;                  // マネージャコンポ
     private GameObject messageWindow;                 // メッセージウィンドウCanvas
     private InputField messageText;                   // メッセージウィンドウのTextコンポ
@@ -21,6 +22,7 @@ public class RegisterManager :
     private string loginName = "Login";               // 遷移先シーン名
     private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
     private bool IsGuidDecided = false;               // GUID決定済み判定（0:GUID未発行　1:GUID発行済み）
+    private AudioSource audioCompo;                   // オーディオコンポ
 
 
     void Start()
@@ -36,6 +38,9 @@ public class RegisterManager :
         messageText = GameObject.FindWithTag("TextField_MW").GetComponent<InputField>();
         messageWindow.SetActive(false);
 
+        // オーディオコンポ取得とOKボタンクリック時SEの設定
+        audioCompo = this.gameObject.GetComponent<AudioSource>();
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
     }
 
     void Update()
@@ -190,10 +195,11 @@ public class RegisterManager :
     // -------------------------------
     public void NextScene()
     {
+        // クリックSEを設定および再生
+        audioCompo.PlayOneShot(clickSE);
+
         // Scene遷移
         // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
         gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.4f, 0.1f, Color.black, nextScene);
     }
-
-
 }

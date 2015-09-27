@@ -2,25 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;   // コレクションクラスの定義に必要
 using System.Linq;
-using Hashtable = ExitGames.Client.Photon.Hashtable;    //CP専用Hashtable
 
-public class GameManager : MonoBehaviour
+/// <summary>
+/// マネージャークラス
+/// <para>　シーンを跨ぐオプション値や選択したユニット数などを保存するための
+/// <para>　単一インスタンス（privateコンストラクタ）クラス。</para>
+/// </summary>
+public class GameManager : Photon.MonoBehaviour
 {
-    // --- Login/Registerシーン -- //
     /// <summary>ユーザー名</summary>
     public string userName = "";
     /// <summary>GUID</summary>
     public string userGuid = "";
-
-    // --- オプション -- //
     /// <summary>ユニット数</summary>
     public int opt_unitNum = 0;
     /// <summary>持ち時間</summary>
     public float opt_haveTime = 0;
     /// <summary>ゲーム言語</summary>
     public int opt_lang = 0;
-
-    // --- ユニットセレクトシーン -- //
     /// <summary>選択されたソルジャーの人数</summary>
     public int sodlerNum = 0;
     /// <summary>選択されたウィザードの人数</summary>
@@ -33,23 +32,22 @@ public class GameManager : MonoBehaviour
     public int unt_NowAllUnits = 0;
     /// <summary>選択された全ユニットのリスト</summary>
     public List<UnitState> unitStateList = new List<UnitState>();
-
     // --- バトルフィールドシーン -- //
-    public Hashtable customPropeties;                                               // プレイヤーCP
-    public SortedList<float, int> btl_AtList = new SortedList<float, int>();        // ATリスト
-    public int btl_WtTime = 0;                                                      // WT（ウェイトタイム）
+    /// <summary>プレイヤーCP</summary>
+    public ExitGames.Client.Photon.Hashtable customPropeties;
+    /// <summary>ルームCP</summary>
+    public RoomInfo r;
     /// <summary>ステート異常種別</summary>
     public int stateAbnormality = Defines.STATUS_NORMAL;
-
-    /// <summary>永続オブジェクト有無（インスペクタから永続オブジェクトである事を可視化するために設定）</summary>
-    [SerializeField]
-    private bool isDontDestroy = true;
     /// <summary>ユニットセレクト設定完了フラグ</summary>
     // ユニットセレクト画面以降のシーンにおいてオプション設定値が変更される事を抑止する
     private bool unt_compJud = false;
     /// <summary>オプション設定完了フラグ</summary>
     // オプション設定画面以降のシーンにおいてオプション設定値が変更される事を抑止する
     private bool opt_compJud = false;
+    /// <summary>永続オブジェクト有無（インスペクタから永続オブジェクトである事を可視化するために設定）</summary>
+    [SerializeField]
+    private bool isDontDestroy = true;
 
     /// <summary>コンストラクタ</summary>
     private GameManager() { }
@@ -66,7 +64,6 @@ public class GameManager : MonoBehaviour
                 Destroy(this.gameObject);
                 return;
             }
-
             // シーンに画面フェードオブジェクトが存在しない場合は本オブジェクトを永続オブジェクトにする
             DontDestroyOnLoad(this);
         }
@@ -87,7 +84,6 @@ public class GameManager : MonoBehaviour
             // ゲーム言語初期化（日本語）
             opt_lang = Defines.LANGUAGE_JPN;
         }
-
         // ユニットセレクトが未完了の場合
         // ユニットセレクト画面以降において、下記が書き換えられる事を抑止する
         if (false == unt_compJud)
