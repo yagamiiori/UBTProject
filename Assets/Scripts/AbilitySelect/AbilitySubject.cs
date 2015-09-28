@@ -18,8 +18,8 @@ public class AbilitySubject :
     private GameObject abilityArea;                                 // アビリティエリア統括オブジェクト
     private GameObject unitArea;                                    // ユニットエリア統括オブジェクト
     public AudioSource audioCompo;                                  // オーディオコンポ
-    public AudioClip clickSE_Unit;                                  // ユニットクリック時のクリックSE
-    public AudioClip clickSE_AblButton;                             // アビリティボタンクリック時のクリックSE
+    public AudioClip clickSE_UnitSlected;                                  // ユニットクリック時のクリックSE
+    public AudioClip clickSE_AbilitySelected;                             // アビリティボタンクリック時のクリックSE
     public AudioClip clickSE_Cancel;                                // キャンセル時のクリックSE
 
     // サブジェクトのステータス
@@ -58,10 +58,10 @@ public class AbilitySubject :
         // オーディオコンポを取得
         audioCompo = this.gameObject.GetComponent<AudioSource>();
 
-        // ユニットボタンクリック時SEと、アビリティボタンクリック時SEを設定
-        clickSE_Unit = (AudioClip)Resources.Load("Sounds/SE/AbilitySelect_UnitClick");
-        clickSE_AblButton = (AudioClip)Resources.Load("Sounds/SE/AbilitySelect_Decided");
-        clickSE_Cancel = (AudioClip)Resources.Load("Sounds/SE/Cancel");
+        // ユニットボタンクリック時SE、アビリティボタンクリック時SE、キャンセルSEを設定
+        clickSE_UnitSlected = (AudioClip)Resources.Load("Sounds/SE/Click4");
+        clickSE_AbilitySelected = (AudioClip)Resources.Load("Sounds/SE/Click5");
+        clickSE_Cancel = (AudioClip)Resources.Load("Sounds/SE/CursorMove2");
     }
 
     // --------------------------------------------
@@ -92,7 +92,7 @@ public class AbilitySubject :
         if (1 == this.status)
         {
             // クリックSEを鳴らす
-            audioCompo.clip = clickSE_Unit;
+            audioCompo.clip = clickSE_UnitSlected;
             audioCompo.Play();
 
             // アビリティエリアアクティブ化 / ユニットエリア非アクティブ化
@@ -115,7 +115,7 @@ public class AbilitySubject :
         else
         {
             // クリックSEを鳴らす
-            audioCompo.clip = clickSE_AblButton;
+            audioCompo.clip = clickSE_AbilitySelected;
             audioCompo.Play();
 
             // アビリティエリア非アクティブ化 / ユニットエリアアクティブ化

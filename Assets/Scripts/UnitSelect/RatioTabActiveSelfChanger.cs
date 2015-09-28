@@ -15,6 +15,8 @@ using System.Linq;
 /// </summary>
 public class RatioTabActiveSelfChanger : MonoBehaviour
 {
+    /// <summary>クリックSEのファイル</summary>
+    public AudioClip clickSE;
     /// <summary>定数 - レシオ１タブ</summary>
     private const int RATIO1_TAB = 1;
     /// <summary>定数 - レシオ２タブ</summary>
@@ -41,8 +43,6 @@ public class RatioTabActiveSelfChanger : MonoBehaviour
     private Text ratio4TabTextCompo;
     /// <summary>オーディオコンポ</summary>
     private AudioSource audioCompo;
-    /// <summary>クリックSEのファイル</summary>
-    public AudioClip clickSE;
 
     /// <summary>コンストラクタ/// </summary>
     private RatioTabActiveSelfChanger() { }

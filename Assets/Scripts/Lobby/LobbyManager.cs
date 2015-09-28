@@ -69,7 +69,7 @@ public class LobbyManager : MonoBehaviour
         // 総プレイヤー人数取得メソッドをコール
         StartCoroutine(GetPlayerAll());
 
-        if (PhotonNetwork.insideLobby)
+        if (PhotonNetwork.insideLobby || PhotonNetwork.connected)
         {
             // ロビーにすでに入室している場合は、部屋ボタンをアクティブ化する
             foreach (GameObject go in roomRuzack)

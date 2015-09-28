@@ -84,7 +84,7 @@ public class UnitSelectButtonSol :
                 if (gameManager.opt_unitNum > gameManager.unt_NowAllUnits)
                 {
                     // クリックSEを設定
-                    clickSE = (AudioClip)Resources.Load("Sounds/SE/UnitSelect_Decided");
+                    clickSE = (AudioClip)Resources.Load("Sounds/SE/Click4");
                     // 設定したSEを鳴らす
                     audioCompo.PlayOneShot(clickSE);
 

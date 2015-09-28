@@ -23,10 +23,13 @@ public class WaitingForOtherPlayer : MonoBehaviour
 	
 	void Update ()
     {
-        if (PhotonNetwork.inRoom && gameManager.r.playerCount == 2)
+        if (PhotonNetwork.inRoom)
         {
-            // ルームに入っていて、人数が揃ったらバトルフィールドへ遷移する
-            Application.LoadLevel("BattleStage");
+            if (gameManager.r.playerCount.Equals(gameManager.r.maxPlayers))
+            {
+                // ルームに入っていて、人数が揃ったらバトルフィールドへ遷移する
+                Application.LoadLevel("BattleStage");
+            }
         }
 	}
 }

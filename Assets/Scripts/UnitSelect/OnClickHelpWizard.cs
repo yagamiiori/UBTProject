@@ -15,6 +15,7 @@ public class OnClickHelpWizard : MonoBehaviour
     /// <summary>オーディオコンポ</summary>
     private AudioSource audioCompo;
     /// <summary>クリックSE</summary>
+    [SerializeField]
     private AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
@@ -42,7 +43,7 @@ public class OnClickHelpWizard : MonoBehaviour
     public void OnclickHelpMessage()
     {
         // クリックSEを設定
-        clickSE = (AudioClip)Resources.Load("Sounds/SE/Click5");
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/OnHelpMessage");
         // 設定したSEを鳴らす
         audioCompo.PlayOneShot(clickSE);
 

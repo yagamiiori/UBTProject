@@ -19,7 +19,11 @@ public class LogWindowManager : Photon.MonoBehaviour
     {
         // 子オブジェクト内のログ表示Textコンポを取得
         logText = this.gameObject.GetComponentInChildren<Text>();
-	}
+
+        // ユニットフォームから戻ってきた時、下記の状態であればメッセージを表示する
+        if (PhotonNetwork.connected) LogAddMethod("ネットワーク接続済み。");
+        if (PhotonNetwork.inRoom) LogAddMethod("ルーム予約済み。待ち合わせ中...");
+    }
 	
     /// <summary>
     /// ロビーに入室した場合のコールバックメソッド
@@ -28,6 +32,14 @@ public class LogWindowManager : Photon.MonoBehaviour
     {
         // ログメッセージ追加メソッドをコール
         LogAddMethod("ロビーに入室しました。");
+    }
+    /// <summary>
+    /// ロビーから退室した場合のコールバックメソッド
+    /// </summary>
+    void OnLeftLobby()
+    {
+        // ログメッセージ追加メソッドをコール
+        LogAddMethod("ロビーから退室しました。");
     }
 
     /// <summary>

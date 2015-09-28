@@ -15,6 +15,8 @@ using System.Linq;
 /// </summary>
 public class AbilityTabActiveSelfChanger : MonoBehaviour
 {
+    /// <summary>クリックSEのファイル</summary>
+    public AudioClip clickSE;
     /// <summary>定数 - アタックタブ</summary>
     private const int ATTACK_TAB   = 1;
     /// <summary>定数 - ディフェンスタブ</summary>
@@ -39,6 +41,8 @@ public class AbilityTabActiveSelfChanger : MonoBehaviour
     private Text reactionTabTextCompo;
     /// <summary>ムーブタブのテキストコンポ</summary>
     private Text moveTabTextCompo;
+    /// <summary>オーディオコンポ</summary>
+    private AudioSource audioCompo;
 
     /// <summary>コンストラクタ/// </summary>
     private AbilityTabActiveSelfChanger() { }
@@ -46,8 +50,8 @@ public class AbilityTabActiveSelfChanger : MonoBehaviour
 	void Start ()
     {
         // 各アビリティボタンの親であるMaskをアタッチしているオブジェクトを取得
-        attackParentGO = GameObject.Find("Tab_Attack").transform.FindChild("Mask").gameObject;
-        defenceParentGO = GameObject.Find("Tab_Defence").transform.FindChild("Mask").gameObject;
+        attackParentGO = GameObject.Find("Tab_Action").transform.FindChild("Mask").gameObject;
+        defenceParentGO = GameObject.Find("Tab_Guard").transform.FindChild("Mask").gameObject;
         reactionParentGO = GameObject.Find("Tab_Reaction").transform.FindChild("Mask").gameObject;
         moveParentGO = GameObject.Find("Tab_Move").transform.FindChild("Mask").gameObject;
 
@@ -58,15 +62,18 @@ public class AbilityTabActiveSelfChanger : MonoBehaviour
         moveParentGO.SetActive(false);
 
         // 非アクティブタブのテキスト文字色変更のためタブのテキストコンポを取得
-        attackTabTextCompo = GameObject.Find("Tab_Attack").transform.FindChild("Text_Atack").GetComponent<Text>();
-        defenceTabTextCompo = GameObject.Find("Tab_Defence").transform.FindChild("Text_Defence").GetComponent<Text>();
-        reactionTabTextCompo = GameObject.Find("Tab_Reaction").transform.FindChild("Text_Reaction").GetComponent<Text>();
-        moveTabTextCompo = GameObject.Find("Tab_Move").transform.FindChild("Text_Move").GetComponent<Text>();
+        attackTabTextCompo = GameObject.Find("Tab_Action").transform.FindChild("Text").GetComponent<Text>();
+        defenceTabTextCompo = GameObject.Find("Tab_Guard").transform.FindChild("Text").GetComponent<Text>();
+        reactionTabTextCompo = GameObject.Find("Tab_Reaction").transform.FindChild("Text").GetComponent<Text>();
+        moveTabTextCompo = GameObject.Find("Tab_Move").transform.FindChild("Text").GetComponent<Text>();
         // 初期化としてアタックタブ以外を灰色にする
         attackTabTextCompo.color = new Color(255, 255, 255);
         defenceTabTextCompo.color = Color.grey;
         reactionTabTextCompo.color = Color.grey;
         moveTabTextCompo.color = Color.grey;
+
+        // オーディオコンポを取得
+        audioCompo = gameObject.GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -80,6 +87,11 @@ public class AbilityTabActiveSelfChanger : MonoBehaviour
     /// <param name="onClickTabType"></param>
     public void AblityTabActiveSelfChange(int onClickTabType)
     {
+        // クリックSEを設定
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/Click2");
+        // 設定したSEを鳴らす
+        audioCompo.PlayOneShot(clickSE);
+
         switch (onClickTabType)
         {
             case ATTACK_TAB:

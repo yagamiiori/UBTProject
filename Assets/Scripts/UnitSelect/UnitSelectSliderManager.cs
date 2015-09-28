@@ -37,6 +37,11 @@ public class UnitSelectSliderManager : MonoBehaviour
     public Text counterSolderValue;
     /// <summary>ウィザードのユニット数表示カウンターのTextコンポ</summary>
     public Text counterWizardValue;
+    /// <summary>オーディオコンポ</summary>
+    private AudioSource audioCompo;
+    /// <summary>クリックSE</summary>
+    [SerializeField]
+    private AudioClip clickSE;
 
 	void Start ()
     {
@@ -50,6 +55,13 @@ public class UnitSelectSliderManager : MonoBehaviour
         // 全スライダーを取得
         sliderSolder = GameObject.Find("Slider_Solder").GetComponent<Slider>();
         sliderWizard = GameObject.Find("Slider_Wizard").GetComponent<Slider>();
+
+        // オーディオコンポを取得し、SEファイルを設定する
+        audioCompo = this.gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = this.gameObject.AddComponent<AudioSource>();
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/CursorMove4");
+
     }
 
     void Update()
@@ -62,6 +74,9 @@ public class UnitSelectSliderManager : MonoBehaviour
     /// <summary>ソルジャースライダー値変更メソッド</summary>
     public void OnValueChangedSolder()
     {
+        // 設定したSEを鳴らす
+        audioCompo.PlayOneShot(clickSE);
+
         // スライダーで変更された値をGMに設定
         gameManager.sodlerNum = (int)sliderSolder.value;
 
@@ -75,6 +90,9 @@ public class UnitSelectSliderManager : MonoBehaviour
     /// <summary>ウィザードスライダー値変更メソッド</summary>
     public void OnValueChangedWizard()
     {
+        // 設定したSEを鳴らす
+        audioCompo.PlayOneShot(clickSE);
+
         // スライダーで変更された値をGMに設定
         gameManager.wizardNum = (int)sliderWizard.value;
 
