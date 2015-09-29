@@ -6596,8 +6596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioCompo: {fileID: 0}
-  clickSE_Unit: {fileID: 0}
-  clickSE_AblButton: {fileID: 0}
+  clickSE_UnitSlected: {fileID: 0}
+  clickSE_AbilitySelected: {fileID: 0}
   clickSE_Cancel: {fileID: 0}
 --- !u!82 &1198677899
 AudioSource:
