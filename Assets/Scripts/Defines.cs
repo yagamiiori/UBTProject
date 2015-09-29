@@ -102,6 +102,7 @@ public static class Defines
     public const int ABL_MOVEPLUS   = 3;   // ムーブプラス
     public const int ABL_HCOUNTER   = 4;   // 見切り青眼
     public const int ABL_TEREPORT   = 5;   // ダテレポ
+    public const int ABL_MRANGEUP   = 6;   // 魔法範囲Up
 
     // 属性（バトルフィールドシーン）
     public const int ELEM_FIRE     = 1;    // 炎

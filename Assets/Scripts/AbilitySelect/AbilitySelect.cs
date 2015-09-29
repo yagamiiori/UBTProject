@@ -7,22 +7,33 @@ using System.Linq;
 
 public class AbilitySelect : MonoBehaviour
 {
-    private GameManager gameManager;                    // マネージャコンポ
-    private GameObject canVas;                          // ゲームオブジェクト"Canvas"
-    private GameObject unitArea;                        // ユニットエリア統括オブジェクト
-    private AbilitySubject subjectComp;                 // サブジェクトコンポ
-    public int unitSelect = Defines.ABL_NON_VALUE;      // ユニットID（選択したユニットの判定）（初期化値:100）
-    private PlayEffect playEffect;                      // エフェクト表示クラス
-    private string effectSprite = "Effect_2";           // エフェクトスプライト名
-    float timer;
-    float waitingTime = 3.0f;
-
-    // 全ユニット数（16個）分のクラス名表示用テキストフィールドリスト
+    /// <summary>全ユニット数（16個）分のクラス名表示用テキストフィールドリスト</summary>
     public List<Text> ClassNameList = new List<Text>();
-    // 全ユニット数（16個）分のユニット名表示用テキストフィールドリスト
+    /// <summary>全ユニット数（16個）分のユニット名表示用テキストフィールドリスト</summary>
     public List<Text> UnitNameList = new List<Text>();
-    // 全ユニット数（16個）分のアビリティ名表示用テキストフィールドリスト
+    //// <summary>全ユニット数（16個）分のアビリティ名表示用テキストフィールドリスト</summary>
     public List<Text> AbilityNameList = new List<Text>();
+    /// <summary>選択されたユニットのID（初期化値:100）</summary>
+    public int selectedUnitID = Defines.ABL_NON_VALUE;
+    /// <summary>マネージャコンポ</summary>
+    private GameManager gameManager;
+    /// <summary>Canvasのゲームオブジェクト</summary>
+    private GameObject canVas;
+    /// <summary>ユニットエリア統括ゲームオブジェクト</summary>
+    private GameObject unitArea;
+    /// <summary>オブザーバーパターンのサブジェクトコンポ</summary>
+    private AbilitySubject subjectComp;
+    /// <summary>エフェクト表示クラス</summary>
+    private PlayEffect playEffect;
+    /// <summary>エフェクトスプライト名</summary>
+    private string effectSprite;
+    /// <summary>アビリティID→文字列変換クラス</summary>
+    private AbilityIDtoStringConv convertAbilityIDtoStrings;
+    /// <summary>シーンロード時アビリティ名取得クラス</summary>
+    private AbilityNameSetForSceneLoading abilityNameSetSceneLoading;
+
+    /// <summary>コンストラクタ</summary>
+    private AbilitySelect() { }
 
     // ----------------------------------------
     // Startメソッド
@@ -41,8 +52,9 @@ public class AbilitySelect : MonoBehaviour
         // サブジェクトコンポ
         subjectComp = canVas.GetComponent<AbilitySubject>();
 
-        // エフェクト表示クラス取得
+        // エフェクト表示クラス取得後、エフェクトのスプライト名を設定する
         playEffect = new PlayEffect();
+        effectSprite = "Effect_2";
 
         // 全ユニット数分のクラス名表示用テキストコンポを取得し、リストに格納
         ClassNameList.Add(GameObject.FindWithTag("Abl_ClassName0").GetComponent<Text>());
@@ -116,10 +128,17 @@ public class AbilitySelect : MonoBehaviour
             field.text = "- - - -";
         }
 
+        // アビリティID→文字列変換クラスを取得
+        convertAbilityIDtoStrings = new AbilityIDtoStringConv();
+
+        // シーンロード時アビリティ名取得クラスを取得し、アビリティ表示枠にアビリティ名を表示する
+        abilityNameSetSceneLoading = new AbilityNameSetForSceneLoading();
+        abilityNameSetSceneLoading.SetMethod();
+
         // クラス名表示フィールド設定メソッドをコール
         ClassNameSet();
 
-        // クラス名表示フィールド設定メソッドをコール
+        // ユニット名表示フィールド設定メソッドをコール
         UnitNameSet();
 
         // キャラクター画像表示フィールド設定メソッドをコール
@@ -132,10 +151,10 @@ public class AbilitySelect : MonoBehaviour
     void Update()
     {
         // マウス右クリックされ、かつユニット選択済みの場合
-        if (Input.GetMouseButtonDown(1) && Defines.ABL_NON_VALUE != unitSelect)
+        if (Input.GetMouseButtonDown(1) && Defines.ABL_NON_VALUE != selectedUnitID)
         {
             // ユニット選択済みフラグクリア
-            unitSelect = Defines.ABL_NON_VALUE;
+            selectedUnitID = Defines.ABL_NON_VALUE;
 
             // サブジェクトのトリガーをOFFにする
             subjectComp.status = 3;
@@ -208,10 +227,10 @@ public class AbilitySelect : MonoBehaviour
     public void AbilityNameSet(int abl_ID)
     {
         // アビリティをセットする対象ユニットがすでに選択済みの場合
-        if (Defines.ABL_NON_VALUE != unitSelect)
+        if (Defines.ABL_NON_VALUE != selectedUnitID)
         {
             // ユニットステートのアビリティIDを設定
-            gameManager.unitStateList[unitSelect].ability_A = abl_ID;
+            gameManager.unitStateList[selectedUnitID].ability_A = abl_ID;
 
             // サブジェクトのトリガーをOFFにする
             // これによりオブサーバ（UnitAreaButton）内Notifyメソッドがコールされるので
@@ -219,63 +238,20 @@ public class AbilitySelect : MonoBehaviour
             subjectComp.status = 2;
 
             // アビリティID→アビリティ文字列正引きメソッドをコール
-            string abilityName = AbilityIDtoStringConv(abl_ID);
+            string abilityName = convertAbilityIDtoStrings.Converter(abl_ID);
 
             // アビリティセットするユニットIDを文字列化
-            string unitid_STR = unitSelect.ToString();
+            string unitid_STR = selectedUnitID.ToString();
             // アビリティテキストコンポを取得し、表示する
             Text textFieldID = GameObject.FindWithTag("Abl_SetAbilityName" + unitid_STR).GetComponent<Text>();
             textFieldID.text = abilityName;
 
             // ユニット選択判定をユニット未選択状態に設定
-            unitSelect = 100;
+            selectedUnitID = 100;
 
             // クリックエフェクト表示メソッドをコール
             playEffect.PlayOnce(effectSprite, GameObject.FindWithTag("Abl_SetAbilityName" + unitid_STR), new Vector3(0, 0, 0f));
         }
-    }
-
-    // -------------------------------------------
-    // アビリティID→アビリティ文字列正引きメソッド
-    // アビリティID（int）を元に対応するアビリティ名（string）を返す
-    // -------------------------------------------
-    string AbilityIDtoStringConv(int abl_ID)
-    {
-        string abilityName = "";    // アビリティ名
-
-        // アビリティIDで分岐
-        switch(abl_ID)
-        {
-            // アビリティ - 攻撃力Up
-            case Defines.ABL_POWERUP:
-                abilityName = "攻撃力Up";
-                break;
-
-            // アビリティ - 防御力Up
-            case Defines.ABL_DIFFENCEUP:
-                abilityName = "防御力Up";
-                break;
-
-            // アビリティ - ムーブプラス
-            case Defines.ABL_MOVEPLUS:
-                abilityName = "ムーブプラス";
-                break;
-
-            // アビリティ - 見切り青眼
-            case Defines.ABL_HCOUNTER:
-                abilityName = "見切り青眼";
-                break;
-
-            // アビリティ - ダテレポ
-            case Defines.ABL_TEREPORT:
-                abilityName = "ダテレポ";
-                break;
-
-            // フェールセーフ
-            default:
-                break;
-        }
-        return abilityName;
     }
 
     // ------------------------
@@ -322,7 +298,6 @@ public class AbilitySelect : MonoBehaviour
                 default:
                     break;
             }
-
             // Strategyパターン - スプライト表示メソッドをコール
             spViewer.SpriteViewer(canVas, vec, vecCor, i);
 

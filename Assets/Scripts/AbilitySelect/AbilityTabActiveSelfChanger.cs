@@ -27,7 +27,7 @@ public class AbilityTabActiveSelfChanger : MonoBehaviour
     private const int MOVE_TAB     = 4;
     /// <summary>アタックアビリティの親であるMaskアタッチオブジェクト</summary>
     private GameObject attackParentGO;
-    /// <summary>ディフェンスアビリティの親であるMaskアタッチオブジェクト</summary>
+    /// <summary>サポートアビリティの親であるMaskアタッチオブジェクト</summary>
     private GameObject defenceParentGO;
     /// <summary>リアクションアビリティの親であるMaskアタッチオブジェクト</summary>
     private GameObject reactionParentGO;
@@ -51,7 +51,7 @@ public class AbilityTabActiveSelfChanger : MonoBehaviour
     {
         // 各アビリティボタンの親であるMaskをアタッチしているオブジェクトを取得
         attackParentGO = GameObject.Find("Tab_Action").transform.FindChild("Mask").gameObject;
-        defenceParentGO = GameObject.Find("Tab_Guard").transform.FindChild("Mask").gameObject;
+        defenceParentGO = GameObject.Find("Tab_Support").transform.FindChild("Mask").gameObject;
         reactionParentGO = GameObject.Find("Tab_Reaction").transform.FindChild("Mask").gameObject;
         moveParentGO = GameObject.Find("Tab_Move").transform.FindChild("Mask").gameObject;
 
@@ -63,7 +63,7 @@ public class AbilityTabActiveSelfChanger : MonoBehaviour
 
         // 非アクティブタブのテキスト文字色変更のためタブのテキストコンポを取得
         attackTabTextCompo = GameObject.Find("Tab_Action").transform.FindChild("Text").GetComponent<Text>();
-        defenceTabTextCompo = GameObject.Find("Tab_Guard").transform.FindChild("Text").GetComponent<Text>();
+        defenceTabTextCompo = GameObject.Find("Tab_Support").transform.FindChild("Text").GetComponent<Text>();
         reactionTabTextCompo = GameObject.Find("Tab_Reaction").transform.FindChild("Text").GetComponent<Text>();
         moveTabTextCompo = GameObject.Find("Tab_Move").transform.FindChild("Text").GetComponent<Text>();
         // 初期化としてアタックタブ以外を灰色にする
@@ -107,7 +107,7 @@ public class AbilityTabActiveSelfChanger : MonoBehaviour
                 moveTabTextCompo.color = Color.grey;
                 break;
             case DEFENCE_TAB:
-                // ディフェンスタブがクリックされた場合はディフェンスタブをアクティブ化する
+                // サポートタブがクリックされた場合はディフェンスタブをアクティブ化する
                 attackParentGO.SetActive(false);
                 defenceParentGO.SetActive(true);
                 reactionParentGO.SetActive(false);

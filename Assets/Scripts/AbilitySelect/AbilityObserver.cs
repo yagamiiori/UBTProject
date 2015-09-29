@@ -107,10 +107,10 @@ public class AbilityObserver :
         while (1 == mouseOverJug)
         {
             // マウス左クリックされ、かつまだ本ユニット未選択の場合
-            if (Input.GetMouseButtonDown(0) && Defines.ABL_NON_VALUE == abilityCommon.unitSelect)
+            if (Input.GetMouseButtonDown(0) && Defines.ABL_NON_VALUE == abilityCommon.selectedUnitID)
             {
                 // シーンコントローラのユニット選択判定に自分のIDを設定
-                abilityCommon.unitSelect = unitID;
+                abilityCommon.selectedUnitID = unitID;
 
                 // サブジェクトのトリガーをONにする
                 // これによりオブサーバ（このクラス）内Notifyメソッドがコールされるので

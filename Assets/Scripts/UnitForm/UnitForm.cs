@@ -7,9 +7,16 @@ using System.Linq;
 
 public class UnitForm : MonoBehaviour
 {
-    private GameManager gameManager;                    // マネージャコンポ
-    private GameObject canVas;                          // ゲームオブジェクト"Canvas"
-    public int unitSelect = 100;                        // ユニット選択判定（初期化値:100）
+    /// <summary>ユニット選択判定（初期化値:100）</summary>
+    public int unitSelect = 100;
+    /// <summary>Canvasマネージャーコンポ</summary>
+    private GameManager gameManager;
+    /// <summary>Canvasゲームオブジェクト</summary>
+    private GameObject canVas;
+    /// <summary>アビリティID→文字列変換クラス</summary>
+    private AbilityIDtoStringConv convertAbilityIDtoStrings;
+    /// <summary>シーンロード時アビリティ名取得クラス</summary>
+    private AbilityNameSetForSceneLoading abilityNameSetSceneLoading;
 
     // 全ユニット数（16個）分のクラス名表示用テキストフィールドリスト
     public List<Text> ClassNameList = new List<Text>();
@@ -17,6 +24,9 @@ public class UnitForm : MonoBehaviour
     public List<Text> UnitNameList = new List<Text>();
     // 全ユニット数（16個）分のアビリティ名表示用テキストフィールドリスト
     public List<Text> AbilityNameList = new List<Text>();
+
+    /// <summary>コンストラクタ</summary>
+    private UnitForm() { }
 
     // ----------------------------------------
     // Startメソッド
@@ -101,6 +111,13 @@ public class UnitForm : MonoBehaviour
             field.text = "- - - -";
         }
 
+        // アビリティID→文字列変換クラスを取得
+        convertAbilityIDtoStrings = new AbilityIDtoStringConv();
+
+        // シーンロード時アビリティ名取得クラスを取得し、アビリティ表示枠にアビリティ名を表示する
+        abilityNameSetSceneLoading = new AbilityNameSetForSceneLoading();
+        abilityNameSetSceneLoading.SetMethod();
+
         // クラス名表示フィールド設定メソッドをコール
         ClassNameSet();
 
@@ -181,7 +198,7 @@ public class UnitForm : MonoBehaviour
         for (int i = 0; i < gameManager.unitStateList.Count; i++)
         {
             // アビリティIDからアビリティ名(string)を正引き
-            string ability = AbilityIDtoStringConv(gameManager.unitStateList[i].ability_A);
+            string ability = convertAbilityIDtoStrings.Converter(gameManager.unitStateList[i].ability_A);
 
             // アビリティ名をTextコンポに表示
             AbilityNameList[i].text = ability;
@@ -210,60 +227,19 @@ public class UnitForm : MonoBehaviour
              */
             // アビリティセットするユニットIDを文字列化
             string unitid_STR = unitSelect.ToString();
+
             // アビリティID→アビリティ文字列正引きメソッドをコール
-            string abilityName = AbilityIDtoStringConv(abl_ID);
+            string abilityName = convertAbilityIDtoStrings.Converter(abl_ID);
+
             // 表示するアビリティテキストフィールドを取得
             Text textFieldID = GameObject.FindWithTag("Abl_SetAbilityName" + unitid_STR).GetComponent<Text>();
+
             // アビリティ名表示フィールドにアビリティ名を設定
             textFieldID.text = abilityName;
 
             // ユニット選択判定を初期値
             unitSelect = 100;
         }
-    }
-
-    // -------------------------------------------
-    // アビリティID→アビリティ文字列正引きメソッド
-    // アビリティID（int）を元に対応するアビリティ名（string）を返す
-    // -------------------------------------------
-    string AbilityIDtoStringConv(int abl_ID)
-    {
-        string abilityName = "";    // アビリティ名
-
-        // アビリティIDで分岐
-        switch (abl_ID)
-        {
-            // アビリティ - 攻撃力Up
-            case Defines.ABL_POWERUP:
-                abilityName = "攻撃力Up";
-                break;
-
-            // アビリティ - 防御力Up
-            case Defines.ABL_DIFFENCEUP:
-                abilityName = "防御力Up";
-                break;
-
-            // アビリティ - ムーブプラス
-            case Defines.ABL_MOVEPLUS:
-                abilityName = "ムーブプラス";
-                break;
-
-            // アビリティ - 見切り青眼
-            case Defines.ABL_HCOUNTER:
-                abilityName = "見切り青眼";
-                break;
-
-            // アビリティ - ダテレポ
-            case Defines.ABL_TEREPORT:
-                abilityName = "ダテレポ";
-                break;
-
-            // アビリティなし
-            default:
-                abilityName = "----";
-                break;
-        }
-        return abilityName;
     }
 
     // ------------------------
