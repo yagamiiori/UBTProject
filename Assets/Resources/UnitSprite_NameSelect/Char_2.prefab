@@ -10,7 +10,6 @@ GameObject:
   - 224: {fileID: 22480654}
   - 222: {fileID: 22201898}
   - 114: {fileID: 11468280}
-  - 114: {fileID: 11432160}
   m_Layer: 0
   m_Name: Char_2
   m_TagString: Untagged
@@ -18,23 +17,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &11432160
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f9b72ed856948046a0d18b9624a70c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeoutSec: .200000003
-  fadeoutKeepSec: .600000024
-  fadeinSec: .600000024
-  fadeinKeepSec: 0
-  flashingMaterial: {fileID: 2100000, guid: 7b220ce6814a7a54199ac1badef35007, type: 2}
-  isFlashing: 0
 --- !u!114 &11468280
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -19511,7 +19511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboBox: {fileID: 1975280417}
   text_UnitID: {fileID: 1859688585}
-  imageSolder: {fileID: 21300000, guid: c4249eda3d740d64a8d4842c39af16af, type: 3}
+  imageSolder: {fileID: 21300000, guid: 06b548e87bcf39c4e8b2d0026dde6172, type: 3}
   imageWizard: {fileID: 21300000, guid: 8e776213856bec645a68871c58ae6d0b, type: 3}
   imageLancer: {fileID: 21300000, guid: cb859da241f5a2d4580edb3b025c748c, type: 3}
   imageArcher: {fileID: 21300000, guid: cb859da241f5a2d4580edb3b025c748c, type: 3}

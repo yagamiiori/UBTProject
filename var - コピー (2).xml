@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UBTProject>
+    <UserParams>
+        <UserName>高田</UserName>
+        <GUID>3c91fa09-2304-4e14-b290-90b0efda68fd</GUID>
+    </UserParams>
+    <UnitStatus_1>
+        <UnitID>1</UnitID>
+        <UnitClass>1</UnitClass>
+        <UnitName>クラウド</UnitName>
+        <UnitAbility>1</UnitAbility>
+        <UnitElement>1</UnitElement>
+    </UnitStatus_1>
+</UBTProject>

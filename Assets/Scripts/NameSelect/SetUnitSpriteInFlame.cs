@@ -49,7 +49,7 @@ public class SetUnitSpriteInFlame : MonoBehaviour
                     prefab = Instantiate(sprite, setSpriteVec, Quaternion.identity) as GameObject;
                     prefab.transform.SetParent(parentGO.transform, false);
                     prefab.name = spriteName;                           // スプライト表示GOの名前を設定
-                    prefab.GetComponent<Palfx2>().StartFlashing();      // クラスチェンジ時に光沢エフェクトを付与する
+//                    prefab.GetComponent<Palfx2>().StartFlashing();      // クラスチェンジ時に光沢エフェクトを付与する
                     break;
 
                 // ウィザードの場合
@@ -60,7 +60,7 @@ public class SetUnitSpriteInFlame : MonoBehaviour
                     prefab = Instantiate(sprite, setSpriteVec, Quaternion.identity) as GameObject;
                     prefab.transform.SetParent(parentGO.transform, false);
                     prefab.name = spriteName;                           // スプライト表示GOの名前を設定
-                    prefab.GetComponent<Palfx2>().StartFlashing();      // クラスチェンジ時に光沢エフェクトを付与する
+//                    prefab.GetComponent<Palfx2>().StartFlashing();      // クラスチェンジ時に光沢エフェクトを付与する
                     break;
 
                 // ユニット未設定の場合
