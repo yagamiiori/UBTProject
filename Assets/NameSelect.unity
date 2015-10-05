@@ -476,7 +476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &32518190
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6970,7 +6970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_UnitID: {fileID: 1985125908}
-  spriteVec: {x: -21, y: 124, z: 0}
+  spriteVec: {x: -18, y: 124, z: 0}
   Sprite_UISprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   Sprite_Background: {fileID: 0}
   _isComboBoxEnable: 1
@@ -15408,7 +15408,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 1540647758}
   - 222: {fileID: 1540647760}
-  - 114: {fileID: 1540647759}
   m_Layer: 5
   m_Name: Unit Area
   m_TagString: Untagged
@@ -15449,27 +15448,6 @@ RectTransform:
   m_AnchoredPosition: {x: -675, y: 320}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1540647759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1540647757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1540647760
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18815,7 +18793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1901273083
 RectTransform:
   m_ObjectHideFlags: 0
