@@ -1,15 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 /// <summary>
 /// BGM再生クラス（Loginシーン）
-/// <para>　BGMを再生する。</para>
+/// <para>　BGMの再生やボリューム調整を行う。</para>
 /// </summary>
 public class BgmPlayerForAllScene : MonoBehaviour
 {
-    /// <summary>オーディオソースコンポ</summary>
-    [SerializeField]
-    private AudioSource audioSource;
+    /// <summary>ボリュームスライダーコンポ（スライダーにアタッチされたBgmVolumeChangeOnSliderから設定される）</summary>
+    public Slider VolumeSlider;
+    /// <summary>ボリュームスライダーの音量（各シーンのスライダーオブジェクトから操作される）</summary>
+    private float volumeSliderValue = 0.1f;
+    public float VolumeSliderValue
+    {
+        get { return volumeSliderValue; }
+        set {
+                if (0 > value) value = 0;
+                if (1 < value) value = 1.0f;
+                volumeSliderValue = value;
+            }
+    }
+    /// <summary>オーディオソースコンポ（BgmVolumeChangeOnSliderより参照されるためpublic）</summary>
+    public AudioSource audioSource;
     /// <summary>ログインシーンのBGM</summary>
     [SerializeField]
     private AudioClip bgm1;
@@ -42,8 +55,8 @@ public class BgmPlayerForAllScene : MonoBehaviour
 
     void Update()
     {
-        // 基本ボリュームを設定
-        if (!isFadePlaying) BaseVolume = 0.1f;
+        // スライダーの値をボリュームに設定
+        if (!isFadePlaying) audioSource.volume = VolumeSlider.value;
 
         // フェードアウト処理
         if (isFadePlaying)
@@ -59,6 +72,15 @@ public class BgmPlayerForAllScene : MonoBehaviour
             // フェード処理を実施
             audioSource.volume = (float)(1.0 - FadeDeltaTime / FadeOutSeconds) * BaseVolume;
         }
+    }
+
+    /// <summary>
+    /// BGMボリューム変更メソッド
+    /// <para>　BGMのボリューム値を変更する。</para>
+    /// </summary>
+    public void BgmVolumeChanger()
+    {
+        // 処理なし
     }
 
     /// <summary>
