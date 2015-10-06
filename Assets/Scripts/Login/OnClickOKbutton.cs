@@ -13,8 +13,8 @@ public class OnClickOKbutton :
     public AudioClip clickSE;                         // OKボタンクリックSE
     public InputField nameField;                      // 名前のインプットフィールド
     private GameManager gameManager;                  // マネージャコンポ
-    private GameObject messageWindow;                 // メッセージウィンドウCanvas
-    private Text messageText;                         // メッセージウィンドウのTextコンポ
+    private GameObject warningWindow;                 // メッセージウィンドウCanvas
+    private Text warningText;                         // メッセージウィンドウのTextコンポ
     private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
     private string nextScene = "UnitSelect";          // 遷移先シーン名
     private AudioSource audioCompo;                   // オーディオコンポ
@@ -26,6 +26,11 @@ public class OnClickOKbutton :
 
         // 名前入力フィールド取得
         nameField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
+
+        // メッセージウィンドウのCanvasとTextコンポを取得し、非アクティブ化
+        warningWindow = GameObject.Find("Canvas_WarningWindow");
+        warningText = GameObject.Find("WarningText").GetComponent<Text>();
+        if (warningWindow.activeSelf) warningWindow.SetActive(false);
 
         // オーディオコンポ取得とOKボタンクリック時SEの設定
         audioCompo = this.gameObject.GetComponent<AudioSource>();
@@ -39,13 +44,13 @@ public class OnClickOKbutton :
     public void MessageWriteToWindow(string a)
     {
         // メッセージウィンドウをアクティブ化
-        messageWindow.SetActive(true);
+        warningWindow.SetActive(true);
 
         // メッセージウィンドウ表示有無判定フラグを変更
         IsWindow = true;
 
         // メッセージ表示
-        messageText.text = a;
+        warningText.text = a;
     }
 
     // -------------------------------------------------------------------

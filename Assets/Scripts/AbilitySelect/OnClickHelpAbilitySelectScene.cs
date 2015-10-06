@@ -6,9 +6,8 @@ using System.Collections.Generic;   // コレクションクラスの定義に�
 using System.Linq;
 
 
-public class OnClickHelpSolder : MonoBehaviour
+public class OnClickHelpAbilitySelectScene : MonoBehaviour
 {
-
     /// <summary>メインCanvas</summary>
     private GameObject canVas;
     /// <summary>ヘルプメッセージCanvasの親オブジェクト状態クラス</summary>
@@ -20,7 +19,7 @@ public class OnClickHelpSolder : MonoBehaviour
     private AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
-    private OnClickHelpSolder() { }
+    private OnClickHelpAbilitySelectScene() { }
 
     void Start()
     {
@@ -49,30 +48,20 @@ public class OnClickHelpSolder : MonoBehaviour
         // 設定したSEを鳴らす
         audioCompo.PlayOneShot(clickSE);
 
-        string helpMessage = "クラス名　　　：ソルジャー\n" +
-                         "装備　　　　　：ロングソード、ラウンドシールド\n" +
-                         "クラスタイプ　：近接物理攻撃型\n" +
-                         "エレメント　　：4属性より選択\n" +
-                         "クラス固有能力：なし\n" +
-                         "移動範囲　　　：5パネル\n\n" +
-
-                         "両刃の剣を携えた西洋の騎士。\n" +
-                         "近接戦闘の要となるクラスで、基本的にバランスに優れたパラメータを持つが、魔法防御力は低め。\n" +
-                         "移動やWTに癖がなく、HPも多い部類なので初心者でも扱いやすいのが特徴。\n\n" +
-
-                         "基礎パラメータ\n" +
-                         " HP        500\n" +
-                         " MP        200\n" +
-                         " SP        100\n" +
-                         " STR        50 + ランダム1～5\n" +
-                         " VIT　　  45 + ランダム1～6\n" +
-                         " DEX        34 + ランダム0～5\n" +
-                         " AGI          41 + ランダム0～3\n" +
-                         " INT          29 + ランダム0～3\n" +
-                         " MND       29 + ランダム0～4\n" +
-                         " RES        37 + ランダム1～5\n" +
-                         " LUC        33 + ランダム1～5\n" +
-                         " WT          62";
+        string helpMessage = "ユニットにアタッチ(付与)するアビリティを選択するシーンです。\n" +
+                         "\n" +
+                         "1ユニットにつき1つ、アビリティをアタッチする事ができます。\n" +
+                         "ユニットのグラフィックを左クリックするとアビリティ一覧が表示されるので、その中からアタッチしたいアビリティを選択して下さい。\n" +
+                         "グラフィックを左クリックした後、キャンセルしたい場合は右クリックでキャンセルできます。\n" +
+                         "\n" +
+                         "アビリティはカテゴリによって分けられており、\n" +
+                         "Action：攻撃や行動系のアビリティ\n" +
+                         "Support：ユニットに能力を付与したり上昇させるアビリティ\n" +
+                         "Reaction：攻撃を受けた時に発動するアビリティ\n" +
+                         "Move：ユニットの移動に関係するアビリティ\n" +
+                         "\n" +
+                         "となります。\n" +
+                         "また、必ずしもアビリティをアタッチする必要はなく、この画面を素通りして次の画面へ行く事も可能です。";
 
 
         // ヘルプメッセージの親オブジェクトをアクティブ化

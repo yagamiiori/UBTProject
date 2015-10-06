@@ -6,9 +6,8 @@ using System.Collections.Generic;   // コレクションクラスの定義に�
 using System.Linq;
 
 
-public class OnClickHelpSolder : MonoBehaviour
+public class OnClickHelpNameSelectScene : MonoBehaviour
 {
-
     /// <summary>メインCanvas</summary>
     private GameObject canVas;
     /// <summary>ヘルプメッセージCanvasの親オブジェクト状態クラス</summary>
@@ -20,7 +19,7 @@ public class OnClickHelpSolder : MonoBehaviour
     private AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
-    private OnClickHelpSolder() { }
+    private OnClickHelpNameSelectScene() { }
 
     void Start()
     {
@@ -49,31 +48,18 @@ public class OnClickHelpSolder : MonoBehaviour
         // 設定したSEを鳴らす
         audioCompo.PlayOneShot(clickSE);
 
-        string helpMessage = "クラス名　　　：ソルジャー\n" +
-                         "装備　　　　　：ロングソード、ラウンドシールド\n" +
-                         "クラスタイプ　：近接物理攻撃型\n" +
-                         "エレメント　　：4属性より選択\n" +
-                         "クラス固有能力：なし\n" +
-                         "移動範囲　　　：5パネル\n\n" +
-
-                         "両刃の剣を携えた西洋の騎士。\n" +
-                         "近接戦闘の要となるクラスで、基本的にバランスに優れたパラメータを持つが、魔法防御力は低め。\n" +
-                         "移動やWTに癖がなく、HPも多い部類なので初心者でも扱いやすいのが特徴。\n\n" +
-
-                         "基礎パラメータ\n" +
-                         " HP        500\n" +
-                         " MP        200\n" +
-                         " SP        100\n" +
-                         " STR        50 + ランダム1～5\n" +
-                         " VIT　　  45 + ランダム1～6\n" +
-                         " DEX        34 + ランダム0～5\n" +
-                         " AGI          41 + ランダム0～3\n" +
-                         " INT          29 + ランダム0～3\n" +
-                         " MND       29 + ランダム0～4\n" +
-                         " RES        37 + ランダム1～5\n" +
-                         " LUC        33 + ランダム1～5\n" +
-                         " WT          62";
-
+        string helpMessage = "ユニットの名前とエレメント(属性)を選択するシーンです。\n" +
+                         "\n" +
+                         "Name欄のInputNameをクリックし、キーボードでユニットの名前を入力して下さい。\n" +
+                         "未記入の場合、ユニットの名前は「NameLess」になります。\n" +
+                         "\n" +
+                         "エレメント(属性)は、各属性の攻撃魔法を使う場合や、それらによる攻撃を受ける場合に関係する要素です。\n" +
+                         "例えば、エレメントが炎のユニットが炎属性の魔法を使うと、炎属性以外のユニットが魔法を行使した場合よりダメージアップが見込めます。\n" +
+                         "このエレメントは、コンボボックスのリストから選択できます。\n" +
+                         "デフォルトでは炎属性が選択されています。\n" +
+                         "\n" +
+                         "また、Class欄にはユニット選択シーンにおいて選択したクラス名が表示されていますが、クラス名をクリックするとコンボボックスが開き、クラスを変更する事ができます。\n" +
+                         "クラスの変更を行いたい場合は、このコンボボックスを使用して下さい。\n";
 
         // ヘルプメッセージの親オブジェクトをアクティブ化
         helpMsgParentState.parentGO.SetActive(true);

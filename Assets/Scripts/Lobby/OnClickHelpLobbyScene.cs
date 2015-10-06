@@ -6,9 +6,8 @@ using System.Collections.Generic;   // コレクションクラスの定義に�
 using System.Linq;
 
 
-public class OnClickHelpSolder : MonoBehaviour
+public class OnClickHelpLobbyScene : MonoBehaviour
 {
-
     /// <summary>メインCanvas</summary>
     private GameObject canVas;
     /// <summary>ヘルプメッセージCanvasの親オブジェクト状態クラス</summary>
@@ -20,7 +19,7 @@ public class OnClickHelpSolder : MonoBehaviour
     private AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
-    private OnClickHelpSolder() { }
+    private OnClickHelpLobbyScene() { }
 
     void Start()
     {
@@ -49,31 +48,24 @@ public class OnClickHelpSolder : MonoBehaviour
         // 設定したSEを鳴らす
         audioCompo.PlayOneShot(clickSE);
 
-        string helpMessage = "クラス名　　　：ソルジャー\n" +
-                         "装備　　　　　：ロングソード、ラウンドシールド\n" +
-                         "クラスタイプ　：近接物理攻撃型\n" +
-                         "エレメント　　：4属性より選択\n" +
-                         "クラス固有能力：なし\n" +
-                         "移動範囲　　　：5パネル\n\n" +
-
-                         "両刃の剣を携えた西洋の騎士。\n" +
-                         "近接戦闘の要となるクラスで、基本的にバランスに優れたパラメータを持つが、魔法防御力は低め。\n" +
-                         "移動やWTに癖がなく、HPも多い部類なので初心者でも扱いやすいのが特徴。\n\n" +
-
-                         "基礎パラメータ\n" +
-                         " HP        500\n" +
-                         " MP        200\n" +
-                         " SP        100\n" +
-                         " STR        50 + ランダム1～5\n" +
-                         " VIT　　  45 + ランダム1～6\n" +
-                         " DEX        34 + ランダム0～5\n" +
-                         " AGI          41 + ランダム0～3\n" +
-                         " INT          29 + ランダム0～3\n" +
-                         " MND       29 + ランダム0～4\n" +
-                         " RES        37 + ランダム1～5\n" +
-                         " LUC        33 + ランダム1～5\n" +
-                         " WT          62";
-
+        string helpMessage = "ルームを選択するためのロビーです。\n" +
+                         "\n" +
+                         "入室したいルームをクリックすると予約できます。\n" +
+                         "ルームの人数が揃うと自動的にルームに入り、バトルが開始されます。\n" +
+                         "ルームはステージによって分かれており、ルームボタンの色はそのルームのステージタイプを表しています。\n" +
+                         "ルームボタンの色によるステージの分類は、\n" +
+                         "\n" +
+                         "赤色ボタン：溶岩系ステージ\n" +
+                         "青色ボタン：水系ステージ\n" +
+                         "茶色ボタン：建物系ステージ\n" +
+                         "緑色ボタン：草原系ステージ\n" +
+                         "黒色ボタン：洞窟系ステージ\n" +
+                         "\n" +
+                         "となっています。\n" +
+                         "\n" +
+                         "予約したルームを変更したい場合や、ロビーのリロードを行う場合は、2番目の「LobbyReLoad」ボタンをクリックし、ロビーをリロードして下さい。\n" +
+                         "また、右上の「UnitForm」ボタンより編成したユニットを一覧で確認できます。\n" +
+                         "UnitFormではユニットの一覧を確認するだけでなく、名前やアビリティの編成画面に戻る事も可能です。\n";
 
         // ヘルプメッセージの親オブジェクトをアクティブ化
         helpMsgParentState.parentGO.SetActive(true);

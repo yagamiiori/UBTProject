@@ -6,9 +6,8 @@ using System.Collections.Generic;   // コレクションクラスの定義に�
 using System.Linq;
 
 
-public class OnClickHelpSolder : MonoBehaviour
+public class OnClickHelpUnitSelectScene : MonoBehaviour
 {
-
     /// <summary>メインCanvas</summary>
     private GameObject canVas;
     /// <summary>ヘルプメッセージCanvasの親オブジェクト状態クラス</summary>
@@ -20,7 +19,7 @@ public class OnClickHelpSolder : MonoBehaviour
     private AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
-    private OnClickHelpSolder() { }
+    private OnClickHelpUnitSelectScene() { }
 
     void Start()
     {
@@ -49,30 +48,22 @@ public class OnClickHelpSolder : MonoBehaviour
         // 設定したSEを鳴らす
         audioCompo.PlayOneShot(clickSE);
 
-        string helpMessage = "クラス名　　　：ソルジャー\n" +
-                         "装備　　　　　：ロングソード、ラウンドシールド\n" +
-                         "クラスタイプ　：近接物理攻撃型\n" +
-                         "エレメント　　：4属性より選択\n" +
-                         "クラス固有能力：なし\n" +
-                         "移動範囲　　　：5パネル\n\n" +
-
-                         "両刃の剣を携えた西洋の騎士。\n" +
-                         "近接戦闘の要となるクラスで、基本的にバランスに優れたパラメータを持つが、魔法防御力は低め。\n" +
-                         "移動やWTに癖がなく、HPも多い部類なので初心者でも扱いやすいのが特徴。\n\n" +
-
-                         "基礎パラメータ\n" +
-                         " HP        500\n" +
-                         " MP        200\n" +
-                         " SP        100\n" +
-                         " STR        50 + ランダム1～5\n" +
-                         " VIT　　  45 + ランダム1～6\n" +
-                         " DEX        34 + ランダム0～5\n" +
-                         " AGI          41 + ランダム0～3\n" +
-                         " INT          29 + ランダム0～3\n" +
-                         " MND       29 + ランダム0～4\n" +
-                         " RES        37 + ランダム1～5\n" +
-                         " LUC        33 + ランダム1～5\n" +
-                         " WT          62";
+        string helpMessage = "ユニット（クラス）とその人数を選択するシーンです。\n" +
+                         "\n" +
+                         "選択方法：ユニットのグラフィックを右クリックすると、そのクラスをユニットとして加える事ができます。\n" +
+                         "また、右クリックで加えたユニットを減らす事ができます。\n" +
+                         "\n" +
+                         "ユニットの追加には「コスト」を必要とし、コストがなければユニットを追加する事はできません。\n" +
+                         "コストは右下に表示されており、最大コストは16となります。それが0になるまでユニットの登録を行って下さい。\n" +
+                         "ユニットはレシオ制で管理されており、消費するコストはそのユニットのレシオによって異なります。\n" +
+                         "\n" +
+                         "レシオ1：1ユニット追加につき1コスト消費\n" +
+                         "レシオ2：1ユニット追加につき2コスト消費\n" +
+                         "レシオ3：1ユニット追加につき3コスト消費\n" +
+                         "レシオ4：1ユニット追加につき4コスト消費\n" +
+                         "\n" +
+                         "となります。\n" +
+                         "基本的にレシオが高くなるほど強いクラスになりますが、コストを多く消費するため高レシオのユニットは少数しか追加できません。";
 
 
         // ヘルプメッセージの親オブジェクトをアクティブ化

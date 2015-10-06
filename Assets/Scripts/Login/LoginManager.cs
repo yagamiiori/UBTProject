@@ -11,8 +11,8 @@ public class LoginManager :
     IMessageWriteToMW                                 // メッセージウィンドウ書き込みIF
 {
     private GameManager gameManager;                  // マネージャコンポ
-    private GameObject messageWindow;                 // メッセージウィンドウCanvas
-    private Text messageText;                         // メッセージウィンドウのTextコンポ
+    private GameObject warningWindow;                 // メッセージウィンドウCanvas
+    private Text warningText;                         // メッセージウィンドウのTextコンポ
     public InputField nameField;                      // 名前のインプットフィールド
     private string nextScene = "UnitSelect";          // 遷移先シーン名
     private string regisgerName = "Register";         // 遷移先シーン名
@@ -28,9 +28,8 @@ public class LoginManager :
         nameField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
 
         // メッセージウィンドウのCanvasとTextコンポを取得し、非アクティブ化
-        messageWindow = GameObject.FindWithTag("Canvas_MW");
-        messageText = GameObject.FindWithTag("TextField_MW").GetComponent<Text>();
-        messageWindow.SetActive(false);
+        warningWindow = GameObject.Find("Canvas_WarningWindow");
+        warningText = GameObject.Find("WarningText").GetComponent<Text>();
 
         // ユーザーIDをtxtファイルから読み出し
         var streamReader = new StreamReaderSingleLine();
@@ -76,7 +75,7 @@ public class LoginManager :
             else
             {
                 // メッセージウィンドウを非アクティブ化
-                messageWindow.SetActive(false);
+                warningWindow.SetActive(false);
 
                 // メッセージウィンドウ表示有無判定フラグを変更
                 IsWindow = false;
@@ -84,10 +83,10 @@ public class LoginManager :
         }
 
         // メッセージウィンドウがアクティブ状態の時に左クリックされた場合
-        if (true == messageWindow.activeSelf && Input.GetMouseButtonDown(0))
+        if (true == warningWindow.activeSelf && Input.GetMouseButtonDown(0))
         {
             // メッセージウィンドウを非アクティブ化
-            messageWindow.SetActive(false);
+            warningWindow.SetActive(false);
 
             // メッセージウィンドウ表示有無判定フラグを変更
             IsWindow = false;
@@ -101,13 +100,13 @@ public class LoginManager :
     public void MessageWriteToWindow(string a)
     {
         // メッセージウィンドウをアクティブ化
-        messageWindow.SetActive(true);
+        warningWindow.SetActive(true);
 
         // メッセージウィンドウ表示有無判定フラグを変更
         IsWindow = true;
 
         // メッセージ表示
-        messageText.text = a;
+        warningText.text = a;
     }
 
     // =====================================

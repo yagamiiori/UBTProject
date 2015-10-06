@@ -6,9 +6,8 @@ using System.Collections.Generic;   // コレクションクラスの定義に�
 using System.Linq;
 
 
-public class OnClickHelpSolder : MonoBehaviour
+public class OnClickHelpLoginScene : MonoBehaviour
 {
-
     /// <summary>メインCanvas</summary>
     private GameObject canVas;
     /// <summary>ヘルプメッセージCanvasの親オブジェクト状態クラス</summary>
@@ -20,7 +19,7 @@ public class OnClickHelpSolder : MonoBehaviour
     private AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
-    private OnClickHelpSolder() { }
+    private OnClickHelpLoginScene() { }
 
     void Start()
     {
@@ -49,31 +48,12 @@ public class OnClickHelpSolder : MonoBehaviour
         // 設定したSEを鳴らす
         audioCompo.PlayOneShot(clickSE);
 
-        string helpMessage = "クラス名　　　：ソルジャー\n" +
-                         "装備　　　　　：ロングソード、ラウンドシールド\n" +
-                         "クラスタイプ　：近接物理攻撃型\n" +
-                         "エレメント　　：4属性より選択\n" +
-                         "クラス固有能力：なし\n" +
-                         "移動範囲　　　：5パネル\n\n" +
-
-                         "両刃の剣を携えた西洋の騎士。\n" +
-                         "近接戦闘の要となるクラスで、基本的にバランスに優れたパラメータを持つが、魔法防御力は低め。\n" +
-                         "移動やWTに癖がなく、HPも多い部類なので初心者でも扱いやすいのが特徴。\n\n" +
-
-                         "基礎パラメータ\n" +
-                         " HP        500\n" +
-                         " MP        200\n" +
-                         " SP        100\n" +
-                         " STR        50 + ランダム1～5\n" +
-                         " VIT　　  45 + ランダム1～6\n" +
-                         " DEX        34 + ランダム0～5\n" +
-                         " AGI          41 + ランダム0～3\n" +
-                         " INT          29 + ランダム0～3\n" +
-                         " MND       29 + ランダム0～4\n" +
-                         " RES        37 + ランダム1～5\n" +
-                         " LUC        33 + ランダム1～5\n" +
-                         " WT          62";
-
+        string helpMessage = "ユーザIDを入力してログインするシーンです。\n" +
+                         "\n" +
+                         "ユーザ名登録時に発行されたユーザIDを入力して下さい。\n" +
+                         "まだユーザ登録を行っていない場合は、「Registration」をクリックしてレジスト画面より、ユーザ名登録を行って下さい。\n" +
+                         "\n" +
+                         "なおこの画面において、汎用ユーザ名「NameLess」と入力する事で、ユーザ名登録を行わずNameLess(名無し)でプレイする事も可能です。\n";
 
         // ヘルプメッセージの親オブジェクトをアクティブ化
         helpMsgParentState.parentGO.SetActive(true);
