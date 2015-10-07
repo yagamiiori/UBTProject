@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UnitFormButtonOK : MonoBehaviour
+public class OnClickOkForUnitForm : MonoBehaviour
 {
     private GameManager gameManager;                    // マネージャコンポ
     private string nextScene = "Lobby";                 // スタートボタンプッシュ時遷移先シーン
     private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
     public AudioSource audioCompo;                      // オーディオコンポ
     public AudioClip clickSE;                           // OKボタンクリックSE
+
+    /// <summary>コンストラクタ</summary>
+    private OnClickOkForUnitForm() { }
 
     void Start()
     {

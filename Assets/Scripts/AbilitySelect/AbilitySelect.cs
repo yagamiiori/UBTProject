@@ -203,18 +203,8 @@ public class AbilitySelect : MonoBehaviour
         // ユニットステートリスト内を最大ユニット数分ループ
         for (int i = 0; i < gameManager.unitStateList.Count; i++)
         {
-            // ユニット名が空欄の場合
-            if ("名前を入力" == gameManager.unitStateList[i].unitName)
-            {
-                // とりあえずNo＋固有番号を振る
-                UnitNameList[i].text = "Unit No." + (i+1).ToString();
-            }
-            // ユニット名が設定済みの場合
-            else
-            {
                 // Textコンポに表示
                 UnitNameList[i].text = gameManager.unitStateList[i].unitName;
-            }
         }
     }
 

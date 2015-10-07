@@ -5,14 +5,17 @@ using System.Collections;
 using System.Collections.Generic;   // コレクションクラスの定義に必要
 using System.Linq;
 
-public class NameSelectButtonOK : MonoBehaviour
+public class OnClickOkForNameSelect : MonoBehaviour
 {
     private GameManager gameManager;                    // マネージャコンポ
-    private NameSelect nameSelect;                      // NameSelectコンポ
+    private UnitNameSetForSceneLoading nameSelect;      // NameSelectコンポ
     private string nextScene = "AbilitySelect";         // スタートボタンプッシュ時遷移先シーン
     private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
     public AudioSource audioCompo;                      // オーディオコンポ
     public AudioClip clickSE;                           // OKボタンクリックSE
+
+    /// <summary>コンストラクタ</summary>
+    private OnClickOkForNameSelect() { }
 
 	void Start ()
     {
@@ -20,7 +23,7 @@ public class NameSelectButtonOK : MonoBehaviour
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         // NameSelectコンポ取得
-        nameSelect = GameObject.FindWithTag("Canvas").GetComponent<NameSelect>();
+        nameSelect = GameObject.FindWithTag("Canvas").GetComponent<UnitNameSetForSceneLoading>();
 
         // オーディオコンポ取得とOKボタンクリック時SEの設定
         audioCompo = this.gameObject.GetComponent<AudioSource>();
@@ -47,16 +50,18 @@ public class NameSelectButtonOK : MonoBehaviour
             // ユニットステートリスト内を最大ユニット数分ループ
             for (int i = 0; i < gameManager.unitStateList.Count; i++)
             {
-                if ("InputName" == nameSelect.UnitNameList[i].text ||
+                if ("Input Name" == nameSelect.UnitNameList[i].text ||
                     "" == nameSelect.UnitNameList[i].text)
                 {
-                    // 名前が初期値のInputNameもしくは未入力の場合はNameLessとする
-                    string reNameString = "NameLess";
-                    nameSelect.UnitNameList[i].text = reNameString;
+                    // 名前が初期値のInputNameもしくは未入力の場合はNo＋固有番号を振る
+                    string reNameString = "No." + (i + 1).ToString(); ;
+                    gameManager.unitStateList[i].unitName = reNameString;
                 }
-
-                // 設定したユニット名をユニットステートリストに格納
-                gameManager.unitStateList[i].unitName = nameSelect.UnitNameList[i].text;
+                else 
+                {
+                    // 名前が設定されている場合は名前をユニットステートリストに格納
+                    gameManager.unitStateList[i].unitName = nameSelect.UnitNameList[i].text;
+                }
             }
             // Scene遷移実施（アビリティセレクトへ）
             // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ

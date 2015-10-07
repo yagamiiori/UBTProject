@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LobbyButtonOK : Photon.MonoBehaviour
+public class OnClickOkForAbilitySelect : MonoBehaviour
 {
     private GameManager gameManager;                    // マネージャコンポ
-    private string nextScene = "UnitForm";              // スタートボタンプッシュ時遷移先シーン
+    private string nextScene = "Lobby";                 // スタートボタンプッシュ時遷移先シーン
     private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
     public AudioSource audioCompo;                      // オーディオコンポ
     public AudioClip clickSE;                  // OKボタンクリックSE
 
-    void Start()
+    /// <summary>コンストラクタ</summary>
+    private OnClickOkForAbilitySelect() { }
+
+	void Start ()
     {
         // マネージャコンポ取得
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
@@ -17,12 +20,13 @@ public class LobbyButtonOK : Photon.MonoBehaviour
         // オーディオコンポ取得とOKボタンクリック時SEの設定
         audioCompo = this.gameObject.GetComponent<AudioSource>();
         clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
-    }
-
+	}
+    
     // -------------------------------
-    // OKボタンクリック判定メソッド（ロビーシーン）
-    // ロビーシーンにてユニット編成ボタンが押された場合にコールされ
-    // ユニット編成シーンに遷移する。
+    // OKボタンクリック判定メソッド（ユニットセレクトシーン）
+    // ユニットセレクトシーンにてOKボタンが押された場合（ユニット確定した場合）にコールされ
+    // 選択したユニットをユニットリストに格納、アビリティシステム有無フラグを確認し
+    // アビリティセレクトシーンまたはポジションセレクトシーンに遷移する。
     // -------------------------------
     public void OnClick()
     {
@@ -38,7 +42,7 @@ public class LobbyButtonOK : Photon.MonoBehaviour
 
             // Scene遷移実施（アビリティセレクトへ）
             // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
-            gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, Color.black, nextScene);
+            gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.6f, 0.1f, Color.black, nextScene);
         }
     }
 }

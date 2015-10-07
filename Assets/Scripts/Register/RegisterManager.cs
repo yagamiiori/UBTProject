@@ -11,19 +11,21 @@ public class RegisterManager :
     IMessageWriteToMW,                                // メッセージウィンドウ書き込みIF
     IOnMessageWindowOK                                // OKボタンクリックIF（メッセージウィンドウ専用）
 {
+    public GameObject guidFieldGO;                    // GUID表示用オブジェクト
     public AudioClip clickSE;                         // OKボタンクリックSE
-    private GameManager gameManager;                  // マネージャコンポ
-    private GameObject messageWindow;                 // メッセージウィンドウCanvas
-    private InputField messageText;                   // メッセージウィンドウのTextコンポ
     public InputField nameField;                      // 名前のインプットフィールド
     public InputField guidField;                      // GUIDインプットフィールド
-    public GameObject guidFieldGO;                    // GUID表示用オブジェクト
+    private GameManager gameManager;                  // マネージャコンポ
+    private GameObject warningParentGO;               // ワーニングウィンドウCanvas
+    private InputField warningText;                   // ワーニングウィンドウのTextコンポ
+    private AudioSource audioSource;                  // オーディオソースコンポ
     private string nextScene = "Login";               // 遷移先シーン名
     private string loginName = "Login";               // 遷移先シーン名
     private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
     private bool IsGuidDecided = false;               // GUID決定済み判定（0:GUID未発行　1:GUID発行済み）
-    private AudioSource audioCompo;                   // オーディオコンポ
 
+    /// <summary>コンストラクタ</summary>
+    private RegisterManager() { }
 
     void Start()
     {
@@ -33,14 +35,11 @@ public class RegisterManager :
         // 名前入力フィールド取得
         nameField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
 
-        // メッセージウィンドウのCanvasとTextコンポを取得し、非アクティブ化
-        messageWindow = GameObject.FindWithTag("Canvas_MW");
-        messageText = GameObject.FindWithTag("TextField_MW").GetComponent<InputField>();
-        messageWindow.SetActive(false);
+        // ワーニングウィンドウの親GOをワーニングウィンドウ管理クラスより取得
+        warningParentGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>().warningWindowParentGO;
 
-        // オーディオコンポ取得とOKボタンクリック時SEの設定
-        audioCompo = this.gameObject.GetComponent<AudioSource>();
-        clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
+        // オーディオソースコンポ取得
+        audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -54,6 +53,10 @@ public class RegisterManager :
                 // IDフィールドに何も入力されていない場合
                 if ("" == nameField.text || "NameLess" == nameField.text)
                 {
+                    // SEを設定および再生
+                    clickSE = (AudioClip)Resources.Load("Sounds/SE/Error1");
+                    audioSource.PlayOneShot(clickSE);
+
                     // メッセージウィンドウ描画メソッドをコールして未入力メッセージを表示
                     MessageWriteToWindow("未入力もしくはゲスト名です。\n正しいユーザー名を入力して下さい。");
                     return;
@@ -61,6 +64,10 @@ public class RegisterManager :
                 // IDが正常に入力された場合
                 else
                 {
+                    // SEを設定および再生
+                    clickSE = (AudioClip)Resources.Load("Sounds/SE/Click1");
+                    audioSource.PlayOneShot(clickSE);
+
                     // GUIDを生成
                     Guid guidValue = Guid.NewGuid();
 
@@ -87,7 +94,7 @@ public class RegisterManager :
                 if (!IsGuidDecided)
                 {
                     // メッセージウィンドウを非アクティブ化
-                    messageWindow.SetActive(false);
+                    warningParentGO.SetActive(false);
 
                     // メッセージウィンドウ表示有無判定フラグを変更
                     IsWindow = false;
@@ -114,6 +121,10 @@ public class RegisterManager :
             // インプットフィールドにNameLess以外の文字が入力されている場合
             if ("" != nameField.text && "NameLess" != nameField.text)
             {
+                // SEを設定および再生
+                clickSE = (AudioClip)Resources.Load("Sounds/SE/Click1");
+                audioSource.PlayOneShot(clickSE);
+
                 // GUIDを生成
                 Guid guidValue = Guid.NewGuid();
 
@@ -130,6 +141,10 @@ public class RegisterManager :
             // インプットフィールドが空欄またはNameLessが入力されている場合
             else
             {
+                // SEを設定および再生
+                clickSE = (AudioClip)Resources.Load("Sounds/SE/Error1");
+                audioSource.PlayOneShot(clickSE);
+
                 // メッセージウィンドウ描画メソッドをコールして未入力メッセージを表示
                 MessageWriteToWindow("未入力もしくはゲスト名です。\n正しいユーザー名を入力して下さい。");
                 return;
@@ -153,7 +168,7 @@ public class RegisterManager :
         else
         {
             // メッセージウィンドウを非アクティブ化
-            messageWindow.SetActive(false);
+            warningParentGO.SetActive(false);
 
             // メッセージウィンドウ表示有無判定フラグを変更
             IsWindow = false;
@@ -167,13 +182,16 @@ public class RegisterManager :
     public void MessageWriteToWindow(string a)
     {
         // メッセージウィンドウをアクティブ化
-        messageWindow.SetActive(true);
+        warningParentGO.SetActive(true);
+
+        // テキストコンポを取得
+        warningText = warningParentGO.transform.FindChild("MessageWindowText").gameObject.GetComponent<InputField>();
 
         // メッセージウィンドウ表示有無判定フラグを変更
         IsWindow = true;
 
         // メッセージ表示
-        messageText.text = a;
+        warningText.text = a;
     }
 
     // -------------------------------------------------------------------
@@ -195,8 +213,9 @@ public class RegisterManager :
     // -------------------------------
     public void NextScene()
     {
-        // クリックSEを設定および再生
-        audioCompo.PlayOneShot(clickSE);
+        // SEを設定および再生
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
+        audioSource.PlayOneShot(clickSE);
 
         // Scene遷移
         // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ

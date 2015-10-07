@@ -6,31 +6,32 @@ using System.Collections.Generic;   // コレクションクラスの定義に�
 using System.Linq;
 using System;
 
-public class OnClickOKbutton :
+public class OnClickOkForLogin :
     MonoBehaviour,
     IMessageWriteToMW                                 // メッセージウィンドウ書き込みIF
 {
     public AudioClip clickSE;                         // OKボタンクリックSE
     public InputField nameField;                      // 名前のインプットフィールド
     private GameManager gameManager;                  // マネージャコンポ
-    private GameObject warningWindow;                 // メッセージウィンドウCanvas
+    private GameObject warningParentGO;               // メッセージウィンドウCanvas
     private Text warningText;                         // メッセージウィンドウのTextコンポ
     private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
     private string nextScene = "UnitSelect";          // 遷移先シーン名
     private AudioSource audioCompo;                   // オーディオコンポ
 
+    /// <summary>コンストラクタ</summary>
+    private OnClickOkForLogin() { }
+
     void Start()
     {
         // マネージャコンポ取得
-        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         // 名前入力フィールド取得
         nameField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
 
-        // メッセージウィンドウのCanvasとTextコンポを取得し、非アクティブ化
-        warningWindow = GameObject.Find("Canvas_WarningWindow");
-        warningText = GameObject.Find("WarningText").GetComponent<Text>();
-        if (warningWindow.activeSelf) warningWindow.SetActive(false);
+        // ワーニングウィンドウの親GOをワーニングウィンドウ管理クラスより取得
+        warningParentGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>().warningWindowParentGO;
 
         // オーディオコンポ取得とOKボタンクリック時SEの設定
         audioCompo = this.gameObject.GetComponent<AudioSource>();
@@ -44,7 +45,10 @@ public class OnClickOKbutton :
     public void MessageWriteToWindow(string a)
     {
         // メッセージウィンドウをアクティブ化
-        warningWindow.SetActive(true);
+        warningParentGO.SetActive(true);
+
+        // テキストコンポを取得
+        warningText = warningParentGO.transform.FindChild("WarningText").gameObject.GetComponent<Text>();
 
         // メッセージウィンドウ表示有無判定フラグを変更
         IsWindow = true;
@@ -91,6 +95,15 @@ public class OnClickOKbutton :
 
             // シーン遷移メソッドコール
             NextScene();
+        }
+        // メッセージウィンドウが表示されている場合
+        else
+        {
+            // メッセージウィンドウを非アクティブ化
+            warningParentGO.SetActive(false);
+
+            // メッセージウィンドウ表示有無判定フラグを変更
+            IsWindow = false;
         }
     }
 

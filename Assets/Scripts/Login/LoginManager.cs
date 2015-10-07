@@ -11,7 +11,7 @@ public class LoginManager :
     IMessageWriteToMW                                 // メッセージウィンドウ書き込みIF
 {
     private GameManager gameManager;                  // マネージャコンポ
-    private GameObject warningWindow;                 // メッセージウィンドウCanvas
+    private GameObject warningParentGO;                 // メッセージウィンドウCanvas
     private Text warningText;                         // メッセージウィンドウのTextコンポ
     public InputField nameField;                      // 名前のインプットフィールド
     private string nextScene = "UnitSelect";          // 遷移先シーン名
@@ -27,9 +27,8 @@ public class LoginManager :
         // ユーザーID入力フィールド取得
         nameField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
 
-        // メッセージウィンドウのCanvasとTextコンポを取得し、非アクティブ化
-        warningWindow = GameObject.Find("Canvas_WarningWindow");
-        warningText = GameObject.Find("WarningText").GetComponent<Text>();
+        // ワーニングウィンドウの親GOをワーニングウィンドウ管理クラスより取得
+        warningParentGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>().warningWindowParentGO;
 
         // ユーザーIDをtxtファイルから読み出し
         var streamReader = new StreamReaderSingleLine();
@@ -75,7 +74,7 @@ public class LoginManager :
             else
             {
                 // メッセージウィンドウを非アクティブ化
-                warningWindow.SetActive(false);
+                warningParentGO.SetActive(false);
 
                 // メッセージウィンドウ表示有無判定フラグを変更
                 IsWindow = false;
@@ -83,10 +82,10 @@ public class LoginManager :
         }
 
         // メッセージウィンドウがアクティブ状態の時に左クリックされた場合
-        if (true == warningWindow.activeSelf && Input.GetMouseButtonDown(0))
+        if (true == warningParentGO.activeSelf && Input.GetMouseButtonDown(0))
         {
             // メッセージウィンドウを非アクティブ化
-            warningWindow.SetActive(false);
+            warningParentGO.SetActive(false);
 
             // メッセージウィンドウ表示有無判定フラグを変更
             IsWindow = false;
@@ -100,7 +99,10 @@ public class LoginManager :
     public void MessageWriteToWindow(string a)
     {
         // メッセージウィンドウをアクティブ化
-        warningWindow.SetActive(true);
+        warningParentGO.SetActive(true);
+
+        // テキストコンポを取得
+        warningText = warningParentGO.transform.FindChild("WarningText").gameObject.GetComponent<Text>();
 
         // メッセージウィンドウ表示有無判定フラグを変更
         IsWindow = true;

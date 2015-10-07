@@ -299,30 +299,4 @@ public class UnitForm : MonoBehaviour
             }
         }
     }
-
-    /// <summary>
-    /// NameEditボタンクリックメソッド
-    /// <para>NameEditボタンのOnClick()よりコールされ、シーン遷移を実施する。</para>
-    /// </summary>
-    public void OnClickNameEditButton()
-    {
-        string nextScene = "NameSelect";  // 遷移先シーン
-
-        // Scene遷移実施（アビリティセレクトへ）
-        // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
-        gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, Color.black, nextScene);
-    }
-
-    /// <summary>
-    /// AbilityEditボタンクリックメソッド
-    /// <para>AbilityEditボタンのOnClick()よりコールされ、シーン遷移を実施する。</para>
-    /// </summary>
-    public void OnClickAbilityEditButton()
-    {
-        string nextScene = "AbilitySelect";  // 遷移先シーン
-
-        // Scene遷移実施（アビリティセレクトへ）
-        // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
-        gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, Color.black, nextScene);
-    }
 }

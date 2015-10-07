@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;   // コレクションクラスの定義に必要
 using System.Linq;
 
-public class UnitSelectButtonOK : MonoBehaviour
+public class OnClickOkForUnitSelect : MonoBehaviour
 {
     public AudioClip clickSE;                           // OKボタンクリックSE
     private GameManager gameManager;                    // マネージャコンポ
     private string nextScene = "NameSelect";            // スタートボタンプッシュ時遷移先シーン
     private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
     private AudioSource audioCompo;                      // オーディオコンポ
+
+    /// <summary>コンストラクタ</summary>
+    private OnClickOkForUnitSelect() { }
 
     // ----------------------------------------
     // Startメソッド
@@ -57,7 +60,6 @@ public class UnitSelectButtonOK : MonoBehaviour
     // ---------------------------------
     public void MyUnitListConst()
     {
-
         int unitVal = 0;        // ユニットID
 
         // ソルジャーがいる場合
