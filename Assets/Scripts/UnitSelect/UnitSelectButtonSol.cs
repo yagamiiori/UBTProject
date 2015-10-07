@@ -36,7 +36,9 @@ public class UnitSelectButtonSol :
         playEffect = new PlayEffect();
 
         // オーディオコンポを取得
-        audioCompo = gameObject.GetComponent<AudioSource>();
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
 
         // ユニット数表示Textコンポ取得
         counterUnitValue = GameObject.FindWithTag("Unit_CounterSold").GetComponent<Text>();

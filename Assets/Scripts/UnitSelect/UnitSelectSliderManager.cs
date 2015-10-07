@@ -56,10 +56,10 @@ public class UnitSelectSliderManager : MonoBehaviour
         sliderSolder = GameObject.Find("Slider_Solder").GetComponent<Slider>();
         sliderWizard = GameObject.Find("Slider_Wizard").GetComponent<Slider>();
 
-        // オーディオコンポを取得し、SEファイルを設定する
-        audioCompo = this.gameObject.GetComponent<AudioSource>();
+        // オーディオコンポを取得
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
         // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
-        if (null == audioCompo) audioCompo = this.gameObject.AddComponent<AudioSource>();
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
         clickSE = (AudioClip)Resources.Load("Sounds/SE/CursorMove4");
 
     }

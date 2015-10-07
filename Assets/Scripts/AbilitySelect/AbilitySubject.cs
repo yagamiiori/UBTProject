@@ -56,7 +56,9 @@ public class AbilitySubject :
         unitArea = GameObject.FindWithTag("Abl_UnitArea");
 
         // オーディオコンポを取得
-        audioCompo = this.gameObject.GetComponent<AudioSource>();
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
 
         // ユニットボタンクリック時SE、アビリティボタンクリック時SE、キャンセルSEを設定
         clickSE_UnitSlected = (AudioClip)Resources.Load("Sounds/SE/Click4");

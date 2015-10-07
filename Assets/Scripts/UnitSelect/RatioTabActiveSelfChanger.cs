@@ -73,7 +73,9 @@ public class RatioTabActiveSelfChanger : MonoBehaviour
         ratio4TabTextCompo.color = Color.grey;
 
         // オーディオコンポを取得
-        audioCompo = gameObject.GetComponent<AudioSource>();
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
     }
 
     /// <summary>

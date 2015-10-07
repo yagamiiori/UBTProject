@@ -30,9 +30,9 @@ public class OnClickHelpWizard : MonoBehaviour
         helpMsgParentState = GameObject.Find("Canvas_MessageWindow").GetComponent<HelpMsgParentGOstate>();
 
         // オーディオコンポを取得
-        audioCompo = this.gameObject.GetComponent<AudioSource>();
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
         // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
-        if (null == audioCompo) audioCompo = this.gameObject.AddComponent<AudioSource>();
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
     }
 
     /// <summary>

@@ -22,8 +22,10 @@ public class OnClickOkForUnitSelect : MonoBehaviour
         // マネージャコンポ取得
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
-        // オーディオコンポ取得とOKボタンクリック時SEの設定
-        audioCompo = this.gameObject.GetComponent<AudioSource>();
+        // オーディオコンポを取得
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
         clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
     }
 

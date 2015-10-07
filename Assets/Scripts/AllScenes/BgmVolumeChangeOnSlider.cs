@@ -15,8 +15,8 @@ public class BgmVolumeChangeOnSlider : MonoBehaviour
 
 	void Start ()
     {
-        // BGMプレイヤーコンポをGMより取得
-        bgmPlayerComponet = GameObject.Find("GameManager").GetComponent<BgmPlayerForAllScene>();
+        // BGMプレイヤーコンポを取得
+        bgmPlayerComponet = GameObject.Find("PlayersParent").transform.FindChild("BGMPlayer").gameObject.GetComponent<BgmPlayerForAllScene>();
 
         // 自身のスライダーコンポをBGMプレイヤーのフィールドに設定
         bgmPlayerComponet.VolumeSlider = this.gameObject.GetComponent<Slider>();

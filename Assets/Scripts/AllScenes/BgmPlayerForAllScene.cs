@@ -8,9 +8,9 @@ using UnityEngine.UI;
 /// </summary>
 public class BgmPlayerForAllScene : MonoBehaviour
 {
-    /// <summary>ボリュームスライダーコンポ（スライダーにアタッチされたBgmVolumeChangeOnSliderから設定される）</summary>
+    /// <summary>BGMボリュームスライダーコンポ（スライダーにアタッチされたBgmVolumeChangeOnSliderから設定される）</summary>
     public Slider VolumeSlider;
-    /// <summary>ボリュームスライダーの音量（各シーンのスライダーオブジェクトから操作される）</summary>
+    /// <summary>BGMボリュームスライダーの音量（各シーンのスライダーオブジェクトから操作される）</summary>
     private float volumeSliderValue = 0.1f;
     public float VolumeSliderValue
     {
@@ -56,7 +56,7 @@ public class BgmPlayerForAllScene : MonoBehaviour
     void Update()
     {
         // スライダーの値をボリュームに設定
-        if (!isFadePlaying) audioSource.volume = VolumeSlider.value;
+        if (!isFadePlaying && audioSource && VolumeSlider) audioSource.volume = VolumeSlider.value;
 
         // フェードアウト処理
         if (isFadePlaying)
