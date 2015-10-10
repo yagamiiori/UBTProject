@@ -73,6 +73,7 @@ TagManager:
   - Canvas_FadeDisplay
   - RoomButtons
   - PlayersParent
+  - UnitGO
   layers:
   - Default
   - TransparentFX

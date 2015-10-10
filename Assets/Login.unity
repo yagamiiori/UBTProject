@@ -207,9 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Color: {r: .839215696, g: .839215696, b: .839215696, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fa55d7d0344bcff4e959e3012336fe7e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1330,7 +1330,7 @@ GameObject:
   - 222: {fileID: 594388926}
   - 114: {fileID: 594388925}
   m_Layer: 5
-  m_Name: Text_Message
+  m_Name: Text_Warning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1379,7 +1379,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Message
+  m_Text: Warning
 --- !u!222 &594388926
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2404,7 +2404,7 @@ GameObject:
   - 222: {fileID: 1070896336}
   - 114: {fileID: 1070896335}
   m_Layer: 5
-  m_Name: Text_"HelpMessage"
+  m_Name: Text_Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2453,7 +2453,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Help Message
+  m_Text: Message
 --- !u!222 &1070896336
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2492,7 +2492,7 @@ RectTransform:
   m_Children:
   - {fileID: 599693978}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3221,7 +3221,7 @@ RectTransform:
   m_Children:
   - {fileID: 1523901674}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3954,7 +3954,7 @@ RectTransform:
   - {fileID: 1410221374}
   - {fileID: 1451652347}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4350,7 +4350,7 @@ GameObject:
   - 114: {fileID: 1777626689}
   - 114: {fileID: 1777626688}
   - 114: {fileID: 1777626692}
-  - 82: {fileID: 1777626693}
+  - 114: {fileID: 1777626693}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4434,7 +4434,7 @@ RectTransform:
   - {fileID: 408215658}
   - {fileID: 1282827271}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4451,76 +4451,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b96e9e392d88144ad7e9a81ca92d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameField: {fileID: 0}
---- !u!82 &1777626693
-AudioSource:
+  audioCompo: {fileID: 0}
+  clickSE: {fileID: 0}
+  guidField: {fileID: 0}
+--- !u!114 &1777626693
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1777626687}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: .100000001
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea0cb2cbbb6ad14980d1a52a767c953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1789956598
 GameObject:
   m_ObjectHideFlags: 0
@@ -4587,45 +4531,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1789956598}
---- !u!1 &1797181109
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1797181111}
-  - 114: {fileID: 1797181110}
-  m_Layer: 0
-  m_Name: MySQLManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1797181110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1797181109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ea0cb2cbbb6ad14980d1a52a767c953, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1797181111
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1797181109}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &1820235729
 GameObject:
   m_ObjectHideFlags: 0

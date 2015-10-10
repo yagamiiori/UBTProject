@@ -11,13 +11,16 @@ public class OnClickOkForLogin :
     IMessageWriteToMW                                 // メッセージウィンドウ書き込みIF
 {
     public AudioClip clickSE;                         // OKボタンクリックSE
-    public InputField nameField;                      // 名前のインプットフィールド
+    public InputField guidField;                      // GUIDのインプットフィールド
     private GameManager gameManager;                  // マネージャコンポ
     private GameObject warningParentGO;               // メッセージウィンドウCanvas
     private Text warningText;                         // メッセージウィンドウのTextコンポ
     private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
-    private string nextScene = "UnitSelect";          // 遷移先シーン名
+    private string nextForUnitSelect = "UnitSelect";  // 遷移先シーン名
+    private string nextForLobby = "Lobby";            // 遷移先シーン名
     private AudioSource audioCompo;                   // オーディオコンポ
+    /// <summary>LinkToXML(旧mySQL)クラス</summary>
+    private AppSettings appSettings;
 
     /// <summary>コンストラクタ</summary>
     private OnClickOkForLogin() { }
@@ -28,7 +31,10 @@ public class OnClickOkForLogin :
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         // 名前入力フィールド取得
-        nameField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
+        guidField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
+
+        //  LINQ to XMLクラス取得
+        appSettings = GameObject.Find("Canvas").GetComponent<AppSettings>();
 
         // ワーニングウィンドウの親GOをワーニングウィンドウ管理クラスより取得
         warningParentGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>().warningWindowParentGO;
@@ -69,34 +75,34 @@ public class OnClickOkForLogin :
         if (!IsWindow)
         {
             // IDフィールドに何も入力されていない場合
-            if ("" == nameField.text)
+            if ("" == guidField.text)
             {
                 MessageWriteToWindow("未入力。\nログインIDを入力して下さい。");
                 return;
             }
             // 入力されたIDが「NameLess」の場合
-            else if ("NameLess" == nameField.text)
+            else if ("NameLess" == guidField.text)
             {
                 gameManager.userName = "NameLess";
             }
             // IDが正常に入力された場合
             else
             {
-                // ID検索して一致したらロードする
-                // 処理はまだ書いてない
-                // 一致するIDがなければエラー文をメッセージウィンドウで表示
-                // 入力されたIDから名前を逆引きしてGMのフィールドに格納
-                gameManager.userName = nameField.text.ToString();
+                clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
+                // クリックSEを設定および再生
+                audioCompo.PlayOneShot(clickSE);
+
+                // 入力されたGUIDとXMLのGUIDが同一であるか否か比較する
+                bool GuidResult = appSettings.CompareGuid(guidField.text);
+                // XMLがユニット情報を保持しているか否か判定する
+                bool UnitExistResult = appSettings.JudgeUnitExistInXml();
+
+                // 入力されたGUIDが正しく、かつXMLがユニット情報を保持している場合はLobbyシーンへ遷移する
+                if (GuidResult && UnitExistResult) NextSceneIsLobby();
+                return;
             }
-
-            // 次回からの入力を自動化するため、入力された文字列をファイルに書き出し
-            var streamWriter = new StreamWriterSingleLine();
-            string fileName = "iid.txt";
-            string filetxt = nameField.text;
-            bool result = streamWriter.WriteToStream(fileName, filetxt);
-
-            // シーン遷移メソッドコール
-            NextScene();
+            // XMLがユニット情報を保持していない場合はUnitSelectシーンへ遷移する
+            NextSceneIsUnitSelct();
         }
         // メッセージウィンドウが表示されている場合
         else
@@ -109,16 +115,22 @@ public class OnClickOkForLogin :
         }
     }
 
-    // -------------------------------
-    // シーン遷移メソッド
-    // -------------------------------
-    public void NextScene()
+    // =====================================
+    // シーン遷移メソッド（UnitSelect）
+    // =====================================
+    public void NextSceneIsUnitSelct()
     {
-        // クリックSEを設定および再生
-        audioCompo.PlayOneShot(clickSE);
-
         // Scene遷移
         // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
-        gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.4f, 0.1f, Color.black, nextScene);
+        gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.4f, 0.1f, Color.black, nextForUnitSelect);
+    }
+    // =====================================
+    // シーン遷移メソッド（Lobby）
+    // =====================================
+    public void NextSceneIsLobby()
+    {
+        // Scene遷移
+        // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
+        gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.4f, 0.1f, Color.black, nextForLobby);
     }
 }

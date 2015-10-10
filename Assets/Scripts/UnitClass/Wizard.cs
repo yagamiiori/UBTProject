@@ -90,7 +90,7 @@ public class Wizard : BaseClassOnUnit
         magicAttack = 130 + Random.Range(0, 31);
         PysicsDeffence = 110 + Random.Range(0, 31);
         MagicDeffence = 160 + Random.Range(0, 31);
-        unitName = "Input Name";
+        unitName = "UnitName";
         correct_W = 20 + Random.Range(0, 31); ;
         correct_M = 30 + Random.Range(0, 31);
         promJud = false;

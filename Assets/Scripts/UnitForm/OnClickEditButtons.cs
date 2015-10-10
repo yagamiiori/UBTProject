@@ -56,6 +56,10 @@ public class OnClickEditButtons :
 
         // メッセージ表示
         warningText.text = a;
+
+        // マウスカーソルをワーニングウィンドウのNoボタンに移動させる
+//        var t = new System.Drawing.Point(0, 0);
+//        System.Windows.Forms.Cursor.Position = t;
     }
 
     /// <summary>
@@ -71,7 +75,7 @@ public class OnClickEditButtons :
 
             // Scene遷移実施（アビリティセレクトへ）
             // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
-            gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, Color.black, nextScene);
+            gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, UnityEngine.Color.black, nextScene);
         }
     }
 
@@ -88,7 +92,7 @@ public class OnClickEditButtons :
 
             // Scene遷移実施（アビリティセレクトへ）
             // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
-            gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, Color.black, nextScene);
+            gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, UnityEngine.Color.black, nextScene);
         }
     }
 }

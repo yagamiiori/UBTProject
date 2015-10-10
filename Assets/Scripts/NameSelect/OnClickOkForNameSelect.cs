@@ -7,12 +7,12 @@ using System.Linq;
 
 public class OnClickOkForNameSelect : MonoBehaviour
 {
+    public AudioSource audioCompo;                      // オーディオコンポ
+    public AudioClip clickSE;                           // OKボタンクリックSE
     private GameManager gameManager;                    // マネージャコンポ
     private UnitNameSetForSceneLoading nameSelect;      // NameSelectコンポ
     private string nextScene = "AbilitySelect";         // スタートボタンプッシュ時遷移先シーン
     private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
-    public AudioSource audioCompo;                      // オーディオコンポ
-    public AudioClip clickSE;                           // OKボタンクリックSE
 
     /// <summary>コンストラクタ</summary>
     private OnClickOkForNameSelect() { }
@@ -52,7 +52,7 @@ public class OnClickOkForNameSelect : MonoBehaviour
             // ユニットステートリスト内を最大ユニット数分ループ
             for (int i = 0; i < gameManager.unitStateList.Count; i++)
             {
-                if ("Input Name" == nameSelect.UnitNameList[i].text ||
+                if ("UnitName" == nameSelect.UnitNameList[i].text ||
                     "" == nameSelect.UnitNameList[i].text)
                 {
                     // 名前が初期値のInputNameもしくは未入力の場合はNo＋固有番号を振る

@@ -9,9 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 441352}
   - 114: {fileID: 11483236}
+  - 114: {fileID: 11428334}
   m_Layer: 0
-  m_Name: UnitState
-  m_TagString: Untagged
+  m_Name: UnitGO
+  m_TagString: UnitGO
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,6 +29,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11428334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154780}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02764e0c722c8a468e4c3e611bcde7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11483236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,17 +53,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitID: 0
   classType: 0
-  abilityType: 0
-  attribute: 0
-  set: 0
+  ability_A: 0
+  ability_B: 0
+  ability_C: 0
+  ability_D: 0
+  ability_E: 0
+  weaponType: 0
+  element: 1
+  sex: 0
+  color: 0
+  hp: 0
+  mp: 0
+  workType: 0
+  expValue: 0
+  wt: 0
+  brave: 0
+  fath: 0
+  PysicsDef: 0
+  MagicDef: 0
+  attack: 0
+  Equipment_Hand_R: 0
+  Equipment_Hand_L: 0
+  Equipment_Head: 0
+  Equipment_Body: 0
+  Equipment_Foot: 0
+  Equipment_Accessory: 0
   unitName: 0
+  correct_W: 0
+  correct_M: 0
+  promJud: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: UnitGO
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 154780}

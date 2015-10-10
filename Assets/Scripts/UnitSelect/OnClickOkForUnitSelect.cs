@@ -71,11 +71,12 @@ public class OnClickOkForUnitSelect : MonoBehaviour
             for (int j = 0; j < gameManager.sodlerNum; j++)
             {
                 // ユニットステート用GOのインスタンス化とコンポ取得
-                GameObject unitState = Instantiate(Resources.Load("UnitState"), transform.position, Quaternion.identity) as GameObject;
-                UnitState unitstate = unitState.GetComponent<UnitState>();
+                GameObject unitGO = Instantiate(Resources.Load("UnitGO"), transform.position, Quaternion.identity) as GameObject;
+                unitGO.name = "Solder" + j.ToString();
+                UnitState unitstate = unitGO.GetComponent<UnitState>();
 
                 // インスタンス化したユニットステート用GOをGameManagerの子オブジェクトに設定
-                unitState.transform.parent = gameManager.transform;
+                unitGO.transform.parent = gameManager.transform;
 
                 // ユニットIDを設定
                 unitstate.unitID = unitVal;
@@ -107,11 +108,12 @@ public class OnClickOkForUnitSelect : MonoBehaviour
             for (int j = 0; j < gameManager.wizardNum; j++)
             {
                 // ユニットステート用GOのインスタンス化とコンポ取得
-                GameObject unitState = Instantiate(Resources.Load("UnitState"), transform.position, Quaternion.identity) as GameObject;
-                UnitState unitstate = unitState.GetComponent<UnitState>();
+                GameObject unitGO = Instantiate(Resources.Load("UnitGO"), transform.position, Quaternion.identity) as GameObject;
+                unitGO.name = "Wizard" + j.ToString();
+                UnitState unitstate = unitGO.GetComponent<UnitState>();
 
                 // インスタンス化したユニットステート用GOをGameManagerの子オブジェクトに設定
-                unitState.transform.parent = gameManager.transform;
+                unitGO.transform.parent = gameManager.transform;
 
                 // ユニットIDを設定
                 unitstate.unitID = unitVal;

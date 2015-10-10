@@ -18,7 +18,7 @@ public class RegisterManager :
     private GameManager gameManager;                  // マネージャコンポ
     private GameObject warningParentGO;               // ワーニングウィンドウCanvas
     private InputField warningText;                   // ワーニングウィンドウのTextコンポ
-    private AudioSource audioSource;                  // オーディオソースコンポ
+    private AudioSource audioCompo;                  // オーディオソースコンポ
     private string nextScene = "Login";               // 遷移先シーン名
     private string loginName = "Login";               // 遷移先シーン名
     private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
@@ -38,8 +38,10 @@ public class RegisterManager :
         // ワーニングウィンドウの親GOをワーニングウィンドウ管理クラスより取得
         warningParentGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>().warningWindowParentGO;
 
-        // オーディオソースコンポ取得
-        audioSource = this.gameObject.GetComponent<AudioSource>();
+        // オーディオコンポを取得
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -55,7 +57,7 @@ public class RegisterManager :
                 {
                     // SEを設定および再生
                     clickSE = (AudioClip)Resources.Load("Sounds/SE/Error1");
-                    audioSource.PlayOneShot(clickSE);
+                    audioCompo.PlayOneShot(clickSE);
 
                     // メッセージウィンドウ描画メソッドをコールして未入力メッセージを表示
                     MessageWriteToWindow("未入力もしくはゲスト名です。\n正しいユーザー名を入力して下さい。");
@@ -66,7 +68,7 @@ public class RegisterManager :
                 {
                     // SEを設定および再生
                     clickSE = (AudioClip)Resources.Load("Sounds/SE/Click1");
-                    audioSource.PlayOneShot(clickSE);
+                    audioCompo.PlayOneShot(clickSE);
 
                     // GUIDを生成
                     Guid guidValue = Guid.NewGuid();
@@ -123,7 +125,7 @@ public class RegisterManager :
             {
                 // SEを設定および再生
                 clickSE = (AudioClip)Resources.Load("Sounds/SE/Click1");
-                audioSource.PlayOneShot(clickSE);
+                audioCompo.PlayOneShot(clickSE);
 
                 // GUIDを生成
                 Guid guidValue = Guid.NewGuid();
@@ -143,7 +145,7 @@ public class RegisterManager :
             {
                 // SEを設定および再生
                 clickSE = (AudioClip)Resources.Load("Sounds/SE/Error1");
-                audioSource.PlayOneShot(clickSE);
+                audioCompo.PlayOneShot(clickSE);
 
                 // メッセージウィンドウ描画メソッドをコールして未入力メッセージを表示
                 MessageWriteToWindow("未入力もしくはゲスト名です。\n正しいユーザー名を入力して下さい。");
@@ -215,7 +217,7 @@ public class RegisterManager :
     {
         // SEを設定および再生
         clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
-        audioSource.PlayOneShot(clickSE);
+        audioCompo.PlayOneShot(clickSE);
 
         // Scene遷移
         // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ

@@ -7754,7 +7754,7 @@ GameObject:
   - 222: {fileID: 851327467}
   - 114: {fileID: 851327466}
   m_Layer: 5
-  m_Name: Text_"HelpMessage"
+  m_Name: Text_Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7803,7 +7803,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Help Message
+  m_Text: Message
 --- !u!222 &851327467
 CanvasRenderer:
   m_ObjectHideFlags: 0

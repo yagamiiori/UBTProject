@@ -5,7 +5,7 @@ using System.Collections;
 /// ソルジャークラス
 /// <para>　ソルジャーの能力を有する。</para>
 /// </summary>
-public class Solder : BaseClassOnUnit
+public class Soldier : BaseClassOnUnit
 {
     /// <summary>ユニットID</summary>
     public int unitID;
@@ -49,7 +49,7 @@ public class Solder : BaseClassOnUnit
     public bool promJud;
 
     /// <summary>コンストラクタ</summary>
-    private Solder() { }
+    private Soldier() { }
 
     void Awake()
     {
@@ -90,7 +90,7 @@ public class Solder : BaseClassOnUnit
         magicAttack = 60 + Random.Range(0, 31);
         PysicsDeffence = 160 + Random.Range(0, 31);
         MagicDeffence = 120 + Random.Range(0, 31);
-        unitName = "Input Name";
+        unitName = "UnitName";
         correct_W = 30 + Random.Range(0, 31); ;
         correct_M = 20 + Random.Range(0, 31);
         promJud = false;

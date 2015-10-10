@@ -12,7 +12,7 @@ public class OnClickHelpSolder : MonoBehaviour
     /// <summary>メインCanvas</summary>
     private GameObject canVas;
     /// <summary>ヘルプメッセージCanvasの親オブジェクト状態クラス</summary>
-    private HelpMsgParentGOstate helpMsgParentState;
+    private MessageWindowActiveManager helpMsgParentState;
     /// <summary>オーディオコンポ</summary>
     private AudioSource audioCompo;
     /// <summary>クリックSE</summary>
@@ -28,7 +28,7 @@ public class OnClickHelpSolder : MonoBehaviour
         canVas = GameObject.Find("Canvas");
 
         // ヘルプメッセージCanvasの親オブジェクト状態クラスを取得
-        helpMsgParentState = GameObject.Find("Canvas_MessageWindow").GetComponent<HelpMsgParentGOstate>();
+        helpMsgParentState = GameObject.Find("Canvas_MessageWindow").GetComponent<MessageWindowActiveManager>();
 
         // オーディオコンポを取得
         audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();

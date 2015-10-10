@@ -80,7 +80,7 @@ public class UnitState : Photon.MonoBehaviour
         Equipment_Body = Defines.NON_VALUE;     // 装備 - 体
         Equipment_Foot = Defines.NON_VALUE;     // 装備 - 足
         Equipment_Accessory = Defines.NON_VALUE;// 装備 - アクセサリ
-        unitName = "Input Name";                // ユニット名
+        unitName = "UnitName";                  // ユニット名
         correct_W = Defines.NON_VALUE;          // ユニット固有ダメージ補正率 - 武器
         correct_M = Defines.NON_VALUE;          // ユニット固有ダメージ補正率 - 魔法
         promJud = false;                        // プロモーション可否判定フラグ

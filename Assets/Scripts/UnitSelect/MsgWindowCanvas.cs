@@ -14,12 +14,12 @@ using System.Linq;
 public class MsgWindowCanvas : MonoBehaviour
 {
     /// <summary>ヘルプメッセージ親オブジェクトActive状態管理クラス</summary>
-    private HelpMsgParentGOstate parentGOstate;
+    private MessageWindowActiveManager parentGOstate;
 
     void Start()
     {
         // ヘルプメッセージ親オブジェクトActive状態管理クラスを取得
-        parentGOstate = this.gameObject.GetComponent<HelpMsgParentGOstate>();
+        parentGOstate = this.gameObject.GetComponent<MessageWindowActiveManager>();
     }
 
 	void Update ()

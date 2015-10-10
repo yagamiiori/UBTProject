@@ -8,12 +8,14 @@ using System.Collections;
 /// <para>　parentGOフィールドはMsgWindowCanvasクラスと</para>
 /// <para>　各クラスのヘルプボタンにアタッチされたヘルプメッセージ表示クラス</para>
 /// <para>　から設定される。</para>
-/// TODO 親オブジェクトのアクティブ状態の管理が密結合すぎ。デザパタ使った方がいい？
 /// </summary>
-public class HelpMsgParentGOstate : MonoBehaviour
+public class MessageWindowActiveManager : MonoBehaviour
 {
     /// <summary>ヘルプメッセージ親オブジェクト</summary>
     public GameObject parentGO;
+
+    /// <summary>コンストラクタ</summary>
+    private MessageWindowActiveManager() { }
 
     void Start()
     {

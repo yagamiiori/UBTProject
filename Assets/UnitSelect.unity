@@ -1701,6 +1701,9 @@ GameObject:
   - 114: {fileID: 470604867}
   - 114: {fileID: 470604866}
   - 114: {fileID: 470604869}
+  - 114: {fileID: 470604870}
+  - 114: {fileID: 470604871}
+  - 114: {fileID: 470604872}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Canvas
@@ -1800,6 +1803,39 @@ MonoBehaviour:
   counterSolderValue: {fileID: 0}
   counterWizardValue: {fileID: 0}
   clickSE: {fileID: 0}
+--- !u!114 &470604870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470604864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cad3c5546bc6f348a75b72a97701159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &470604871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470604864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00267a47ebff5e24d9a981d041a9835c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &470604872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470604864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348149ecf01dfb64fb06b5eb7b89c2b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &483272290
 GameObject:
   m_ObjectHideFlags: 0
@@ -5153,7 +5189,7 @@ GameObject:
   - 222: {fileID: 1150540666}
   - 114: {fileID: 1150540665}
   m_Layer: 5
-  m_Name: Text_"HelpMessage"
+  m_Name: Text_Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5202,7 +5238,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Help Message
+  m_Text: Message
 --- !u!222 &1150540666
 CanvasRenderer:
   m_ObjectHideFlags: 0

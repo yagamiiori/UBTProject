@@ -10,33 +10,56 @@ public class LoginManager :
     MonoBehaviour,
     IMessageWriteToMW                                 // メッセージウィンドウ書き込みIF
 {
+    public AudioSource audioCompo;                      // オーディオコンポ
+    public AudioClip clickSE;                           // OKボタンクリックSE
     private GameManager gameManager;                  // マネージャコンポ
     private GameObject warningParentGO;                 // メッセージウィンドウCanvas
+    /// <summary>LinkToXML(旧mySQL)クラス</summary>
+    private AppSettings appSettings;
     private Text warningText;                         // メッセージウィンドウのTextコンポ
-    public InputField nameField;                      // 名前のインプットフィールド
-    private string nextScene = "UnitSelect";          // 遷移先シーン名
+    public InputField guidField;                      // GUIDのインプットフィールド
+    private string nextForUnitSelect = "UnitSelect";  // 遷移先シーン名
+    private string nextForLobby = "Lobby";            // 遷移先シーン名
     private string regisgerName = "Register";         // 遷移先シーン名
     private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
-    private string userIDtxt;                         // ファイルから読み出したユーザーIDの文字列
 
     void Start()
     {
         // マネージャコンポ取得
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
-        // ユーザーID入力フィールド取得
-        nameField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
+        // GUID入力フィールド取得
+        guidField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
+        // GUIDをXMLから読み出し、入力フィールドに設定する
+        appSettings = this.gameObject.GetComponent<AppSettings>();
+        string userGuid = appSettings.GuidSetForInputFieldInLogin();
+        guidField.text = userGuid;
 
         // ワーニングウィンドウの親GOをワーニングウィンドウ管理クラスより取得
         warningParentGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>().warningWindowParentGO;
 
-        // ユーザーIDをtxtファイルから読み出し
-        var streamReader = new StreamReaderSingleLine();
-        string filename = "iid.txt";
-        userIDtxt = streamReader.ReadFromStream(filename);
-        // 読み出しに成功した場合、読み出したユーザーID文字列を入力フィールドに設定
-        if ("null" != userIDtxt) nameField.text = userIDtxt;
-
+        // オーディオコンポを取得
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+/*
+                // LinkToXMLクラスを作成
+                appSettings = new AppSettings();
+                string xmlFile = "var.xml";
+                if (false == System.IO.File.Exists(xmlFile))
+                {
+                    // XMLファイルがなければ作成する
+                    appSettings.CreateXmlFile();
+                }
+                // GUIDをXMLより取得し、GUIDフィールドへ設定する
+                guidField.text = appSettings.GuidSetForInputFieldInLogin();
+                // ユーザーIDをtxtファイルから読み出し
+                var streamReader = new StreamReaderSingleLine();
+                string filename = "iid.txt";
+                userIDtxt = streamReader.ReadFromStream(filename);
+                // 読み出しに成功した場合、読み出したGUID文字列を入力フィールドに設定
+                if ("null" != userIDtxt) guidField.text = userIDtxt;
+*/
     }
 
     void Update()
@@ -48,27 +71,34 @@ public class LoginManager :
             if (!IsWindow)
             {
                 // IDフィールドに何も入力されていない場合
-                if ("" == nameField.text)
+                if ("" == guidField.text)
                 {
                     MessageWriteToWindow("未入力。\nログインIDを入力して下さい。");
                     return;
                 }
                 // 入力されたIDが「NameLess」の場合
-                else if ("NameLess" == nameField.text)
+                else if ("NameLess" == guidField.text)
                 {
                     gameManager.userName = "NameLess";
                 }
-                // IDが正常に入力された場合
+                // GUIDが正常に入力された場合
                 else
                 {
-                    // ID検索して一致したらロードする
-                    // 処理はまだ書いてない
-                    // 一致するIDがなければエラー文をメッセージウィンドウで表示
-                    // 入力されたIDから名前を逆引きしてGMのフィールドに格納
-                    gameManager.userName = nameField.text.ToString();
+                    clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
+                    // クリックSEを設定および再生
+                    audioCompo.PlayOneShot(clickSE);
+
+                    // 入力されたGUIDとXMLのGUIDが同一であるか否か比較する
+                    bool GuidResult = appSettings.CompareGuid(guidField.text);
+                    // XMLがユニット情報を保持しているか否か判定する
+                    bool UnitExistResult = appSettings.JudgeUnitExistInXml();
+
+                    // 入力されたGUIDが正しく、かつXMLがユニット情報を保持している場合はLobbyシーンへ遷移する
+                    if (GuidResult && UnitExistResult) NextSceneIsLobby();
+                    return;
                 }
-                // シーン遷移メソッドコール
-                NextScene();
+                // XMLがユニット情報を保持していない場合はUnitSelectシーンへ遷移する
+                NextSceneIsUnitSelct();
             }
             // メッセージウィンドウ表示中にエンターキーが押された場合
             else
@@ -122,12 +152,21 @@ public class LoginManager :
     }
 
     // =====================================
-    // シーン遷移メソッド
+    // シーン遷移メソッド（UnitSelect）
     // =====================================
-    public void NextScene()
+    public void NextSceneIsUnitSelct()
     {
         // Scene遷移
         // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
-        gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.4f, 0.1f, Color.black, nextScene);
+        gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.4f, 0.1f, Color.black, nextForUnitSelect);
+    }
+    // =====================================
+    // シーン遷移メソッド（Lobby）
+    // =====================================
+    public void NextSceneIsLobby()
+    {
+        // Scene遷移
+        // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
+        gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.4f, 0.1f, Color.black, nextForLobby);
     }
 }

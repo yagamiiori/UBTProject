@@ -391,7 +391,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &9469381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &9469382
 CanvasRenderer:
@@ -588,7 +588,7 @@ GameObject:
   - 222: {fileID: 33565441}
   - 114: {fileID: 33565440}
   m_Layer: 5
-  m_Name: Text_"HelpMessage"
+  m_Name: Text_Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -637,7 +637,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Help Message
+  m_Text: Message
 --- !u!222 &33565441
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2400,7 +2400,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &226252324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2458,7 +2458,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &226252325
 CanvasRenderer:
@@ -2836,7 +2836,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &248425705
 CanvasRenderer:
@@ -2869,7 +2869,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!1 &253429845
 GameObject:
   m_ObjectHideFlags: 0
@@ -4194,7 +4194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &352475291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4252,7 +4252,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &352475292
 CanvasRenderer:
@@ -5261,7 +5261,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &465145978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5319,7 +5319,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &465145979
 CanvasRenderer:
@@ -7169,7 +7169,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &649226155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7227,7 +7227,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &649226156
 CanvasRenderer:
@@ -7371,7 +7371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &693783476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7429,7 +7429,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &693783477
 CanvasRenderer:
@@ -8394,7 +8394,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &786391180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8452,7 +8452,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &786391181
 CanvasRenderer:
@@ -10713,7 +10713,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &924751430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10771,7 +10771,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &924751431
 CanvasRenderer:
@@ -12184,7 +12184,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &1111702163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12242,7 +12242,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &1111702164
 CanvasRenderer:
@@ -13999,7 +13999,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &1302782799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14057,7 +14057,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &1302782800
 CanvasRenderer:
@@ -14125,7 +14125,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &1306568055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14183,7 +14183,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &1306568056
 CanvasRenderer:
@@ -18196,7 +18196,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &1737085788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18254,7 +18254,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &1737085789
 CanvasRenderer:
@@ -19184,7 +19184,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &1853649386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19242,7 +19242,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &1853649387
 CanvasRenderer:
@@ -19454,7 +19454,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &1874866026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19512,7 +19512,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &1874866027
 CanvasRenderer:
@@ -21656,7 +21656,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Input Name
+  m_Text: UnitName
 --- !u!114 &2060199514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21714,7 +21714,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
-  m_Text: Input Name
+  m_Text: UnitName
   m_CaretBlinkRate: 1.70000005
 --- !u!222 &2060199515
 CanvasRenderer:

@@ -11,7 +11,7 @@ public class OnClickHelpNameSelectScene : MonoBehaviour
     /// <summary>メインCanvas</summary>
     private GameObject canVas;
     /// <summary>ヘルプメッセージCanvasの親オブジェクト状態クラス</summary>
-    private HelpMsgParentGOstate helpMsgParentState;
+    private MessageWindowActiveManager helpMsgParentState;
     /// <summary>オーディオコンポ</summary>
     private AudioSource audioCompo;
     /// <summary>クリックSE</summary>
@@ -27,7 +27,7 @@ public class OnClickHelpNameSelectScene : MonoBehaviour
         canVas = GameObject.Find("Canvas");
 
         // ヘルプメッセージCanvasの親オブジェクト状態クラスを取得
-        helpMsgParentState = GameObject.Find("Canvas_MessageWindow").GetComponent<HelpMsgParentGOstate>();
+        helpMsgParentState = GameObject.Find("Canvas_MessageWindow").GetComponent<MessageWindowActiveManager>();
 
         // オーディオコンポを取得
         audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
@@ -50,8 +50,8 @@ public class OnClickHelpNameSelectScene : MonoBehaviour
 
         string helpMessage = "ユニットの名前とエレメント(属性)を選択するシーンです。\n" +
                          "\n" +
-                         "Name欄のInputNameをクリックし、キーボードでユニットの名前を入力して下さい。\n" +
-                         "未記入の場合、ユニットの名前は「NameLess」になります。\n" +
+                         "Name欄の「UnitName」をクリックし、キーボードでユニットの名前を入力して下さい。\n" +
+                         "未入力の場合は、ユニット毎に個別のID名が自動で振られます。\n" +
                          "\n" +
                          "エレメント(属性)は、各属性の攻撃魔法を使う場合や、それらによる攻撃を受ける場合に関係する要素です。\n" +
                          "例えば、エレメントが炎のユニットが炎属性の魔法を使うと、炎属性以外のユニットが魔法を行使した場合よりダメージアップが見込めます。\n" +
