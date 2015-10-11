@@ -23,6 +23,8 @@ public class RegisterManager :
     private string loginName = "Login";               // 遷移先シーン名
     private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
     private bool IsGuidDecided = false;               // GUID決定済み判定（0:GUID未発行　1:GUID発行済み）
+    /// <summary>LinkToXML(旧mySQL)クラス</summary>
+    private XmlManager appSettings;
 
     /// <summary>コンストラクタ</summary>
     private RegisterManager() { }
@@ -87,6 +89,10 @@ public class RegisterManager :
                     // GUID決定済み判定を発行済み(true)にする
                     IsGuidDecided = true;
 
+                    // LinkToXMLコンポを取得し、入力されたユーザー名と生成されたGUIDをXMLへ保存する
+                    appSettings = GameObject.Find("XmlManager").GetComponent<XmlManager>();
+                    appSettings.UserStatusWriteToXml(nameField.text, guidValue.ToString());
+
                     return;
                 }
             }
@@ -139,6 +145,11 @@ public class RegisterManager :
 
                 // GUID決定済み判定を発行済み(true)にする
                 IsGuidDecided = true;
+
+                // LinkToXMLコンポを取得し、入力されたユーザー名と生成されたGUIDをXMLへ保存する
+                appSettings = GameObject.Find("XmlManager").GetComponent<XmlManager>();
+                appSettings.UserStatusWriteToXml(nameField.text, guidValue.ToString());
+                return;
             }
             // インプットフィールドが空欄またはNameLessが入力されている場合
             else

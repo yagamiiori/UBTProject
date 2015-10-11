@@ -42,24 +42,6 @@ public class LoginManager :
         audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
         // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
         if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
-/*
-                // LinkToXMLクラスを作成
-                appSettings = new AppSettings();
-                string xmlFile = "var.xml";
-                if (false == System.IO.File.Exists(xmlFile))
-                {
-                    // XMLファイルがなければ作成する
-                    appSettings.CreateXmlFile();
-                }
-                // GUIDをXMLより取得し、GUIDフィールドへ設定する
-                guidField.text = appSettings.GuidSetForInputFieldInLogin();
-                // ユーザーIDをtxtファイルから読み出し
-                var streamReader = new StreamReaderSingleLine();
-                string filename = "iid.txt";
-                userIDtxt = streamReader.ReadFromStream(filename);
-                // 読み出しに成功した場合、読み出したGUID文字列を入力フィールドに設定
-                if ("null" != userIDtxt) guidField.text = userIDtxt;
-*/
     }
 
     void Update()
@@ -84,18 +66,47 @@ public class LoginManager :
                 // GUIDが正常に入力された場合
                 else
                 {
-                    clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
-                    // クリックSEを設定および再生
-                    audioCompo.PlayOneShot(clickSE);
-
                     // 入力されたGUIDとXMLのGUIDが同一であるか否か比較する
                     bool GuidResult = appSettings.CompareGuid(guidField.text);
                     // XMLがユニット情報を保持しているか否か判定する
                     bool UnitExistResult = appSettings.JudgeUnitExistInXml();
 
-                    // 入力されたGUIDが正しく、かつXMLがユニット情報を保持している場合はLobbyシーンへ遷移する
-                    if (GuidResult && UnitExistResult) NextSceneIsLobby();
-                    return;
+                    if (!GuidResult)
+                    {
+                        // クリックSEを設定および再生（エラーSE）
+                        clickSE = (AudioClip)Resources.Load("Sounds/SE/Error1");
+                        audioCompo.PlayOneShot(clickSE);
+
+                        // 入力されたGUIDXMLのGUIDがアンマッチの場合はエラーを表示
+                        MessageWriteToWindow("ユーザーIDが一致しません。\n正しいユーザーIDを入力して下さい。");
+                        return;
+                    }
+
+                    // クリックSEを設定および再生（正常SE）
+                    clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
+                    audioCompo.PlayOneShot(clickSE);
+
+                    // ユーザー情報をXMLファイルより読み込んでGMへ設定する
+                    bool result = appSettings.UserStatusLoadFromXml();
+                    if (!result)
+                    {
+                        // XMLファイルより読み出したユーザー情報が不正な場合はエラーを表示
+                        MessageWriteToWindow("ユーザー情報が不正。\n正しいユーザーIDを入力して下さい。");
+                        return;                    
+                    }
+
+                    if (!UnitExistResult)
+                    {
+                        // ユーザー情報が正しく、かつXMLがユニット情報を保持していない場合はUnitSelectシーンへ遷移する
+                        NextSceneIsUnitSelct();
+                        return;
+                    }
+                    if (GuidResult && UnitExistResult)
+                    {
+                        // 入力されたGUIDが正しく、かつXMLがユニット情報を保持している場合はLobbyシーンへ遷移する
+                        NextSceneIsLobby();
+                        return;
+                    }
                 }
                 // XMLがユニット情報を保持していない場合はUnitSelectシーンへ遷移する
                 NextSceneIsUnitSelct();

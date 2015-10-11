@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -26,6 +28,12 @@ public class XmlManager : MonoBehaviour
     private int[] abilityInXml = new int[16];
     /// <summary>XMLから読み出したエレメント</summary>
     private int[] elementInXml = new int[16];
+    /// <summary>ワーニングウィンドウCanvas</summary>
+    private GameObject warningParentGO;
+    /// <summary>ワーニングウィンドウのTextコンポ</summary>
+    private Text warningText;
+    /// <summary>ワーニングウィンドウ表示有無判定フラグ</summary>
+    private bool IsWindow = false;
     /// <summary>永続オブジェクト有無（インスペクタから永続オブジェクトである事を可視化するために設定）</summary>
     [SerializeField]
     private bool isDontDestroy = true;
@@ -55,6 +63,9 @@ public class XmlManager : MonoBehaviour
         // マネージャコンポ取得
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
+        // ワーニングウィンドウの親GOをワーニングウィンドウ管理クラスより取得
+        warningParentGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>().warningWindowParentGO;
+
         string xmlFile = "var.xml";
         if (false == System.IO.File.Exists(xmlFile))
         {
@@ -62,10 +73,9 @@ public class XmlManager : MonoBehaviour
             CreateXmlFile();
         }
 
-        // ユーザー情報取得、ユニットリスト取得、取得したユニット情報をGMのユニットリストへ設定
-        UserStatusLoadFromXml();
-        UnitStateLoadFromXml();
-        UnitStateSetFromXml();
+        // ユニットリストをXMLファイルより取得し、取得したユニット情報をGMに設定する
+        UnitStateGetFromXml();
+        UnitStateSetToGameManager();
     }
 
     /// <summary>
@@ -169,9 +179,10 @@ public class XmlManager : MonoBehaviour
 
     /// <summary>
     /// ユーザ関連パラメータ取得メソッド
-    /// <para>　ユーザ名やGUIDなどのユーザー関連情報をXMLより取得し、GMにへ設定する。</para>
+    /// <para>　Loginシーンにおいてユーザ名やGUIDなどのユーザー関連情報をXMLより取得し、GMに設定する。</para>
+    /// <para>　また、読み出した時に各情報の整合性チェックも行う。</para>
     /// </summary>
-    public void UserStatusLoadFromXml()
+    public bool UserStatusLoadFromXml()
     {
         // xmlファイルを取得
         XElement document = XElement.Load("var.xml");
@@ -185,7 +196,7 @@ public class XmlManager : MonoBehaviour
             _guid = (string)p.Element("Guid")
         };
 
-        // xmlより要素を取得する
+        // XMLより要素を取得する
         string guidInXml = "";
         string userNameInXml = "";
         foreach (var elem in query)
@@ -194,9 +205,46 @@ public class XmlManager : MonoBehaviour
             guidInXml = elem._guid;
         }
 
-        // xmlより取得したユーザー名とGUIDをゲームマネージャーコンポに設定する
+        if (13 <= userNameInXml.Length)
+        {
+            // ユーザー名が不正の場合
+            return false;
+        }
+        if (36 != guidInXml.Length)
+        {
+            // GUIDが不正の場合
+            return false;
+        }
+
+        // XMLファイルより取得したユーザー名とGUIDをゲームマネージャーコンポに設定する
         gameManager.userName = userNameInXml;
         gameManager.userGuid = guidInXml;
+
+        return true;
+    }
+
+    /// <summary>
+    /// ユーザ関連パラメータ書き込みメソッド
+    /// <para>　Registerシーンにおいて作成したユーザ名とGUIDの情報をXMLに設定する。</para>
+    /// </summary>
+    /// <param name="userName">Registerシーンで入力されたユーザー名</param>
+    /// <param name="guid">Registerシーンで生成されたGUID</param>
+    public void UserStatusWriteToXml(string userName, string guid)
+    {
+        // xmlファイルを取得
+        XElement document = XElement.Load("var.xml");
+
+        IEnumerable<XElement> de =
+                                   from el in document.Descendants("UserParams") // UserParamsの要素から
+                                   select el;
+        foreach (XElement el in de)
+        {
+            // UnitStatus_xx要素配下の情報をXMLへ書き込み
+            el.Element("UserName").Value = userName;
+            el.Element("Guid").Value = guid;
+        }
+        // ファイルへ保存する
+        document.Save("var.xml");
     }
 
     /// <summary>
@@ -204,7 +252,7 @@ public class XmlManager : MonoBehaviour
     /// <para>　ユニットリストをxmlより取得する。</para>
     /// <para>　UnitStateSetFromXmlとセットで使用する。</para>
     /// </summary>
-    public void UnitStateLoadFromXml()
+    public void UnitStateGetFromXml()
     {
         // xmlファイルを取得
         XElement document = XElement.Load("var.xml");
@@ -242,7 +290,7 @@ public class XmlManager : MonoBehaviour
     /// <para>　また、ユニットGOを作成しUnitStateコンポ内のフィールドへの設定も行う。</para>
     /// <para>　UnitStateLoadFromXmlとセットで使用する。</para>
     /// </summary>
-    public void UnitStateSetFromXml()
+    public void UnitStateSetToGameManager()
     {
         for (int i = 0; 16 > i; i++)
         {
@@ -267,7 +315,7 @@ public class XmlManager : MonoBehaviour
 
     /// <summary>
     /// XML書き込み設定メソッド
-    /// <para>　UnitSelect～AbilitySelectシーンで選択した部隊の情報を任意の箇所でXMLへ書き込む。</para>
+    /// <para>　UnitSelect～AbilitySelectシーンで選択した部隊(ユニットステート)の情報を任意の箇所でXMLへ書き込む。</para>
     /// </summary>
     public void UnitStateWriteToXml()
     {
@@ -318,10 +366,10 @@ public class XmlManager : MonoBehaviour
         XmlElement elementUserPrm = document.CreateElement("UserParams");
         root.AppendChild(elementUserPrm);
         XmlElement userName = document.CreateElement("UserName");
-        userName.InnerText = "NONE";
+        userName.InnerText = "";
         elementUserPrm.AppendChild(userName);
         XmlElement guID = document.CreateElement("Guid");
-        guID.InnerText = "NONE";
+        guID.InnerText = "";
         elementUserPrm.AppendChild(guID);
 
         // ユニットリストの要素を作成
