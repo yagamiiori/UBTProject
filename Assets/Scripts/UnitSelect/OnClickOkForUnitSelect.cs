@@ -10,6 +10,8 @@ public class OnClickOkForUnitSelect : MonoBehaviour
     private string nextScene = "NameSelect";            // スタートボタンプッシュ時遷移先シーン
     private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
     private AudioSource audioCompo;                      // オーディオコンポ
+    /// <summary>LinkToXML(旧mySQL)クラス</summary>
+    private XmlManager appSettings;
 
     /// <summary>コンストラクタ</summary>
     private OnClickOkForUnitSelect() { }
@@ -21,6 +23,9 @@ public class OnClickOkForUnitSelect : MonoBehaviour
     {
         // マネージャコンポ取得
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+
+        //  LINQ to XMLクラス取得
+        appSettings = GameObject.Find("Canvas").GetComponent<XmlManager>();
 
         // オーディオコンポを取得
         audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
@@ -49,6 +54,10 @@ public class OnClickOkForUnitSelect : MonoBehaviour
 
             // 確定済み全ユニットリスト生成メソッドをコール
             MyUnitListConst();
+
+            // ユニット情報をXMLへ書き込み
+            var xmlManager = GameObject.Find("XmlManager").GetComponent<XmlManager>();
+            xmlManager.UnitStateWriteToXml();
 
             // Scene遷移実施
             // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ

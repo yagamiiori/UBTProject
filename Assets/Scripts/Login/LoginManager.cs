@@ -15,7 +15,7 @@ public class LoginManager :
     private GameManager gameManager;                  // マネージャコンポ
     private GameObject warningParentGO;                 // メッセージウィンドウCanvas
     /// <summary>LinkToXML(旧mySQL)クラス</summary>
-    private AppSettings appSettings;
+    private XmlManager appSettings;
     private Text warningText;                         // メッセージウィンドウのTextコンポ
     public InputField guidField;                      // GUIDのインプットフィールド
     private string nextForUnitSelect = "UnitSelect";  // 遷移先シーン名
@@ -26,12 +26,12 @@ public class LoginManager :
     void Start()
     {
         // マネージャコンポ取得
-        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         // GUID入力フィールド取得
         guidField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
         // GUIDをXMLから読み出し、入力フィールドに設定する
-        appSettings = this.gameObject.GetComponent<AppSettings>();
+        appSettings = GameObject.Find("XmlManager").GetComponent<XmlManager>();
         string userGuid = appSettings.GuidSetForInputFieldInLogin();
         guidField.text = userGuid;
 

@@ -20,7 +20,7 @@ public class OnClickOkForLogin :
     private string nextForLobby = "Lobby";            // 遷移先シーン名
     private AudioSource audioCompo;                   // オーディオコンポ
     /// <summary>LinkToXML(旧mySQL)クラス</summary>
-    private AppSettings appSettings;
+    private XmlManager appSettings;
 
     /// <summary>コンストラクタ</summary>
     private OnClickOkForLogin() { }
@@ -34,7 +34,7 @@ public class OnClickOkForLogin :
         guidField = GameObject.FindWithTag("Login_InputField_Name").GetComponent<InputField>();
 
         //  LINQ to XMLクラス取得
-        appSettings = GameObject.Find("Canvas").GetComponent<AppSettings>();
+        appSettings = GameObject.Find("XmlManager").GetComponent<XmlManager>();
 
         // ワーニングウィンドウの親GOをワーニングウィンドウ管理クラスより取得
         warningParentGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>().warningWindowParentGO;

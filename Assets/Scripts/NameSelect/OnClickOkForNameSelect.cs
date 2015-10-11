@@ -65,6 +65,10 @@ public class OnClickOkForNameSelect : MonoBehaviour
                     gameManager.unitStateList[i].unitName = nameSelect.UnitNameList[i].text;
                 }
             }
+            // ユニット情報をXMLへ書き込み
+            var xmlManager = GameObject.Find("XmlManager").GetComponent<XmlManager>();
+            xmlManager.UnitStateWriteToXml();
+
             // Scene遷移実施（アビリティセレクトへ）
             // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
             gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.6f, 0.1f, Color.black, nextScene);

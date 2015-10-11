@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 93a54df512b403044a885dd7c6a4f4a5
-timeCreated: 1443989526
+guid: 351b3cdcad420894382fa44edaabc3ca
+timeCreated: 1444478589
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Solder_M2_0
-    21300002: Solder_M2_1
-    21300004: Solder_M2_2
-    21300006: Solder_M2_3
+    21300000: Solder_M_B_0
+    21300002: Solder_M_B_1
+    21300004: Solder_M_B_2
+    21300006: Solder_M_B_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,45 +53,45 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Solder_M2_0
+    - name: Solder_M_B_0
       rect:
         serializedVersion: 2
         x: 25
-        y: 40
+        y: 13
         width: 80
         height: 160
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Solder_M2_1
+    - name: Solder_M_B_1
       rect:
         serializedVersion: 2
-        x: 140
-        y: 40
-        width: 99
-        height: 160
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Solder_M2_2
-      rect:
-        serializedVersion: 2
-        x: 270
-        y: 40
-        width: 90
-        height: 160
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Solder_M2_3
-      rect:
-        serializedVersion: 2
-        x: 390
-        y: 45
-        width: 99
+        x: 150
+        y: 18
+        width: 80
         height: 150
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Solder_M_B_2
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 13
+        width: 80
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Solder_M_B_3
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 13
+        width: 90
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

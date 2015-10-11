@@ -10,34 +10,50 @@ using System.Xml.Linq;
 /// LINQ to XMLクラス
 /// <para>　LINQ to XMLによりxml内のデータを操作する。</para>
 /// </summary>
-public class AppSettings : MonoBehaviour
+public class XmlManager : MonoBehaviour
 {
     /// <summary>マネージャーコンポ</summary>
     private GameManager gameManager;
-    /// <summary>ユーザ名</summary>
-    private string userName;
-    /// <summary>GUID</summary>
-    private string guid;
     /// <summary>ゲーム言語</summary>
     private int language;
-    /// <summary>ユニットID</summary>
+    /// <summary>XMLから読み出したユニットID</summary>
     private int[] unitidInXml = new int[16];
-    /// <summary>クラス</summary>
+    /// <summary>XMLから読み出したクラス</summary>
     private int[] classidInXml = new int[16];
-    /// <summary>ユニットにつけた名前</summary>
+    /// <summary>XMLから読み出したユニット名</summary>
     private string[] unitNameInXml = new string[16];
-    /// <summary>アビリティ</summary>
+    /// <summary>XMLから読み出したアビリティ</summary>
     private int[] abilityInXml = new int[16];
-    /// <summary>エレメント</summary>
+    /// <summary>XMLから読み出したエレメント</summary>
     private int[] elementInXml = new int[16];
+    /// <summary>永続オブジェクト有無（インスペクタから永続オブジェクトである事を可視化するために設定）</summary>
+    [SerializeField]
+    private bool isDontDestroy = true;
 
     /// <summary>コンスタント</summary>
-    public AppSettings() { }
+    public XmlManager() { }
+
+    void Awake()
+    {
+        if (isDontDestroy)
+        {
+            // TODO Tag + FindGameObjectsWithTagによる検索でなければ個数が取れない。
+            // null == Find("Canvas_FadeDisplay")　では自分もFind対象になるため、Find対象自身の中で行うとnullになるケースが無い
+            // すでにシーンに画面フェードオブジェクトが存在する場合は重複を抑止するため本オブジェクトを破棄
+            if (1 < GameObject.FindGameObjectsWithTag("XmlManager").Length)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+            // シーンに画面フェードオブジェクトが存在しない場合は本オブジェクトを永続オブジェクトにする
+            DontDestroyOnLoad(this);
+        }
+    }
 
     void Start()
     {
         // マネージャコンポ取得
-        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         string xmlFile = "var.xml";
         if (false == System.IO.File.Exists(xmlFile))
@@ -46,6 +62,7 @@ public class AppSettings : MonoBehaviour
             CreateXmlFile();
         }
 
+        // ユーザー情報取得、ユニットリスト取得、取得したユニット情報をGMのユニットリストへ設定
         UserStatusLoadFromXml();
         UnitStateLoadFromXml();
         UnitStateSetFromXml();
@@ -61,10 +78,10 @@ public class AppSettings : MonoBehaviour
     public bool CompareGuid(string inputGuidString)
     {
         // xmlファイルを取得
-        XElement doc = XElement.Load("var.xml");
+        XElement document = XElement.Load("var.xml");
 
         // 要素に対するクエリを作成
-        var query = from p in doc.Elements("UserParams")
+        var query = from p in document.Elements("UserParams")
                     select new
                     {
                         // 各要素とそれに対応する変数を設定
@@ -72,13 +89,14 @@ public class AppSettings : MonoBehaviour
                     };
 
         // xmlより要素を取得する
+        string guidInXml = "";
         foreach (var elem in query)
         {
-            guid = elem._guid;
+            guidInXml = elem._guid;
         }
 
         bool result = false;
-        if (inputGuidString == guid)
+        if (inputGuidString == guidInXml)
         {
             // 入力されたGUIDとXMLのGUIDが一致する場合はtrueを返す
             result = true;
@@ -94,14 +112,11 @@ public class AppSettings : MonoBehaviour
     /// <returns>GUIDの比較結果</returns>
     public bool JudgeUnitExistInXml()
     {
-        // マネージャコンポ取得
-        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-
         // xmlファイルを取得
-        XElement doc = XElement.Load("var.xml");
+        XElement document = XElement.Load("var.xml");
 
         // 要素に対するクエリを作成
-        var query = from p in doc.Elements("UnitStatus_0")
+        var query = from p in document.Elements("UnitStatus_0")
                     select new
                     {
                         // 各要素とそれに対応する変数を設定
@@ -133,10 +148,10 @@ public class AppSettings : MonoBehaviour
     public string GuidSetForInputFieldInLogin()
     {
         // xmlファイルを取得
-        XElement doc = XElement.Load("var.xml");
+        XElement document = XElement.Load("var.xml");
 
         // 要素に対するクエリを作成
-        var query = from p in doc.Elements("UserParams")
+        var query = from p in document.Elements("UserParams")
                     select new
                     {
                         // 各要素とそれに対応する変数を設定
@@ -144,27 +159,25 @@ public class AppSettings : MonoBehaviour
                     };
 
         // xmlより要素を取得する
+        string guidInXml = "";
         foreach (var elem in query)
         {
-            guid = elem._guid;
+            guidInXml = elem._guid;
         }
-        return guid;
+        return guidInXml;
     }
 
     /// <summary>
     /// ユーザ関連パラメータ取得メソッド
-    /// <para>　ユーザ名やGUID等ユーザ関連のパラメータをxmlより取得する。</para>
+    /// <para>　ユーザ名やGUIDなどのユーザー関連情報をXMLより取得し、GMにへ設定する。</para>
     /// </summary>
     public void UserStatusLoadFromXml()
     {
-        // マネージャコンポを取得
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
         // xmlファイルを取得
-        XElement doc = XElement.Load("var.xml");
+        XElement document = XElement.Load("var.xml");
 
         // 要素に対するクエリを作成
-        var query = from p in doc.Elements("UserParams")
+        var query = from p in document.Elements("UserParams")
         select new
         {
             // 各要素とそれに対応する変数を設定
@@ -173,15 +186,17 @@ public class AppSettings : MonoBehaviour
         };
 
         // xmlより要素を取得する
+        string guidInXml = "";
+        string userNameInXml = "";
         foreach (var elem in query)
         {
-            userName = elem._username;
-            guid = elem._guid;
+            userNameInXml = elem._username;
+            guidInXml = elem._guid;
         }
 
         // xmlより取得したユーザー名とGUIDをゲームマネージャーコンポに設定する
-        gameManager.userName = userName;
-        gameManager.userGuid = guid;
+        gameManager.userName = userNameInXml;
+        gameManager.userGuid = guidInXml;
     }
 
     /// <summary>
@@ -192,13 +207,13 @@ public class AppSettings : MonoBehaviour
     public void UnitStateLoadFromXml()
     {
         // xmlファイルを取得
-        XElement doc = XElement.Load("var.xml");
+        XElement document = XElement.Load("var.xml");
 
         for (int i = 0; 16 > i; i++)
         {
             // 要素に対するクエリを作成
             var query0 = from p
-                            in doc.Elements("UnitStatus_" + i.ToString())
+                            in document.Elements("UnitStatus_" + i.ToString())
                          select new
                          {
                              // 各要素とそれに対応する変数を設定
@@ -229,9 +244,6 @@ public class AppSettings : MonoBehaviour
     /// </summary>
     public void UnitStateSetFromXml()
     {
-        // マネージャコンポを取得
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
         for (int i = 0; 16 > i; i++)
         {
             if (99 == unitidInXml[0])
@@ -253,7 +265,43 @@ public class AppSettings : MonoBehaviour
         }
     }
 
-        /// <summary>
+    /// <summary>
+    /// XML書き込み設定メソッド
+    /// <para>　UnitSelect～AbilitySelectシーンで選択した部隊の情報を任意の箇所でXMLへ書き込む。</para>
+    /// </summary>
+    public void UnitStateWriteToXml()
+    {
+        for (int i = 0; 16 > i; i++)
+        {
+            if (99 == gameManager.unitStateList[0].unitID)
+            {
+                // ユニットがいないエンプティ(空)の場合は終了する
+                return;
+            }
+
+            // xmlファイルを取得
+            XElement document = XElement.Load("var.xml");
+
+            string elm = "UnitStatus_" + i.ToString();
+            IEnumerable<XElement> de =
+                                       from el in document.Descendants(elm) // UnitStatus_xx配下の要素から
+                                       select el;
+            foreach (XElement el in de)
+            {
+                // UnitStatus_xx要素配下の情報をXMLへ書き込み
+                el.Element("UnitID").Value = gameManager.unitStateList[i].unitID.ToString();
+                el.Element("UnitClass").Value = gameManager.unitStateList[i].classType.ToString();
+                el.Element("UnitName").Value = gameManager.unitStateList[i].unitName;
+                el.Element("UnitAbility1").Value = gameManager.unitStateList[i].ability_A.ToString();
+                el.Element("UnitAbility2").Value = gameManager.unitStateList[i].ability_B.ToString();
+                el.Element("UnitElement").Value = gameManager.unitStateList[i].element.ToString();
+            }
+            // ファイルへ保存する
+            document.Save("var.xml");
+        }
+    }
+
+    /// <summary>
     /// xmlファイル生成メソッド
     /// <para>　取得するxmlが存在しない場合に生成を行うメソッド。</para>
     /// </summary>

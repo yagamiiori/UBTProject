@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Lobby.unity
   - enabled: 1
     path: Assets/BattleStage.unity
+  - enabled: 1
+    path: Assets/Credit.unity

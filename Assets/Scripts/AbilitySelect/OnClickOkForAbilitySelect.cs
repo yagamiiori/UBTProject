@@ -35,12 +35,16 @@ public class OnClickOkForAbilitySelect : MonoBehaviour
         // スタートボタン未プッシュの場合
         if (0 == isStarted)
         {
-            // クリックSEを設定および再生
+            // クリックSEを再生
             audioCompo.PlayOneShot(clickSE);
 
             // スタートボタンプッシュ判定フラグをONにしてスタートボタンプッシュ後に
             // オプションが変更されたりスタートボタン連打を抑止する。
             isStarted = 1;
+
+            // ユニット情報をXMLへ書き込み
+            var xmlManager = GameObject.Find("XmlManager").GetComponent<XmlManager>();
+            xmlManager.UnitStateWriteToXml();
 
             // Scene遷移実施（アビリティセレクトへ）
             // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ

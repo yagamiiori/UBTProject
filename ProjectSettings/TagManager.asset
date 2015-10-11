@@ -74,6 +74,7 @@ TagManager:
   - RoomButtons
   - PlayersParent
   - UnitGO
+  - XmlManager
   layers:
   - Default
   - TransparentFX
