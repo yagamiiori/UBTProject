@@ -28,8 +28,6 @@ public class XmlManager : MonoBehaviour
     private int[] abilityInXml = new int[16];
     /// <summary>XMLから読み出したエレメント</summary>
     private int[] elementInXml = new int[16];
-    /// <summary>ワーニングウィンドウCanvas</summary>
-    private GameObject warningParentGO;
     /// <summary>ワーニングウィンドウのTextコンポ</summary>
     private Text warningText;
     /// <summary>ワーニングウィンドウ表示有無判定フラグ</summary>
@@ -62,9 +60,6 @@ public class XmlManager : MonoBehaviour
     {
         // マネージャコンポ取得
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
-        // ワーニングウィンドウの親GOをワーニングウィンドウ管理クラスより取得
-        warningParentGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>().warningWindowParentGO;
 
         string xmlFile = "var.xml";
         if (false == System.IO.File.Exists(xmlFile))

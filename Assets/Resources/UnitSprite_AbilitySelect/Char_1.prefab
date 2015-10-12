@@ -44,7 +44,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 93a54df512b403044a885dd7c6a4f4a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7987684b53d931845b3adcbaeae549d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -85,7 +85,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 93a54df512b403044a885dd7c6a4f4a5,
+      objectReference: {fileID: 21300000, guid: 7987684b53d931845b3adcbaeae549d0,
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
