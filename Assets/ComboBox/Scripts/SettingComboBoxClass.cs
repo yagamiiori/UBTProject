@@ -34,11 +34,20 @@ public class SettingComboBoxClass : MonoBehaviour
     public Sprite imageSamurai;
     /// <summary>リッチボタンの画像</summary>
     public Sprite imageRich;
+    /// <summary>オーディオコンポ</summary>
+    private AudioSource audioCompo;
+    /// <summary>クリックSE</summary>
+    public AudioClip clickSE;
 
 	private void Start() 
 	{
         // マネージャコンポ取得
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+
+        // オーディオコンポを取得
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
 
         // プルダウンメニューに追加するボタンを生成
         var buttonSolder  = new ComboBoxItem("Solder", imageSolder, false);  // ソルジャー
@@ -192,7 +201,9 @@ public class SettingComboBoxClass : MonoBehaviour
         // プルダウンメニューから何れかのボタンをクリックしSelectedClassフィールドが変更された時の処理
 		comboBox.OnSelectionChanged += (int index) =>
 		{
-            // とりあえず処理なし
-		};
+            // SEを鳴らす
+            clickSE = (AudioClip)Resources.Load("Sounds/SE/Click4");
+            audioCompo.PlayOneShot(clickSE);
+        };
 	}
 }

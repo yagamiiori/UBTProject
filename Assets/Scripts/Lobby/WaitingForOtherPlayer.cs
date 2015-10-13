@@ -25,9 +25,10 @@ public class WaitingForOtherPlayer : MonoBehaviour
     {
         if (PhotonNetwork.inRoom)
         {
-            if (gameManager.r.playerCount.Equals(gameManager.r.maxPlayers))
+            // playerCountやmaxPlayersの値を一度フィールドに入れてそのフィールド同士を判定するのは出来ないっぽい
+            if (PhotonNetwork.room.maxPlayers == PhotonNetwork.room.playerCount)
             {
-                // ルームに入っていて、人数が揃ったらバトルフィールドへ遷移する
+                // ルーム内の現プレイヤー数と最大プレイヤー数が同じなら（人数が揃ったら）バトルフィールドへ遷移する
                 Application.LoadLevel("BattleStage");
             }
         }

@@ -11,14 +11,21 @@ public class LogWindowManager : Photon.MonoBehaviour
     /// <summary>ログリスト</summary>
     private List<string> logList = new List<string>();
     private Text logText;
+    /// <summary>ルームボタンカラー変更クラス</summary>
+    private RoomButtonColorGrayOut roomButtonColorGO;
 
-    /// <summary>コンストラクタ</summary>
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
     private LogWindowManager() { }
 
 	void Start ()
     {
         // 子オブジェクト内のログ表示Textコンポを取得
         logText = this.gameObject.GetComponentInChildren<Text>();
+
+        // ルームボタンカラー変更クラス取得
+        roomButtonColorGO = GameObject.Find("Canvas").GetComponent<RoomButtonColorGrayOut>();
 
         // ユニットフォームから戻ってきた時、下記の状態であればメッセージを表示する
         if (PhotonNetwork.connected) LogAddMethod("ネットワーク接続済み。");
@@ -49,6 +56,9 @@ public class LogWindowManager : Photon.MonoBehaviour
     {
         // ログメッセージ追加メソッドをコール
         LogAddMethod("ルーム予約完了。待ち合わせ中...");
+
+        // ルームボタンカラー変更メソッドをコールしてルームボタンの色を変える
+        roomButtonColorGO.ColorChangeReserved();
     }
 
     /// <summary>
@@ -58,6 +68,9 @@ public class LogWindowManager : Photon.MonoBehaviour
     {
         // ログメッセージ追加メソッドをコール
         LogAddMethod("ルームから切断されました。");
+
+        // ルームボタンカラー初期化メソッドをコールしてルームボタンの色を戻す
+        roomButtonColorGO.InitializeColorCanceled();
     }
 
     /// <summary>

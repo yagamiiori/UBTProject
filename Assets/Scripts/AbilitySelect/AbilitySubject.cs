@@ -61,8 +61,8 @@ public class AbilitySubject :
         if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
 
         // ユニットボタンクリック時SE、アビリティボタンクリック時SE、キャンセルSEを設定
-        clickSE_UnitSlected = (AudioClip)Resources.Load("Sounds/SE/Click4");
-        clickSE_AbilitySelected = (AudioClip)Resources.Load("Sounds/SE/Click5");
+        clickSE_UnitSlected = (AudioClip)Resources.Load("Sounds/SE/Click5");
+        clickSE_AbilitySelected = (AudioClip)Resources.Load("Sounds/SE/Click4");
         clickSE_Cancel = (AudioClip)Resources.Load("Sounds/SE/CursorMove2");
     }
 

@@ -1,0 +1,17 @@
+
+【ロビーおよびルーム入室フロー (今んとこ) 】
+Lobbyシーン起動直後にロビー入室
+（LobbyManager.cs）
+↓
+入室ボタン押すとルームプロパティを作ってから
+JoinOrCreateRoomで入室する
+（OnClickステージ名.cs）
+↓
+OnJoinedRoom()でプレイヤープロパティの
+作成とルーム情報の取得を行う
+（OnJoinedRoomJudge.cs）
+↓
+入室済みかつ2人揃ったか判定し、揃ったら
+BattleFieldシーンへLoadLevelする
+（WaitingForOtherPlayer.cs）
+

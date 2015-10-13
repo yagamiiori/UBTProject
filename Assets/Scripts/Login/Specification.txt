@@ -1,0 +1,16 @@
+
+【Loginシーン仕様 (今んとこ) 】
+XMLファイルから部隊情報を取得
+（XmlManager.cs）
+↓
+OKボタンがクリックされる、または
+エンターキーが押されたらユーザー情報を
+取得する
+（OnClickOkForLogin.cs）
+（LoginManager.cs）
+↓
+ユーザー情報が正しいか？と
+ユニット情報があるか？を判定し、
+ユニット情報があればLobbyシーン、
+なければUnitSelectシーンにそれぞれ飛ばす
+

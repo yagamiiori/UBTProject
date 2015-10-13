@@ -2,32 +2,23 @@
 using System.Collections;
 using UnityEngine.UI;
 
+/// <summary>
+/// ルザック平原 - A(1分10秒部屋)
+/// </summary>
 public class OnClickRuzack : MonoBehaviour
 {
     /// <summary>マネージャコンポ</summary>
     private GameManager gameManager;
-    private Image image;
-    private Text text;
-    private Color grayOutColor = new Color(90, 90, 90, 1);
+
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    private OnClickRuzack(){}
 
 	void Start ()
     {
-        // マネージャコンポを取得
+        // マネージャコンポ取得
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-
-        // 入室ボタンのImageとTextコンポを取得
-        image = this.gameObject.GetComponent<Image>();
-        text = this.gameObject.GetComponentInChildren<Text>();
-    }
-
-    void Update()
-    {
-        if (PhotonNetwork.inRoom)
-        {
-            // 既に入室している場合は全てのルームボタンをグレイアウト
-            image.color = grayOutColor;
-            text.color = grayOutColor;
-        }
     }
 
     /// <summary>
@@ -40,42 +31,41 @@ public class OnClickRuzack : MonoBehaviour
         // まだルームに入室していない場合
         if (!PhotonNetwork.inRoom)
         {
-            // ルーム名
-            string roomName = "Ruzack";
+            // ルーム名をつける。最後の整数は既に存在していたらカウントアップする
+            string clickRoomName = "Ruzack_A_0";
+            RoomInfo[] roomInfo = PhotonNetwork.GetRoomList();
+            for (int i = 0; 100 > i; i++)
+            {
+                // ルームが存在しなければ回す意味がないので即抜ける
+                if (0 == roomInfo.Length) break;
+                // 同名ルームはあるが対戦相手待ちの場合も抜ける
+                if (i <= roomInfo.Length && roomInfo[i].name.Equals(clickRoomName) && 1 == roomInfo[i].playerCount) break;
+
+                for (int j = 0; roomInfo.Length > j; j++)
+                {
+                    if (roomInfo[j].name.Equals(clickRoomName) && 2 == roomInfo[i].playerCount)
+                    {
+                        // 同名ルームが既に存在し、かつ満員であればルーム名をカウントアップ(100回まで試行する)
+                        clickRoomName = "Ruzack_A_" + (i + 1).ToString();
+                        j = 0; // カウンタを初期化して最初の配列から探す
+                    }
+                }
+            }
 
             // ルームプロパティを作成
             RoomOptions ro = new RoomOptions();
             ro.maxPlayers = 2;                      // 最大人数
             ro.isOpen = true;                       // 誰でも参加可能か
             ro.isVisible = true;                    // ロビーからこのルームが見えるか
-            string[] s = { "BS" };                  // BattleState
-            ro.customRoomPropertiesForLobby = s;    // ロビーで表示される値
-            ro.customRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "BS", "idle" } };
+            string[] s = { "BS" };                  // BattleState（ロビー表示用）
+            ro.customRoomPropertiesForLobby = s;    // ロビー用ルームCP
+            ro.customRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "BS", "idle" }, // バトルステート
+                                                                                { "BC1", 60},      // バトルクロック(持ち時間)
+                                                                                { "BC2", 10}       // バトルクロック(リカバー)
+                                                                              };
 
             // ルームに入室する、存在しなければ作成する
-            PhotonNetwork.JoinOrCreateRoom(roomName, ro, TypedLobby.Default);
-        }
-    }
-
-    void OnJoinedRoom()
-    {
-        // 入室したタイミングでプレイヤーCPを作成
-        var p = new ExitGames.Client.Photon.Hashtable(){
-                                                          { "GS", EnumConsts.GameState.Room },
-                                                          { "UserName", gameManager.userName }
-                                                       };
-        PhotonNetwork.player.SetCustomProperties(p);
-
-        // ルーム情報を取得
-        gameManager.r = PhotonNetwork.room;
-
-        if ((string)gameManager.r.customProperties["BS"] != "idle")
-        {
-            // ゲームプレイ中に入った場合、一時的にイベントをシャットアウトする
-            // Roomに入った瞬間インスタンス情報が流れてきてしまうため
-            PhotonNetwork.isMessageQueueRunning = false;
-
-            Application.LoadLevel(1);
-        }
+            PhotonNetwork.JoinOrCreateRoom(clickRoomName, ro, TypedLobby.Default);
+        } // まだルームに入室していない場合
     }
 }

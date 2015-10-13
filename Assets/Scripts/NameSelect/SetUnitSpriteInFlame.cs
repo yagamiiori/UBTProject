@@ -34,7 +34,7 @@ public class SetUnitSpriteInFlame : MonoBehaviour
         GameObject alreadyExistSprite = GameObject.Find(spriteName);
         if (null != alreadyExistSprite)
         {
-            // 同名のゲームオブジェクトがある場合は消去して重複表示を抑止する
+            // 同名のゲームオブジェクトが既に存在する場合はそれを消去して重複表示を抑止する
             Destroy(alreadyExistSprite);
         }
 

@@ -11,31 +11,32 @@ using UnityEngine.UI;
 // 入室ボタンは取得後、即非アクティブ化しロビー入室確定後に
 // アクティブ化を行う（ロビー入室前にボタンを押される事を抑止する）。
 //
-// ルームCP設定契機：バトルフィールドシーンにてCreateRoomの直前
-// プレイヤーCP設定契機：ロビーシーン起動直後のStartメソッド内
-//
-// 【ロビーおよびルーム入室フロー (今んとこ) 】
-// Lobbyシーン起動直後にロビー入室
-// ↓
-// 入室ボタン押すとLoadLevelでバトルフィールドシーンへ遷移
-// ↓
-// バトルフィールドシーン起動直後にCreateRoom+JoinRoomで入室
-//
 // =======================================================================================
 public class LobbyManager : MonoBehaviour
 {
-    /// <summary>クリックしたボタンのルーム情報</summary>
-    private GameManager gameManager;         // マネージャコンポ
-    private GameObject canVas;               // ゲームオブジェクト"Canvas"
-    private Text playerAllText;              // 全ユーザー数表示用テキストコンポ
-    private Text roomAllText;                // 全ルーム数表示用テキストコンポ
-    private GameObject[] roomRuzack;         // 部屋ボタン - ルザック平原
+    /// <summary>マネージャコンポ</summary>
+    private GameManager gameManager;
+    /// <summary>ゲームオブジェクト"Canvas"</summary>
+    private GameObject canVas;
+    /// <summary>全ユーザー数表示用テキストコンポ</summary>
+    private Text playerAllText;
+    /// <summary>全ルーム数表示用テキストコンポ</summary>
+    private Text roomAllText;
+    /// <summary>ルームボタン - ルザック平原</summary>
+    private GameObject[] roomRuzack;
 
-    // ---- プレイヤーCP用フィールド ----
-    public string name = "Guest";            // ユーザー名
-    public string rank = "";                 // ランク
-    public int battlePoint = 0;              // バトルポイント
-    public int battleCnt = 0;                // 戦闘回数
+    // ---- プレイヤーCP用フィールド(今は未使用、mySQL立ててから) ---- //
+    /// <summary>ユーザー名</summary>
+    public string userName = "Guest";
+    /// <summary>ランク</summary>
+    public string rank = "";
+    /// <summary>バトルポイント</summary>
+    public int battlePoint = 0;
+    /// <summary>戦闘回数</summary>
+    public int battleCnt = 0;
+
+    /// <summary>コンストラクタ</summary>
+    private LobbyManager() { }
 
     void Awake()
     {
@@ -91,11 +92,11 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    // -------------------------------------------------------------
-    // 総プレイヤー人数取得メソッド
-    // 全ゲーム中のプレイヤー数を取得し、Textコンポに表示する
-    // Start()メソッドからコールされ、コルーチンとして定期的に更新する
-    // -------------------------------------------------------------
+    /// <summary>
+    /// 総プレイヤー人数取得メソッド
+    /// <para>　全ゲーム中のプレイヤー数を取得し、Textコンポに表示する</para>
+    /// <para>　Start()メソッドからコールされ、コルーチンとして定期的に更新する。</para>
+    /// </summary>
     private IEnumerator GetPlayerAll()
     {
         while (true)

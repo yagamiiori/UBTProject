@@ -3,10 +3,14 @@ using System.Collections;
 
 public class OnClickYes : MonoBehaviour
 {
-    public AudioClip clickSE;                         // クリックSE
-    private GameManager gameManager;                  // マネージャコンポ
-    private AudioSource audioCompo;                   // オーディオソースコンポ
-    private string nextScene = "UnitSelect";          // 遷移先シーン名
+    /// <summary>マネージャーコンポ</summary>
+    private GameManager gameManager;
+    /// <summary>遷移先シーン名</summary>
+    private string nextScene = "UnitSelect";
+    /// <summary>オーディオコンポ</summary>
+    private AudioSource audioCompo;
+    /// <summary>クリックSE</summary>
+    public AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
     private OnClickYes() { }

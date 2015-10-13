@@ -50,7 +50,7 @@ public class ComboBoxClass : MonoBehaviour
             // プレイヤーが再生可能でない場合はセッターを抜ける
             if (!Application.isPlaying) return;
 				
-            // 入力された値がfalseかつオーバーレイComboBoxがアクティブ状態の場合はコンボボックスを
+            // 入力された値がfalseかつオーバーレイComboBoxがアクティブ状態の場合はコンボボックスをfalse
 			if (!_isComboBoxEnable && overlayGO.activeSelf)
 				ToggleComboBox(false);
 		}

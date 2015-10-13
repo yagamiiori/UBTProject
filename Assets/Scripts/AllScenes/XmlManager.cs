@@ -35,6 +35,8 @@ public class XmlManager : MonoBehaviour
     /// <summary>永続オブジェクト有無（インスペクタから永続オブジェクトである事を可視化するために設定）</summary>
     [SerializeField]
     private bool isDontDestroy = true;
+    /// <summary>XMLファイルの保存ディレクトリ（クォートストリング指定）</summary>
+    private string xmlFileDirectory = @"C:\Users\user\AppData\Local\var.xml";
 
     /// <summary>コンスタント</summary>
     public XmlManager() { }
@@ -61,8 +63,7 @@ public class XmlManager : MonoBehaviour
         // マネージャコンポ取得
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        string xmlFile = "var.xml";
-        if (false == System.IO.File.Exists(xmlFile))
+        if (false == System.IO.File.Exists(xmlFileDirectory))
         {
             // XMLファイルがなければ作成する
             CreateXmlFile();
@@ -83,7 +84,7 @@ public class XmlManager : MonoBehaviour
     public bool CompareGuid(string inputGuidString)
     {
         // xmlファイルを取得
-        XElement document = XElement.Load("var.xml");
+        XElement document = XElement.Load(xmlFileDirectory);
 
         // 要素に対するクエリを作成
         var query = from p in document.Elements("UserParams")
@@ -118,7 +119,7 @@ public class XmlManager : MonoBehaviour
     public bool JudgeUnitExistInXml()
     {
         // xmlファイルを取得
-        XElement document = XElement.Load("var.xml");
+        XElement document = XElement.Load(xmlFileDirectory);
 
         // 要素に対するクエリを作成
         var query = from p in document.Elements("UnitStatus_0")
@@ -147,13 +148,13 @@ public class XmlManager : MonoBehaviour
 
     /// <summary>
     /// GUIDフィールド設定メソッド
-    /// <para>　GUIDをxmlより取得し、LoginシーンのGUIDフィールドに設定するため</para>
+    /// <para>　GUIDをXMLより取得し、LoginシーンのGUID入力フィールドに設定するため</para>
     /// <para>　コール元メソッドへGUID値を返す。</para>
     /// </summary>
     public string GuidSetForInputFieldInLogin()
     {
         // xmlファイルを取得
-        XElement document = XElement.Load("var.xml");
+        XElement document = XElement.Load(xmlFileDirectory);
 
         // 要素に対するクエリを作成
         var query = from p in document.Elements("UserParams")
@@ -180,7 +181,7 @@ public class XmlManager : MonoBehaviour
     public bool UserStatusLoadFromXml()
     {
         // xmlファイルを取得
-        XElement document = XElement.Load("var.xml");
+        XElement document = XElement.Load(xmlFileDirectory);
 
         // 要素に対するクエリを作成
         var query = from p in document.Elements("UserParams")
@@ -227,7 +228,7 @@ public class XmlManager : MonoBehaviour
     public void UserStatusWriteToXml(string userName, string guid)
     {
         // xmlファイルを取得
-        XElement document = XElement.Load("var.xml");
+        XElement document = XElement.Load(xmlFileDirectory);
 
         IEnumerable<XElement> de =
                                    from el in document.Descendants("UserParams") // UserParamsの要素から
@@ -239,7 +240,7 @@ public class XmlManager : MonoBehaviour
             el.Element("Guid").Value = guid;
         }
         // ファイルへ保存する
-        document.Save("var.xml");
+        document.Save(xmlFileDirectory);
     }
 
     /// <summary>
@@ -250,7 +251,7 @@ public class XmlManager : MonoBehaviour
     public void UnitStateGetFromXml()
     {
         // xmlファイルを取得
-        XElement document = XElement.Load("var.xml");
+        XElement document = XElement.Load(xmlFileDirectory);
 
         for (int i = 0; 16 > i; i++)
         {
@@ -323,7 +324,7 @@ public class XmlManager : MonoBehaviour
             }
 
             // xmlファイルを取得
-            XElement document = XElement.Load("var.xml");
+            XElement document = XElement.Load(xmlFileDirectory);
 
             string elm = "UnitStatus_" + i.ToString();
             IEnumerable<XElement> de =
@@ -340,7 +341,7 @@ public class XmlManager : MonoBehaviour
                 el.Element("UnitElement").Value = gameManager.unitStateList[i].element.ToString();
             }
             // ファイルへ保存する
-            document.Save("var.xml");
+            document.Save(xmlFileDirectory);
         }
     }
 
@@ -392,6 +393,6 @@ public class XmlManager : MonoBehaviour
             elementUnitSts0.AppendChild(UnitElement_0);
         }
         // ファイルへ保存する
-        document.Save("var.xml");
+        document.Save(xmlFileDirectory);
     }
 }

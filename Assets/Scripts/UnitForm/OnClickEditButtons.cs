@@ -17,6 +17,10 @@ public class OnClickEditButtons :
     private Text warningText;
     /// <summary>メッセージウィンドウ表示有無判定フラグ</summary>
     private bool IsWarningWindow = false;
+    /// <summary>オーディオコンポ</summary>
+    private AudioSource audioCompo;
+    /// <summary>クリックSE</summary>
+    public AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
     private OnClickEditButtons() { }
@@ -25,6 +29,11 @@ public class OnClickEditButtons :
     {
         // マネージャコンポ取得
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+
+        // オーディオコンポを取得
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
 
         // ワーニングウィンドウの親GOをワーニングウィンドウ管理クラスより取得（取得できなければ直に取りに行く）
         warningParentGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>().warningWindowParentGO;
@@ -37,6 +46,10 @@ public class OnClickEditButtons :
     /// </summary>
     public void OnClickReconstructionButton()
     {
+        // SEを鳴らす
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/CursorMove3");
+        audioCompo.PlayOneShot(clickSE);
+
         MessageWriteToWindow("部隊を最初から編成し直します。\n全ての構成が削除されますが、よろしいですか？");
     }
 
@@ -71,6 +84,10 @@ public class OnClickEditButtons :
         // ワーニングウィンドウが表示されていない場合
         if (!IsWarningWindow)
         {
+            // SEを鳴らす
+            clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
+            audioCompo.PlayOneShot(clickSE);
+
             string nextScene = "NameSelect";  // 遷移先シーン
 
             // Scene遷移実施（アビリティセレクトへ）
@@ -88,6 +105,10 @@ public class OnClickEditButtons :
         // ワーニングウィンドウが表示されていない場合
         if (!IsWarningWindow)
         {
+            // SEを鳴らす
+            clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
+            audioCompo.PlayOneShot(clickSE);
+
             string nextScene = "AbilitySelect";  // 遷移先シーン
 
             // Scene遷移実施（アビリティセレクトへ）
