@@ -20,7 +20,7 @@ public class MessageWindowActiveManager : MonoBehaviour
     void Start()
     {
         // ヘルプメッセージ親オブジェクトを取得
-        parentGO = GameObject.Find("MessageWindowParentGO");
+        parentGO = this.gameObject.transform.FindChild("Parent").gameObject;
         parentGO.SetActive(false);
     }
 }

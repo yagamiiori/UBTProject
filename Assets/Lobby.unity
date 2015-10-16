@@ -217,7 +217,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "BC\uFF1A10m10s"
+  m_Text: "TC\uFF1A10m10s"
 --- !u!222 &50694016
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 80983661}
   m_Layer: 5
-  m_Name: MessageWindowParentGO
+  m_Name: Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1283,7 +1283,7 @@ GameObject:
   - 222: {fileID: 376411107}
   - 114: {fileID: 376411106}
   m_Layer: 5
-  m_Name: BC1m10s
+  m_Name: TC1m10s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1439,7 +1439,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "BC\uFF1A1m10s"
+  m_Text: "TC\uFF1A1m10s"
 --- !u!222 &443236453
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1511,7 +1511,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "BC\uFF1A3m10s"
+  m_Text: "TC\uFF1A3m10s"
 --- !u!222 &480930293
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1945,7 +1945,7 @@ GameObject:
   - 222: {fileID: 631917435}
   - 114: {fileID: 631917434}
   m_Layer: 5
-  m_Name: BC10m10s
+  m_Name: TC10m10s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3172,7 +3172,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "BC\uFF1A5m10s"
+  m_Text: "TC\uFF1A5m10s"
 --- !u!222 &1211765547
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3357,8 +3357,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 253, y: -210.199997}
-  m_SizeDelta: {x: 387, y: 387}
+  m_AnchoredPosition: {x: 241, y: -187}
+  m_SizeDelta: {x: 363, y: 340}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1235720397
 MonoBehaviour:
@@ -4201,7 +4201,7 @@ GameObject:
   - 222: {fileID: 1362122062}
   - 114: {fileID: 1362122061}
   m_Layer: 5
-  m_Name: BC3m10s
+  m_Name: TC3m10s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6071,7 +6071,7 @@ GameObject:
   - 222: {fileID: 2013696349}
   - 114: {fileID: 2013696348}
   m_Layer: 5
-  m_Name: BC5m10s
+  m_Name: TC5m10s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

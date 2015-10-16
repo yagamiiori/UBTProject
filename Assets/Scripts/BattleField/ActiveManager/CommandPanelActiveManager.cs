@@ -11,7 +11,9 @@ public class CommandPanelActiveManager : MonoBehaviour
     /// <summary>自身(コマンドパネル)のアクティブ状態</summary>
     private GameObject commandPanelParentGO;
 
-    /// <summary>コンストラクタ</summary>
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
     private CommandPanelActiveManager() { }
 
 	void Start ()

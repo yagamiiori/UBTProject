@@ -49,7 +49,9 @@ public class GameManager : Photon.MonoBehaviour
     [SerializeField]
     private bool isDontDestroy = true;
 
-    /// <summary>コンストラクタ</summary>
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
     private GameManager() { }
 
     void Awake()

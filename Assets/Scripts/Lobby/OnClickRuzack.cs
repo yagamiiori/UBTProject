@@ -10,6 +10,14 @@ public class OnClickRuzack : MonoBehaviour
     /// <summary>マネージャコンポ</summary>
     private GameManager gameManager;
 
+    /// <summary>バトルフィールドの状態</summary>
+    enum BattleState
+    {
+        StartingSetUp,
+        BattleNow,
+        Congratulations
+    }
+
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -59,9 +67,11 @@ public class OnClickRuzack : MonoBehaviour
             ro.isVisible = true;                    // ロビーからこのルームが見えるか
             string[] s = { "BS" };                  // BattleState（ロビー表示用）
             ro.customRoomPropertiesForLobby = s;    // ロビー用ルームCP
-            ro.customRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "BS", "idle" }, // バトルステート
-                                                                                { "BC1", 60},      // バトルクロック(持ち時間)
-                                                                                { "BC2", 10}       // バトルクロック(リカバー)
+            // バトルフィールド用ルームCP
+            // バトルフィールドの状態、タクティカルクロック(持ち時間)、タクティカルクロック(リカバー)
+            ro.customRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "BS",   BattleState.StartingSetUp},
+                                                                                { "TC1", 60},
+                                                                                { "TC2", 10}
                                                                               };
 
             // ルームに入室する、存在しなければ作成する
