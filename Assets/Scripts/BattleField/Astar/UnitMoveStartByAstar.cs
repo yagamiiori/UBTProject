@@ -36,6 +36,7 @@ public class UnitMoveStartByAstar : MonoBehaviour
     {
         // A*アルゴリズムクラス取得
         aStarAlgorithm = GameObject.Find("Canvas_Astar").GetComponent<AstarAlgorithm>();
+        // パネル座標取得クラス取得
         panelCoordinate = GameObject.Find("Canvas_Astar").GetComponent<GetPanelCoordinate>();
     }
 
@@ -107,7 +108,7 @@ public class UnitMoveStartByAstar : MonoBehaviour
             // 移動実施
             this.transform.position = toPanel;
         }
-        // ユニット状態を移動停止にする
+        // ユニット状態を移動停止に設定する
         _state = unitMoveState.MoveEnd;
     }
 }

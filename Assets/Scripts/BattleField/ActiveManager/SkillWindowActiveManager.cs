@@ -9,7 +9,7 @@ using System.Collections;
 public class SkillWindowActiveManager : MonoBehaviour
 {
     /// <summary>自身(コマンドパネル)のアクティブ状態</summary>
-    private GameObject skillWindowParentGO;
+    public GameObject skillWindowParentGO;
 
     /// <summary>
     /// コンストラクタ

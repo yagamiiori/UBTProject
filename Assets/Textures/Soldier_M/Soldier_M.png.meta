@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7987684b53d931845b3adcbaeae549d0
-timeCreated: 1444624468
+timeCreated: 1445024108
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -30,7 +30,7 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
@@ -41,6 +41,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -60,8 +61,8 @@ TextureImporter:
         y: 40
         width: 80
         height: 160
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .483850062, y: .165536165}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Soldier_M_1
       rect:
@@ -70,8 +71,8 @@ TextureImporter:
         y: 40
         width: 99
         height: 160
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .483850092, y: .165536195}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Soldier_M_2
       rect:
@@ -80,8 +81,8 @@ TextureImporter:
         y: 40
         width: 90
         height: 160
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .483850092, y: .165536195}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Soldier_M_3
       rect:
@@ -90,8 +91,8 @@ TextureImporter:
         y: 45
         width: 99
         height: 150
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .483850092, y: .165536195}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

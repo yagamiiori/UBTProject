@@ -170,5 +170,9 @@ public static class Defines
     public const int STATUS_STONE      = 16;   // 石化（石化している状態）
     public const int STATUS_DEAD       = 17;   // 死亡（死亡して倒れている状態）
     public const int STATUS_UNDEAD     = 18;   // アンデッド（死亡しているが動ける状態）
+
+    // 勝利判定
+    public const int WINNER_1P = 1;    // 1P側（マスタークライアント）勝利
+    public const int WINNER_2P = 2;    // 2P側（スレイブ）勝利
 }
 

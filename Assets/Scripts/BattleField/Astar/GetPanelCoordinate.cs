@@ -3,14 +3,33 @@ using System.Collections;
 
 public class GetPanelCoordinate : MonoBehaviour
 {
+    /// <summary>パネルのグリッド（X軸）※FieldCreator.csから設定される</summary>
+    public int gridX = 0;
+    /// <summary>パネルのグリッド（Y軸）※FieldCreator.csから設定される</summary>
+    public int gridY = 0;
+    /// <summary>パネルの座標位置X</summary>
+    private float posX = 0;
+    /// <summary>パネルの座標位置Y</summary>
+    private float posY = 0;
+    /// <summary>パネルの座標位置Z</summary>
+    private float posZ = 0;
+
     /// <summary>
     /// コンストラクタ
     /// </summary>
     private GetPanelCoordinate() { }
 
+    private void Start()
+    {
+        // パネルの座標位置をそれぞれ取得
+        posX = this.gameObject.transform.position.x;
+        posY = this.gameObject.transform.position.y;
+        posZ = this.gameObject.transform.position.z;
+    }
+
     /// <summary>
     /// チップ座標X取得メソッド
-    /// <para>　チップ上のX座標を取得する。</para>
+    /// <para>　パネル上のX座標を取得する。</para>
     /// </summary>
     /// <param name="i"></param>
     /// <returns></returns>
@@ -24,7 +43,7 @@ public class GetPanelCoordinate : MonoBehaviour
 
     /// <summary>
     /// チップ座標Y取得メソッド
-    /// <para>　チップ上のY座標を取得する。</para>
+    /// <para>　パネル上のY座標を取得する。</para>
     /// </summary>
     /// <param name="j"></param>
     /// <returns></returns>

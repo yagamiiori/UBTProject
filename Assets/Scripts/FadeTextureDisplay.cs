@@ -29,7 +29,7 @@ public class FadeTextureDisplay : MonoBehaviour
     public float fadeoutSec = 1;
     /// <summary>フェードアウト処理後にその状態を維持する秒</summary>
     public float fadeoutKeepSec = 1;
-    /// <summary>フェード画像</summary>
+    /// <summary>フェード画像　※インスペクタからアタッチする</summary>
     public Image fadeImage;
     /// <summary>フェード画像のランダム表示有無。<br></br>ランダム表示の場合はインスペクタで設定したfadeImageではなく配下のImageの何れかがランダム選ばれる</summary>
     public bool isRandom = false;

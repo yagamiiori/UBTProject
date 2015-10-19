@@ -30,4 +30,10 @@ MonoBehaviour:
   - RequestForPickupTimes
   - RecivedTurnRPC
   - SendingTurnRPC
+  - RecivedCompunitPlaceRPC
+  - SendCompunitPlaceRPC
+  - RecivedCompUnitPlaceRPC
+  - SendCompUnitPlaceRPC
+  - RecivedCompRPC
+  - SendCompRPC
   DisableAutoOpenWizard: 1

@@ -75,6 +75,7 @@ TagManager:
   - PlayersParent
   - UnitGO
   - XmlManager
+  - Panels
   layers:
   - Default
   - TransparentFX
