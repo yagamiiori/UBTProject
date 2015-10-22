@@ -14,6 +14,8 @@ public class GameManager : Photon.MonoBehaviour
     public string userName = "";
     /// <summary>GUID</summary>
     public string userGuid = "";
+    /// <summary>ユーザーヘルプ</summary>
+    public string userHelp = "";
     /// <summary>ユニット数</summary>
     public int opt_unitNum = Defines.OPT_UNITS_16;
     /// <summary>持ち時間</summary>

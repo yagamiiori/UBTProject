@@ -13,7 +13,7 @@ public class StartUpActiveManager : MonoBehaviour
 {
     /// <summary>ルームCP</summary>
     private ExitGames.Client.Photon.Hashtable roomCP;
-    /// <summary>自身(コマンドパネル)のアクティブ状態</summary>
+    /// <summary>自身(初期配置時のタイマーパネル)のアクティブ状態</summary>
     private GameObject unitPlaceBeforeBattleParentGO;
 
     void Start()

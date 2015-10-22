@@ -7,12 +7,12 @@ public class GetPanelCoordinate : MonoBehaviour
     public int gridX = 0;
     /// <summary>パネルのグリッド（Y軸）※FieldCreator.csから設定される</summary>
     public int gridY = 0;
-    /// <summary>パネルの座標位置X</summary>
-    private float posX = 0;
-    /// <summary>パネルの座標位置Y</summary>
-    private float posY = 0;
-    /// <summary>パネルの座標位置Z</summary>
-    private float posZ = 0;
+    /// <summary>パネルの座標位置X　※FieldCreator.csから設定される</summary>
+    public float posX = 0;
+    /// <summary>パネルの座標位置Y　※FieldCreator.csから設定される</summary>
+    public float posY = 0;
+    /// <summary>パネルの座標位置Z　※FieldCreator.csから設定される</summary>
+    public float posZ = 0;
 
     /// <summary>
     /// コンストラクタ
@@ -21,10 +21,6 @@ public class GetPanelCoordinate : MonoBehaviour
 
     private void Start()
     {
-        // パネルの座標位置をそれぞれ取得
-        posX = this.gameObject.transform.position.x;
-        posY = this.gameObject.transform.position.y;
-        posZ = this.gameObject.transform.position.z;
     }
 
     /// <summary>

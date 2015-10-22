@@ -30,7 +30,7 @@ public class WriteToSkillWindow : MonoBehaviour
         skillWindowText = GameObject.Find("Canvas_SkillWindow").GetComponentsInChildren<Text>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // 経過時間を測定
         elapsedSec += Time.deltaTime;

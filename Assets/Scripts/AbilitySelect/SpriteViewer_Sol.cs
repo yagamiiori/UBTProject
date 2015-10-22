@@ -13,7 +13,7 @@ public class SpriteViewer_Sol :
     // ユニット画像表示メソッド
     // アビリティセレクトシーンでユニットの画像を表示する
     // ----------------------------------------
-    public void SpriteViewer(GameObject canVas, Vector3 vec, int vecCor, int roopCount)
+    public void SpriteViewer(GameObject canVas, Vector3 vec, int roopCount)
     {
         GameObject sprite;                              // スプライトprefab用フィールド1
         GameObject prefab;                              // スプライトprefab用フィールド2

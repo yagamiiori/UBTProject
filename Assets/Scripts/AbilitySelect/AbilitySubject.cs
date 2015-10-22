@@ -14,17 +14,21 @@ public class AbilitySubject :
     MonoBehaviour,
     ISubject                                                        // サブジェクトIF
 {
-    private List<IObserver> obServers = new List<IObserver>();      // 管理オブサーバリスト
-    private GameObject abilityArea;                                 // アビリティエリア統括オブジェクト
-    private GameObject unitArea;                                    // ユニットエリア統括オブジェクト
-    public AudioSource audioCompo;                                  // オーディオコンポ
-    public AudioClip clickSE_UnitSlected;                                  // ユニットクリック時のクリックSE
-    public AudioClip clickSE_AbilitySelected;                             // アビリティボタンクリック時のクリックSE
-    public AudioClip clickSE_Cancel;                                // キャンセル時のクリックSE
-
-    // サブジェクトのステータス
-    // ここに変更があったら各オブサーバへ変更内容を通知するNotify();
-    // が起動する
+    /// <summary>このサブジェクトが管理するオブサーバのリスト</summary>
+    private List<IObserver> obServers = new List<IObserver>();
+    /// <summary>アビリティエリアの統括オブジェクト</summary>
+    private GameObject abilityArea;
+    /// <summary>ユニットエリアの統括オブジェクト</summary>
+    private GameObject unitArea;
+    /// <summary>オーディオコンポ</summary>
+    public AudioSource audioCompo;
+    /// <summary>ユニットクリック時のSE</summary>
+    public AudioClip clickSE_UnitSlected;
+    /// <summary>アビリティボタンクリック時のSE</summary>
+    public AudioClip clickSE_AbilitySelected;
+    /// <summary>キャンセル時のクリックSE</summary>
+    public AudioClip clickSE_Cancel;
+    /// <summary>サブジェクトのステータス</summary>
     // 0：初期値
     // 1：ユニットがクリックされた場合(AbilityObserver内)
     // 2：アビリティボタンがクリックされた場合(AbilitySelect内)
@@ -55,7 +59,7 @@ public class AbilitySubject :
         // ユニットエリア統括オブジェクト取得
         unitArea = GameObject.FindWithTag("Abl_UnitArea");
 
-        // オーディオコンポを取得
+        // オーディオコンポ取得
         audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
         // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
         if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
@@ -66,32 +70,35 @@ public class AbilitySubject :
         clickSE_Cancel = (AudioClip)Resources.Load("Sounds/SE/CursorMove2");
     }
 
-    // --------------------------------------------
-    // オブサーバ追加メソッド
-    // サブジェクトが管理するオブサーバリストにオブサーバを追加
-    // --------------------------------------------
+    /// <summary>
+    /// オブサーバ追加メソッド
+    /// <para>　サブジェクトが管理するオブサーバリストにオブサーバを追加する</para>
+    /// </summary>
+    /// <param name="observer"></param>
     public void Attach(IObserver observer)
     {
         obServers.Add(observer);
     }
 
-    // --------------------------------------------
-    // オブサーバ削除メソッド
-    // サブジェクトが管理するオブサーバリストからオブサーバを削除
-    // --------------------------------------------
+    /// <summary>
+    /// オブサーバ削除メソッド
+    /// <para>　サブジェクトが管理するオブサーバリストからオブサーバを削除する</para>
+    /// </summary>
+    /// <param name="observer"></param>
     public void Detach(IObserver observer)
     {
         obServers.Remove(observer);
     }
 
-    // --------------------------------------------
-    // オブサーバへの通知メソッド
-    // statusセッター内からコールされ、オブサーバ内Notifyへ変更を通知する
-    // --------------------------------------------
+    /// <summary>
+    /// オブサーバへの通知メソッド
+    /// <para>　statusセッター内からコールされ、オブサーバ内のNotifyメソッドに変更を通知する</para>
+    /// </summary>
+    /// <param name="jud">クリックされたマウスボタンの判定</param>
     public void Notify(int jud)
     {
         // ユニットが左クリックされた場合（アビリティエリア表示）
-        if (1 == this.status)
+        if (1 == jud)
         {
             // クリックSEを鳴らす
             audioCompo.clip = clickSE_UnitSlected;
@@ -103,7 +110,7 @@ public class AbilitySubject :
 
         }
         // ユニットが右クリックされた場合（キャンセル）
-        else if (3 == this.status)
+        else if (3 == jud)
         {
             // クリックSEを鳴らす
             audioCompo.clip = clickSE_Cancel;
@@ -124,8 +131,7 @@ public class AbilitySubject :
             abilityArea.SetActive(false);
             unitArea.SetActive(true);
         }
-
-        // オブサーバクラス内の通知メソッドをコール
+        // オブサーバクラス内の通知メソッドをコールし、変更された値を通知する
         obServers.ForEach(observer => observer.Notify(this.status));
     }
 }

@@ -73,7 +73,7 @@ TagManager:
   - Canvas_FadeDisplay
   - RoomButtons
   - PlayersParent
-  - UnitGO
+  - Unit
   - XmlManager
   - Panels
   layers:

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour 
+public class Timer : Photon.MonoBehaviour 
 {
     /// <summary>タイマー値　※インスペクタから設定する</summary>
     [SerializeField]
@@ -17,18 +17,25 @@ public class Timer : MonoBehaviour
     void Start()
     {
         // 初期配置選択中タイマー、および初期配置選択中タイマーMax値のTextコンポ取得
-        timerValueText = this.gameObject.transform.FindChild("Value").gameObject.GetComponent<Text>();
-        maxTimerValueText = this.gameObject.transform.FindChild("MaxTime").gameObject.GetComponent<Text>();
-        maxTimerValueText.text = timerValue.ToString(); // MAX値表示TextにMax値を設定
+        timerValueText = this.gameObject.GetComponent<Text>();
+//        timerValueText = this.gameObject.transform.FindChild("Value").gameObject.GetComponent<Text>();
+//        maxTimerValueText = this.gameObject.transform.FindChild("MaxTime").gameObject.GetComponent<Text>();
+//        maxTimerValueText.text = timerValue.ToString(); // MAX値表示TextにMax値を設定
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // 経過時間を測定
-        elapsedSec += Time.deltaTime * 1;
-        Mathf.Floor(elapsedSec % 60f);
+//        elapsedSec += Time.deltaTime * 1;
+//        timerValue = (int)Mathf.Floor(timerValue - (elapsedSec % 60f));
+//        timerValue -= 1f * Time.deltaTime;
 
         // タイマー値をTextコンポに書き出し
-        timerValueText.text = Mathf.Ceil(timerValue - elapsedSec).ToString();
+//        timerValueText.text = ((int)timerValue).ToString();
+        if (PhotonNetwork.isMasterClient)
+        {
+            timerValue += 1;
+            timerValueText.text = timerValue.ToString();
+        }
     }
 }

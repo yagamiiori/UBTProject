@@ -47,6 +47,9 @@ public class FieldCreator : MonoBehaviour
                 copiedPanelGO.tag = "Panels";
                 copiedPanelGO.AddComponent<GetPanelCoordinate>();
                 var panelCoordinate = copiedPanelGO.GetComponent<GetPanelCoordinate>();
+                panelCoordinate.posX = copiedPanelGO.transform.position.x; // パネルの座標Xを渡す
+                panelCoordinate.posY = copiedPanelGO.transform.position.y; // パネルの座標Yを渡す
+                panelCoordinate.posZ = copiedPanelGO.transform.position.z; // パネルの座標Zを渡す
                 panelCoordinate.gridX = j; // パネルのグリッド値Xをパネルにアタッチしたクラスフィールドに渡す
                 panelCoordinate.gridY = i; // パネルのグリッド値Yをパネルにアタッチしたクラスフィールドに渡す
             }

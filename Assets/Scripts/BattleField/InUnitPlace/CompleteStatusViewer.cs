@@ -24,7 +24,7 @@ public class CompleteStatusViewer : MonoBehaviour
     void Start()
     {
         // 初期配置時のRPC管理クラスを取得
-        unitPlaceCompJudRPC = GameObject.Find("Canvas_StartUpBeforeBattleStart").GetComponent<UnitPlaceCompJudRPC>();
+        unitPlaceCompJudRPC = GameObject.Find("Canvas_TimerInUnitPlace").GetComponent<UnitPlaceCompJudRPC>();
 
         // 1P2PのTextコンポ取得、およびテキストの初期化
         master = this.gameObject.transform.FindChild("1Pvalue").gameObject.GetComponent<Text>();

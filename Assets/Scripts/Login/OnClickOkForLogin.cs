@@ -85,7 +85,7 @@ public class OnClickOkForLogin :
             {
                 gameManager.userName = "NameLess";
             }
-            // IDが正常に入力された場合
+            // GUIDっぽいものが入力された場合
             else
             {
                 // 入力されたGUIDとXMLのGUIDが同一であるか否か比較する
@@ -107,6 +107,16 @@ public class OnClickOkForLogin :
                 // クリックSEを設定および再生（正常SE）
                 clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
                 audioCompo.PlayOneShot(clickSE);
+
+                // ユーザーヘルプフィールドを取得
+                InputField userHelpField = GameObject.Find("InputField_UserHelp").GetComponent<InputField>();
+
+                // GMのユーザーヘルプフィールドへユーザーヘルプを設定する
+                gameManager.userHelp = userHelpField.text;
+
+                // LinkToXMLコンポを取得し、入力されたユーザーヘルプをXMLへ保存する
+                appSettings = GameObject.Find("XmlManager").GetComponent<XmlManager>();
+                appSettings.UserStatusWriteToXml(userHelpField.text);
 
                 // ユーザー情報をXMLファイルより読み込んでGMへ設定する
                 bool result = appSettings.UserStatusLoadFromXml();

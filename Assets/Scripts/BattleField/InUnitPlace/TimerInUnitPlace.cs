@@ -26,7 +26,7 @@ public class TimerInUnitPlace : Photon.MonoBehaviour
 	void Start()
     {
         // 初期配置時のRPC管理クラスを取得
-        unitPlaceCompJudRPC = GameObject.Find("Canvas_StartUpBeforeBattleStart").GetComponent<UnitPlaceCompJudRPC>();
+        unitPlaceCompJudRPC = GameObject.Find("Canvas_TimerInUnitPlace").GetComponent<UnitPlaceCompJudRPC>();
 
         // インスペクタから設定し忘れていたらデフォルト値を入れる
         if (0 == timerValue) timerValue = 50;
@@ -37,7 +37,7 @@ public class TimerInUnitPlace : Photon.MonoBehaviour
         maxTimerValueText.text = timerValue.ToString(); // MAX値表示TextにMax値を設定
 	}
 
-	void FixedUpdate()
+    void Update()
     {
         if (unitPlaceCompJudRPC.isCompleteMySide && unitPlaceCompJudRPC.isCompleteEnemySide)
         {

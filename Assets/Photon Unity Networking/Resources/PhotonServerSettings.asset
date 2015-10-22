@@ -18,6 +18,8 @@ MonoBehaviour:
   AppID: a0aba904-28c2-499c-b60c-70a0e5acec8d
   PreferredRegion: 3
   EnabledRegions: -1
+  JoinLobby: 1
+  EnableLobbyStatistics: 0
   RpcList:
   - Chat
   - DestroyRpc
@@ -36,4 +38,9 @@ MonoBehaviour:
   - SendCompUnitPlaceRPC
   - RecivedCompRPC
   - SendCompRPC
+  - ColorRpc
+  - DoJump
+  - Marco
+  - Polo
+  - TaggedPlayer
   DisableAutoOpenWizard: 1

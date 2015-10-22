@@ -19,15 +19,17 @@ public class AbilityObserver :
     private AbilitySubject subjectComp;          // サブジェクトコンポ
     public int unitID = 100;                     // ユニットID（AbilitySelectクラスから設定される）
     public int mouseOverJug = 0;                 // マウスオーバー判定フラグ
-    private SpriteRenderer spRenderer;           // レンダラーコンポ
-    private Renderer _renderer;                  // レンダラーコンポ
-    private Color colorYellow = Color.yellow;    // ユニット選択時反転カラー（黄色）
 
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    private AbilityObserver() { }
 
-    // ----------------------------------------
-    // オブサーバ通知メソッド（オブサーバIF）
-    // ユニットがクリックされた場合にサブジェクトよりコールされる
-    // ----------------------------------------
+    /// <summary>
+    /// オブサーバ通知メソッド（オブサーバIF）
+    /// <para>　ユニットがクリックされた場合にサブジェクトからコールされる。</para>
+    /// </summary>
+    /// <param name="jud"></param>
     public void Notify(int jud)
     {
         // ユニットが左クリックされた場合（アビリティ選択処理を行う）
@@ -79,7 +81,7 @@ public class AbilityObserver :
         mouseOverJug = 1;
 
         // マウスクリック用イベントハンドラをコール
-        StartCoroutine("MouseClickHandler");
+        StartCoroutine(MouseClickHandler());
     }
 
     // -----------------------------------
@@ -91,7 +93,7 @@ public class AbilityObserver :
         mouseOverJug = 0;
 
         // マウスクリック用イベントハンドラを停止
-        StopCoroutine("MouseClickHandler");
+        StopCoroutine(MouseClickHandler());
     }
 
     // -----------------------------------
@@ -99,10 +101,6 @@ public class AbilityObserver :
     // -----------------------------------
     public IEnumerator MouseClickHandler()
     {
-        // 自分のアビリティがセット済みか判定し、判定結果を設定
-        bool alreadySetAbl = false;
-        if (Defines.ABL_NO_ABILITY != gameManager.unitStateList[unitID].ability_A) alreadySetAbl = true;
-
         // 永続ループ（ただし、マウスオーバーを抜けたらreturnする）
         while (1 == mouseOverJug)
         {

@@ -252,8 +252,8 @@ public class AbilitySelect : MonoBehaviour
     {
         GameObject sprite;                              // スプライトprefab用フィールド1
         GameObject prefab;                              // スプライトprefab用フィールド2
-        Vector3 vec = new Vector3(-424.6f, 205.4f, 0);  // スプライト表示位置
-        int vecCor = 0;                                 // スプライト表示位置X軸補正率
+        Vector3 vec = new Vector3(-447.0f, 205.4f, 0);  // スプライト表示位置
+        float vecCor = 0;                                 // スプライト表示位置X軸補正率
         ISpriteViewer spViewer = null;
 
         // リスト内を最大ユニット数分ループ
@@ -267,7 +267,7 @@ public class AbilitySelect : MonoBehaviour
             }
 
             // 位置を設定
-            vec.x = -424.6f + vecCor;
+            vec.x = -447.0f + vecCor;
             vec.z = 0;
 
             // クラスIDを読み出し（Strategyパターン）
@@ -288,10 +288,10 @@ public class AbilitySelect : MonoBehaviour
                     break;
             }
             // Strategyパターン - スプライト表示メソッドをコール
-            spViewer.SpriteViewer(canVas, vec, vecCor, i);
+            spViewer.SpriteViewer(canVas, vec, i);
 
             // 補正値を加算
-            vecCor += 116;
+            vecCor += 125.6f;
 
         }
     }

@@ -16,7 +16,7 @@ public class DestroyUnitGameObjects : MonoBehaviour
 	void Start ()
     {
         // 全てのユニットGOを取得し、削除する
-        var t = GameObject.FindGameObjectsWithTag("UnitGO");
+        var t = GameObject.FindGameObjectsWithTag("Unit");
         foreach (var i in t)
         {
             Destroy(i);

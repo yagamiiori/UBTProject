@@ -1,0 +1,27 @@
+
+【AbilitySelectシーン簡易仕様（今のところ）】
+
+各ユニット画像：AbilityObserver.cs
+Canvas：AbilitySubject.cs
+
+ユニットをクリック
+↓
+ユニットGOの持つAbilityObserver.csコンポがSubject.csに変更した値を通知
+↓
+CanvasのSubject.csで値を判定（選択された？ / 既にユニットをクリック済み？ / 右クリックによるキャンセル？）
+↓
+その値によって鳴らすSE、およびアクティブ化or非アクティブ化するCanvasの切り替えを行う
+↓
+切り替えが完了したらSubjectがObserverにそれ（値）を通知
+↓
+ユニットが持つObserver.csが来た値を判定し、選択されたなら透明化、キャンセルされたなら透明化解除などを行う
+
+----------
+フロー
+----------
+Observer
+↓
+Subject
+↓
+Observer
+

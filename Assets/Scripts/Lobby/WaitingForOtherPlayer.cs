@@ -19,17 +19,21 @@ public class WaitingForOtherPlayer : MonoBehaviour
     {
         // マネージャコンポを取得
         gameManager = this.gameObject.GetComponent<GameManager>();
+
+        // マスターが行うPhotonNetwork.LoadLevelによる遷移をスレイブにも適用する
+        PhotonNetwork.automaticallySyncScene = true;
     }
-	
-	void Update ()
+
+    void Update()
     {
         if (PhotonNetwork.inRoom)
         {
             // playerCountやmaxPlayersの値を一度フィールドに入れてそのフィールド同士を判定するのは出来ないっぽい
-            if (PhotonNetwork.room.maxPlayers == PhotonNetwork.room.playerCount)
+            if (PhotonNetwork.isMasterClient && PhotonNetwork.room.maxPlayers == PhotonNetwork.room.playerCount)
             {
                 // ルーム内の現プレイヤー数と最大プレイヤー数が同じなら（人数が揃ったら）バトルフィールドへ遷移する
-                Application.LoadLevel("BattleStage");
+                // マスタークライアントがLoadLevelし、スレイブはautomaticallySyncSceneでシンクロさせる
+                PhotonNetwork.LoadLevel("BattleStage");
             }
         }
 	}

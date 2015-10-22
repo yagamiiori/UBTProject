@@ -49,28 +49,46 @@ interface IBattleField
 
 }
 
-// =====================================
-// オブサーバIF　【◆Observerパターン用IF】
-// ・Subject から通知を受け取る機能を定義する。
-// ・ConcreteSubject‐ConcreteObserver 間の結合を抽象的に
-//  （直接的な依存関係を排除）するためのインターフェース。
-//
-// =====================================
-public interface IObserver
+/// <summary>
+/// サブジェクトIF　【◆Observerパターン用IF】
+/// <para>　以下の機能を有するIF。</para>
+/// <para>　・Observer の登録。</para>
+/// <para>　・削除、状態変化の通知の機能を定義する。</para>
+/// </summary>
+public interface ISubject
 {
+    /// <summary>
+    /// オブザーバ登録メソッド
+    /// </summary>
+    /// <param name="observer"></param>
+    void Attach(IObserver observer);
+    
+    /// <summary>
+    /// オブザーバ削除メソッド
+    /// </summary>
+    /// <param name="observer"></param>
+    void Detach(IObserver observer);
+
+    /// <summary>
+    /// オブザーバからの通知受信メソッド
+    /// </summary>
+    /// <param name="jud"></param>
     void Notify(int jud);
 }
 
-// =====================================
-// サブジェクトIF　【◆Observerパターン用IF】
-// ・Observer の登録。
-// ・削除、状態変化の通知の機能を定義する。
-//
-// =====================================
-public interface ISubject
+/// <summary>
+/// オブサーバIF　【◆Observerパターン用IF】
+/// <para>　以下の機能を有するIF。</para>
+/// <para>　・Subject から通知を受け取る機能を定義する。</para>
+/// <para>　・ConcreteSubject‐ConcreteObserver 間の結合を抽象的に</para>
+/// <para>　　（直接的な依存関係を排除）するためのインターフェース。</para>
+/// </summary>
+public interface IObserver
 {
-    void Attach(IObserver observer);
-    void Detach(IObserver observer);
+    /// <summary>
+    /// サブジェクトへの通知メソッド
+    /// </summary>
+    /// <param name="jud"></param>
     void Notify(int jud);
 }
 
@@ -108,7 +126,7 @@ public interface IMessageWriteToMW
 // =====================================
 public interface ISpriteViewer
 {
-    void SpriteViewer(GameObject a, Vector3 b, int vecCor, int c);
+    void SpriteViewer(GameObject a, Vector3 b, int c);
 }
 
 

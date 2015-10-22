@@ -174,6 +174,33 @@ public class XmlManager : MonoBehaviour
     }
 
     /// <summary>
+    /// ユーザーヘルプフィールド設定メソッド
+    /// <para>　ユーザーヘルプをXMLより取得し、Loginシーンのユーザーヘルプフィールドに設定するため</para>
+    /// <para>　コール元メソッドへユーザーヘルプの文字列を返す。</para>
+    /// </summary>
+    public string UserHelpSetForInputFieldInLogin()
+    {
+        // xmlファイルを取得
+        XElement document = XElement.Load(xmlFileDirectory);
+
+        // 要素に対するクエリを作成
+        var query = from p in document.Elements("UserParams")
+                    select new
+                    {
+                        // 各要素とそれに対応する変数を設定
+                        _userHelp = (string)p.Element("UserHelp")
+                    };
+
+        // xmlより要素を取得する
+        string userHelpInXml = "";
+        foreach (var elem in query)
+        {
+            userHelpInXml = elem._userHelp;
+        }
+        return userHelpInXml;
+    }
+
+    /// <summary>
     /// ユーザ関連パラメータ取得メソッド
     /// <para>　Loginシーンにおいてユーザ名やGUIDなどのユーザー関連情報をXMLより取得し、GMに設定する。</para>
     /// <para>　また、読み出した時に各情報の整合性チェックも行う。</para>
@@ -238,6 +265,28 @@ public class XmlManager : MonoBehaviour
             // UnitStatus_xx要素配下の情報をXMLへ書き込み
             el.Element("UserName").Value = userName;
             el.Element("Guid").Value = guid;
+        }
+        // ファイルへ保存する
+        document.Save(xmlFileDirectory);
+    }
+
+    /// <summary>
+    /// ユーザ関連パラメータ書き込みメソッド
+    /// <para>　Loginシーンにおいて入力されたユーザーヘルプをXMLに設定する。</para>
+    /// </summary>
+    /// <param name="userHelp">Loginシーンで入力されたユーザーヘルプ</param>
+    public void UserStatusWriteToXml(string userHelp)
+    {
+        // xmlファイルを取得
+        XElement document = XElement.Load(xmlFileDirectory);
+
+        IEnumerable<XElement> de =
+                                   from el in document.Descendants("UserParams") // UserParamsの要素から
+                                   select el;
+        foreach (XElement el in de)
+        {
+            // UnitStatus_xx要素配下の情報をXMLへ書き込み
+            el.Element("UserHelp").Value = userHelp;
         }
         // ファイルへ保存する
         document.Save(xmlFileDirectory);
@@ -367,6 +416,9 @@ public class XmlManager : MonoBehaviour
         XmlElement guID = document.CreateElement("Guid");
         guID.InnerText = "";
         elementUserPrm.AppendChild(guID);
+        XmlElement userHelp = document.CreateElement("UserHelp");
+        userHelp.InnerText = "";
+        elementUserPrm.AppendChild(userHelp);
 
         // ユニットリストの要素を作成
         for (int i = 0; 16 > i; i++)
