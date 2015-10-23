@@ -250,8 +250,8 @@ public class UnitForm : MonoBehaviour
     {
         GameObject sprite;                              // スプライトprefab用フィールド1
         GameObject prefab;                              // スプライトprefab用フィールド2
-        Vector3 vec = new Vector3(-368f, 183f, 0);      // スプライト表示位置
-        int vecCor = 0;                                 // スプライト表示位置補正用フィールド
+        Vector3 vec = new Vector3(-469.0f, 157.0f, 0);  // スプライト表示位置
+        float vecCor = 0;                               // スプライト表示位置補正用フィールド
 
         // リスト内を最大ユニット数分ループ
         for (int i = 0; i < gameManager.unitStateList.Count; i++)
@@ -259,8 +259,8 @@ public class UnitForm : MonoBehaviour
             // 2段目(9人目以降)の場合
             if (8 == i)
             {
-                // Y値の変更およびX値補正率を初期化
-                vec.y = 20.3f;
+                // Y値の変更およびX値の補正率を初期化
+                vec.y = -81.0f;
                 vecCor = 0;
             }
 
@@ -272,12 +272,12 @@ public class UnitForm : MonoBehaviour
                     // ソルジャーのスプライトを設定
                     sprite = Resources.Load("UnitSprite_UnitForm/Char_1") as GameObject;
                     // 位置を設定
-                    vec.x = -368 + vecCor;
+                    vec.x = -469.0f + vecCor;
                     vec.z = 0;
                     // prefabを表示
                     prefab = Instantiate(sprite, vec, Quaternion.identity) as GameObject;
                     prefab.transform.SetParent(canVas.transform, false);
-                    vecCor += 100;
+                    vecCor += 126.0f;
                     break;
 
                 // ウィザードの場合
@@ -290,7 +290,7 @@ public class UnitForm : MonoBehaviour
                     // prefabを表示
                     prefab = Instantiate(sprite, vec, Quaternion.identity) as GameObject;
                     prefab.transform.SetParent(canVas.transform, false);
-                    vecCor += 100;
+                    vecCor += 126.0f;
                     break;
 
                 // ユニット未設定の場合

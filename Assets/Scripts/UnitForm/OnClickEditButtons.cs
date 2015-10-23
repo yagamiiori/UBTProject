@@ -16,7 +16,7 @@ public class OnClickEditButtons :
     /// <summary>ワーニングウィンドウのテキストコンポ</summary>
     private Text warningText;
     /// <summary>メッセージウィンドウ表示有無判定フラグ</summary>
-    private bool IsWarningWindow = false;
+    public bool IsWarningWindow = false;
     /// <summary>オーディオコンポ</summary>
     private AudioSource audioCompo;
     /// <summary>クリックSE</summary>

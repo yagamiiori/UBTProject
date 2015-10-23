@@ -7,6 +7,8 @@ public class OnClickNo : MonoBehaviour {
     private WarningWindowActiveManager warningWindowGO;
     /// <summary>オーディオコンポ</summary>
     private AudioSource audioCompo;
+    /// <summary>エディットボタン3種の管理スクリプト</summary>
+    private OnClickEditButtons onClickEditButtons;
     /// <summary>クリックSE</summary>
     public AudioClip clickSE;
 
@@ -17,6 +19,9 @@ public class OnClickNo : MonoBehaviour {
     {
         // ワーニングウィンドウアクティブ管理コンポ取得
         warningWindowGO = GameObject.Find("Canvas_WarningWindow").GetComponent<WarningWindowActiveManager>();
+
+        // エディットボタン3種の管理コンポ取得
+        onClickEditButtons = GameObject.Find("Canvas").GetComponent<OnClickEditButtons>();
 
         // オーディオコンポを取得
         audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
@@ -32,5 +37,8 @@ public class OnClickNo : MonoBehaviour {
 
         // 親オブジェクトを非アクティブ化する
         warningWindowGO.warningWindowParentGO.SetActive(false);
+
+        // ワーニングウィンドウ表現有無判定をfalseに更新する
+        onClickEditButtons.IsWarningWindow = false;
     }
 }

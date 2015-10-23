@@ -76,6 +76,7 @@ TagManager:
   - Unit
   - XmlManager
   - Panels
+  - Element
   layers:
   - Default
   - TransparentFX
