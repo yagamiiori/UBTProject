@@ -46,4 +46,9 @@ public class UnitPlaceCompJudRPC : Photon.MonoBehaviour
         // 自分側初期配置完了有無判定をtrueに設定
         isCompleteMySide = true;
     }
+
+    /// <summary>
+    /// RPCを使うのでこっちは必要ないが書かないとPhotonがエラー吐くので仕方なく形式だけ書く
+    /// </summary>
+    void OnPhotonSerializeView(PhotonStream a, PhotonMessageInfo b){}
 }

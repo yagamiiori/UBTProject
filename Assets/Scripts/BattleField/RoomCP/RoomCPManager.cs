@@ -27,7 +27,7 @@ public class RoomCPManager : MonoBehaviour
     /// <para>　また、本BattleStateの更新はマスタークライアント側が行う。</para>
     /// </summary>
     /// <param name="newValue">更新する新しいBattleStateの値</param>
-    public void BattleStateChanger(Enums.BattleState newValue)
+    public void SetBattleStateInRoomCP(Enums.BattleState newValue)
     {
         // マスタークライアントでない者が設定しようとした場合は抜ける
         if (!PhotonNetwork.isMasterClient) return;

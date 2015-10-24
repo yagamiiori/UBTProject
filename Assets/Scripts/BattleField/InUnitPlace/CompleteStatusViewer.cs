@@ -3,8 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 
 /// <summary>
-/// 1P2P初期配置Completeテキスト表示クラス
-/// <para>　ウィンドウのComplete表示を実施する。</para>
+/// ユニット初期配置時におけるCompleteテキスト表示クラス
+/// <para>　ユニットの初期配置完了時にウィンドウのComplete表示を実施する。</para>
 /// <para>　マスタークライアントなら1P側、そうでないなら2P側に表示する。</para>
 /// </summary>
 public class CompleteStatusViewer : MonoBehaviour

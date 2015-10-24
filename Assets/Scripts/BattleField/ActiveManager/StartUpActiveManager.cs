@@ -33,7 +33,7 @@ public class StartUpActiveManager : MonoBehaviour
             // BattleStateが「バトル中」の場合（初期配置が終了した場合）タイマーCanvasを非アクティブ化する
             unitPlaceBeforeBattleParentGO.SetActive(false);
             // バトルが始まると二度と初期配置パートに戻る事はないので本スクリプトは非アクティブ化する
-            this.gameObject.SetActive(false);
+//            this.gameObject.SetActive(false);
         }
 	}
 }

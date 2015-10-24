@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class TimerInUnitPlace : Photon.MonoBehaviour
+public class TimerInUnitPlace : MonoBehaviour
 {
     /// <summary>タイマー値　※インスペクタから設定する</summary>
     [SerializeField]
@@ -46,7 +46,7 @@ public class TimerInUnitPlace : Photon.MonoBehaviour
             {
                 // BattleState更新メソッドをコールしてBattleStateを「BattleNow」に更新する
                 var roomCPmanager = GameObject.Find("Canvas").GetComponent<RoomCPManager>();
-                roomCPmanager.BattleStateChanger(Enums.BattleState.BattleNow);
+                roomCPmanager.SetBattleStateInRoomCP(Enums.BattleState.BattleNow);
             }
         }
 
@@ -66,6 +66,8 @@ public class TimerInUnitPlace : Photon.MonoBehaviour
                 timerValue = 0;
                 elapsedSec = 0;
                 isTimerStop = true;
+
+                if(PhotonNetwork.isMessageQueueRunning)
 
                 // 初期配置完了報告送信メソッドをコールして完了を相手側に通知する
                 unitPlaceCompJudRPC.SendCompRPC();
