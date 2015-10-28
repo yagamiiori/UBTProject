@@ -17,6 +17,10 @@ public class TimerInUnitPlace : MonoBehaviour
     private bool isTimerStop = false;
     /// <summary>初期配置時のRPC管理クラス</summary>
     private UnitPlaceCompJudRPC unitPlaceCompJudRPC;
+    /// <summary>オーディオコンポ</summary>
+    private AudioSource audioCompo;
+    /// <summary>クリックSE</summary>
+    public AudioClip AlartSE;
 
     /// <summary>
     /// コンストラクタ
@@ -35,6 +39,11 @@ public class TimerInUnitPlace : MonoBehaviour
         timerValueText = this.gameObject.transform.FindChild("Value").gameObject.GetComponent<Text>();
         maxTimerValueText = this.gameObject.transform.FindChild("MaxTime").gameObject.GetComponent<Text>();
         maxTimerValueText.text = timerValue.ToString(); // MAX値表示TextにMax値を設定
+
+        // オーディオコンポを取得
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
 	}
 
     void Update()
@@ -44,9 +53,13 @@ public class TimerInUnitPlace : MonoBehaviour
             // 自分/相手共に初期配置が完了、かつ自分がマスタークライアントの場合
             if (PhotonNetwork.isMasterClient)
             {
-                // BattleState更新メソッドをコールしてBattleStateを「BattleNow」に更新する
+                // BattleState更新メソッドをコールし、ルームCPのBattleStateを「BattleNow」に更新する
                 var roomCPmanager = GameObject.Find("Canvas").GetComponent<RoomCPManager>();
                 roomCPmanager.SetBattleStateInRoomCP(Enums.BattleState.BattleNow);
+
+                // BattleStartメソッドをコールし、バトル開始を宣言する
+                var battleStartCompo = GameObject.Find("Canvas").GetComponent<BattleStart>();
+                battleStartCompo.ViewBattleStart();
             }
         }
 
@@ -55,6 +68,19 @@ public class TimerInUnitPlace : MonoBehaviour
             // 経過時間を測定
             elapsedSec += Time.deltaTime * 1;
             Mathf.Floor(elapsedSec % 60f);
+
+            if (10.0f > Mathf.Ceil(timerValue - elapsedSec))
+            {
+                // 残り時間が10秒を切ると赤文字に変更
+                if("Over" != timerValueText.text)timerValueText.color = Color.red;
+
+                if (0 == Mathf.Floor(elapsedSec % 60f))
+                {
+                    // SEを設定および再生（保留）
+                    AlartSE = (AudioClip)Resources.Load("Sounds/SE/CursorMove2");
+                    audioCompo.PlayOneShot(AlartSE);                
+                }
+            }
 
             // タイマー値をTextコンポに書き出し
             timerValueText.text = Mathf.Ceil(timerValue - elapsedSec).ToString();
@@ -73,7 +99,11 @@ public class TimerInUnitPlace : MonoBehaviour
                 unitPlaceCompJudRPC.SendCompRPC();
             }
         }
-        // 時間切れになった場合は文字を表示してタイムオーバーになった事を示す
-        if (isTimerStop && "Over" != timerValueText.text) timerValueText.text = "Over";
+        if (isTimerStop && "Over" != timerValueText.text)
+        {
+            // 時間切れになった場合はカラーを戻し、文字「Over」を表示
+            timerValueText.color = Color.black;
+            timerValueText.text = "Over";
+        }
     }
 }

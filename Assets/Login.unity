@@ -2095,9 +2095,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VolumeSlider: {fileID: 0}
   audioSource: {fileID: 0}
-  bgm1: {fileID: 0}
+  bgmClip: {fileID: 0}
   BaseVolume: 0
-  isFadePlaying: 0
 --- !u!1 &826229327
 GameObject:
   m_ObjectHideFlags: 0

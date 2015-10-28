@@ -28,4 +28,19 @@ public static class Enums
         /// <summary>キャンセルされた</summary>
         Canceled
     }
+
+    /// <summary>
+    /// フェードイン/アウトの移動方向
+    /// </summary>
+    public enum fadeFrom
+    {
+        /// <summary>上</summary>
+        fromUp,
+        /// <summary>下</summary>
+        fromUnder,
+        /// <summary>左</summary>
+        fromLeft,
+        /// <summary>右</summary>
+        fromRight
+    }
 }
