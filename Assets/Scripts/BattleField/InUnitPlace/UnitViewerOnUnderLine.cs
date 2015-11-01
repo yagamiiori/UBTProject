@@ -38,6 +38,8 @@ public class UnitViewerOnUnderLine : MonoBehaviour
         GameObject prefab;
         /// <summary>ユニット画像スプライトを表示する位置</summary>
         Vector3 setSpriteVec = new Vector3(-59, -3, 0);
+        /// <summary>ユニットGOがアタッチしているオブザーバークラス</summary>
+        UnitPlaceObserver observerCompo;
 
         for (int i = 0; i < gameManager.unitStateList.Count; i++)
         {
@@ -48,6 +50,11 @@ public class UnitViewerOnUnderLine : MonoBehaviour
                 case Defines.SOLDLER:
                     // ソルジャーのスプライトを設定
                     sprite = Resources.Load("UnitSprite_InUnitPlace/Soldier_M") as GameObject;
+
+                    // ユニットIDをオブザーバークラス内のプロパティに設定する
+                    observerCompo = sprite.GetComponent<UnitPlaceObserver>();
+                    observerCompo.UnitID = i;
+
                     // prefabを表示
                     prefab = Instantiate(sprite, setSpriteVec, Quaternion.identity) as GameObject;
                     prefab.transform.SetParent(this.transform, false);
@@ -59,6 +66,11 @@ public class UnitViewerOnUnderLine : MonoBehaviour
                 case Defines.WIZARD:
                     // ウィザードのスプライトを設定
                     sprite = Resources.Load("UnitSprite_InUnitPlace/Wizard_M") as GameObject;
+
+                    // ユニットIDをオブザーバークラス内のプロパティに設定する
+                    observerCompo = sprite.GetComponent<UnitPlaceObserver>();
+                    observerCompo.UnitID = i;
+
                     // prefabを表示
                     prefab = Instantiate(sprite, setSpriteVec, Quaternion.identity) as GameObject;
                     prefab.transform.SetParent(this.transform, false);

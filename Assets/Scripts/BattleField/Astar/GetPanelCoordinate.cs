@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// パネル位置情報クラス
+/// <para>　パネル一つ一つの位置やグリッド情報を持つクラス</para>
+/// </summary>
 public class GetPanelCoordinate : MonoBehaviour
 {
+    /// <summary>パネルID ※FieldCreator.csから設定される</summary>
+    public int panelID;
     /// <summary>パネルのグリッド（X軸）※FieldCreator.csから設定される</summary>
     public int gridX = 0;
     /// <summary>パネルのグリッド（Y軸）※FieldCreator.csから設定される</summary>

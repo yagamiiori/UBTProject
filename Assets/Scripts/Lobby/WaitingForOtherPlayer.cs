@@ -44,6 +44,9 @@ public class WaitingForOtherPlayer : MonoBehaviour
                 // ★★★これで抑止しないと永久ループでPhotonNetwork.LoadLvelを呼び続ける★★★
                 // TODO 100時間くらいハマった
                 isLoadLevel = true;
+
+                // 全Photonオブジェクト消去
+                PhotonNetwork.DestroyAll();
             }
         }
 	}

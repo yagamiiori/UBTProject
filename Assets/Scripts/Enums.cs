@@ -30,7 +30,7 @@ public static class Enums
     }
 
     /// <summary>
-    /// フェードイン/アウトの移動方向
+    /// フェードインの移動方向
     /// </summary>
     public enum fadeFrom
     {
@@ -41,6 +41,25 @@ public static class Enums
         /// <summary>左</summary>
         fromLeft,
         /// <summary>右</summary>
-        fromRight
+        fromRight,
+        /// <summary>移動なし</summary>
+        None
+    }
+
+    /// <summary>
+    /// フェードアウトの移動方向
+    /// </summary>
+    public enum fadeTo
+    {
+        /// <summary>上</summary>
+        toUp,
+        /// <summary>下</summary>
+        toUnder,
+        /// <summary>左</summary>
+        toLeft,
+        /// \<summary>右</summary>
+        toRight,
+        /// <summary>移動なし</summary>
+        None
     }
 }

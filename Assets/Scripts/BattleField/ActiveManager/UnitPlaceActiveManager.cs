@@ -5,12 +5,17 @@ using System.Collections;
 /// 初期配置Parentオブジェクトアクティブ状態管理クラス
 /// <para>　初期配置パート関係のゲームオブジェクトのアクティブ状態を管理する。</para>
 /// </summary>
-public class StartUpActiveManager : MonoBehaviour
+public class UnitPlaceActiveManager : MonoBehaviour
 {
     /// <summary>ルームCP</summary>
     private ExitGames.Client.Photon.Hashtable roomCP;
     /// <summary>自身(初期配置時のタイマーパネル)のアクティブ状態</summary>
-    private GameObject unitPlaceBeforeBattleParentGO;
+    public GameObject unitPlaceBeforeBattleParentGO;
+
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    private UnitPlaceActiveManager() { }
 
     void Start()
     {

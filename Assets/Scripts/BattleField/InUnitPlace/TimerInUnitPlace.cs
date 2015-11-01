@@ -2,6 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 
+/// <summary>
+/// ユニット初期配置時タイマークラス
+/// <para>　ユニットの初期配置時においてタイマーをカウントダウンし、</para>
+/// <para>　0になったら強制的にルームCPのBattleStateをBattleNowに更新する。</para>
+/// <para>　アタッチGO：Canvas_TimerInUnitPlace→Parent→Timer</para>
+/// </summary>
 public class TimerInUnitPlace : MonoBehaviour
 {
     /// <summary>タイマー値　※インスペクタから設定する</summary>
@@ -33,7 +39,7 @@ public class TimerInUnitPlace : MonoBehaviour
         unitPlaceCompJudRPC = GameObject.Find("Canvas_TimerInUnitPlace").GetComponent<UnitPlaceCompJudRPC>();
 
         // インスペクタから設定し忘れていたらデフォルト値を入れる
-        if (0 == timerValue) timerValue = 50;
+        if (0 == timerValue) timerValue = 10;
 
         // 初期配置選択中タイマー、および初期配置選択中タイマーMax値のTextコンポ取得
         timerValueText = this.gameObject.transform.FindChild("Value").gameObject.GetComponent<Text>();
@@ -48,19 +54,21 @@ public class TimerInUnitPlace : MonoBehaviour
 
     void Update()
     {
+        // 自分、相手共に初期配置が完了した場合
         if (unitPlaceCompJudRPC.isCompleteMySide && unitPlaceCompJudRPC.isCompleteEnemySide)
         {
-            // 自分/相手共に初期配置が完了、かつ自分がマスタークライアントの場合
             if (PhotonNetwork.isMasterClient)
             {
-                // BattleState更新メソッドをコールし、ルームCPのBattleStateを「BattleNow」に更新する
+                // マスタークライアントの場合、ルームCPのBattleStateを「BattleNow」に更新する
                 var roomCPmanager = GameObject.Find("Canvas").GetComponent<RoomCPManager>();
                 roomCPmanager.SetBattleStateInRoomCP(Enums.BattleState.BattleNow);
-
-                // BattleStartメソッドをコールし、バトル開始を宣言する
-                var battleStartCompo = GameObject.Find("Canvas").GetComponent<BattleStart>();
-                battleStartCompo.ViewBattleStart();
             }
+            // StartingMethメソッドをコールし、バトル開始を宣言する
+            var battleStartCompo = GameObject.Find("Canvas").GetComponent<BattleStart>();
+            battleStartCompo.StartingMeth();
+
+            // スクリプトを停止
+            this.enabled = false;
         }
 
         if (!isTimerStop)
@@ -93,15 +101,13 @@ public class TimerInUnitPlace : MonoBehaviour
                 elapsedSec = 0;
                 isTimerStop = true;
 
-                if(PhotonNetwork.isMessageQueueRunning)
-
-                // 初期配置完了報告送信メソッドをコールして完了を相手側に通知する
+                // 初期配置完了報告送信メソッドをコールして完了を相手側に通知し、自分も完了にする
                 unitPlaceCompJudRPC.SendCompRPC();
             }
         }
         if (isTimerStop && "Over" != timerValueText.text)
         {
-            // 時間切れになった場合はカラーを戻し、文字「Over」を表示
+            // 時間切れになった場合はTextのカラーを黒に戻し、文字「Over」を表示
             timerValueText.color = Color.black;
             timerValueText.text = "Over";
         }

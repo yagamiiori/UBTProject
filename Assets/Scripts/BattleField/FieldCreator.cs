@@ -25,6 +25,8 @@ public class FieldCreator : MonoBehaviour
         GameObject panelGO = (GameObject)Resources.Load("Panel");
         // 配置する起点となるゲームオブジェクト（グラウンド）
         GameObject panelParent = GameObject.Find("PanelParent");
+        // パネル一つ一つが持つユニークID
+        int panelId = 0;
 
         // 縦にパネルを配置
         // ※地面オブジェクトのscaleが1,1,1ならscale=0.1,0.1の正方形パネルは10個置ける（0.1*10=1.0）
@@ -52,9 +54,12 @@ public class FieldCreator : MonoBehaviour
                 panelCoordinate.posZ = copiedPanelGO.transform.position.z; // パネルの座標Zを渡す
                 panelCoordinate.gridX = j; // パネルのグリッド値Xをパネルにアタッチしたクラスフィールドに渡す
                 panelCoordinate.gridY = i; // パネルのグリッド値Yをパネルにアタッチしたクラスフィールドに渡す
+                panelCoordinate.panelID = panelId;                         // パネルIDを設定
+                // パネルIDをインクリメント
+                panelId++;
             }
         }
-        // 仕事が終わったらスクリプトを停止する
+        // 全てのパネルを並び終えたらスクリプトを停止する
         this.enabled = false;
     }
 }

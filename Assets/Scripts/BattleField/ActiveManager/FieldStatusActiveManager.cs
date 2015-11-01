@@ -9,7 +9,7 @@ using System.Collections;
 public class FieldStatusActiveManager : MonoBehaviour
 {
     /// <summary>自身(コマンドパネル)のアクティブ状態</summary>
-    private GameObject fieldStatusWindowParentGO;
+    public GameObject fieldStatusWindowParentGO;
 
     /// <summary>
     /// コンストラクタ

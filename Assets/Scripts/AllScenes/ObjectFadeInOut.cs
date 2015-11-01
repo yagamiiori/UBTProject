@@ -9,13 +9,13 @@ using System.Linq;
 /// オブジェクトフェードイン/アウトクラス
 /// <para>　フェードしながら消去or表示させるオブジェクトにアタッチし、</para>
 /// <para>　他コンポーネントのスクリプトからコールする。</para>
+/// 
+/// コール用サンプル
+/// var t = this.gameObject.GetComponent<ObjectFadeInOut>();
+/// t.FadeInStart(16.0f,0.08f, 2.0f, Enums.fadeFrom.fromUp);
 /// </summary>
 public class ObjectFadeInOut : MonoBehaviour
 {
-    // コール用サンプル
-    // var t = this.gameObject.GetComponent<ObjectFadeInOut>();
-    // t.FadeInStart(16.0f,0.08f, 2.0f, Enums.fadeFrom.fromUp);
-
     /// <summary>補正値を含めたオブジェクトの位置</summary>
     private Vector3 corPosSet;
     /// <summary>Imageコンポ</summary>
@@ -36,7 +36,7 @@ public class ObjectFadeInOut : MonoBehaviour
     /// フェードインメソッド
     /// <para>　オブジェクトをフェード＋移動させながら表示する。</para>
     /// </summary>
-    /// <param name="fromPos">移動前の位置</param>
+    /// <param name="fromPos">初期位置に加算する値</param>
     /// <param name="fadeTime">フェードする時間</param>
     /// <param name="moveTime">移動する時間</param>
     /// <param name="from">移動する方向</param>
@@ -64,7 +64,7 @@ public class ObjectFadeInOut : MonoBehaviour
                 Color toColor = new Color(255, 255, 255, 255);
 
                 // オブジェクト移動とアルファ値のLerp実施
-                StartCoroutine(FadeEnumrator(imageCompo, fadeTime, moveTime, fromColor, toColor, defaultPos));
+                StartCoroutine(FadeInEnumrator(imageCompo, fadeTime, moveTime, fromColor, toColor, defaultPos));
                 break;
 
             // 下から上へのフェード
@@ -80,7 +80,7 @@ public class ObjectFadeInOut : MonoBehaviour
                 toColor = new Color(255, 255, 255, 255);
 
                 // オブジェクト移動とアルファ値のLerp実施
-                StartCoroutine(FadeEnumrator(imageCompo, fadeTime, moveTime, fromColor, toColor, defaultPos));
+                StartCoroutine(FadeInEnumrator(imageCompo, fadeTime, moveTime, fromColor, toColor, defaultPos));
                 break;
 
             // 左から右へのフェード
@@ -96,7 +96,7 @@ public class ObjectFadeInOut : MonoBehaviour
                 toColor = new Color(255, 255, 255, 255);
 
                 // オブジェクト移動とアルファ値のLerp実施
-                StartCoroutine(FadeEnumrator(imageCompo, fadeTime, moveTime, fromColor, toColor, defaultPos));
+                StartCoroutine(FadeInEnumrator(imageCompo, fadeTime, moveTime, fromColor, toColor, defaultPos));
                 break;
 
             // 右から左へのフェード
@@ -112,7 +112,7 @@ public class ObjectFadeInOut : MonoBehaviour
                 toColor = new Color(255, 255, 255, 255);
 
                 // オブジェクト移動とアルファ値のLerp実施
-                StartCoroutine(FadeEnumrator(imageCompo, fadeTime, moveTime, fromColor, toColor, defaultPos));
+                StartCoroutine(FadeInEnumrator(imageCompo, fadeTime, moveTime, fromColor, toColor, defaultPos));
                 break;
 
             default:
@@ -125,15 +125,44 @@ public class ObjectFadeInOut : MonoBehaviour
     /// フェードアウトメソッド
     /// <para>　オブジェクトをフェード＋移動させながら消去する。</para>
     /// </summary>
-    /// <param name="fadeTime">フェード時間</param>
-    /// <param name="from">どの方向（上下左右）に向かってフェードアウトさせるか</param>
-    public void FadeOutStart(float fadeTime, Enums.fadeFrom from)
+    /// <param name="fromPos">移動前の位置</param>
+    /// <param name="fadeTime">フェードする時間</param>
+    /// <param name="moveTime">移動する時間</param>
+    /// <param name="to">移動する方向</param>
+    public void FadeOutStart(float fadeTime, float moveTime, Enums.fadeTo to)
     {
-    
+        // フェード処理を開始
+        isFading = true;
+
+        // オブジェクトの初期位置を変更するため、変更前にスタックしておく
+        Vector3 defaultPos = this.transform.localPosition;
+
+        // フェードアウトする方向によりオブジェクトの移動先位置を振り分け
+        switch (to)
+        {
+            // 上へのフェード
+            case Enums.fadeTo.toUp:
+                // フェード完了位置を設定
+                Vector3 toPos = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, this.transform.localPosition.z);
+                toPos.y += 200.0f;
+
+                // アルファ値0と255のColorクラスを作成
+                Image imageCompo = this.GetComponent<Image>();
+                Color fromColor = new Color(255, 255, 255, 0);
+                Color toColor = new Color(255, 255, 255, 255);
+
+                // オブジェクト移動とアルファ値のLerp実施
+                StartCoroutine(FadeOutEnumrator(imageCompo, fadeTime, moveTime, fromColor, toColor, toPos));
+                break;
+
+            default:
+                // 処理なし
+                break;
+        }
     }
 
     /// <summary>
-    /// フェード時のカラーおよび位置のLerp実施メソッド
+    /// フェードイン時のカラーおよび位置のLerp実施メソッド
     /// </summary>
     /// <param name="imageCompo">Imageコンポ</param>
     /// <param name="fadeTime">フェードする時間</param>
@@ -141,7 +170,7 @@ public class ObjectFadeInOut : MonoBehaviour
     /// <param name="toC">終了時カラー</param>
     /// <param name="defPos">オブジェクトの初期位置</param>
     /// <returns></returns>
-    private IEnumerator FadeEnumrator(Image imageCompo, float fadeTime, float moveTime, Color fromC, Color toC, Vector3 defPos)
+    private IEnumerator FadeInEnumrator(Image imageCompo, float fadeTime, float moveTime, Color fromC, Color toC, Vector3 defPos)
     {
         while (true)
         {
@@ -156,6 +185,34 @@ public class ObjectFadeInOut : MonoBehaviour
 
             // 補正値を加えた現在位置→初期位置へLerp
             this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, defPos, Time.time * moveTime);
+
+            yield return null;
+        }
+    }
+
+    /// <summary>
+    /// フェードアウト時のカラーおよび位置のLerp実施メソッド
+    /// </summary>
+    /// <param name="imageCompo">Imageコンポ</param>
+    /// <param name="fadeTime">フェードする時間</param>
+    /// <param name="fromC">初期カラー</param>
+    /// <param name="toC">終了時カラー</param>
+    /// <returns></returns>
+    private IEnumerator FadeOutEnumrator(Image imageCompo, float fadeTime, float moveTime, Color fromC, Color toC, Vector3 endPos)
+    {
+        while (true)
+        {
+            if (toC == imageCompo.color)
+            {
+                // オブジェクトが透明になったらフェード処理を終了してループを抜ける
+                isFading = false;
+                break;
+            }
+            // アルファ値をLerp
+            imageCompo.color = Color.Lerp(fromC, toC, Time.time * fadeTime);
+
+            // 現在位置→フェード完了位置へLerp
+            this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, endPos, Time.time * moveTime);
 
             yield return null;
         }

@@ -9,7 +9,7 @@ using System.Collections;
 public class WaitTurnPanelActiveManager : MonoBehaviour
 {
     /// <summary>自身(コマンドパネル)のアクティブ状態</summary>
-    private GameObject waitTurnPanelParentGO;
+    public GameObject waitTurnPanelParentGO;
 
     /// <summary>
     /// コンストラクタ
