@@ -22,42 +22,51 @@ public class FieldCreator : MonoBehaviour
         if (0 == panelNumHight || 0 == panelNumWidth) Debug.Log("パネル配置数が未設定。配置パネルの数をインスペクタから設定して下さい。");
 
         // 配置するパネルのゲームオブジェクト（プレハブ）
-        GameObject panelGO = (GameObject)Resources.Load("Panel");
-        // 配置する起点となるゲームオブジェクト（グラウンド）
-        GameObject panelParent = GameObject.Find("PanelParent");
+        GameObject panelGO = (GameObject)Resources.Load("Tip");
+        // 配置する起点となるゲームオブジェクト
+        GameObject startingPointGO = GameObject.Find("Root_FieldObjects");
         // パネル一つ一つが持つユニークID
         int panelId = 0;
+        // ループ毎に加算する位置補正値
+        // チップのPixel Per Unitが20の場合：0.8f / 0.4f
+        float addPotisionX = 0.8f;
+        float addPotisionY = 0.4f;
+        // ソーティングレイヤー名
+        string sortingLayerName = "Tips";
+        // ソーティングオーダー番号
+        int sortingLayerVal = 1;
+        // チップ位置情報クラスを取得
+        GetTipCoordinate tipCoordinate = this.gameObject.GetComponent<GetTipCoordinate>();
+
+        // ★
+        // マップデータ（XMLファイル）のロード
+        // XMLマップファイルを読み込み、XMLに記載されている縦と横のチップ数、座標(0,1、2,4みたいな)
+        // チップ種別（芝生か石畳かなど）をMapLayer2D.csのtipImage[]配列に格納する
+        var mapXmlLoader = new MapXmlLoader();
+        mapXmlLoader.XmlLoad("MapXmls/LouzacPlain");
+        var tipDataArray = mapXmlLoader.GetTipData();
 
         // 縦にパネルを配置
-        // ※地面オブジェクトのscaleが1,1,1ならscale=0.1,0.1の正方形パネルは10個置ける（0.1*10=1.0）
-        for (int i = 0; i < panelNumHight; i++)
+        for (int i = 0; i < tipDataArray.Height; i++)
         {
             // 横にパネルを配置
-            for (int j = 0; j < panelNumWidth; j++)
+            for (int j = 0; j < tipDataArray.Width; j++)
             {
-                // 配置するパネルの位置を決定
-                Vector3 panelPos = new Vector3
-                    (
-                       firstSetPanelPositionX + panelGO.transform.localScale.x * j,  // 横
-                       firstSetPanelPositionY + panelGO.transform.localScale.y * -i, // 縦
-                        0
-                    );
+                // ★
+                // チップ種別およびチップを配置するワールド座標XYを取得し、設定する
+                var tipType = tipDataArray.Get(j, i);
+                var x = addPotisionX;
+                var y = addPotisionY;
+//                var x = tipCoordinate.GetTipX(i);
+//                var y = tipCoordinate.GetTipY(j);
+                // スプライトを設定し、チップGOを作成する
+                Tip.Add(tipType, x, y);
 
-                // パネルGOを複製し、親オブジェクト、複製したオブジェクトのタグ名、アドコンを設定する
-                GameObject copiedPanelGO = Instantiate(panelGO, panelPos, Quaternion.identity) as GameObject;
-                copiedPanelGO.transform.SetParent(panelParent.transform, false);
-                copiedPanelGO.tag = "Panels";
-                copiedPanelGO.AddComponent<GetPanelCoordinate>();
-                var panelCoordinate = copiedPanelGO.GetComponent<GetPanelCoordinate>();
-                panelCoordinate.posX = copiedPanelGO.transform.position.x; // パネルの座標Xを渡す
-                panelCoordinate.posY = copiedPanelGO.transform.position.y; // パネルの座標Yを渡す
-                panelCoordinate.posZ = copiedPanelGO.transform.position.z; // パネルの座標Zを渡す
-                panelCoordinate.gridX = j; // パネルのグリッド値Xをパネルにアタッチしたクラスフィールドに渡す
-                panelCoordinate.gridY = i; // パネルのグリッド値Yをパネルにアタッチしたクラスフィールドに渡す
-                panelCoordinate.panelID = panelId;                         // パネルIDを設定
-                // パネルIDをインクリメント
-                panelId++;
+                addPotisionX += 0.8f;
+                addPotisionY += 0.4f;
             }
+            addPotisionX = 0.8f - (0.74f * (i+1));
+            addPotisionY = 0.4f + (0.40f * (i+1));      // 0.80f;
         }
         // 全てのパネルを並び終えたらスクリプトを停止する
         this.enabled = false;

@@ -12,7 +12,7 @@ public class UnitMoveByAstar : MonoBehaviour
     /// <summary>A*アルゴリズムクラス</summary>
     private AstarAlgorithm aStarAlgorithm;
     /// <summary>チップのワールド座標取得クラス</summary>
-    private GetPanelCoordinate panelCoordinate;
+    private GetTipCoordinate tipCoordinate;
     /// <summary>
     /// ユニットの状態を表す列挙体
     /// </summary>
@@ -37,7 +37,7 @@ public class UnitMoveByAstar : MonoBehaviour
         // A*アルゴリズムクラス取得
         aStarAlgorithm = GameObject.Find("AstarAlgorithm").GetComponent<AstarAlgorithm>();
         // パネル座標取得クラス取得
-        panelCoordinate = GameObject.Find("AstarAlgorithm").GetComponent<GetPanelCoordinate>();
+        tipCoordinate = GameObject.Find("AstarAlgorithm").GetComponent<GetTipCoordinate>();
     }
 
     private void UnitMove()
@@ -100,8 +100,8 @@ public class UnitMoveByAstar : MonoBehaviour
         foreach (var p in pathList)
         {
             // 移動先パネルのXY値を取得
-            var x = panelCoordinate.GetPanelX(p.x);
-            var y = panelCoordinate.GetPanelY(p.y);
+            var x = tipCoordinate.GetTipX(p.x);
+            var y = tipCoordinate.GetTipY(p.y);
 
             Vector3 toPanel = new Vector3(x, y, 0);
 
@@ -122,7 +122,7 @@ public class UnitMoveByAstar : MonoBehaviour
         if ("Panels" == nowPanelGO.tag)
         {
             // 接触したGOがパネルの場合、パネルの座標とマトリクスを取得する
-            var panelCoordinate = nowPanelGO.GetComponent<GetPanelCoordinate>();
+            var panelCoordinate = nowPanelGO.GetComponent<GetTipCoordinate>();
             float x = panelCoordinate.posX;
             float y = panelCoordinate.posY;
             float z = panelCoordinate.posZ;

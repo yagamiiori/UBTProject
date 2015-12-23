@@ -6803,9 +6803,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VolumeSlider: {fileID: 0}
   audioSource: {fileID: 0}
-  bgm1: {fileID: 0}
+  bgmClip: {fileID: 0}
   BaseVolume: 0
-  isFadePlaying: 0
 --- !u!82 &1548835408
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8971,7 +8970,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30BD\u30EB\u30B8\u30E3\u30FC\nSolder"
+  m_Text: "\u30BD\u30EB\u30B8\u30E3\u30FC\nSoldier"
 --- !u!222 &2049149708
 CanvasRenderer:
   m_ObjectHideFlags: 0

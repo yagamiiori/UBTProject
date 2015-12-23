@@ -328,8 +328,10 @@ public class AstarAlgorithm : MonoBehaviour
 			if(_allowdiag)
             {
 				// 斜め移動ありの場合（8方向を開く）
-				for(int j = 0; j < 3; j++) {
-					for(int i = 0; i < 3; i++) {
+				for(int j = 0; j < 3; j++)
+                {
+					for(int i = 0; i < 3; i++)
+                    {
 						var x = xbase + i - 1; // -1～1
 						var y = ybase + j - 1; // -1～1
                         // 上下左右＋斜めのパネルをオープンにし、オープンノードリストに追加する
