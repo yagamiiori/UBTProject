@@ -2,41 +2,32 @@
 using System.Collections;
 
 /// <summary>
-/// フィールド自動生成クラス
-/// <para>　BattleField開始時においてフィールドマップのパネルを自動生成する。</para>
+/// フィールド自動生成クラス（マップチップ専用）
+/// <para>　BattleField開始時においてマップの最小単位であるチップを作成する。</para>
+/// <para>　マップの生成はマスタークライアント側のみ行い、他はPhotonViewで同期する。</para>
 /// </summary>
 public class FieldCreator : MonoBehaviour
 {
-    /// <summary>配置するパネルの個数（横）※インスペクタからのみ設定する</summary>
-    public int panelNumWidth;
-    /// <summary>配置するパネルの個数（縦）※インスペクタからのみ設定する</summary>
-    public int panelNumHight;
-    /// <summary>最初に配置するパネルを置くX座標　※インスペクタからのみ設定する</summary>
-    public float firstSetPanelPositionX;
-    /// <summary>最初に配置するパネルを置くY座標　※インスペクタからのみ設定する</summary>
-    public float firstSetPanelPositionY;
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    public FieldCreator() { }
 
     void Start()
     {
-        // インスペクタから設定すべき配置パネル数が設定されていない場合、ログをダンプする
-        if (0 == panelNumHight || 0 == panelNumWidth) Debug.Log("パネル配置数が未設定。配置パネルの数をインスペクタから設定して下さい。");
+        // マスタークライアントでなければマップ生成を行わない
+//        if (!PhotonNetwork.isMasterClient) return;
 
-        // 配置するパネルのゲームオブジェクト（プレハブ）
-        GameObject panelGO = (GameObject)Resources.Load("Tip");
+        // マップオブジェクト専用FieldCreatorを起動し、マップオブジェクトを先に作成する
+        var fieldCreatorObj = this.gameObject.GetComponent<FieldCreatorObjects>();
+        fieldCreatorObj.StartCreate();
+
         // 配置する起点となるゲームオブジェクト
         GameObject startingPointGO = GameObject.Find("Root_FieldObjects");
-        // パネル一つ一つが持つユニークID
-        int panelId = 0;
         // ループ毎に加算する位置補正値
         // チップのPixel Per Unitが20の場合：0.8f / 0.4f
         float addPotisionX = 0.8f;
         float addPotisionY = 0.4f;
-        // ソーティングレイヤー名
-        string sortingLayerName = "Tips";
-        // ソーティングオーダー番号
-        int sortingLayerVal = 1;
-        // チップ位置情報クラスを取得
-        GetTipCoordinate tipCoordinate = this.gameObject.GetComponent<GetTipCoordinate>();
 
         // ★
         // マップデータ（XMLファイル）のロード
@@ -59,16 +50,19 @@ public class FieldCreator : MonoBehaviour
                 var y = addPotisionY;
 //                var x = tipCoordinate.GetTipX(i);
 //                var y = tipCoordinate.GetTipY(j);
+
                 // スプライトを設定し、チップGOを作成する
-                Tip.Add(tipType, x, y);
+                string tipImage = "Tips_1";
+                string tipSprite = "Tips_1_";
+                Tip.Add(tipType, x, y, i, j, tipImage, tipSprite);
 
                 addPotisionX += 0.8f;
                 addPotisionY += 0.4f;
             }
             addPotisionX = 0.8f - (0.74f * (i+1));
-            addPotisionY = 0.4f + (0.40f * (i+1));      // 0.80f;
+            addPotisionY = 0.4f + (0.40f * (i+1));
         }
-        // 全てのパネルを並び終えたらスクリプトを停止する
+        // 全ての処理が終わったらスクリプトを停止する
         this.enabled = false;
     }
 }

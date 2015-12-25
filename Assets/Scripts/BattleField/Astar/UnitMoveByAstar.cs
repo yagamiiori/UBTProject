@@ -99,9 +99,9 @@ public class UnitMoveByAstar : MonoBehaviour
         _state = unitMoveState.NowMoving;
         foreach (var p in pathList)
         {
-            // 移動先パネルのXY値を取得
-            var x = tipCoordinate.GetTipX(p.x);
-            var y = tipCoordinate.GetTipY(p.y);
+            // マップ構成マトリクスのXY値より移動先パネルのX座標値を取得
+            var x = tipCoordinate.GetTipPosX(p.x);
+            var y = tipCoordinate.GetTipPosY(p.y);
 
             Vector3 toPanel = new Vector3(x, y, 0);
 

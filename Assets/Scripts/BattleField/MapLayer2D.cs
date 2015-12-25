@@ -7,60 +7,61 @@ using System.Collections;
 public class MapLayer2D
 {
     /// <summary>
+    /// チップ種別の配列（草原とかタイルとか）tipTypeArray[チップの座標] = チップ種別
+    /// </summary>
+    private int[] tipTypeArray = null;
+    /// <summary>
     /// チップの幅
     /// </summary>
     private int _width;
-    /// <summary>
-    /// チップの高さ
-    /// </summary>
-    private int _height;
-    /// <summary>
-    /// 領域外を指定した時の例外値
-    /// </summary>
-    private int outOfRange = -1;
-    /// <summary>
-    /// チップ種別の配列（草原とかタイルとか）
-    /// <para>　構成：timImage[チップの座標] = チップ種別 </para>
-    /// </summary>
-    private int[] tipArray = null;
-
-    /// <summary>
-    /// チップデータ幅取得メソッド
-    /// </summary>
     public int Width
     {
         get { return _width; }
     }
-
     /// <summary>
-    /// チップデータ高さ取得メソッド
+    /// チップの高さ
     /// </summary>
+    private int _height;
     public int Height
     {
         get { return _height; }
     }
+    /// <summary>
+    /// マップ構成マトリクスの領域外が指定された場合の例外値
+    /// </summary>
+    private int outOfRange = -1;
+
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    public MapLayer2D() { }
 
     /// <summary>
     /// チップデータ生成メソッド
-    /// <para>　チップの幅*高さよりチップデータ領域を生成する（tipImage[xx]のxx部分）</para>
+    /// <para>　チップの幅*高さよりチップ管理リストにチップ数分の領域を確保する（tipImage[xx]のxx部分）</para>
     /// </summary>
-    public void Create(int width, int height)
+    public void CreateTipListIndex(int width, int height)
     {
         _width = width;
         _height = height;
-        tipArray = new int[Width * Height];
+        tipTypeArray = new int[Width * Height];
     }
 
     /// <summary>
-    /// 座標→Index変換メソッド
+    /// マップ構成マトリクス→Index変換メソッド
+    /// <para>　マップ構成マトリクスXY軸をマップ構成マトリクスList用のIndex値に変換する。</para>
     /// </summary>
+    /// <param name="x">マップ構成マトリクスX軸</param>
+    /// <param name="y">マップ構成マトリクスY軸</param>
+    /// <returns></returns>
     public int ConvertPositionToIndex(int x, int y)
     {
         return x + (y * Width);
     }
 
     /// <summary>
-    /// 領域外チェックメソッド
+    /// マップ構成マトリクス領域外チェックメソッド
+    /// <para>　引数指定された範囲がマップ構成マトリクスの領域外か否かを判定する。</para>
     /// </summary>
     public bool CheckOutOfRange(int x, int y)
     {
@@ -72,8 +73,8 @@ public class MapLayer2D
     }
 
     /// <summary>
-    /// チップ座標データ設定メソッド
-    /// <para>　チップ固有の座標値を生成し、フィールドへ設定する。</para>
+    /// チップ種別設定メソッド
+    /// <para>　マップ構成マトリクスXY軸を元にしたIndexにチップ種別を設定する。</para>
     /// </summary>
     /// <param name="x">X座標</param>
     /// <param name="y">Y座標</param>
@@ -82,32 +83,36 @@ public class MapLayer2D
     {
         if (CheckOutOfRange(x, y))
         {
-            // 領域外を指定した
+            // マップ構成マトリクスの領域外を指定した場合
+            Debug.Log("指定された値がマップ構成マトリクスの範囲外です。");
             return;
         }
 
-        // _values[チップ座標値]にv(草原チップ)を設定するって感じ
-        tipArray[y * Width + x] = v;
+        // tipTypeArray[マップ構成マトリクスXYを元に作ったIndex]にv(草原チップ)を設定するって感じ
+        tipTypeArray[y * Width + x] = v;
     }
 
     /// <summary>
-    /// チップ座標データ取得メソッド
-    /// <para>　チップ固有の座標値を取得する。</para>
+    /// チップ種別取得メソッド
+    /// <para>　引数で指定されたマップ構成マトリクスのIndexに位置するチップ種別を取得する。</para>
     /// </summary>
-    /// <param name="x">X座標</param>
-    /// <param name="y">Y座標</param>
-    /// <returns>指定の座標の値（領域外を指定したら_outOfRangeを返す）</returns>
+    /// <param name="x">マップ構成マトリクスX軸</param>
+    /// <param name="y">マップ構成マトリクスY軸</param>
+    /// <returns>引数で指定された位置のチップ種別</returns>
     public int Get(int x, int y)
     {
         if (CheckOutOfRange(x, y))
         {
+            // マップ構成マトリクスの領域外を指定した場合
+            Debug.Log("指定された値がマップ構成マトリクスの範囲外です。");
             return outOfRange;
         }
-
-        return tipArray[y * Width + x];
+        return tipTypeArray[y * Width + x];
     }
 
-    /// デバッグ出力
+    /// <summary>
+    /// ダンパー
+    /// </summary>
     public void Dump()
     {
         Debug.Log("[MapLayer2D] (w,h)=(" + Width + "," + Height + ")");

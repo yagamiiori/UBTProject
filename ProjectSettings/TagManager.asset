@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - GameManager
-  - Stage
+  - Tip
   - Abl_ClassName1
   - Abl_ClassName2
   - Abl_ClassName3
@@ -78,6 +78,7 @@ TagManager:
   - Panels
   - Element
   - UnitGO
+  - TipObject
   layers:
   - Default
   - TransparentFX
@@ -115,63 +116,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: 1
-    uniqueID: 3507716531
-    locked: 0
-  - name: 2
-    uniqueID: 3260892613
-    locked: 0
-  - name: 3
-    uniqueID: 1117468769
-    locked: 0
-  - name: 4
-    uniqueID: 2544769845
-    locked: 0
-  - name: 5
-    uniqueID: 1251019333
-    locked: 0
-  - name: 6
-    uniqueID: 3803100475
-    locked: 0
-  - name: 7
-    uniqueID: 235835565
-    locked: 0
-  - name: 8
-    uniqueID: 3964196841
-    locked: 0
-  - name: 9
-    uniqueID: 141757445
-    locked: 0
-  - name: 10
-    uniqueID: 455902637
-    locked: 0
-  - name: 11
-    uniqueID: 1797015619
-    locked: 0
-  - name: 12
-    uniqueID: 2099474203
-    locked: 0
-  - name: 13
-    uniqueID: 4216269511
-    locked: 0
-  - name: 14
-    uniqueID: 1879042729
-    locked: 0
-  - name: 15
-    uniqueID: 2372357037
-    locked: 0
-  - name: 16
-    uniqueID: 2220860829
-    locked: 0
-  - name: 17
-    uniqueID: 2865314985
-    locked: 0
-  - name: 18
-    uniqueID: 1976877389
-    locked: 0
-  - name: 19
-    uniqueID: 198176933
-    locked: 0
-  - name: Tips
+  - name: Tip
     uniqueID: 1290945345
+    locked: 0
+  - name: TipObject
+    uniqueID: 3792058447
     locked: 0

@@ -4,12 +4,13 @@ using UnityEngine.UI;
 
 /// <summary>
 /// ルザック平原 - A(1分10秒部屋)
+/// <para>　ルームボタンGOにアタッチする。</para>
+/// <para>　ルームCPを設定し、JoinOrCreateRoomによってルームに入る。</para>
 /// </summary>
-public class OnClickRuzack : MonoBehaviour
+public class LouzacPlainRoomA : MonoBehaviour
 {
     /// <summary>マネージャコンポ</summary>
     private GameManager gameManager;
-
     /// <summary>バトルフィールドの状態</summary>
     enum BattleState
     {
@@ -21,7 +22,7 @@ public class OnClickRuzack : MonoBehaviour
     /// <summary>
     /// コンストラクタ
     /// </summary>
-    private OnClickRuzack(){}
+    private LouzacPlainRoomA(){}
 
 	void Start ()
     {
@@ -40,7 +41,7 @@ public class OnClickRuzack : MonoBehaviour
         if (!PhotonNetwork.inRoom)
         {
             // ルーム名をつける。最後の整数は既に存在していたらカウントアップする
-            string clickRoomName = "Ruzack_A_0";
+            string clickRoomName = "LouzacPlain_A_0";
             RoomInfo[] roomInfo = PhotonNetwork.GetRoomList();
             for (int i = 0; 100 > i; i++)
             {
@@ -54,7 +55,7 @@ public class OnClickRuzack : MonoBehaviour
                     if (roomInfo[j].name.Equals(clickRoomName) && 2 == roomInfo[i].playerCount)
                     {
                         // 同名ルームが既に存在し、かつ満員であればルーム名をカウントアップ(100回まで試行する)
-                        clickRoomName = "Ruzack_A_" + (i + 1).ToString();
+                        clickRoomName = "LouzacPlain_A_" + (i + 1).ToString();
                         j = 0; // カウンタを初期化して最初の配列から探す
                     }
                 }
@@ -68,14 +69,15 @@ public class OnClickRuzack : MonoBehaviour
             string[] s = { "BS" };                  // BattleState（ロビー表示用）
             ro.customRoomPropertiesForLobby = s;    // ロビー用ルームCP
             // バトルフィールド用ルームCP
-            // バトルフィールドの状態、タクティカルクロック(持ち時間)、タクティカルクロック(リカバー)
-            ro.customRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "BS",   BattleState.StartingSetUp},
+            // バトルフィールドの状態、ルーム名、タクティカルクロック(持ち時間)、タクティカルクロック(リカバー)
+            ro.customRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "BS" , BattleState.StartingSetUp},
+                                                                                { "RN" , "LouzacPlain"},
                                                                                 { "TC1", 60},
                                                                                 { "TC2", 10}
                                                                               };
 
             // ルームに入室する、存在しなければ作成する
             PhotonNetwork.JoinOrCreateRoom(clickRoomName, ro, TypedLobby.Default);
-        } // まだルームに入室していない場合
+        }
     }
 }

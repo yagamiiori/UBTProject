@@ -31,11 +31,11 @@ public class GetTipCoordinate : MonoBehaviour
 
     /// <summary>
     /// チップ座標X算出メソッド
-    /// <para>　チップを配置する画面上のX座標を算出して返す。</para>
+    /// <para>　マップ構成マトリクスのX値を引数に、そこに位置するチップの座標上のX値を算出して返す。</para>
     /// </summary>
     /// <param name="i">ループカウンターX</param>
     /// <returns>配置するチップの位置X</returns>
-    public float GetTipX(int i)
+    public float GetTipPosX(int i)
     {
         // カメラをワールド座標に変換
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
@@ -49,11 +49,11 @@ public class GetTipCoordinate : MonoBehaviour
 
     /// <summary>
     /// チップ座標Y算出メソッド
-    /// <para>　チップを配置する画面上のY座標を算出して返す。</para>
+    /// <para>　マップ構成マトリクスのY値を引数に、そこに位置するチップの座標上のY値を算出して返す。</para>
     /// </summary>
     /// <param name="j">ループカウンターY</param>
     /// <returns>配置するチップの位置Y</returns>
-    public float GetTipY(int j)
+    public float GetTipPosY(int j)
     {
         // カメラをワールド座標に変換
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
