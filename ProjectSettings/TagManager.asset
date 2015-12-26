@@ -79,6 +79,7 @@ TagManager:
   - Element
   - UnitGO
   - TipObject
+  - LevelValue
   layers:
   - Default
   - TransparentFX
@@ -121,4 +122,13 @@ TagManager:
     locked: 0
   - name: TipObject
     uniqueID: 3792058447
+    locked: 0
+  - name: Unit
+    uniqueID: 3676609443
+    locked: 0
+  - name: Magic
+    uniqueID: 1081133153
+    locked: 0
+  - name: Arrow
+    uniqueID: 1800904257
     locked: 0

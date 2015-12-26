@@ -2,10 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class UserParamsInName : MonoBehaviour
+public class SetUserName : MonoBehaviour
 {
     /// <summary>コンストラクタ</summary>
-    private UserParamsInName() { }
+    private SetUserName() { }
 
 	void Start ()
     {

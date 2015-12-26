@@ -4,7 +4,6 @@ using System.Collections;
 /// <summary>
 /// フィールド自動生成クラス（マップチップ専用）
 /// <para>　BattleField開始時においてマップの最小単位であるチップを作成する。</para>
-/// <para>　マップの生成はマスタークライアント側のみ行い、他はPhotonViewで同期する。</para>
 /// </summary>
 public class FieldCreator : MonoBehaviour
 {
@@ -15,9 +14,6 @@ public class FieldCreator : MonoBehaviour
 
     void Start()
     {
-        // マスタークライアントでなければマップ生成を行わない
-//        if (!PhotonNetwork.isMasterClient) return;
-
         // マップオブジェクト専用FieldCreatorを起動し、マップオブジェクトを先に作成する
         var fieldCreatorObj = this.gameObject.GetComponent<FieldCreatorObjects>();
         fieldCreatorObj.StartCreate();

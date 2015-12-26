@@ -2,8 +2,8 @@
 using System.Collections;
 
 /// <summary>
-/// バトル時各種ウィンドウアクティブ化クラス
-/// <para>　ユニットの初期配置完了後、バトルで使う各種ウィンドウをアクティブ化する。</para>
+/// 各種ウィンドウアクティブ化クラス
+/// <para>　ユニットの初期配置完了後において、バトルで使う各種ウィンドウをアクティブ化する。</para>
 /// </summary>
 public class SetAvtiveAtBattleStart : MonoBehaviour
 {
@@ -14,16 +14,24 @@ public class SetAvtiveAtBattleStart : MonoBehaviour
 
     /// <summary>
     /// 各種ウィンドウアクティブ化メソッド
-    /// <para>　バトル中に使う各種ウィンドウをアクティブ化する。</para>
+    /// <para>　バトル開始時に必要な各種ウィンドウをアクティブ化する。</para>
     /// </summary>
-    public void ActiveWindows()
+    public void SetActiveWindows()
     {
         // フィールドステータスウィンドウをアクティブ化する
         var fieldStatusWindow = GameObject.Find("Canvas_FieldStatusWindow").GetComponent<FieldStatusActiveManager>();
         fieldStatusWindow.fieldStatusWindowParentGO.SetActive(true);
 
-        // 画面下部のWTパネルをアクティブ化する
+        // WTパネルをアクティブ化する
         var wtPanel = GameObject.Find("Canvas_WaitTurnPanel").GetComponent<WaitTurnPanelActiveManager>();
         wtPanel.waitTurnPanelParentGO.SetActive(true);
+
+        // TSゲージ（タクティカルシチュエーションゲージ）をアクティブ化する
+        var tsGage = GameObject.Find("Canvas_TsGage").GetComponent<TsGageActiveManager>();
+        tsGage.tsGageParentGO.SetActive(true);
+
+        // ガードゲージをアクティブ化する
+        var guardGage = GameObject.Find("Canvas_GuardGage").GetComponent<GuardGageActiveManager>();
+        guardGage.guardGageParentGO.SetActive(true);
     }
 }

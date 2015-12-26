@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class SetUserHelpInUnitForm : MonoBehaviour
+public class SetUserHelp : MonoBehaviour
 {
     /// <summary>マネージャコンポ</summary>
     private GameManager gameManager;
@@ -12,7 +12,7 @@ public class SetUserHelpInUnitForm : MonoBehaviour
     /// <summary>
     /// コンストラクタ
     /// </summary>
-    private SetUserHelpInUnitForm() { }
+    private SetUserHelp() { }
 
     void Start()
     {

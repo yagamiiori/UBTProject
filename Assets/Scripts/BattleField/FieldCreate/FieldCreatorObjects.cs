@@ -4,7 +4,6 @@ using System.Collections;
 /// <summary>
 /// フィールド自動生成クラス（オブジェクト専用）
 /// <para>　マップチップの上に配置する木や彫刻などのマップオブジェクトを配置する。</para>
-/// <para>　生成はメインのFieldCreator同様、マスタークライアント側でのみ行う。</para>
 /// </summary>
 public class FieldCreatorObjects : MonoBehaviour
 {
@@ -15,9 +14,6 @@ public class FieldCreatorObjects : MonoBehaviour
 
     public void StartCreate()
     {
-        // マスタークライアントでなければマップ生成を行わない
-        //        if (!PhotonNetwork.isMasterClient) return;
-
         // ループ毎に加算する位置補正値
         // チップのPixel Per Unitが20の場合：0.8f / 0.4f
         float addPotisionX = 0.8f;

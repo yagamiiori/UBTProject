@@ -106,9 +106,17 @@ public class BattleStart : MonoBehaviour
         {
             if (a == imageCompo.color)
             {
-                // FieldStatusウィンドウをアクティブ化
-                var fieldStatusGO = GameObject.Find("Canvas_FieldStatusWindow").GetComponent<FieldStatusActiveManager>();
-                fieldStatusGO.fieldStatusWindowParentGO.SetActive(true);
+                // バトル開始時に必要なウィンドウ類を全てアクティブ化する
+                var t = this.gameObject.GetComponent<SetAvtiveAtBattleStart>();
+                t.SetActiveWindows();
+
+                // TSゲージ上部のユーザー情報枠にユーザー名を表示する
+                var settingUserName = GameObject.Find("UserInfoParent").GetComponent<SetUserNameInBattleField>();
+                settingUserName.StartGetUserName();
+
+                // TSゲージ上部のユーザー情報枠にユーザーヘルプメッセージを表示する
+                var settingUserHelp = GameObject.Find("UserInfoParent").GetComponent<SetUserHelpInBattleField>();
+                settingUserHelp.StartGetUserHelp();
 
                 // 画面カラーキャンバスを破棄
                 var dispColorGO = GameObject.Find("Canvas_DisplayColor");
