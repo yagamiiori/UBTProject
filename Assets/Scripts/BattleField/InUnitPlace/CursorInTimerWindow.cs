@@ -17,8 +17,8 @@ public class CursorInTimerWindow : MonoBehaviour
 	void Start ()
     {
         // カーソルゲームオブジェクトを取得し、マスター/スレイブによって表示位置を決定する
-        Vector3 p1position = new Vector3(103, -66, 0);
-        Vector3 p2position = new Vector3(395, -66, 0);
+        Vector3 p1position = new Vector3(103, -50, 0);
+        Vector3 p2position = new Vector3(395, -50, 0);
         if (PhotonNetwork.isMasterClient) this.transform.localPosition = p1position;
         if (!PhotonNetwork.isMasterClient) this.transform.localPosition = p2position;
 	}

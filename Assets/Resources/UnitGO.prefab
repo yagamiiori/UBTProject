@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11428334}
   - 114: {fileID: 11420774}
   - 65: {fileID: 6559504}
+  - 114: {fileID: 11483890}
   m_Layer: 0
   m_Name: UnitGO
   m_TagString: UnitGO
@@ -122,6 +123,17 @@ MonoBehaviour:
   correct_W: 0
   correct_M: 0
   promJud: 0
+--- !u!114 &11483890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6059705ff99080243b86fa17860ce565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21234288
 SpriteRenderer:
   m_ObjectHideFlags: 1

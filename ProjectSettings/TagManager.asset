@@ -80,6 +80,7 @@ TagManager:
   - UnitGO
   - TipObject
   - LevelValue
+  - StatusWindow
   layers:
   - Default
   - TransparentFX

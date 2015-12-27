@@ -14,6 +14,7 @@ GameObject:
   - 50: {fileID: 5047206}
   - 114: {fileID: 11433252}
   - 114: {fileID: 11452486}
+  - 114: {fileID: 11489368}
   m_Layer: 0
   m_Name: Tip
   m_TagString: Untagged
@@ -164,6 +165,17 @@ MonoBehaviour:
   matrixX: 0
   matrixY: 0
   tipType: 0
+--- !u!114 &11489368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81def9f3eb88324c8a2caa519ca6a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21225190
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -174,5 +174,20 @@ public static class Defines
     // 勝利判定
     public const int WINNER_1P = 1;    // 1P側（マスタークライアント）勝利
     public const int WINNER_2P = 2;    // 2P側（スレイブ）勝利
+
+    // 星座
+    public const int ARIES = 1;        // 牡羊座
+    public const int TAURUS = 2;       // 牡牛座
+    public const int GEMINI = 3;       // 双子座
+    public const int CANCER = 4;       // 蟹座
+    public const int LEO = 5;          // 獅子座
+    public const int VIRGO = 6;        // 乙女座
+    public const int LIBRA = 7;        // 天秤座
+    public const int SCORPIO = 8;      // 蠍座
+    public const int SAGITTARIUS = 9;  // 射手座
+    public const int CAPRICORN = 10;   // 山羊座
+    public const int AQUARIUS = 11;    // 水瓶座
+    public const int PISCES = 12;      // 魚座
+    public const int OPHIUCHUS = 13;   // 蛇遣座
 }
 

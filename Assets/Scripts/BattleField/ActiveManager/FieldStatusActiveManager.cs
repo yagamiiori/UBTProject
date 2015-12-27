@@ -2,7 +2,7 @@
 using System.Collections;
 
 /// <summary>
-/// フィールドステータスウィンドウCanvasにアタッチし、自身のアクティブ状態を管理する
+/// ステータスウィンドウCanvasにアタッチし、自身のアクティブ状態を管理する
 /// 　<para>　フィールドステータスウィンドウアクティブ状態の変更は</para>
 /// 　<para>　必ず本クラスのfieldStatusWindowParentGOフィールドを経由して行う。</para>
 /// </summary>
@@ -20,6 +20,5 @@ public class FieldStatusActiveManager : MonoBehaviour
     {
         // コマンドパネルの親オブジェクトを取得
         fieldStatusWindowParentGO = this.transform.FindChild("Parent").gameObject;
-        fieldStatusWindowParentGO.SetActive(false);
     }
 }
