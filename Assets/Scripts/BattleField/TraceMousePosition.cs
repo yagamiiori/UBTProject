@@ -38,17 +38,17 @@ public class TraceMousePosition : MonoBehaviour
         var setPos = Vector3.Lerp(this.transform.position, t, cameraSpeed);
 
         // 下方向
-        if (6.0f > t.y)
+        if (2.0f > t.y)
         {
             // 左下
-            if (13.0f > t.x)
+            if (4.0f > t.x)
             {
                 setPos.x -= 0.2f;
                 setPos.y -= 0.2f;
                 this.transform.position = setPos;
             }
             // 右下
-            else if (46.0f < t.x)
+            else if (50.0f < t.x)
             {
                 setPos.x += 0.2f;
                 setPos.y -= 0.2f;
@@ -63,17 +63,17 @@ public class TraceMousePosition : MonoBehaviour
             }
         }
         // 上方向
-        else if (48.0f < t.y)
+        else if (50.0f < t.y)
         {
             // 左上
-            if (13.0f > t.x)
+            if (4.0f > t.x)
             {
                 setPos.x -= 0.2f;
                 setPos.y += 0.2f;
                 this.transform.position = setPos;
             }
             // 右上
-            else if (46.0f < t.x)
+            else if (50.0f < t.x)
             {
                 setPos.x += 0.2f;
                 setPos.y += 0.2f;
@@ -91,14 +91,14 @@ public class TraceMousePosition : MonoBehaviour
         else
         {
             // 左
-            if (6.0f > t.x)
+            if (2.0f > t.x)
             {
                 setPos.x -= 0.2f;
                 setPos.y = this.transform.position.y;
                 this.transform.position = setPos;
             }
             // 右
-            else if (48.0f < t.x)
+            else if (50.0f < t.x)
             {
                 setPos.x += 0.2f;
                 setPos.y = this.transform.position.y;

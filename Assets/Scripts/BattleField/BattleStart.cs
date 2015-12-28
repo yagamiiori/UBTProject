@@ -77,6 +77,10 @@ public class BattleStart : MonoBehaviour
         {
             if (b == imageCompo.color)
             {
+                // ここのタイミングでUnitPlaceeタイマとかのウィンドウを破棄する
+                var canvas = GameObject.Find("Canvas_TimerInUnitPlace").GetComponent<CanvasDelete>();
+                canvas.Delete();
+
                 // Lerp処理が終了したら黒背景表示メソッドをコールし、ループを抜ける
                 StartCoroutine(ViewBgBlackCor());
                 break;
@@ -254,13 +258,15 @@ public class BattleStart : MonoBehaviour
         {
             if (b == textBattleStart.transform.localPosition)
             {
-                // ここのタイミングでUnitPlaceeタイマとかのウィンドウを破棄する
-                var canvas = GameObject.Find("Canvas_TimerInUnitPlace").GetComponent<CanvasDelete>();
-                canvas.Delete();
-
                 // WTパネルをアクティブ化
                 var wtPanel = GameObject.Find("Canvas_WaitTurnPanel").GetComponent<WaitTurnPanelActiveManager>();
                 wtPanel.waitTurnPanelParentGO.SetActive(true);
+
+                // 青色光エフェクトPrefabを表示する
+                var t = GameObject.Find("Canvas_DisplayColor").transform.FindChild("Parent");
+                var go = Resources.Load<GameObject>("Effect_BattleStart");
+                var effectGO = Instantiate(go, go.transform.position, Quaternion.identity) as GameObject;
+                effectGO.transform.SetParent(t, false);
 
                 // positionおよびcolorのLerp処理が終了したら経過時間をクリアしてループを抜ける
                 elapsedSec = 0;

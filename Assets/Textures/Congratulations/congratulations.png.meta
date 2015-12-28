@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 1e06ddd9142bfd544acfedbdf0ff0e97
+timeCreated: 1451316674
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: congratulations_0
+    21300002: congratulations_1
+    21300004: congratulations_2
+    21300006: congratulations_3
+    21300008: congratulations_4
+    21300010: congratulations_5
+    21300012: congratulations_6
+    21300014: congratulations_7
+    21300016: congratulations_8
+    21300018: congratulations_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: congratulations_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4320
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 103.75}
+        - {x: -136.5, y: -102.25}
+        - {x: 136.5, y: -102.25}
+        - {x: 136.5, y: 103.75}
+    - name: congratulations_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 102.5}
+        - {x: -136.5, y: -102.5}
+        - {x: 136.5, y: -102.5}
+        - {x: 136.5, y: 102.5}
+    - name: congratulations_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3360
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 102.75}
+        - {x: -136.5, y: -102.25}
+        - {x: 136.5, y: -102.25}
+        - {x: 136.5, y: 102.75}
+    - name: congratulations_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 103.5}
+        - {x: -136.5, y: -102.5}
+        - {x: 136.5, y: -102.5}
+        - {x: 136.5, y: 103.5}
+    - name: congratulations_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 103.75}
+        - {x: -136.5, y: -102.25}
+        - {x: 136.5, y: -102.25}
+        - {x: 136.5, y: 103.75}
+    - name: congratulations_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 102.5}
+        - {x: -136.5, y: -102.5}
+        - {x: 136.5, y: -102.5}
+        - {x: 136.5, y: 102.5}
+    - name: congratulations_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 102.75}
+        - {x: -136.5, y: -102.25}
+        - {x: 136.5, y: -102.25}
+        - {x: 136.5, y: 102.75}
+    - name: congratulations_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 103.5}
+        - {x: -136.5, y: -102.5}
+        - {x: 136.5, y: -102.5}
+        - {x: 136.5, y: 103.5}
+    - name: congratulations_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 103.75}
+        - {x: -136.5, y: -102.25}
+        - {x: 136.5, y: -102.25}
+        - {x: 136.5, y: 103.75}
+    - name: congratulations_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 102.5}
+        - {x: -136.5, y: -102.5}
+        - {x: 136.5, y: -102.5}
+        - {x: 136.5, y: 102.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
