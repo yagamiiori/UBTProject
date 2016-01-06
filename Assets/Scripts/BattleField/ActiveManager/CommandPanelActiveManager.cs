@@ -20,6 +20,9 @@ public class CommandPanelActiveManager : MonoBehaviour
     {
         // コマンドパネルの親オブジェクトを取得
         commandPanelParentGO = this.transform.FindChild("Parent").gameObject;
-        commandPanelParentGO.SetActive(false);
+
+        // 最初はParentのCanvasGroupを使って透明化
+        var t = this.gameObject.transform.FindChild("Parent").GetComponent<CanvasGroup>();
+        t.alpha = 0;
     }
 }

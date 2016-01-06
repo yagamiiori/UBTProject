@@ -10,5 +10,8 @@ public class DetectRayBase : MonoBehaviour
     /// Rayヒット判定メソッド
     /// <para>　自身のオブジェクトにRayがヒットした場合にShotRayCast.csからコールされる。</para>
     /// </summary>
-    virtual public void DetectRayHit() { }
+    virtual public void DetectRayHit()
+    {
+    
+    }
 }

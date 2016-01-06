@@ -5,6 +5,7 @@ using System.Collections;
 /// TSゲージのCanvasにアタッチし、自身のアクティブ状態を管理する
 /// 　<para>　フィールドステータスウィンドウアクティブ状態の変更は</para>
 /// 　<para>　必ず本クラスのfieldStatusWindowParentGOフィールドを経由して行う。</para>
+/// 　<para>　アタッチGO：Canvas_TsGage</para>
 /// </summary>
 public class TsGageActiveManager : MonoBehaviour
 {

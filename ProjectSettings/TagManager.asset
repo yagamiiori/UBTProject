@@ -81,6 +81,7 @@ TagManager:
   - TipObject
   - LevelValue
   - StatusWindow
+  - InCommandSetPanel
   layers:
   - Default
   - TransparentFX

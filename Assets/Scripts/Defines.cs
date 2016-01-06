@@ -189,5 +189,9 @@ public static class Defines
     public const int AQUARIUS = 11;    // 水瓶座
     public const int PISCES = 12;      // 魚座
     public const int OPHIUCHUS = 13;   // 蛇遣座
+
+    // チームサイド
+    public const int TEAMSIDE_1P = 1;      // 1P側
+    public const int TEAMSIDE_2P = 2;      // 2P側
 }
 

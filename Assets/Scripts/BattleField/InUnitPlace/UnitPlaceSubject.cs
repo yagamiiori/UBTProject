@@ -9,17 +9,33 @@ public class UnitPlaceSubject :
     MonoBehaviour,
     ISubject                        // サブジェクトIF
 {
-    /// <summary>このサブジェクトが管理するオブサーバのリスト</summary>
+    /// <summary>
+    /// このサブジェクトが管理するオブサーバのリスト
+    /// </summary>
     private List<IObserver> obServers = new List<IObserver>();
-    /// <summary>オーディオコンポ</summary>
+    /// <summary>
+    /// オーディオコンポ
+    /// </summary>
     public AudioSource audioCompo;
-    /// <summary>ユニットアイコンクリック時のSE</summary>
+    /// <summary>
+    /// ユニットアイコンクリック時のSE
+    /// </summary>
     public AudioClip clickSE_UnitSlected;
-    /// <summary>パネルクリック時のSE</summary>
+    /// <summary>
+    /// パネルクリック時のSE
+    /// </summary>
     public AudioClip clickSE_AbilitySelected;
-    /// <summary>キャンセル時のSE</summary>
+    /// <summary>
+    /// キャンセル時のSE
+    /// </summary>
     public AudioClip clickSE_Cancel;
-    /// <summary>サブジェクトのステータス（0:初期値　1:ユニットアイコンクリック）</summary>
+    /// <summary>
+    /// 現在クリックされているユニットのID
+    /// </summary>
+    public int nowClickUnitID = 0;
+    /// <summary>
+    /// サブジェクトのステータス（0:初期値　1:ユニットアイコンクリック）
+    /// </summary>
     private int _status = 0;
     public int status
     {
@@ -30,7 +46,7 @@ public class UnitPlaceSubject :
         set
         {
             _status = value;
-            Notify(_status);
+//            Notify(_status);
         }
     }
 

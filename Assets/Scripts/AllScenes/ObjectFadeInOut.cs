@@ -122,6 +122,77 @@ public class ObjectFadeInOut : MonoBehaviour
     }
 
     /// <summary>
+    /// フェードインメソッド（CanvasGroup用）
+    /// <para>　オブジェクトとその配下のGOをフェード＋移動させながら表示する。</para>
+    /// </summary>
+    /// <param name="fromPos">初期位置に加算する値</param>
+    /// <param name="fadeTime">フェードする時間</param>
+    /// <param name="moveTime">移動する時間</param>
+    /// <param name="from">移動する方向</param>
+    public void CanvasGroupFadeInStart(float fromPos, float fadeTime, float moveTime, Enums.fadeFrom from)
+    {
+        // フェード処理を開始
+        isFading = true;
+
+        // オブジェクトの初期位置を変更するため、変更前にスタックしておく
+        Vector3 defaultPos = this.transform.localPosition;
+        // CanvasGroup
+        CanvasGroup canvasGroup = this.GetComponent<CanvasGroup>();
+
+        // フェードインしてくる方向によりオブジェクトの初期位置を振り分け
+        switch (from)
+        {
+            // 上から下へのフェード
+            case Enums.fadeFrom.fromUp:
+                // オブジェクトの初期位置をY軸補正値を加算したものに変更する
+                corPosSet = defaultPos;
+                corPosSet.y += fromPos;
+                this.transform.localPosition = corPosSet;
+
+                // オブジェクト移動とアルファ値のLerp実施
+                StartCoroutine(CanvasGroupFadeInEnumrator(canvasGroup, fadeTime, moveTime, defaultPos));
+                break;
+
+            // 下から上へのフェード
+            case Enums.fadeFrom.fromUnder:
+                // オブジェクトの初期位置をY軸補正値を加算したものに変更する
+                corPosSet = defaultPos;
+                corPosSet.y -= fromPos;
+                this.transform.localPosition = corPosSet;
+
+                // オブジェクト移動とアルファ値のLerp実施
+                StartCoroutine(CanvasGroupFadeInEnumrator(canvasGroup, fadeTime, moveTime, defaultPos));
+                break;
+
+            // 左から右へのフェード
+            case Enums.fadeFrom.fromLeft:
+                // オブジェクトの初期位置をY軸補正値を加算したものに変更する
+                corPosSet = defaultPos;
+                corPosSet.x -= fromPos;
+                this.transform.localPosition = corPosSet;
+
+                // オブジェクト移動とアルファ値のLerp実施
+                StartCoroutine(CanvasGroupFadeInEnumrator(canvasGroup, fadeTime, moveTime, defaultPos));
+                break;
+
+            // 右から左へのフェード
+            case Enums.fadeFrom.fromRight:
+                // オブジェクトの初期位置をY軸補正値を加算したものに変更する
+                corPosSet = defaultPos;
+                corPosSet.x += fromPos;
+                this.transform.localPosition = corPosSet;
+
+                // オブジェクト移動とアルファ値のLerp実施
+                StartCoroutine(CanvasGroupFadeInEnumrator(canvasGroup, fadeTime, moveTime, defaultPos));
+                break;
+
+            default:
+                // 処理なし
+                break;
+        }
+    }
+
+    /// <summary>
     /// フェードアウトメソッド
     /// <para>　オブジェクトをフェード＋移動させながら消去する。</para>
     /// </summary>
@@ -182,6 +253,33 @@ public class ObjectFadeInOut : MonoBehaviour
             }
             // アルファ値をLerp
             imageCompo.color = Color.Lerp(fromC, toC, Time.time * fadeTime);
+
+            // 補正値を加えた現在位置→初期位置へLerp
+            this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, defPos, Time.time * moveTime);
+
+            yield return null;
+        }
+    }
+
+    /// <summary>
+    /// フェードイン時のカラーおよび位置のLerp実施メソッド（CanvasGroup用）
+    /// </summary>
+    /// <param name="imageCompo">Imageコンポ</param>
+    /// <param name="fadeTime">フェードする時間</param>
+    /// <param name="defPos">オブジェクトの初期位置</param>
+    /// <returns></returns>
+    private IEnumerator CanvasGroupFadeInEnumrator(CanvasGroup canvasGroup, float fadeTime, float moveTime, Vector3 defPos)
+    {
+        while (true)
+        {
+            if (this.transform.localPosition == defPos)
+            {
+                // Lerp処理が終了したらフェード処理を終了してループを抜ける
+                isFading = false;
+                break;
+            }
+            // アルファ値をLerp
+            canvasGroup.alpha = Time.time * fadeTime;
 
             // 補正値を加えた現在位置→初期位置へLerp
             this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, defPos, Time.time * moveTime);

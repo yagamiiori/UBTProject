@@ -20,6 +20,9 @@ public class UnitStatusWindowActiveManager : MonoBehaviour
     {
         // コマンドパネルの親オブジェクトを取得
         unitStatusWindowParentGO = this.transform.FindChild("Parent").gameObject;
-        unitStatusWindowParentGO.SetActive(false);
+
+        // 最初はParentのCanvasGroupを使って透明化
+        var t = this.gameObject.transform.FindChild("Parent").GetComponent<CanvasGroup>();
+        t.alpha = 0;
     }
 }

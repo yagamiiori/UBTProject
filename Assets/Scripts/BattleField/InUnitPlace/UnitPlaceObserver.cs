@@ -11,7 +11,7 @@ public class UnitPlaceObserver :
     /// <summary>クリックSE</summary>
     public AudioClip clickSE;
     /// <summary>ユニットアイコンのクリック有無判定</summary>
-    private bool onClickJud = false;
+    private bool alreadyClickJud = false;
     /// <summary>サブジェクトコンポ</summary>
     private UnitPlaceSubject subjectCompo;
     /// <summary>ユニットアイコンのImageコンポ</summary>
@@ -37,6 +37,7 @@ public class UnitPlaceObserver :
         subjectCompo = GameObject.Find("Canvas_TimerInUnitPlace").GetComponent<UnitPlaceSubject>();
         subjectCompo.Attach(this);
 
+        // Imageコンポを取得
         thisImageCompo = this.gameObject.GetComponent<Image>();
 
         // オーディオコンポを取得
@@ -52,10 +53,11 @@ public class UnitPlaceObserver :
     /// </summary>
     public void OnClickIcon()
     {
-        if (!onClickJud)
+        if (!alreadyClickJud)
         {
-            // まだどのアイコンもクリックされてない場合、クリックされた事をサブジェクトへ通知する
+            // まだどのアイコンもクリックされてない場合、クリックされた事と自身のユニットIDをサブジェクトへ通知する
             subjectCompo.Notify((int)Enums.ObserverState.OnClick);
+            subjectCompo.nowClickUnitID = unitID;
         }
     }
 
@@ -70,14 +72,14 @@ public class UnitPlaceObserver :
         if ((int)Enums.ObserverState.OnClick == val)
         {
             // ユニットアイコンクリック判定フラグをtrueに設定し、自身のカラーをグレイアウトする
-            onClickJud = true;
+            alreadyClickJud = true;
             thisImageCompo.color = Color.gray;
         }
         // ユニットアイコンの選択が解除された場合
         else
         {
             // ユニットアイコンクリック判定フラグをfalseに設定し、グレイアウトを解除する
-            onClickJud = false;
+            alreadyClickJud = false;
             thisImageCompo.color = Color.white;
         }
     }

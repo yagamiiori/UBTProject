@@ -30,7 +30,6 @@ public class ElementViewerInUnitForm : MonoBehaviour
         // エレメント画像表示メソッドをコール
         // ※元画像の関係で画像1枚では薄く表示されるため2枚作るので2回コール
         SetElementSprite();
-        SetElementSprite();
     }
 
     /// <summary>
