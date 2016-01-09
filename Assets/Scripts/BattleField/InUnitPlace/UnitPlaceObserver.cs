@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class UnitPlaceObserver :
     MonoBehaviour,
-    IPointerEnterHandler,
+    IPointerEnterHandler,                       // マウスオーバー検知用IF
     IObserver                                   // オブサーバIF
 {
     /// <summary>クリックSE</summary>
@@ -33,11 +33,11 @@ public class UnitPlaceObserver :
 
 	void Start ()
     {
-        // サブジェクトコンポ取得し、オブサーバリストに自身を追加
+        // サブジェクトコンポを取得し、オブサーバリストに自身を追加
         subjectCompo = GameObject.Find("Canvas_TimerInUnitPlace").GetComponent<UnitPlaceSubject>();
         subjectCompo.Attach(this);
 
-        // Imageコンポを取得
+        // 自身のImageコンポを取得
         thisImageCompo = this.gameObject.GetComponent<Image>();
 
         // オーディオコンポを取得
@@ -56,8 +56,8 @@ public class UnitPlaceObserver :
         if (!alreadyClickJud)
         {
             // まだどのアイコンもクリックされてない場合、クリックされた事と自身のユニットIDをサブジェクトへ通知する
-            subjectCompo.Notify((int)Enums.ObserverState.OnClick);
-            subjectCompo.nowClickUnitID = unitID;
+            subjectCompo.status = (int)Enums.ObserverState.OnClick;
+            subjectCompo.NowClickUnitID = unitID;
         }
     }
 
@@ -76,7 +76,14 @@ public class UnitPlaceObserver :
             thisImageCompo.color = Color.gray;
         }
         // ユニットアイコンの選択が解除された場合
-        else
+        else if((int)Enums.ObserverState.Canceled == val)
+        {
+            // ユニットアイコンクリック判定フラグをfalseに設定し、グレイアウトを解除する
+            alreadyClickJud = false;
+            thisImageCompo.color = Color.white;
+        }
+        // ユニットアイコンの選択が選択なしになった場合（ユニットがチップに配置された時）
+        else if ((int)Enums.ObserverState.None == val)
         {
             // ユニットアイコンクリック判定フラグをfalseに設定し、グレイアウトを解除する
             alreadyClickJud = false;
@@ -88,11 +95,14 @@ public class UnitPlaceObserver :
     /// マウスオーバーメソッド
     /// <para>　マウスカーソルがオブジェクトに乗った時にコールバックされ、SEを再生する。</para>
     /// </summary>
-    /// <param name="eventData"></param>
+    /// <param name="eventData">イベントデータ（使用しない）</param>
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // SEを設定および再生
-        clickSE = (AudioClip)Resources.Load("Sounds/SE/OnMouseOver1");
-        audioCompo.PlayOneShot(clickSE);
+        if (!alreadyClickJud)
+        {
+            // まだユニットアイコンがクリックされていない場合はSEを再生する
+            clickSE = (AudioClip)Resources.Load("Sounds/SE/OnMouseOver1");
+            audioCompo.PlayOneShot(clickSE);
+        }
     }
 }

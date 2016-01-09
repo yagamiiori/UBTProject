@@ -93,9 +93,6 @@ public class GuardGage : MonoBehaviour
 
     void Update()
     {
-        BarValue1P -= 0.01f;
-        BarValue2P -= 0.01f;
-
         // 1P側ゲージの増減処理（スケーリング）
         barScale1P.x = BarValue1P;
         barScale1P.y = 1.7f;

@@ -8,21 +8,113 @@ using System.Collections;
 public class UnitBase : MonoBehaviour
 {
     /// <summary>
+    /// ユニット名
+    /// </summary>
+    public string unitName = "";
+    /// <summary>
+    /// ユニットID
+    /// </summary>
+    public int unitID;
+    /// <summary>
+    /// クラス種別
+    /// </summary>
+    public int classType;
+    /// <summary>
+    /// アビリティA
+    /// </summary>
+    public int ability_A;
+    /// <summary>
+    /// アビリティB
+    /// </summary>
+    public int ability_B;
+    /// <summary>
+    /// 武器タイプ
+    /// </summary>
+    public int weaponType;
+    /// <summary>
+    /// エレメント
+    /// </summary>
+    public int element;
+    /// <summary>
+    /// 性別
+    /// </summary>
+    public int sex;
+    /// <summary>
+    /// 歩行タイプ
+    /// </summary>
+    public int workType;
+    /// <summary>
+    /// HP
+    /// </summary>
+    public int hp;
+    /// <summary>
+    /// MP
+    /// </summary>
+    public int mp;
+    /// <summary>
+    /// SP
+    /// </summary>
+    public int sp;
+    /// <summary>
+    /// WT
+    /// </summary>
+    public int wt;
+    /// <summary>
+    /// 経験値
+    /// </summary>
+    public int exp;
+    /// <summary>
+    /// STR
+    /// </summary>
+    public int str;
+    /// <summary>
+    /// VIT
+    /// </summary>
+    public int vit;
+    /// <summary>
+    /// DEX
+    /// </summary>
+    public int dex;
+    /// <summary>
+    /// AGI
+    /// </summary>
+    public int agi;
+    /// <summary>
+    /// INT
+    /// </summary>
+    public int itg;
+    /// <summary>
+    /// MND
+    /// </summary>
+    public int mnd;
+    /// <summary>
+    /// RES
+    /// </summary>
+    public int res;
+    /// <summary>
+    /// LUC
+    /// </summary>
+    public int luc;
+    /// <summary>
+    /// プロモーション可否判定
+    /// </summary>
+    public bool promJud;
+    /// <summary>
     /// 生存フラグ
     /// </summary>
-    bool _exists = false;
+    bool exists = false;
     public bool Exists
     {
-        get { return _exists; }
-        set { _exists = value; }
+        get { return exists; }
+        set { exists = value; }
     }
     /// <summary>
     /// スプライトレンダラーコンポ
     /// </summary>
-    SpriteRenderer _renderer = null;
+    SpriteRenderer renderer = null;
     public SpriteRenderer Renderer
     {
-        get { return _renderer ?? (_renderer = gameObject.GetComponent<SpriteRenderer>()); }
+        get { return renderer ?? (renderer = gameObject.GetComponent<SpriteRenderer>()); }
     }
     /// <summary>
     /// 描画有無判定

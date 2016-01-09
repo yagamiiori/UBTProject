@@ -12,6 +12,16 @@ public class OnMouseWheelScroll : MonoBehaviour
     /// メインカメラ
     /// </summary>
     private GameObject mainCamera;
+    /// <summary>
+    /// 画面がスクロールする方向
+    /// </summary>
+    private enum Direction
+    {
+        Up,
+        Down,
+        Right,
+        Left
+    }
 
     /// <summary>
     /// コンストラクタ
@@ -28,19 +38,41 @@ public class OnMouseWheelScroll : MonoBehaviour
     {
         // マウスのホイールスクロールを取得
         var wheelScrollValue = Input.GetAxis("Mouse ScrollWheel");
-        if (wheelScrollValue > 0)
+        if (!Input.GetButton("Fire2"))
         {
-            // 奥へのスクロールを検知
-            ScroolStart(0, wheelScrollValue);
-        }
-        else if (wheelScrollValue < 0)
-        {
-            // 奥へのスクロールを検知
-            ScroolStart(1, wheelScrollValue);
+            // マウス右クリックされていない場合、画面を上下へスクロール
+            if (wheelScrollValue > 0)
+            {
+                // 奥へのスクロールを検知
+                ScroolStart(Direction.Up, wheelScrollValue);
+            }
+            else if (wheelScrollValue < 0)
+            {
+                // 奥へのスクロールを検知
+                ScroolStart(Direction.Down, wheelScrollValue);
+            }
+            else
+            {
+                // ホイールスクロールなし
+            }
         }
         else
         {
-            // ホイールスクロールなし
+            // マウス右クリックされている場合、画面を左右へスクロール
+            if (wheelScrollValue > 0)
+            {
+                // 奥へのスクロールを検知
+                ScroolStart(Direction.Left, wheelScrollValue);
+            }
+            else if (wheelScrollValue < 0)
+            {
+                // 奥へのスクロールを検知
+                ScroolStart(Direction.Right, wheelScrollValue);
+            }
+            else
+            {
+                // ホイールスクロールなし
+            }        
         }
 	}
 
@@ -50,7 +82,7 @@ public class OnMouseWheelScroll : MonoBehaviour
     /// </summary>
     /// <param name="direction">ホイールをスクロールさせた方向</param>
     /// <param name="scrollValue">スクロールさせたホイールの速さ</param>
-    private void ScroolStart(int direction, float scrollValue)
+    private void ScroolStart(Direction direction, float scrollValue)
     {
         StartCoroutine(CameraScroll(direction, scrollValue));
     }
@@ -62,48 +94,84 @@ public class OnMouseWheelScroll : MonoBehaviour
     /// <param name="direction">ホイールをスクロールさせた方向</param>
     /// <param name="scrollValue">スクロールさせたホイールの速さ</param>
     /// <returns>なし</returns>
-    private IEnumerator CameraScroll(int direction, float scrollValue)
+    private IEnumerator CameraScroll(Direction direction, float scrollValue)
     {
         // スクロールする基準となる速度
-        float scrollVelocityY = 2.0f;
+        float scrollVelocity = 2.0f;
         // メインカメラの座標
         Vector3 scrollPos = new Vector3(0, 0, 0);
 
-        // 奥へのスクロール
-        if (0 == direction)
+        // 奥へのスクロール（画面を上にスクロールする）
+        if (Direction.Up == direction)
         {
             while (true)
             {
                 // 補正でスクロール基準速度が0になったらループを抜ける
-                if (0.1f >= scrollVelocityY) break;
+                if (0.1f >= scrollVelocity) break;
 
                 scrollPos.x = mainCamera.transform.localPosition.x;
-                scrollPos.y = mainCamera.transform.localPosition.y + (scrollVelocityY * scrollValue); // Y軸をスクロールさせる
+                scrollPos.y = mainCamera.transform.localPosition.y + (scrollVelocity * scrollValue); // Y軸をスクロールさせる
                 scrollPos.z = mainCamera.transform.localPosition.z;
                 mainCamera.transform.localPosition = scrollPos;
 
                 // だんだん緩やかにスクロールさせるため補正をかける
-                scrollVelocityY -= 0.2f;
+                scrollVelocity -= 0.2f;
                 yield return 0;
             }
         }
-        // 手前へのスクロール
+        // 手前へのスクロール（画面を下にスクロールする）
+        else if (Direction.Down == direction)
+        {
+            while (true)
+            {
+                // 補正でスクロール基準速度が0になったらループを抜ける
+                if (0.1f >= scrollVelocity) break;
+
+                scrollPos.x = mainCamera.transform.localPosition.x;
+                scrollPos.y = mainCamera.transform.localPosition.y + (scrollVelocity * scrollValue); // Y軸をスクロールさせる
+                scrollPos.z = mainCamera.transform.localPosition.z;
+                mainCamera.transform.localPosition = scrollPos;
+
+                // だんだん緩やかにスクロールさせるため補正をかける
+                scrollVelocity -= 0.2f;
+                yield return 0;
+            }
+        }
+        // 右クリック＋奥へのスクロール（画面を左にスクロールする）
+        else if (Direction.Left == direction)
+        {
+            while (true)
+            {
+                // 補正でスクロール基準速度が0になったらループを抜ける
+                if (0.1f >= scrollVelocity) break;
+
+                scrollPos.x = mainCamera.transform.localPosition.x - (scrollVelocity * scrollValue); // X軸をスクロールさせる
+                scrollPos.y = mainCamera.transform.localPosition.y;
+                scrollPos.z = mainCamera.transform.localPosition.z;
+                mainCamera.transform.localPosition = scrollPos;
+
+                // だんだん緩やかにスクロールさせるため補正をかける
+                scrollVelocity -= 0.2f;
+                yield return 0;
+            }
+        }
+        // 右クリック＋手前へのスクロール（画面を右にスクロールする）
         else
         {
             while (true)
             {
                 // 補正でスクロール基準速度が0になったらループを抜ける
-                if (0.1f >= scrollVelocityY) break;
+                if (0.1f >= scrollVelocity) break;
 
-                scrollPos.x = mainCamera.transform.localPosition.x;
-                scrollPos.y = mainCamera.transform.localPosition.y + (scrollVelocityY * scrollValue); // Y軸をスクロールさせる
+                scrollPos.x = mainCamera.transform.localPosition.x - (scrollVelocity * scrollValue); // X軸をスクロールさせる
+                scrollPos.y = mainCamera.transform.localPosition.y;
                 scrollPos.z = mainCamera.transform.localPosition.z;
                 mainCamera.transform.localPosition = scrollPos;
 
                 // だんだん緩やかにスクロールさせるため補正をかける
-                scrollVelocityY -= 0.2f;
+                scrollVelocity -= 0.2f;
                 yield return 0;
-            }
+            }        
         }
     }
 }

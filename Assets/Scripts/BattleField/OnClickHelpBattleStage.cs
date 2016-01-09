@@ -6,20 +6,30 @@ using System.Collections.Generic;   // コレクションクラスの定義に�
 using System.Linq;
 
 
-public class OnClickHelpLoginScene : MonoBehaviour
+public class OnClickHelpBattleStage : MonoBehaviour
 {
-    /// <summary>メインCanvas</summary>
+    /// <summary>
+    /// メインCanvas
+    /// </summary>
     private GameObject canVas;
-    /// <summary>ヘルプメッセージCanvasの親オブジェクト状態クラス</summary>
+    /// <summary>
+    /// ヘルプメッセージCanvasの親オブジェクト状態クラス
+    /// </summary>
     private MessageWindowActiveManager helpMsgParentState;
-    /// <summary>オーディオコンポ</summary>
+    /// <summary>
+    /// オーディオコンポ
+    /// </summary>
     private AudioSource audioCompo;
-    /// <summary>クリックSE</summary>
+    /// <summary>
+    /// クリックSE
+    /// </summary>
     [SerializeField]
     private AudioClip clickSE;
 
-    /// <summary>コンストラクタ</summary>
-    private OnClickHelpLoginScene() { }
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    private OnClickHelpBattleStage() { }
 
     void Start()
     {
@@ -39,7 +49,6 @@ public class OnClickHelpLoginScene : MonoBehaviour
     /// ヘルプメッセージ表示メソッド
     /// <para>　メッセージウィンドウにヘルプメッセージを表示する。</para>
     /// </summary>
-    // TODO ヘルプメッセージの実装要検討
     public void OnclickHelpMessage()
     {
         // クリックSEを設定
@@ -47,12 +56,12 @@ public class OnClickHelpLoginScene : MonoBehaviour
         // 設定したSEを鳴らす
         audioCompo.PlayOneShot(clickSE);
 
-        string helpMessage = "ユーザIDを入力してログインするシーンです。\n" +
-                         "\n" +
-                         "ユーザ名登録時に発行されたユーザIDを入力して下さい。\n" +
-                         "まだユーザ登録を行っていない場合は、「Registration」をクリックしてレジスト画面より、ユーザ名登録を行って下さい。\n" +
-                         "\n" +
-                         "なおこの画面において、汎用ユーザ名「NameLess」と入力する事で、ユーザ名登録を行わずNameLess(名無し)でプレイする事も可能です。\n";
+        string helpMessage = "マウスアクション\n" +
+                         "--------------------------------\n" +
+                         "左ダブルクリック：WT0のユニットにフォーカスします。\n" +
+                         "右ダブルクリック：カメラを広角ビューに切り替えます。\n" +
+                         "ホイール：画面を上下にスクロールします。\n" +
+                         "右ボタン押しっぱなし＋ホイール：画面を左右にスクロールします。\n";
 
         // ヘルプメッセージの親オブジェクトをアクティブ化
         helpMsgParentState.parentGO.SetActive(true);

@@ -49,7 +49,7 @@ public class ShotRayCast : MonoBehaviour
                     // ユニットがクリックされている状態でチップにRayがヒットした場合
                     // Subjectのフィールドに格納されている、現在クリックされているユニットIDを読みだして
                     // そのユニットIDのユニットGOを生成し、チップに配置する。
-                    int unitId = unitplaceSubject.nowClickUnitID;
+                    int unitId = unitplaceSubject.NowClickUnitID;
 
                     // クラス種別を読み出し、クラスに対応したGOをインスタンス化する
                     Sprite classSprite = null;

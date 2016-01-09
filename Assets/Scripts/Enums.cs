@@ -26,7 +26,9 @@ public static class Enums
         /// <summary>選択済み</summary>
         AlreadyClicked,
         /// <summary>キャンセルされた</summary>
-        Canceled
+        Canceled,
+        /// <summary>未選択</summary>
+        None
     }
 
     /// <summary>

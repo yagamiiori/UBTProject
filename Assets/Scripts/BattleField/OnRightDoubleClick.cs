@@ -9,13 +9,13 @@ using System.Collections;
 public class OnRightDoubleClick : MonoBehaviour
 {
     /// <summary>
-    /// ダブルクリック2回目のクリックまでのマージンタイム（間隔時間）
-    /// </summary>
-    public float marginTime = 0.1f;
-    /// <summary>
-    /// 2回目のクリックを待つ時間（この時間を超過してからの2回目のクリックは無効）
+    /// 一回目のクリックをトリガーとした経過時間
     /// </summary>
     private float elapsedSec = 0;
+    /// <summary>
+    /// 2回目のクリックを受け付ける許容時間（この時間を超過してからの2回目のクリックは無効）
+    /// </summary>
+    private float clickAllowSec = 0.1f;
     /// <summary>
     /// メインカメラ
     /// </summary>
@@ -25,13 +25,9 @@ public class OnRightDoubleClick : MonoBehaviour
     /// </summary>
     private Camera cameraCompo;
     /// <summary>
-    /// ダブルクリック中経過時間クリア抑止フラグ
+    /// ダブルクリックの実施中判定
     /// </summary>
     private bool isDoubleClickStarting = false;
-    /// <summary>
-    /// マウスをクリックした回数
-    /// </summary>
-    private int clickCounter = 0;
 
     /// <summary>
     /// コンストラクタ
@@ -54,7 +50,7 @@ public class OnRightDoubleClick : MonoBehaviour
             {
                 // ダブルクリック開始フラグON
                 isDoubleClickStarting = true;
-                // カウントメソッドを起動し、2回目のクリックを待つ
+                // カウントを開始し、2回目のクリックを待つ
                 StartCoroutine(Counter());
             }
         }
@@ -63,9 +59,9 @@ public class OnRightDoubleClick : MonoBehaviour
         {
             if (0 != elapsedSec)
             {
-                // ダブルクリック待ち合わせ時間内であればダブルクリック成功
+                // ダブルクリック待ち合わせ時間内であればダブルクリック成立
                 DoubleClickConfirm();
-                // ダブルクリック判定中フラグと2回目のクリック待ち合わせ時間をクリア
+                // ダブルクリック実施中判定と経過時間をクリア
                 isDoubleClickStarting = false;
                 elapsedSec = 0;
             }
@@ -73,16 +69,17 @@ public class OnRightDoubleClick : MonoBehaviour
     }
 
     /// <summary>
-    /// ダブルクリックカウンタメソッド
-    /// <para>　ダブルクリック時において1回目のクリックから2回目のクリックが</para>
-    /// <para>　される間隔をカウントする。一定時間経過で2回目のクリックを受け付けないようにする。</para>
+    /// ダブルクリック許容時間カウンタ
+    /// <para>　ダブルクリックの1回目をトリガーにカウントが開始され、2回目のクリックまでの</para>
+    /// <para>　許容時間をカウントする。</para>
+    /// <para>　許容時間閾値超過の場合はカウントを停止し、ダブルクリック不成立とする。</para>
     /// </summary>
     /// <returns>なし</returns>
     private IEnumerator Counter()
     {
         while (true)
         {
-            if (0.1f <= elapsedSec)
+            if (clickAllowSec <= elapsedSec)
             {
                 // タイムオーバーしたらメソッドを終了
                 elapsedSec = 0;
@@ -97,7 +94,7 @@ public class OnRightDoubleClick : MonoBehaviour
 
     /// <summary>
     /// ダブルクリック判定成立メソッド
-    /// <para>　ダブルクリックが成立したらコールされる。</para>
+    /// <para>　ダブルクリック成立時にコールされ、成立時の機能を実施する。</para>
     /// </summary>
     void DoubleClickConfirm()
     {

@@ -16,6 +16,14 @@ public class TraceMousePosition : MonoBehaviour
     /// カメラがカーソルに追随する速度
     /// </summary>
     private float cameraSpeed = 0.0002f;
+    /// <summary>
+    /// メインカメラ
+    /// </summary>
+    private GameObject mainCamera;
+    /// <summary>
+    /// メインカメラのカメラコンポ
+    /// </summary>
+    private Camera cameraCompo;
 
     /// <summary>
     /// コンストラクタ
@@ -24,6 +32,10 @@ public class TraceMousePosition : MonoBehaviour
 
     void Start()
     {
+        // メインカメラを取得
+        mainCamera = GameObject.Find("Main Camera");
+        cameraCompo = mainCamera.GetComponent<Camera>();
+
         Vector3 t = new Vector3(3.56f, 6.25f, -8.24f);
         this.transform.position = t;
     }
@@ -32,81 +44,83 @@ public class TraceMousePosition : MonoBehaviour
     {
         // マウスのワールド座標をビューポート座標に変換
         var t = Camera.main.WorldToViewportPoint(Input.mousePosition);
-
-//        Debug.Log(t);
-
         var setPos = Vector3.Lerp(this.transform.position, t, cameraSpeed);
 
-        // 下方向
-        if (2.0f > t.y)
+        // カメラサイズが通常の場合のみ（広角ビューモードでのマウスカーソル追尾は行わない）
+        var cameraSize = cameraCompo.orthographicSize;
+        if (6.0f == cameraSize)
         {
-            // 左下
-            if (4.0f > t.x)
+            // 下方向
+            if (2.0f > t.y)
             {
-                setPos.x -= 0.2f;
-                setPos.y -= 0.2f;
-                this.transform.position = setPos;
+                // 左下
+                if (4.0f > t.x)
+                {
+                    setPos.x -= 0.2f;
+                    setPos.y -= 0.2f;
+                    this.transform.position = setPos;
+                }
+                // 右下
+                else if (50.0f < t.x)
+                {
+                    setPos.x += 0.2f;
+                    setPos.y -= 0.2f;
+                    this.transform.position = setPos;
+                }
+                // 真下
+                else
+                {
+                    setPos.x = this.transform.position.x;
+                    setPos.y -= 0.2f;
+                    this.transform.position = setPos;
+                }
             }
-            // 右下
-            else if (50.0f < t.x)
+            // 上方向
+            else if (50.0f < t.y)
             {
-                setPos.x += 0.2f;
-                setPos.y -= 0.2f;
-                this.transform.position = setPos;
+                // 左上
+                if (4.0f > t.x)
+                {
+                    setPos.x -= 0.2f;
+                    setPos.y += 0.2f;
+                    this.transform.position = setPos;
+                }
+                // 右上
+                else if (50.0f < t.x)
+                {
+                    setPos.x += 0.2f;
+                    setPos.y += 0.2f;
+                    this.transform.position = setPos;
+                }
+                // 真上
+                else
+                {
+                    setPos.x = this.transform.position.x;
+                    setPos.y += 0.2f;
+                    this.transform.position = setPos;
+                }
             }
-            // 真下
+            // 左右
             else
             {
-                setPos.x = this.transform.position.x;
-                setPos.y -= 0.2f;
-                this.transform.position = setPos;
-            }
-        }
-        // 上方向
-        else if (50.0f < t.y)
-        {
-            // 左上
-            if (4.0f > t.x)
-            {
-                setPos.x -= 0.2f;
-                setPos.y += 0.2f;
-                this.transform.position = setPos;
-            }
-            // 右上
-            else if (50.0f < t.x)
-            {
-                setPos.x += 0.2f;
-                setPos.y += 0.2f;
-                this.transform.position = setPos;
-            }
-            // 真上
-            else
-            {
-                setPos.x = this.transform.position.x;
-                setPos.y += 0.2f;
-                this.transform.position = setPos;
-            }
-        }
-        // 左右
-        else
-        {
-            // 左
-            if (2.0f > t.x)
-            {
-                setPos.x -= 0.2f;
-                setPos.y = this.transform.position.y;
-                this.transform.position = setPos;
-            }
-            // 右
-            else if (50.0f < t.x)
-            {
-                setPos.x += 0.2f;
-                setPos.y = this.transform.position.y;
-                this.transform.position = setPos;
-            }
-            else
-            {
-                // 中央付近は何もしない
+                // 左
+                if (2.0f > t.x)
+                {
+                    setPos.x -= 0.2f;
+                    setPos.y = this.transform.position.y;
+                    this.transform.position = setPos;
+                }
+                // 右
+                else if (50.0f < t.x)
+                {
+                    setPos.x += 0.2f;
+                    setPos.y = this.transform.position.y;
+                    this.transform.position = setPos;
+                }
+                else
+                {
+                    // 中央付近は何もしない
+                }
             }
         }
     }

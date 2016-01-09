@@ -20,23 +20,20 @@ public class UnitPlaceSubject :
     /// <summary>
     /// ユニットアイコンクリック時のSE
     /// </summary>
-    public AudioClip clickSE_UnitSlected;
-    /// <summary>
-    /// パネルクリック時のSE
-    /// </summary>
-    public AudioClip clickSE_AbilitySelected;
-    /// <summary>
-    /// キャンセル時のSE
-    /// </summary>
-    public AudioClip clickSE_Cancel;
+    public AudioClip clickSE;
     /// <summary>
     /// 現在クリックされているユニットのID
     /// </summary>
-    public int nowClickUnitID = 0;
+    private int nowClickUnitID = 0;
+    public int NowClickUnitID
+    {
+        get { return nowClickUnitID; }
+        set { nowClickUnitID = value; }
+    }
     /// <summary>
-    /// サブジェクトのステータス（0:初期値　1:ユニットアイコンクリック）
+    /// サブジェクトのステータス
     /// </summary>
-    private int _status = 0;
+    private int _status = (int)Enums.ObserverState.None;
     public int status
     {
         get
@@ -46,7 +43,7 @@ public class UnitPlaceSubject :
         set
         {
             _status = value;
-//            Notify(_status);
+            Notify(_status);
         }
     }
 
@@ -61,12 +58,20 @@ public class UnitPlaceSubject :
         audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
         // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
         if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
-
-        // ユニットボタンクリック時SE、アビリティボタンクリック時SE、キャンセルSEを設定
-        clickSE_UnitSlected = (AudioClip)Resources.Load("Sounds/SE/Click5");
-        clickSE_AbilitySelected = (AudioClip)Resources.Load("Sounds/SE/Click4");
-        clickSE_Cancel = (AudioClip)Resources.Load("Sounds/SE/CursorMove2");
 	}
+
+    void Update()
+    {
+        if ((int)Enums.ObserverState.OnClick == status)
+        {
+            // ユニットが選択されている時にマウス右クリックが押された場合
+            if (Input.GetButtonDown("Fire2"))
+            {
+                // 全オブサーバにキャンセルを通知
+                status = (int)Enums.ObserverState.Canceled;
+            }
+        }
+    }
 
     /// <summary>
     /// オブサーバ追加メソッド
@@ -95,6 +100,25 @@ public class UnitPlaceSubject :
     /// <param name="jud">クリックされたマウスボタンの判定</param>
     public void Notify(int jud)
     {
+        // 鳴らすSEの切り分けを開始
+        if ((int)Enums.ObserverState.OnClick == jud)
+        {
+            // ユニットアイコンがクリックされた時に鳴らすSE
+            clickSE = (AudioClip)Resources.Load("Sounds/SE/Click5");
+        }
+        else if ((int)Enums.ObserverState.Canceled == jud)
+        {
+            // ユニットアイコンクリック後にキャンセルされた時に鳴らすSE
+            clickSE = (AudioClip)Resources.Load("Sounds/SE/CursorMove2");
+        }
+        else if ((int)Enums.ObserverState.None == jud)
+        {
+            // ユニットがチップに配置された時に鳴らすSE
+            clickSE = (AudioClip)Resources.Load("Sounds/SE/Click4");
+        }
+        // 設定したSEを鳴らす
+        audioCompo.PlayOneShot(clickSE);
+
         // オブサーバクラス内の通知メソッドをコールし、変更された値を通知する
         obServers.ForEach(observer => observer.Notify(this.status));
     }

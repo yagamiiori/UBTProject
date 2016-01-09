@@ -9,12 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 441352}
   - 212: {fileID: 21234288}
-  - 114: {fileID: 11483236}
-  - 114: {fileID: 11428334}
-  - 114: {fileID: 11420774}
   - 65: {fileID: 6559504}
-  - 114: {fileID: 11483890}
   - 95: {fileID: 9586892}
+  - 114: {fileID: 11420774}
+  - 114: {fileID: 11483890}
+  - 114: {fileID: 11474320}
   m_Layer: 0
   m_Name: SOLDLER
   m_TagString: UnitGO
@@ -88,18 +87,7 @@ MonoBehaviour:
   viewIdField: 0
   instantiationId: -1
   isRuntimeInstantiated: 0
---- !u!114 &11428334
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154780}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b02764e0c722c8a468e4c3e611bcde7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11483236
+--- !u!114 &11474320
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,39 +95,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 154780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ab0c8a66a40754b85b67ecd2bbd32b, type: 3}
+  m_Script: {fileID: 11500000, guid: 07befdef0f0386e4d976973c0f7a0324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: 
   unitID: 0
   classType: 0
   ability_A: 0
   ability_B: 0
-  ability_C: 0
-  ability_D: 0
-  ability_E: 0
   weaponType: 0
-  element: 1
+  element: 0
   sex: 0
-  color: 0
+  workType: 0
   hp: 0
   mp: 0
-  workType: 0
-  expValue: 0
+  sp: 0
   wt: 0
-  brave: 0
-  fath: 0
-  PysicsDef: 0
-  MagicDef: 0
-  attack: 0
-  Equipment_Hand_R: 0
-  Equipment_Hand_L: 0
-  Equipment_Head: 0
-  Equipment_Body: 0
-  Equipment_Foot: 0
-  Equipment_Accessory: 0
-  unitName: 0
-  correct_W: 0
-  correct_M: 0
+  exp: 0
+  str: 0
+  vit: 0
+  dex: 0
+  agi: 0
+  itg: 0
+  mnd: 0
+  res: 0
+  luc: 0
   promJud: 0
 --- !u!114 &11483890
 MonoBehaviour:
