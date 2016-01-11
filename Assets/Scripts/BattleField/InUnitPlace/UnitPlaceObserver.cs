@@ -3,22 +3,42 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// ユニットアイコンオブサーバ（InUnitPlace時）
+/// <para>　InUnitPlace時においてアンダーライン上に配置されたユニットアイコンのオブサーバ。</para>
+/// </summary>
 public class UnitPlaceObserver :
     MonoBehaviour,
     IPointerEnterHandler,                       // マウスオーバー検知用IF
     IObserver                                   // オブサーバIF
 {
-    /// <summary>クリックSE</summary>
+    /// <summary>
+    /// クリックSE
+    /// </summary>
     public AudioClip clickSE;
-    /// <summary>ユニットアイコンのクリック有無判定</summary>
+    /// <summary>
+    /// ユニットアイコンのクリック有無判定
+    /// </summary>
     private bool alreadyClickJud = false;
-    /// <summary>サブジェクトコンポ</summary>
+    /// <summary>
+    /// サブジェクトコンポ
+    /// </summary>
     private UnitPlaceSubject subjectCompo;
-    /// <summary>ユニットアイコンのImageコンポ</summary>
+    /// <summary>
+    /// バトル参加中ユニットリスト管理クラス
+    /// </summary>
+    private BattleUnitList unitListInBattle;
+    /// <summary>
+    /// ユニットアイコンのImageコンポ
+    /// </summary>
     private Image thisImageCompo;
-    /// <summary>オーディオコンポ</summary>
+    /// <summary>
+    /// オーディオコンポ
+    /// </summary>
     private AudioSource audioCompo;
-    /// <summary>ユニットID（UnitViewerOnUnderLine.csから設定される）</summary>
+    /// <summary>
+    /// ユニットID（UnitViewerOnUnderLine.csからインスタンス化した時に設定される）
+    /// </summary>
     private int unitID;
     public int UnitID
     {
@@ -40,6 +60,9 @@ public class UnitPlaceObserver :
         // 自身のImageコンポを取得
         thisImageCompo = this.gameObject.GetComponent<Image>();
 
+        //　バトル参加中ユニットリスト管理クラスを取得
+        unitListInBattle = GameObject.Find("Canvas").GetComponent<BattleUnitList>();
+
         // オーディオコンポを取得
         audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
         // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
@@ -57,7 +80,25 @@ public class UnitPlaceObserver :
         {
             // まだどのアイコンもクリックされてない場合、クリックされた事と自身のユニットIDをサブジェクトへ通知する
             subjectCompo.status = (int)Enums.ObserverState.OnClick;
-            subjectCompo.NowClickUnitID = unitID;
+            subjectCompo.NowClickUnitID = UnitID;
+        }
+        else
+        {
+            // すでに自分のユニットIDがチップ上にセットされていたらユニットを削除する
+            foreach (var t in unitListInBattle.myUnits)
+            {
+                if (UnitID == t)
+                {
+                    // バトル参加中ユニットリストから削除
+                    unitListInBattle.RemoveMyList(UnitID);
+                    // ユニットGOを検索して削除
+                    var unitGO = GameObject.Find("Unit" + UnitID.ToString());
+                    Destroy(unitGO);
+                    // 再選択可能にするためサブジェクトへ変更を送信
+                    subjectCompo.status = (int)Enums.ObserverState.Canceled;
+                    return;
+                }
+            }
         }
     }
 
@@ -78,6 +119,11 @@ public class UnitPlaceObserver :
         // ユニットアイコンの選択が解除された場合
         else if((int)Enums.ObserverState.Canceled == val)
         {
+            foreach (var t in unitListInBattle.myUnits)
+            {
+                // すでに自分のユニットIDがチップ上にセットされていたらグレイアウトを解除しない
+                if (UnitID == t) return;
+            }
             // ユニットアイコンクリック判定フラグをfalseに設定し、グレイアウトを解除する
             alreadyClickJud = false;
             thisImageCompo.color = Color.white;
@@ -85,6 +131,11 @@ public class UnitPlaceObserver :
         // ユニットアイコンの選択が選択なしになった場合（ユニットがチップに配置された時）
         else if ((int)Enums.ObserverState.None == val)
         {
+            foreach (var t in unitListInBattle.myUnits)
+            {
+                // すでに自分のユニットIDがチップ上にセットされていたらグレイアウトを解除しない
+                if (UnitID == t) return;
+            }
             // ユニットアイコンクリック判定フラグをfalseに設定し、グレイアウトを解除する
             alreadyClickJud = false;
             thisImageCompo.color = Color.white;

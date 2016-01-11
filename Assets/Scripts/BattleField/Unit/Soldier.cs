@@ -22,11 +22,6 @@ public class Soldier : UnitBase
         InitializeFields();
     }
 
-    void Update()
-    {
-
-    }
-
     /// <summary>
     /// パラメータ初期化メソッド
     /// <para>　ユニットステータスの中でクラス固有のパラメータ、および</para>

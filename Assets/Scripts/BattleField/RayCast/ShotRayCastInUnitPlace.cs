@@ -8,31 +8,38 @@ using System.Collections;
 /// <para>　Rayがヒットしたチップの座標に、作成したユニットGOを配置する。</para>
 /// <para>　アタッチGO：Canvas_TimerInUnitPlace
 /// </summary>
-public class ShotRayCastInUnitPlace : MonoBehaviour
+public class ShotRayCastInUnitPlace : Photon.MonoBehaviour
 {
     /// <summary>
     /// ユニットアイコンSubject
     /// </summary>
     private UnitPlaceSubject unitplaceSubject = null;
     /// <summary>
-    /// ゲームマネージャー
+    /// ユニットインスタンス作成クラス
     /// </summary>
-    private GameManager gameManager;
+    private InstantiateUnitOnTip unitCreate;
     /// <summary>
-    /// ユニットパラメータ設定クラス
+    /// バトル参加中ユニット管理クラス
     /// </summary>
-    private SettingsUnitParam settingUnitParam;
+    private BattleUnitList battleUnitList;
+    /// <summary>
+    /// サブジェクトコンポ
+    /// </summary>
+    private UnitPlaceSubject subjectCompo;
 
     void Start()
     {
-        // ゲームマネージャー取得
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
-        // ユニットパラメータ設定クラス取得
-        settingUnitParam = this.gameObject.GetComponent<SettingsUnitParam>();
-
         // ユニットアイコンSubjectコンポを取得
         unitplaceSubject = this.gameObject.GetComponent<UnitPlaceSubject>();
+        
+        // バトル参加中ユニット管理クラスを取得
+        battleUnitList = GameObject.Find("Canvas").GetComponent<BattleUnitList>();
+
+        // ユニットインスタンス作成クラスを取得
+        unitCreate = this.gameObject.GetComponent<InstantiateUnitOnTip>();
+
+        // サブジェクトコンポを取得し、オブサーバリストに自身を追加
+        subjectCompo = GameObject.Find("Canvas_TimerInUnitPlace").GetComponent<UnitPlaceSubject>();
     }
 
     void FixedUpdate()
@@ -50,28 +57,16 @@ public class ShotRayCastInUnitPlace : MonoBehaviour
                     // アンダーライン内のユニットアイコンがクリックされている状態か判定
                     if ((int)Enums.ObserverState.OnClick == unitplaceSubject.status)
                     {
-                        // ユニットがクリックされている場合、Subjectのフィールドに格納されている
-                        // 現在クリックされているユニットIDを読み出し、そのユニットIDの
-                        // ユニットGOを生成し、チップに配置する。
+                        // クリックされているユニットのIDを取得
                         int unitId = unitplaceSubject.NowClickUnitID;
-                        GameObject classGO = null;
+                        // クリックされたチップの座標を取得
                         Vector3 tipPosition = hit.collider.gameObject.transform.position;
-                        tipPosition.y += 0.5f; // Y軸をちょっと補正
-                        switch (gameManager.unitStateList[unitId].classType)
-                        {
-                            case Defines.SOLDLER: // ソルジャー
-                                classGO = Resources.Load<GameObject>("UnitSprite_BattleStage/SOLDLER");
-                                break;
-                            case Defines.WIZARD:  // ウィザード
-                                classGO = Resources.Load<GameObject>("UnitSprite_BattleStage/WIZARD");
-                                break;
-                            default:              // 例外
-                                // 処理なし
-                                break;
-                        }
-                        // ユニットGOをインスタンス化し、パラメータを設定する
-                        var unit = Instantiate(classGO, tipPosition, Quaternion.identity);
-                        settingUnitParam.SettingUnitParams(unitId, unit as GameObject);
+
+                        // ユニットのインスタンスをチップ上に作成する
+                        unitCreate.CreateUnitGO(unitId, tipPosition);
+
+                        // バトル参加中ユニット管理クラスの自軍ユニットリストに配置したユニットのIDを追加
+                        battleUnitList.AddMyList(unitId);
 
                         // ユニットアイコン選択中判定を解除
                         unitplaceSubject.status = (int)Enums.ObserverState.None;

@@ -27,11 +27,11 @@ public class SettingsUnitParam : MonoBehaviour
 
     /// <summary>
     /// ユニットパラメータ設定メソッド
-    /// <para>　ShotRayCastInUnitPlace.csからコールされ、ユニットのパラメータを設定する。</para>
+    /// <para>　ユニットのパラメータを設定する。</para>
     /// </summary>
     /// <param name="unitID">リストから読み出すユニットのID</param>
     /// <param name="unit">設定する対象のユニットGOが持つ基底クラス</param>
-    public void SettingUnitParams(int unitID, GameObject unit)
+    public void Execute(int unitID, GameObject unit)
     {
         // 基底クラスを取得
         var unitBase = unit.GetComponent<UnitBase>();

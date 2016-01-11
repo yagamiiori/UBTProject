@@ -1,0 +1,7 @@
+
+ユニット名やエレメントやアビリティなどプレイヤーが決定するパラメータ
+└SettingsUnitParam.cs
+
+STRなどクラス固有のパラメータ
+└Soldier.csなどの各クラス内のInitializeFields()メソッド
+

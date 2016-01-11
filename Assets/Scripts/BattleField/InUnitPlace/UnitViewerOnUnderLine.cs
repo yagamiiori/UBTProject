@@ -51,33 +51,31 @@ public class UnitViewerOnUnderLine : MonoBehaviour
                     // ソルジャーのスプライトを設定
                     sprite = Resources.Load("UnitSprite_InUnitPlace/Soldier_M") as GameObject;
 
-                    // ユニットIDをオブザーバークラス内のプロパティに設定する
-                    observerCompo = sprite.GetComponent<UnitPlaceObserver>();
-                    observerCompo.UnitID = i;
-
                     // prefabを表示
                     prefab = Instantiate(sprite, setSpriteVec, Quaternion.identity) as GameObject;
                     prefab.transform.SetParent(this.transform, false);
                     prefab.name = spriteName + i.ToString();             // スプライト表示GOの名前を設定
                     setSpriteVec.x += 8.0f;                              // 次の画像表示のための位置補正
-                    break;
 
+                    // ユニットIDをオブザーバークラス内のプロパティに設定する
+                    observerCompo = prefab.GetComponent<UnitPlaceObserver>();
+                    observerCompo.UnitID = i;
+                    break;
                 // ウィザードの場合
                 case Defines.WIZARD:
                     // ウィザードのスプライトを設定
                     sprite = Resources.Load("UnitSprite_InUnitPlace/Wizard_M") as GameObject;
 
-                    // ユニットIDをオブザーバークラス内のプロパティに設定する
-                    observerCompo = sprite.GetComponent<UnitPlaceObserver>();
-                    observerCompo.UnitID = i;
-
                     // prefabを表示
                     prefab = Instantiate(sprite, setSpriteVec, Quaternion.identity) as GameObject;
                     prefab.transform.SetParent(this.transform, false);
                     prefab.name = spriteName + i.ToString();             // スプライト表示GOの名前を設定
                     setSpriteVec.x += 8.0f;                              // 次の画像表示のための位置補正
-                    break;
 
+                    // ユニットIDをオブザーバークラス内のプロパティに設定する
+                    observerCompo = prefab.GetComponent<UnitPlaceObserver>();
+                    observerCompo.UnitID = i;
+                    break;
                 // ユニット未設定の場合
                 default:
                     // 処理なし
