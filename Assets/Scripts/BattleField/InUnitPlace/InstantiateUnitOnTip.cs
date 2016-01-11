@@ -16,6 +16,18 @@ public class InstantiateUnitOnTip : MonoBehaviour
     /// ユニットパラメータ設定クラス
     /// </summary>
     private SettingsUnitParam settingUnitParam;
+    /// <summary>
+    /// エフェクト表示クラス
+    /// </summary>
+    private PlayEffect playEffect;
+    /// <summary>
+    /// オーディオコンポ
+    /// </summary>
+    private AudioSource audioCompo;
+    /// <summary>
+    /// SE
+    /// </summary>
+    public AudioClip unitPlaceSE;
 
     /// <summary>
     /// コンストラクタ
@@ -29,6 +41,14 @@ public class InstantiateUnitOnTip : MonoBehaviour
 
         // ユニットパラメータ設定クラス取得
         settingUnitParam = this.gameObject.GetComponent<SettingsUnitParam>();
+
+        // エフェクト表示クラス取得後、エフェクトのスプライト名を設定する
+        playEffect = new PlayEffect();
+
+        // オーディオコンポを取得
+        audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
+        // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
+        if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -61,6 +81,15 @@ public class InstantiateUnitOnTip : MonoBehaviour
         // TODO PhotonNetwork.Instantiateになる事に注意！ハマった
         var unit = PhotonNetwork.Instantiate(prefabName, tipPosition, Quaternion.identity, 0);
         unit.name = "Unit" + unitID.ToString();
+
+        // ユニット配置SEを再生する
+        unitPlaceSE = (AudioClip)Resources.Load("Sounds/SE/UnitPlace");
+        audioCompo.PlayOneShot(unitPlaceSE);
+
+        // UnitPlaceエフェクトを表示
+        string effectSprite = "BattleStage/UnitPlace/UnitPlaceEffect";
+        playEffect.PlayOnce(effectSprite, unit, new Vector3(0, 0.5f, 0f));
+
         // インスタンス化したユニットのパラメータを設置する
         settingUnitParam.Execute(unitID, unit as GameObject);
     }

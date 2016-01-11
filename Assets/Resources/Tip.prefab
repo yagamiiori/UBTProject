@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 445806}
   - 212: {fileID: 21225190}
-  - 114: {fileID: 11465030}
   - 61: {fileID: 6168168}
   - 50: {fileID: 5047206}
+  - 114: {fileID: 11465030}
   - 114: {fileID: 11433252}
   - 114: {fileID: 11452486}
   - 114: {fileID: 11489368}
@@ -202,7 +202,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300022, guid: 434595bd703f48648bac3df07460060f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -324,6 +324,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

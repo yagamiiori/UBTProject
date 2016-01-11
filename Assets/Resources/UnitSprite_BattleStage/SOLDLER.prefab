@@ -12,9 +12,9 @@ GameObject:
   - 65: {fileID: 6559504}
   - 95: {fileID: 9586892}
   - 114: {fileID: 11420774}
+  - 114: {fileID: 11489770}
   - 114: {fileID: 11483890}
   - 114: {fileID: 11474320}
-  - 114: {fileID: 11489770}
   m_Layer: 0
   m_Name: SOLDLER
   m_TagString: Unit

@@ -113,8 +113,8 @@ public class UnitPlaceSubject :
         }
         else if ((int)Enums.ObserverState.None == jud)
         {
-            // ユニットがチップに配置された時に鳴らすSE
-            clickSE = (AudioClip)Resources.Load("Sounds/SE/Click4");
+            // ユニットがチップに配置された時
+            // SEはユニット設置SEをInstantiateUnitOnTip.cs内で再生する
         }
         // 設定したSEを鳴らす
         audioCompo.PlayOneShot(clickSE);

@@ -95,7 +95,7 @@ public class TokenMgr<Type> where Type : Tip
             // インスタンスを生成
             GameObject g = GameObject.Instantiate(_prefab, new Vector3(), Quaternion.identity) as GameObject;
             g.name = "Tip";
-            g.tag  = "Tip";
+            g.tag = "Tip";
             // 生成したインスタンスのコンポのTipクラスを取得し、リストに追加する
             Type obj = g.GetComponent<Type>();
             tokenList.Add(obj);
