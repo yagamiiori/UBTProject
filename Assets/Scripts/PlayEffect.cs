@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// エフェクト再生クラス
+/// <para>　一度だけエフェクトを再生する。</para>
+/// </summary>
 public class PlayEffect : MonoBehaviour
 {
 
@@ -8,7 +12,7 @@ public class PlayEffect : MonoBehaviour
     public PlayEffect() { }
 
     /// <summary>
-    /// エフェクト表示メソッド
+    /// エフェクト再生メソッド
     /// <para>　エフェクトを一度だけ表示する。</para>
     /// </summary>
     /// <param name="name"></param>
@@ -16,11 +20,8 @@ public class PlayEffect : MonoBehaviour
     /// <param name="potision"></param>
     public void PlayOnce(string name, GameObject parentObject, Vector3 potision)
     {
-        // 生成したエフェクトのオブジェクト
-        GameObject effect;
-
         // エフェクトを生成し引数で指定された親オブジェクトの子に設定する
-        effect = Instantiate(Resources.Load(name), potision, Quaternion.identity) as GameObject;
+        var effect = Instantiate(Resources.Load(name), potision, Quaternion.identity) as GameObject;
         if (parentObject) effect.transform.SetParent(parentObject.transform, false);
     }
 }

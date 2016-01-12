@@ -39,8 +39,8 @@ public class SetUnitRandom : MonoBehaviour
     {
         // 配置するユニットのIDをランダムで決定
         int unitId = Random.Range(0,16);
-        // 配置するチップは右下にする
-        Vector3 tipPosition = new Vector3(0.8f, 0.9f, 0);
+        // 配置するチップの座標
+        Vector3 tipPosition = new Vector3(0.86f, 1.2f, 0);
 
         // ユニットのインスタンスをチップ上に作成する
         unitCreate.CreateUnitGO(unitId, tipPosition);

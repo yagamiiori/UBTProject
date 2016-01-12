@@ -99,7 +99,7 @@ public class UnitSelectButtonSol :
                     // ユニット数表示Textコンポに現ユニット数を表示
                     counterUnitValue.text = gameManager.sodlerNum.ToString();
 
-                    // クリックエフェクト表示メソッドをコール(this.gameObjectとするとなぜかバグる)
+                    // クリックエフェクト再生メソッドをコール(this.gameObjectとするとなぜかバグる)
                     playEffect.PlayOnce(effectSprite, canVas, new Vector3(-282f, 135f, 0f));
 
                     // ソルジャーのスライダー値をインクリメント

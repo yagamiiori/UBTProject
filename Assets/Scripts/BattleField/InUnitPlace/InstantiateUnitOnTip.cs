@@ -17,7 +17,7 @@ public class InstantiateUnitOnTip : MonoBehaviour
     /// </summary>
     private SettingsUnitParam settingUnitParam;
     /// <summary>
-    /// エフェクト表示クラス
+    /// エフェクト再生クラス
     /// </summary>
     private PlayEffect playEffect;
     /// <summary>
@@ -42,7 +42,7 @@ public class InstantiateUnitOnTip : MonoBehaviour
         // ユニットパラメータ設定クラス取得
         settingUnitParam = this.gameObject.GetComponent<SettingsUnitParam>();
 
-        // エフェクト表示クラス取得後、エフェクトのスプライト名を設定する
+        // エフェクト再生クラス取得
         playEffect = new PlayEffect();
 
         // オーディオコンポを取得
@@ -91,6 +91,6 @@ public class InstantiateUnitOnTip : MonoBehaviour
         playEffect.PlayOnce(effectSprite, unit, new Vector3(0, 0.5f, 0f));
 
         // インスタンス化したユニットのパラメータを設置する
-        settingUnitParam.Execute(unitID, unit as GameObject);
+        settingUnitParam.Execute(unitID, (GameObject)unit);
     }
 }

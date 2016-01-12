@@ -239,7 +239,7 @@ public class AbilitySelect : MonoBehaviour
             // ユニット選択判定をユニット未選択状態に設定
             selectedUnitID = 100;
 
-            // クリックエフェクト表示メソッドをコール
+            // クリックエフェクト再生メソッドをコール
             playEffect.PlayOnce(effectSprite, GameObject.FindWithTag("Abl_SetAbilityName" + unitid_STR), new Vector3(0, 0, 0f));
         }
     }

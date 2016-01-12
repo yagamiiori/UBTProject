@@ -13,10 +13,6 @@ public class UnitPlaceObserver :
     IObserver                                   // オブサーバIF
 {
     /// <summary>
-    /// クリックSE
-    /// </summary>
-    public AudioClip clickSE;
-    /// <summary>
     /// ユニットアイコンのクリック有無判定
     /// </summary>
     private bool alreadyClickJud = false;
@@ -36,6 +32,14 @@ public class UnitPlaceObserver :
     /// オーディオコンポ
     /// </summary>
     private AudioSource audioCompo;
+    /// <summary>
+    /// クリックSE
+    /// </summary>
+    public AudioClip clickSE;
+    /// <summary>
+    /// 初期配置完了判定クラス
+    /// </summary>
+    private UnitPlaceCompJudRPC compJudRPC;
     /// <summary>
     /// ユニットID（UnitViewerOnUnderLine.csからインスタンス化した時に設定される）
     /// </summary>
@@ -63,6 +67,9 @@ public class UnitPlaceObserver :
         //　バトル参加中ユニットリスト管理クラスを取得
         unitListInBattle = GameObject.Find("Canvas").GetComponent<BattleUnitList>();
 
+        // 初期配置完了クラスを取得
+        compJudRPC = subjectCompo.GetComponent<UnitPlaceCompJudRPC>();
+
         // オーディオコンポを取得
         audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
         // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
@@ -76,27 +83,31 @@ public class UnitPlaceObserver :
     /// </summary>
     public void OnClickIcon()
     {
-        if (!alreadyClickJud)
+        // まだ初期配置完了報告RPCを飛ばしていない場合
+        if (!compJudRPC.isCompleteMySide)
         {
-            // まだどのアイコンもクリックされてない場合、クリックされた事と自身のユニットIDをサブジェクトへ通知する
-            subjectCompo.status = (int)Enums.ObserverState.OnClick;
-            subjectCompo.NowClickUnitID = UnitID;
-        }
-        else
-        {
-            // すでに自分のユニットIDがチップ上にセットされていたらユニットを削除する
-            foreach (var t in unitListInBattle.myUnits)
+            if (!alreadyClickJud)
             {
-                if (UnitID == t)
+                // まだどのアイコンもクリックされてない場合、クリックされた事と自身のユニットIDをサブジェクトへ通知する
+                subjectCompo.status = (int)Enums.ObserverState.OnClick;
+                subjectCompo.NowClickUnitID = UnitID;
+            }
+            else
+            {
+                // すでに自分のユニットIDがチップ上にセットされていたらユニットを削除する
+                foreach (var t in unitListInBattle.myUnits)
                 {
-                    // バトル参加中ユニットリストから削除
-                    unitListInBattle.RemoveMyList(UnitID);
-                    // ユニットGOを検索して削除
-                    var unitGO = GameObject.Find("Unit" + UnitID.ToString());
-                    Destroy(unitGO);
-                    // 再選択可能にするためサブジェクトへ変更を送信
-                    subjectCompo.status = (int)Enums.ObserverState.Canceled;
-                    return;
+                    if (UnitID == t)
+                    {
+                        // バトル参加中ユニットリストから削除
+                        unitListInBattle.RemoveMyList(UnitID);
+                        // ユニットGOを検索して削除
+                        var unitGO = GameObject.Find("Unit" + UnitID.ToString());
+                        Destroy(unitGO);
+                        // 再選択可能にするためサブジェクトへ変更を送信
+                        subjectCompo.status = (int)Enums.ObserverState.Canceled;
+                        return;
+                    }
                 }
             }
         }
@@ -149,11 +160,15 @@ public class UnitPlaceObserver :
     /// <param name="eventData">イベントデータ（使用しない）</param>
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!alreadyClickJud)
+        // まだ初期配置完了報告RPCを飛ばしていない場合
+        if (!compJudRPC.isCompleteMySide)
         {
-            // まだユニットアイコンがクリックされていない場合はSEを再生する
-            clickSE = (AudioClip)Resources.Load("Sounds/SE/OnMouseOver1");
-            audioCompo.PlayOneShot(clickSE);
+            if (!alreadyClickJud)
+            {
+                // まだユニットアイコンがクリックされていない場合はSEを再生する
+                clickSE = (AudioClip)Resources.Load("Sounds/SE/OnMouseOver1");
+                audioCompo.PlayOneShot(clickSE);
+            }
         }
     }
 }
