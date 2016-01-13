@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using System;
+using System.Text;
 
 public class StreamWriterSingleLine : MonoBehaviour
 {
@@ -17,17 +18,15 @@ public class StreamWriterSingleLine : MonoBehaviour
     /// </summary>
     public bool WriteToStream(string filename, string writingtxt)
     {
-        // 指定されたファイルのストリームを開く
-        // TODO Unity的には簡易パラメータ保存にはPlayerprefsクラスを使うべき。いずれ修正すること。
-        StreamWriter sw = File.CreateText(filename);
+        using (StreamWriter sw = new StreamWriter(filename))
+        {
+            // ファイルに改行なしで書き出し
+            sw.Write(writingtxt);
 
-        // ファイルに改行なしで書き出し
-        sw.Write(writingtxt);
-        sw.Close();
+            // 書き込みに失敗した場合はfalseを返す
+            if (null == sw) return false;
 
-        // 書き込みに失敗した場合はfalseを返す
-        if (null == sw) return false;
-
-        return true;
+            return true;
+        }
     }
 }

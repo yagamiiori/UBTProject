@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using System;
+using System.Text;
 
 public class StreamReaderSingleLine : MonoBehaviour
 {
@@ -16,14 +17,11 @@ public class StreamReaderSingleLine : MonoBehaviour
     /// </summary>
     public string ReadFromStream(string filename)
     {
-        // 指定されたファイルのストリームを開く
-        // TODO Unity的には簡易パラメータ保存にはPlayerprefsクラスを使うべき。いずれ修正すること。
-        StreamReader sr = new StreamReader(filename);
-
-        // 開いたストリームから読み出し、完了後クローズする
-        string gettingTxt = sr.ReadLine();
-        sr.Close();
-
-        return gettingTxt;
+        using (StreamReader sr = new StreamReader(filename, Encoding.UTF8))
+        {
+            // 開いたストリームから読み出し
+            string gettingTxt = sr.ReadLine();
+            return gettingTxt;
+        }
     }
 }
