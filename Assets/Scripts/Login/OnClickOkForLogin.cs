@@ -15,7 +15,8 @@ public class OnClickOkForLogin :
     private GameManager gameManager;                  // マネージャコンポ
     private GameObject warningParentGO;               // メッセージウィンドウCanvas
     private Text warningText;                         // メッセージウィンドウのTextコンポ
-    private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
+    private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定
+    private bool isClick = false;                     // OKボタンクリック判定（OKボタン連打抑止）
     private string nextForUnitSelect = "UnitSelect";  // 遷移先シーン名
     private string nextForLobby = "Lobby";            // 遷移先シーン名
     private AudioSource audioCompo;                   // オーディオコンポ
@@ -74,74 +75,80 @@ public class OnClickOkForLogin :
         // メッセージウィンドウ未表示の場合
         if (!IsWindow)
         {
-            // IDフィールドに何も入力されていない場合
-            if ("" == guidField.text)
+            // まだOKボタンが押されていない場合（連打の抑止）
+            if (!isClick)
             {
-                MessageWriteToWindow("未入力。\nログインIDを入力して下さい。");
-                return;
-            }
-            // 入力されたIDが「NameLess」の場合
-            else if ("NameLess" == guidField.text)
-            {
-                gameManager.userName = "NameLess";
-            }
-            // GUIDっぽいものが入力された場合
-            else
-            {
-                // 入力されたGUIDとXMLのGUIDが同一であるか否か比較する
-                bool GuidResult = appSettings.CompareGuid(guidField.text);
-                // XMLがユニット情報を保持しているか否か判定する
-                bool UnitExistResult = appSettings.JudgeUnitExistInXml();
+                isClick = true;
 
-                if (!GuidResult)
+                // IDフィールドに何も入力されていない場合
+                if ("" == guidField.text)
                 {
-                    // クリックSEを設定および再生（エラーSE）
-                    clickSE = (AudioClip)Resources.Load("Sounds/SE/Error1");
+                    MessageWriteToWindow("未入力。\nログインIDを入力して下さい。");
+                    return;
+                }
+                // 入力されたIDが「NameLess」の場合
+                else if ("NameLess" == guidField.text)
+                {
+                    gameManager.userName = "NameLess";
+                }
+                // GUIDっぽいものが入力された場合
+                else
+                {
+                    // 入力されたGUIDとXMLのGUIDが同一であるか否か比較する
+                    bool GuidResult = appSettings.CompareGuid(guidField.text);
+                    // XMLがユニット情報を保持しているか否か判定する
+                    bool UnitExistResult = appSettings.JudgeUnitExistInXml();
+
+                    if (!GuidResult)
+                    {
+                        // クリックSEを設定および再生（エラーSE）
+                        clickSE = (AudioClip)Resources.Load("Sounds/SE/Error1");
+                        audioCompo.PlayOneShot(clickSE);
+
+                        // 入力されたGUIDXMLのGUIDがアンマッチの場合はエラーを表示
+                        MessageWriteToWindow("ユーザーIDが一致しません。\n正しいユーザーIDを入力して下さい。");
+                        return;
+                    }
+
+                    // クリックSEを設定および再生（正常SE）
+                    clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
                     audioCompo.PlayOneShot(clickSE);
 
-                    // 入力されたGUIDXMLのGUIDがアンマッチの場合はエラーを表示
-                    MessageWriteToWindow("ユーザーIDが一致しません。\n正しいユーザーIDを入力して下さい。");
-                    return;
+                    // ユーザーヘルプフィールドを取得
+                    InputField userHelpField = GameObject.Find("InputField_UserHelp").GetComponent<InputField>();
+
+                    // GMのユーザーヘルプフィールドへユーザーヘルプを設定する
+                    gameManager.userHelp = userHelpField.text;
+
+                    // LinkToXMLコンポを取得し、入力されたユーザーヘルプをXMLへ保存する
+                    appSettings = GameObject.Find("XmlManager").GetComponent<XmlManager>();
+                    appSettings.UserStatusWriteToXml(userHelpField.text);
+
+                    // ユーザー情報をXMLファイルより読み込んでGMへ設定する
+                    bool result = appSettings.UserStatusLoadFromXml();
+                    if (!result)
+                    {
+                        // XMLファイルより読み出したユーザー情報が不正な場合はエラーを表示
+                        MessageWriteToWindow("ユーザー情報が不正です。\n正しいユーザーIDを入力して下さい。");
+                        return;
+                    }
+
+                    if (!UnitExistResult)
+                    {
+                        // ユーザー情報が正しく、かつXMLがユニット情報を保持していない場合はUnitSelectシーンへ遷移する
+                        NextSceneIsUnitSelct();
+                        return;
+                    }
+                    if (GuidResult && UnitExistResult)
+                    {
+                        // 入力されたGUIDが正しく、かつXMLがユニット情報を保持している場合はLobbyシーンへ遷移する
+                        NextSceneIsLobby();
+                        return;
+                    }
                 }
-
-                // クリックSEを設定および再生（正常SE）
-                clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
-                audioCompo.PlayOneShot(clickSE);
-
-                // ユーザーヘルプフィールドを取得
-                InputField userHelpField = GameObject.Find("InputField_UserHelp").GetComponent<InputField>();
-
-                // GMのユーザーヘルプフィールドへユーザーヘルプを設定する
-                gameManager.userHelp = userHelpField.text;
-
-                // LinkToXMLコンポを取得し、入力されたユーザーヘルプをXMLへ保存する
-                appSettings = GameObject.Find("XmlManager").GetComponent<XmlManager>();
-                appSettings.UserStatusWriteToXml(userHelpField.text);
-
-                // ユーザー情報をXMLファイルより読み込んでGMへ設定する
-                bool result = appSettings.UserStatusLoadFromXml();
-                if (!result)
-                {
-                    // XMLファイルより読み出したユーザー情報が不正な場合はエラーを表示
-                    MessageWriteToWindow("ユーザー情報が不正です。\n正しいユーザーIDを入力して下さい。");
-                    return;
-                }
-
-                if (!UnitExistResult)
-                {
-                    // ユーザー情報が正しく、かつXMLがユニット情報を保持していない場合はUnitSelectシーンへ遷移する
-                    NextSceneIsUnitSelct();
-                    return;
-                }
-                if (GuidResult && UnitExistResult)
-                {
-                    // 入力されたGUIDが正しく、かつXMLがユニット情報を保持している場合はLobbyシーンへ遷移する
-                    NextSceneIsLobby();
-                    return;
-                }
+                // XMLがユニット情報を保持していない場合はUnitSelectシーンへ遷移する
+                NextSceneIsUnitSelct();
             }
-            // XMLがユニット情報を保持していない場合はUnitSelectシーンへ遷移する
-            NextSceneIsUnitSelct();
         }
         // メッセージウィンドウが表示されている場合
         else

@@ -7,19 +7,35 @@ using UnityEngine.UI;
 /// </summary>
 public class OnClickEditButtons :
     MonoBehaviour,
-    IMessageWriteToMW                                 // メッセージウィンドウ書き込みIF
+    IMessageWriteToMW             // メッセージウィンドウ書き込みIF
 {
-    /// <summary>Canvasマネージャーコンポ</summary>
+    /// <summary>
+    /// Canvasマネージャーコンポ
+    /// </summary>
     private GameManager gameManager;
-    /// <summary>ワーニングウィンドウの親オブジェクト</summary>
+    /// <summary>
+    /// ワーニングウィンドウの親オブジェクト
+    /// </summary>
     private GameObject warningParentGO;
-    /// <summary>ワーニングウィンドウのテキストコンポ</summary>
+    /// <summary>
+    /// ワーニングウィンドウのテキストコンポ
+    /// </summary>
     private Text warningText;
-    /// <summary>メッセージウィンドウ表示有無判定フラグ</summary>
+    /// <summary>
+    /// メッセージウィンドウ表示有無判定フラグ
+    /// </summary>
     public bool IsWarningWindow = false;
-    /// <summary>オーディオコンポ</summary>
+    /// <summary>
+    /// OKボタンクリック判定（OKボタン連打抑止）
+    /// </summary>
+    public bool isClick = false;
+    /// <summary>
+    /// オーディオコンポ
+    /// </summary>
     private AudioSource audioCompo;
-    /// <summary>クリックSE</summary>
+    /// <summary>
+    /// クリックSE
+    /// </summary>
     public AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
@@ -69,10 +85,6 @@ public class OnClickEditButtons :
 
         // メッセージ表示
         warningText.text = a;
-
-        // マウスカーソルをワーニングウィンドウのNoボタンに移動させる
-//        var t = new System.Drawing.Point(0, 0);
-//        System.Windows.Forms.Cursor.Position = t;
     }
 
     /// <summary>
@@ -84,15 +96,21 @@ public class OnClickEditButtons :
         // ワーニングウィンドウが表示されていない場合
         if (!IsWarningWindow)
         {
-            // SEを鳴らす
-            clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
-            audioCompo.PlayOneShot(clickSE);
+            // まだOKボタンが押されていない場合（連打の抑止）
+            if (!isClick)
+            {
+                isClick = true;
 
-            string nextScene = "NameSelect";  // 遷移先シーン
+                // SEを鳴らす
+                clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
+                audioCompo.PlayOneShot(clickSE);
 
-            // Scene遷移実施（アビリティセレクトへ）
-            // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
-            gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, UnityEngine.Color.black, nextScene);
+                string nextScene = "NameSelect";  // 遷移先シーン
+
+                // Scene遷移実施（アビリティセレクトへ）
+                // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
+                gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, UnityEngine.Color.black, nextScene);
+            }
         }
     }
 
@@ -105,15 +123,21 @@ public class OnClickEditButtons :
         // ワーニングウィンドウが表示されていない場合
         if (!IsWarningWindow)
         {
-            // SEを鳴らす
-            clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
-            audioCompo.PlayOneShot(clickSE);
+            // まだOKボタンが押されていない場合（連打の抑止）
+            if (!isClick)
+            {
+                isClick = true;
 
-            string nextScene = "AbilitySelect";  // 遷移先シーン
+                // SEを鳴らす
+                clickSE = (AudioClip)Resources.Load("Sounds/SE/Click7");
+                audioCompo.PlayOneShot(clickSE);
 
-            // Scene遷移実施（アビリティセレクトへ）
-            // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
-            gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, UnityEngine.Color.black, nextScene);
+                string nextScene = "AbilitySelect";  // 遷移先シーン
+
+                // Scene遷移実施（アビリティセレクトへ）
+                // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
+                gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.2f, 0.1f, UnityEngine.Color.black, nextScene);
+            }
         }
     }
 }

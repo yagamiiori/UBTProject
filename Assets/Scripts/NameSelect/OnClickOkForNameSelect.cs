@@ -12,7 +12,7 @@ public class OnClickOkForNameSelect : MonoBehaviour
     private GameManager gameManager;                    // マネージャコンポ
     private UnitNameSetForSceneLoading nameSelect;      // NameSelectコンポ
     private string nextScene = "AbilitySelect";         // スタートボタンプッシュ時遷移先シーン
-    private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
+    private bool isClick = false;                       // OKボタンクリック判定（OKボタン連打抑止）
 
     /// <summary>コンストラクタ</summary>
     private OnClickOkForNameSelect() { }
@@ -39,15 +39,13 @@ public class OnClickOkForNameSelect : MonoBehaviour
     // -------------------------------
     public void OnClick()
     {
-        // スタートボタン未プッシュの場合
-        if (0 == isStarted)
+        // まだOKボタンが押されていない場合（連打の抑止）
+        if (!isClick)
         {
+            isClick = true;
+
             // クリックSEを設定および再生
             audioCompo.PlayOneShot(clickSE);
-
-            // スタートボタンプッシュ判定フラグをONにしてスタートボタンプッシュ後に
-            // 内容が変更されたりスタートボタン連打を抑止する。
-            isStarted = 1;
 
             // ユニットステートリスト内を最大ユニット数分ループ
             for (int i = 0; i < gameManager.unitStateList.Count; i++)

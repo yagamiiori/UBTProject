@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ButtonSceneReLoad : MonoBehaviour
+/// <summary>
+/// リロードボタンクリッククラス
+/// <para>　ロビーシーンにおいてリロードボタンがクリックされた場合にコールされる。</para>
+/// </summary>
+public class OnClickReLoad : MonoBehaviour
 {
-    /// <summary>リロード後、ConnectUsingSettingsにより再接続が完了したか否か</summary>
+    /// <summary>
+    /// リロード後、ConnectUsingSettingsにより再接続が完了したか否か
+    /// </summary>
     private bool isConnectedForPhotonNetwork = false;
 
     /// <summary>コンストラクタ</summary>
-    private ButtonSceneReLoad() { }
+    private OnClickReLoad() { }
 
     void Update()
     {

@@ -60,7 +60,7 @@ public class UnitSelectSliderManager : MonoBehaviour
         audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
         // TODO 本当はリクワイヤードコンポ属性を使うべき。上手く動いてくれなかったのでとりあえず
         if (null == audioCompo) audioCompo = GameObject.Find("PlayersParent").transform.FindChild("SEPlayer").gameObject.GetComponent<AudioSource>();
-        clickSE = (AudioClip)Resources.Load("Sounds/SE/CursorMove4");
+        clickSE = (AudioClip)Resources.Load("Sounds/SE/OnMouseOver1");
 
     }
 

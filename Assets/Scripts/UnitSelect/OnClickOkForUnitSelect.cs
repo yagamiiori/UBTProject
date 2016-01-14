@@ -8,7 +8,7 @@ public class OnClickOkForUnitSelect : MonoBehaviour
     public AudioClip clickSE;                           // OKボタンクリックSE
     private GameManager gameManager;                    // マネージャコンポ
     private string nextScene = "NameSelect";            // スタートボタンプッシュ時遷移先シーン
-    private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
+    private bool isClick = false;                       // OKボタンクリック判定（OKボタン連打抑止）
     private AudioSource audioCompo;                      // オーディオコンポ
     /// <summary>LinkToXML(旧mySQL)クラス</summary>
     private XmlManager appSettings;
@@ -42,26 +42,28 @@ public class OnClickOkForUnitSelect : MonoBehaviour
     // -------------------------------
     public void OnClick()
     {
-        // スタートボタン未プッシュの場合、かつオプションで選択したユニット数と選択済みユニット数が同じ場合
-        if (0 == isStarted && (gameManager.unt_NowAllUnits == gameManager.opt_unitNum))
+        // オプションで選択したユニット数と選択済みユニット数が同じ場合
+        if (gameManager.unt_NowAllUnits == gameManager.opt_unitNum)
         {
-            // クリックSEを設定および再生
-            audioCompo.PlayOneShot(clickSE);
+            // まだOKボタンが押されていない場合（連打の抑止）
+            if (!isClick)
+            {
+                isClick = true;
 
-            // スタートボタンプッシュ判定フラグをONにしてスタートボタンプッシュ後に
-            // オプションが変更されたりスタートボタン連打を抑止する。
-            isStarted = 1;
+                // クリックSEを設定および再生
+                audioCompo.PlayOneShot(clickSE);
 
-            // 確定済み全ユニットリスト生成メソッドをコール
-            MyUnitListConst();
+                // 確定済み全ユニットリスト生成メソッドをコール
+                MyUnitListConst();
 
-            // ユニット情報をXMLへ書き込み
-            var xmlManager = GameObject.Find("XmlManager").GetComponent<XmlManager>();
-            xmlManager.UnitStateWriteToXml();
+                // ユニット情報をXMLへ書き込み
+                var xmlManager = GameObject.Find("XmlManager").GetComponent<XmlManager>();
+                xmlManager.UnitStateWriteToXml();
 
-            // Scene遷移実施
-            // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
-            gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.6f, 0.1f, Color.black, nextScene);
+                // Scene遷移実施
+                // ﾌｪｰﾄﾞｱｳﾄ時間、ﾌｪｰﾄﾞ中待機時間、ﾌｪｰﾄﾞｲﾝ時間、ｶﾗｰ、遷移先Pos情報(Vector3)、遷移先ｼｰﾝ
+                gameManager.GetComponent<FadeToScene>().FadeOut(0.1f, 0.6f, 0.1f, Color.black, nextScene);
+            }
         }
     }
 

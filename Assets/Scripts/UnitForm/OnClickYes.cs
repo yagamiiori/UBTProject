@@ -3,13 +3,25 @@ using System.Collections;
 
 public class OnClickYes : MonoBehaviour
 {
-    /// <summary>マネージャーコンポ</summary>
+    /// <summary>
+    /// マネージャーコンポ
+    /// </summary>
     private GameManager gameManager;
-    /// <summary>遷移先シーン名</summary>
+    /// <summary>
+    /// 遷移先シーン名
+    /// </summary>
     private string nextScene = "UnitSelect";
-    /// <summary>オーディオコンポ</summary>
+    /// <summary>
+    /// OKボタンクリック判定（OKボタン連打抑止）
+    /// </summary>
+    private bool isClick = false;
+    /// <summary>
+    /// オーディオコンポ
+    /// </summary>
     private AudioSource audioCompo;
-    /// <summary>クリックSE</summary>
+    /// <summary>
+    /// クリックSE
+    /// </summary>
     public AudioClip clickSE;
 
     /// <summary>コンストラクタ</summary>
@@ -28,8 +40,13 @@ public class OnClickYes : MonoBehaviour
 
     public void OnClick()
     {
-        // シーン遷移メソッドをコール
-        NextScene();
+        // まだOKボタンが押されていない場合（連打の抑止）
+        if (!isClick)
+        {
+            isClick = true;
+            // シーン遷移メソッドをコール
+            NextScene();
+        }
     }
 
     private void NextScene()

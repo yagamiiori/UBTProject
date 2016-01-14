@@ -3,11 +3,11 @@ using System.Collections;
 
 public class OnClickOkForAbilitySelect : MonoBehaviour
 {
-    private GameManager gameManager;                    // マネージャコンポ
-    private string nextScene = "Lobby";                 // スタートボタンプッシュ時遷移先シーン
-    private int isStarted = 0;                          // スタートボタンプッシュ判定フラグ
-    public AudioSource audioCompo;                      // オーディオコンポ
-    public AudioClip clickSE;                  // OKボタンクリックSE
+    private GameManager gameManager;          // マネージャコンポ
+    private string nextScene = "Lobby";       // スタートボタンプッシュ時遷移先シーン
+    private bool isClick = false;             // OKボタンクリック判定（OKボタン連打抑止）
+    public AudioSource audioCompo;            // オーディオコンポ
+    public AudioClip clickSE;                 // OKボタンクリックSE
 
     /// <summary>コンストラクタ</summary>
     private OnClickOkForAbilitySelect() { }
@@ -32,15 +32,13 @@ public class OnClickOkForAbilitySelect : MonoBehaviour
     // -------------------------------
     public void OnClick()
     {
-        // スタートボタン未プッシュの場合
-        if (0 == isStarted)
+        // まだOKボタンが押されていない場合（連打の抑止）
+        if (!isClick)
         {
+            isClick = true;
+
             // クリックSEを再生
             audioCompo.PlayOneShot(clickSE);
-
-            // スタートボタンプッシュ判定フラグをONにしてスタートボタンプッシュ後に
-            // オプションが変更されたりスタートボタン連打を抑止する。
-            isStarted = 1;
 
             // ユニット情報をXMLへ書き込み
             var xmlManager = GameObject.Find("XmlManager").GetComponent<XmlManager>();

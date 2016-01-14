@@ -16,7 +16,7 @@ public class OnClickOK : MonoBehaviour
     /// </summary>
     private UnitPlaceCompJudRPC unitPlaceCompJudRPC;
     /// <summary>
-    /// OKボタンクリック判定
+    /// OKボタンクリック判定（OKボタン連打抑止）
     /// </summary>
     private bool isClick = false;
     /// <summary>

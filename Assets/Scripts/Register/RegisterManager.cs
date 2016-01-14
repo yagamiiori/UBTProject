@@ -22,6 +22,7 @@ public class RegisterManager :
     private string nextScene = "Login";               // 遷移先シーン名
     private string loginName = "Login";               // 遷移先シーン名
     private bool IsWindow = false;                    // メッセージウィンドウ表示有無判定フラグ
+    private bool isClick = false;                     // OKボタンクリック判定（OKボタン連打抑止）
     private bool IsGuidDecided = false;               // GUID決定済み判定（0:GUID未発行　1:GUID発行済み）
     /// <summary>LinkToXML(旧mySQL)クラス</summary>
     private XmlManager appSettings;
@@ -63,6 +64,7 @@ public class RegisterManager :
 
                     // メッセージウィンドウ描画メソッドをコールして未入力メッセージを表示
                     MessageWriteToWindow("未入力もしくはゲスト名です。\n正しいユーザー名を入力して下さい。");
+                    isClick = false;
                     return;
                 }
                 // IDが正常に入力された場合
@@ -92,13 +94,12 @@ public class RegisterManager :
                     // LinkToXMLコンポを取得し、入力されたユーザー名と生成されたGUIDをXMLへ保存する
                     appSettings = GameObject.Find("XmlManager").GetComponent<XmlManager>();
                     appSettings.UserStatusWriteToXml(nameField.text, guidValue.ToString());
-
                     return;
                 }
             }
             else
             {
-                // 未入力メッセージ表示中にエンターキーが押された場合
+                // メッセージウィンドウ表示中にエンターキーが押された場合
                 if (!IsGuidDecided)
                 {
                     // メッセージウィンドウを非アクティブ化
@@ -106,12 +107,19 @@ public class RegisterManager :
 
                     // メッセージウィンドウ表示有無判定フラグを変更
                     IsWindow = false;
+                    // OKボタンクリック判定をクリア
+                    isClick = false;
                 }
-                // GUIDメッセージ表示中にエンターキーが押された場合
+                // GUIDが正常に発行され、発行メッセージ表示中にエンターキーが押された場合
                 else
                 {
-                    // シーン遷移メソッドコール
-                    NextScene();
+                    // まだOKボタンが押されていない場合（連打の抑止）
+                    if (!isClick)
+                    {
+                        isClick = true;
+                        // Loginシーンへの遷移を実施
+                        NextScene();
+                    }
                 }
             }
         }
@@ -160,6 +168,9 @@ public class RegisterManager :
 
                 // メッセージウィンドウ描画メソッドをコールして未入力メッセージを表示
                 MessageWriteToWindow("未入力もしくはゲスト名です。\n正しいユーザー名を入力して下さい。");
+
+                // OKボタンクリック判定をクリア
+                isClick = false;
                 return;
             }
         }
@@ -174,8 +185,13 @@ public class RegisterManager :
         // GUID発行済みの場合
         if (IsGuidDecided)
         {
-            // シーン遷移メソッドをコール
-            NextScene();
+            // まだOKボタンが押されていない場合（連打の抑止）
+            if (!isClick)
+            {
+                isClick = true;
+                // シーン遷移メソッドをコール
+                NextScene();
+            }
         }
         // GUID未発行の場合
         else

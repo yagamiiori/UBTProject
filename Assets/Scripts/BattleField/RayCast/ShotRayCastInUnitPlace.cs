@@ -51,25 +51,28 @@ public class ShotRayCastInUnitPlace : Photon.MonoBehaviour
         {
             if ("Tip" == hit.collider.gameObject.tag)
             {
-                // チップにRayがヒットしている時にマウスを左クリックした場合
-                if (Input.GetButtonDown("Fire1"))
+                if (6 >= hit.collider.gameObject.GetComponent<Tip>().matrixY)
                 {
-                    // アンダーライン内のユニットアイコンがクリックされている状態か判定
-                    if ((int)Enums.ObserverState.OnClick == unitplaceSubject.status)
+                    // マトリクスYが6以内のチップにRayがヒットしている時にマウスを左クリックした場合
+                    if (Input.GetButtonDown("Fire1"))
                     {
-                        // クリックされているユニットのIDを取得
-                        int unitId = unitplaceSubject.NowClickUnitID;
-                        // クリックされたチップの座標を取得
-                        Vector3 tipPosition = hit.collider.gameObject.transform.position;
+                        // アンダーライン内のユニットアイコンがクリックされている状態か判定
+                        if ((int)Enums.ObserverState.OnClick == unitplaceSubject.status)
+                        {
+                            // クリックされているユニットのIDを取得
+                            int unitId = unitplaceSubject.NowClickUnitID;
+                            // クリックされたチップの座標を取得
+                            Vector3 tipPosition = hit.collider.gameObject.transform.position;
 
-                        // ユニットのインスタンスをチップ上に作成する
-                        unitCreate.CreateUnitGO(unitId, tipPosition);
+                            // ユニットのインスタンスをチップ上に作成する
+                            unitCreate.CreateUnitGO(unitId, tipPosition);
 
-                        // バトル参加中ユニット管理クラスの自軍ユニットリストに配置したユニットのIDを追加
-                        battleUnitList.AddMyList(unitId);
+                            // バトル参加中ユニット管理クラスの自軍ユニットリストに配置したユニットのIDを追加
+                            battleUnitList.AddMyList(unitId);
 
-                        // ユニットアイコン選択中判定を解除
-                        unitplaceSubject.status = (int)Enums.ObserverState.None;
+                            // ユニットアイコン選択中判定を解除
+                            unitplaceSubject.status = (int)Enums.ObserverState.None;
+                        }
                     }
                 }
             }
