@@ -1,0 +1,253 @@
+fileFormatVersion: 2
+guid: 1811d9d0e69007c42bc78b0080b36bf2
+timeCreated: 1453026901
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Font_DamageLiteral_0
+    21300002: Font_DamageLiteral_1
+    21300004: Font_DamageLiteral_2
+    21300006: Font_DamageLiteral_3
+    21300008: Font_DamageLiteral_4
+    21300010: Font_DamageLiteral_5
+    21300012: Font_DamageLiteral_6
+    21300014: Font_DamageLiteral_7
+    21300016: Font_DamageLiteral_8
+    21300018: Font_DamageLiteral_9
+    21300020: Font_DamageLiteral_10
+    21300022: Font_DamageLiteral_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Font_DamageLiteral_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: 17.5, y: -24}
+        - {x: 17.5, y: 24}
+    - name: Font_DamageLiteral_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17.5, y: 24}
+        - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: 17.5, y: -24}
+    - name: Font_DamageLiteral_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: 17.5, y: -24}
+        - {x: 17.5, y: 24}
+    - name: Font_DamageLiteral_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: 17.5, y: -24}
+        - {x: 17.5, y: 24}
+    - name: Font_DamageLiteral_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: 17.5, y: -24}
+        - {x: 17.5, y: 24}
+    - name: Font_DamageLiteral_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: 17.5, y: -24}
+        - {x: 17.5, y: 24}
+    - name: Font_DamageLiteral_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: 17.5, y: -24}
+        - {x: 17.5, y: 24}
+    - name: Font_DamageLiteral_7
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: 17.5, y: -24}
+        - {x: 17.5, y: 24}
+    - name: Font_DamageLiteral_8
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: 17.5, y: -24}
+        - {x: 17.5, y: 24}
+    - name: Font_DamageLiteral_9
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: 16.5, y: -24}
+        - {x: 17.5, y: -14}
+        - {x: 17.5, y: 24}
+    - name: Font_DamageLiteral_10
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -8}
+        - {x: -14.5, y: -7}
+        - {x: -0.5, y: -24}
+        - {x: 17.5, y: -24}
+        - {x: 17.5, y: 24}
+    - name: Font_DamageLiteral_11
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 0
+        width: 34.166668
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 24}
+        - {x: -17.5, y: -24}
+        - {x: -8.5, y: -24}
+        - {x: 17.5, y: 13}
+        - {x: 17.5, y: 24}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
