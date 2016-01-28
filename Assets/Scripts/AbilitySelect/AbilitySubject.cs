@@ -43,7 +43,7 @@ public class AbilitySubject :
         set
         {
             _status = value;
-//            Notify(_status);
+            Notify(_status);
         }
     }
 

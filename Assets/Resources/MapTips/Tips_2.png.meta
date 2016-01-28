@@ -1,0 +1,3209 @@
+fileFormatVersion: 2
+guid: d5a92b81afa2edc4891f99a2d8e03862
+timeCreated: 1453832985
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tips_2_0
+    21300002: Tips_2_1
+    21300004: Tips_2_2
+    21300006: Tips_2_3
+    21300008: Tips_2_4
+    21300010: Tips_2_5
+    21300012: Tips_2_6
+    21300014: Tips_2_7
+    21300016: Tips_2_8
+    21300018: Tips_2_9
+    21300020: Tips_2_10
+    21300022: Tips_2_11
+    21300024: Tips_2_12
+    21300026: Tips_2_13
+    21300028: Tips_2_14
+    21300030: Tips_2_15
+    21300032: Tips_2_16
+    21300034: Tips_2_17
+    21300036: Tips_2_18
+    21300038: Tips_2_19
+    21300040: Tips_2_20
+    21300042: Tips_2_21
+    21300044: Tips_2_22
+    21300046: Tips_2_23
+    21300048: Tips_2_24
+    21300050: Tips_2_25
+    21300052: Tips_2_26
+    21300054: Tips_2_27
+    21300056: Tips_2_28
+    21300058: Tips_2_29
+    21300060: Tips_2_30
+    21300062: Tips_2_31
+    21300064: Tips_2_32
+    21300066: Tips_2_33
+    21300068: Tips_2_34
+    21300070: Tips_2_35
+    21300072: Tips_2_36
+    21300074: Tips_2_37
+    21300076: Tips_2_38
+    21300078: Tips_2_39
+    21300080: Tips_2_40
+    21300082: Tips_2_41
+    21300084: Tips_2_42
+    21300086: Tips_2_43
+    21300088: Tips_2_44
+    21300090: Tips_2_45
+    21300092: Tips_2_46
+    21300094: Tips_2_47
+    21300096: Tips_2_48
+    21300098: Tips_2_49
+    21300100: Tips_2_50
+    21300102: Tips_2_51
+    21300104: Tips_2_52
+    21300106: Tips_2_53
+    21300108: Tips_2_54
+    21300110: Tips_2_55
+    21300112: Tips_2_56
+    21300114: Tips_2_57
+    21300116: Tips_2_58
+    21300118: Tips_2_59
+    21300120: Tips_2_60
+    21300122: Tips_2_61
+    21300124: Tips_2_62
+    21300126: Tips_2_63
+    21300128: Tips_2_64
+    21300130: Tips_2_65
+    21300132: Tips_2_66
+    21300134: Tips_2_67
+    21300136: Tips_2_68
+    21300138: Tips_2_69
+    21300140: Tips_2_70
+    21300142: Tips_2_71
+    21300144: Tips_2_72
+    21300146: Tips_2_73
+    21300148: Tips_2_74
+    21300150: Tips_2_75
+    21300152: Tips_2_76
+    21300154: Tips_2_77
+    21300156: Tips_2_78
+    21300158: Tips_2_79
+    21300160: Tips_2_80
+    21300162: Tips_2_81
+    21300164: Tips_2_82
+    21300166: Tips_2_83
+    21300168: Tips_2_84
+    21300170: Tips_2_85
+    21300172: Tips_2_86
+    21300174: Tips_2_87
+    21300176: Tips_2_88
+    21300178: Tips_2_89
+    21300180: Tips_2_90
+    21300182: Tips_2_91
+    21300184: Tips_2_92
+    21300186: Tips_2_93
+    21300188: Tips_2_94
+    21300190: Tips_2_95
+    21300192: Tips_2_96
+    21300194: Tips_2_97
+    21300196: Tips_2_98
+    21300198: Tips_2_99
+    21300200: Tips_2_100
+    21300202: Tips_2_101
+    21300204: Tips_2_102
+    21300206: Tips_2_103
+    21300208: Tips_2_104
+    21300210: Tips_2_105
+    21300212: Tips_2_106
+    21300214: Tips_2_107
+    21300216: Tips_2_108
+    21300218: Tips_2_109
+    21300220: Tips_2_110
+    21300222: Tips_2_111
+    21300224: Tips_2_112
+    21300226: Tips_2_113
+    21300228: Tips_2_114
+    21300230: Tips_2_115
+    21300232: Tips_2_116
+    21300234: Tips_2_117
+    21300236: Tips_2_118
+    21300238: Tips_2_119
+    21300240: Tips_2_120
+    21300242: Tips_2_121
+    21300244: Tips_2_122
+    21300246: Tips_2_123
+    21300248: Tips_2_124
+    21300250: Tips_2_125
+    21300252: Tips_2_126
+    21300254: Tips_2_127
+    21300256: Tips_2_128
+    21300258: Tips_2_129
+    21300260: Tips_2_130
+    21300262: Tips_2_131
+    21300264: Tips_2_132
+    21300266: Tips_2_133
+    21300268: Tips_2_134
+    21300270: Tips_2_135
+    21300272: Tips_2_136
+    21300274: Tips_2_137
+    21300276: Tips_2_138
+    21300278: Tips_2_139
+    21300280: Tips_2_140
+    21300282: Tips_2_141
+    21300284: Tips_2_142
+    21300286: Tips_2_143
+    21300288: Tips_2_144
+    21300290: Tips_2_145
+    21300292: Tips_2_146
+    21300294: Tips_2_147
+    21300296: Tips_2_148
+    21300298: Tips_2_149
+    21300300: Tips_2_150
+    21300302: Tips_2_151
+    21300304: Tips_2_152
+    21300306: Tips_2_153
+    21300308: Tips_2_154
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 20
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Tips_2_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 16}
+        - {x: -16, y: 11}
+        - {x: -16, y: -14}
+        - {x: -7, y: -16}
+        - {x: 9, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 11}
+        - {x: 5, y: 16}
+    - name: Tips_2_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 10}
+        - {x: 4, y: 16}
+    - name: Tips_2_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 10}
+        - {x: 4, y: 16}
+    - name: Tips_2_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 10}
+        - {x: 4, y: 16}
+    - name: Tips_2_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 9}
+        - {x: -16, y: 4}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 2}
+        - {x: 6, y: 9}
+    - name: Tips_2_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -14, y: 14}
+        - {x: -16, y: 10}
+        - {x: -16, y: -14}
+        - {x: -11, y: -16}
+        - {x: 13, y: -16}
+        - {x: 16, y: -14}
+        - {x: 16, y: 11}
+        - {x: 8, y: 16}
+    - name: Tips_2_6
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 8}
+        - {x: -16, y: 5}
+        - {x: -16, y: -14}
+        - {x: -11, y: -16}
+        - {x: 13, y: -16}
+        - {x: 16, y: -14}
+        - {x: 16, y: 4}
+        - {x: 12, y: 8}
+    - name: Tips_2_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 16}
+        - {x: -16, y: 9}
+        - {x: -16, y: -13}
+        - {x: -9, y: -16}
+        - {x: 8, y: -16}
+        - {x: 16, y: -14}
+        - {x: 16, y: 13}
+        - {x: 5, y: 16}
+    - name: Tips_2_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 8}
+        - {x: -16, y: 4}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 4}
+        - {x: 11, y: 8}
+    - name: Tips_2_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 16}
+        - {x: -16, y: 9}
+        - {x: -16, y: -13}
+        - {x: -9, y: -16}
+        - {x: 8, y: -16}
+        - {x: 16, y: -14}
+        - {x: 16, y: 13}
+        - {x: 5, y: 16}
+    - name: Tips_2_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 8}
+        - {x: -16, y: 4}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 4}
+        - {x: 11, y: 8}
+    - name: Tips_2_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 16}
+        - {x: -11, y: 16}
+        - {x: -16, y: 9}
+        - {x: -16, y: -13}
+        - {x: -9, y: -16}
+        - {x: 7, y: -16}
+        - {x: 10, y: -15}
+        - {x: 16, y: -12}
+        - {x: 16, y: 12}
+    - name: Tips_2_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 8}
+        - {x: -16, y: 1}
+        - {x: -16, y: -12}
+        - {x: -8, y: -16}
+        - {x: 8, y: -16}
+        - {x: 16, y: -12}
+        - {x: 16, y: 3}
+        - {x: 5, y: 8}
+    - name: Tips_2_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 10}
+        - {x: 4, y: 16}
+    - name: Tips_2_14
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 9}
+        - {x: -16, y: 4}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 2}
+        - {x: 6, y: 9}
+    - name: Tips_2_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -14, y: 14}
+        - {x: -16, y: 10}
+        - {x: -16, y: -14}
+        - {x: -11, y: -16}
+        - {x: 13, y: -16}
+        - {x: 16, y: -14}
+        - {x: 16, y: 11}
+        - {x: 8, y: 16}
+    - name: Tips_2_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 8}
+        - {x: -16, y: -13}
+        - {x: -10, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -15}
+        - {x: 16, y: 3}
+        - {x: 8, y: 8}
+    - name: Tips_2_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 16}
+        - {x: -16, y: 9}
+        - {x: -16, y: -13}
+        - {x: -9, y: -16}
+        - {x: 8, y: -16}
+        - {x: 16, y: -14}
+        - {x: 16, y: 13}
+        - {x: 5, y: 16}
+    - name: Tips_2_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 8}
+        - {x: -16, y: 4}
+        - {x: -16, y: -16}
+        - {x: 12, y: -16}
+        - {x: 16, y: -12}
+        - {x: 16, y: 2}
+        - {x: 11, y: 8}
+    - name: Tips_2_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 16}
+        - {x: -16, y: 9}
+        - {x: -16, y: -13}
+        - {x: -9, y: -16}
+        - {x: 8, y: -16}
+        - {x: 16, y: -14}
+        - {x: 16, y: 13}
+        - {x: 5, y: 16}
+    - name: Tips_2_20
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 8}
+        - {x: -16, y: 4}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 4}
+        - {x: 11, y: 8}
+    - name: Tips_2_21
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 16}
+        - {x: -11, y: 16}
+        - {x: -16, y: 9}
+        - {x: -16, y: -13}
+        - {x: -9, y: -16}
+        - {x: 7, y: -16}
+        - {x: 10, y: -15}
+        - {x: 16, y: -12}
+        - {x: 16, y: 12}
+    - name: Tips_2_22
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 8}
+        - {x: -16, y: 1}
+        - {x: -16, y: -12}
+        - {x: -10, y: -16}
+        - {x: 7, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 3}
+        - {x: 10, y: 8}
+    - name: Tips_2_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 10}
+        - {x: 4, y: 16}
+    - name: Tips_2_24
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 10}
+        - {x: 4, y: 16}
+    - name: Tips_2_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 10}
+        - {x: 4, y: 16}
+    - name: Tips_2_26
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 10}
+        - {x: 4, y: 16}
+    - name: Tips_2_27
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 14}
+        - {x: 3, y: 15}
+        - {x: -11, y: 15}
+        - {x: -13, y: 13}
+        - {x: -13, y: -2}
+        - {x: -11, y: -12}
+        - {x: -2, y: -14}
+        - {x: 13, y: -14}
+        - {x: 13, y: 2}
+        - {x: 12, y: 7}
+    - name: Tips_2_28
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 15}
+        - {x: -13, y: 15}
+        - {x: -13, y: -5}
+        - {x: -9, y: -13}
+        - {x: -7, y: -15}
+        - {x: 4, y: -15}
+        - {x: 8, y: -14}
+        - {x: 12, y: -8}
+        - {x: 12, y: 10}
+    - name: Tips_2_29
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 14}
+        - {x: -13, y: 9}
+        - {x: -13, y: -1}
+        - {x: -7, y: -13}
+        - {x: 3, y: -13}
+        - {x: 11, y: -10}
+        - {x: 11, y: 12}
+        - {x: 6, y: 14}
+    - name: Tips_2_30
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 14}
+        - {x: -12, y: 12}
+        - {x: -12, y: -11}
+        - {x: -1, y: -15}
+        - {x: 13, y: -15}
+        - {x: 13, y: 10}
+        - {x: 12, y: 14}
+    - name: Tips_2_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 8}
+        - {x: -16, y: -12}
+        - {x: -11, y: -16}
+        - {x: 8, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 8}
+        - {x: 10, y: 16}
+    - name: Tips_2_32
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 16}
+        - {x: -9, y: 16}
+        - {x: -16, y: 9}
+        - {x: -16, y: -13}
+        - {x: -11, y: -16}
+        - {x: 7, y: -16}
+        - {x: 16, y: -12}
+        - {x: 16, y: 10}
+        - {x: 15, y: 12}
+    - name: Tips_2_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 8}
+        - {x: -16, y: -12}
+        - {x: -11, y: -16}
+        - {x: 8, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 8}
+        - {x: 10, y: 16}
+    - name: Tips_2_34
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 16}
+        - {x: -16, y: 9}
+        - {x: -16, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -14}
+        - {x: 16, y: 8}
+        - {x: 7, y: 16}
+    - name: Tips_2_35
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 9}
+        - {x: -11, y: 9}
+        - {x: -16, y: 1}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 5}
+    - name: Tips_2_36
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 9}
+        - {x: 2, y: 10}
+        - {x: -12, y: 10}
+        - {x: -16, y: 2}
+        - {x: -16, y: -15}
+        - {x: -14, y: -16}
+        - {x: 8, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 0}
+        - {x: 14, y: 3}
+    - name: Tips_2_37
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 9}
+        - {x: -11, y: 9}
+        - {x: -16, y: 1}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 5}
+    - name: Tips_2_38
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 9}
+        - {x: -11, y: 9}
+        - {x: -16, y: 1}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 5}
+    - name: Tips_2_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 14}
+        - {x: 11, y: 16}
+    - name: Tips_2_40
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 14}
+        - {x: 11, y: 16}
+    - name: Tips_2_41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 14}
+        - {x: 11, y: 16}
+    - name: Tips_2_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 14}
+        - {x: 11, y: 16}
+    - name: Tips_2_43
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 9}
+        - {x: -2, y: 9}
+        - {x: -16, y: 2}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 2}
+        - {x: 12, y: 5}
+    - name: Tips_2_44
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 9}
+        - {x: -2, y: 9}
+        - {x: -16, y: 2}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 2}
+        - {x: 12, y: 5}
+    - name: Tips_2_45
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 9}
+        - {x: -2, y: 9}
+        - {x: -16, y: 2}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 2}
+        - {x: 12, y: 5}
+    - name: Tips_2_46
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 9}
+        - {x: -2, y: 9}
+        - {x: -16, y: 2}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 2}
+        - {x: 12, y: 5}
+    - name: Tips_2_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 9}
+        - {x: -16, y: 4}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 2}
+        - {x: 6, y: 9}
+    - name: Tips_2_48
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 11}
+        - {x: -16, y: 8}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 7, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 6}
+        - {x: 8, y: 11}
+    - name: Tips_2_49
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 12}
+        - {x: -16, y: 4}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 2}
+        - {x: 4, y: 12}
+    - name: Tips_2_50
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 11}
+        - {x: -16, y: 9}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 4}
+        - {x: 10, y: 11}
+    - name: Tips_2_51
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 11}
+        - {x: -16, y: 4}
+        - {x: -16, y: -16}
+        - {x: 7, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 2}
+        - {x: 4, y: 11}
+    - name: Tips_2_52
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 11}
+        - {x: -16, y: 4}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 7, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 7}
+        - {x: 5, y: 11}
+    - name: Tips_2_53
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 8}
+        - {x: -16, y: 3}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 8, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 4}
+        - {x: 4, y: 8}
+    - name: Tips_2_54
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 9}
+        - {x: -16, y: 8}
+        - {x: -16, y: -14}
+        - {x: -12, y: -16}
+        - {x: 7, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 3}
+        - {x: 6, y: 9}
+    - name: Tips_2_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 9}
+        - {x: -11, y: 3}
+        - {x: -11, y: -5}
+        - {x: -9, y: -12}
+        - {x: -8, y: -15}
+        - {x: 4, y: -15}
+        - {x: 10, y: -13}
+        - {x: 12, y: -5}
+        - {x: 12, y: 6}
+        - {x: 4, y: 9}
+    - name: Tips_2_56
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 9}
+        - {x: -10, y: 6}
+        - {x: -11, y: 2}
+        - {x: -11, y: -12}
+        - {x: -9, y: -15}
+        - {x: 11, y: -15}
+        - {x: 11, y: 5}
+        - {x: 6, y: 9}
+    - name: Tips_2_57
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 11}
+        - {x: -13, y: 1}
+        - {x: -13, y: -14}
+        - {x: -12, y: -15}
+        - {x: 8, y: -15}
+        - {x: 13, y: -13}
+        - {x: 13, y: 4}
+        - {x: 5, y: 11}
+    - name: Tips_2_58
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 5}
+        - {x: -15, y: 2}
+        - {x: -15, y: -13}
+        - {x: -13, y: -15}
+        - {x: 12, y: -15}
+        - {x: 15, y: -14}
+        - {x: 15, y: 0}
+        - {x: 11, y: 5}
+    - name: Tips_2_59
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 7}
+        - {x: -14, y: 1}
+        - {x: -14, y: -12}
+        - {x: -10, y: -15}
+        - {x: 7, y: -15}
+        - {x: 14, y: -13}
+        - {x: 14, y: 0}
+        - {x: 7, y: 7}
+    - name: Tips_2_60
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 5}
+        - {x: -15, y: 2}
+        - {x: -15, y: -13}
+        - {x: -13, y: -15}
+        - {x: 12, y: -15}
+        - {x: 15, y: -14}
+        - {x: 15, y: 0}
+        - {x: 11, y: 5}
+    - name: Tips_2_61
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 0}
+        - {x: 11, y: -2}
+        - {x: 14, y: -2}
+        - {x: 16, y: -1}
+        - {x: 16, y: 13}
+        - {x: 13, y: 14}
+        - {x: 0, y: 14}
+        - {x: -16, y: 5}
+        - {x: -16, y: -9}
+        - {x: -12, y: -15}
+        - {x: 6, y: -15}
+        - {x: 14, y: -11}
+        - {x: 11, y: -3}
+        - {x: 9, y: -1}
+        - {x: 9, y: 1}
+    - name: Tips_2_62
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 9}
+        - {x: 1, y: 11}
+        - {x: -2, y: 11}
+        - {x: -6, y: 6}
+        - {x: -10, y: -4}
+        - {x: -10, y: -10}
+        - {x: -8, y: -15}
+        - {x: 3, y: -15}
+        - {x: 10, y: -9}
+        - {x: 10, y: 4}
+      - - {x: -13, y: -3}
+        - {x: -16, y: -3}
+        - {x: -16, y: -8}
+        - {x: -14, y: -10}
+        - {x: -13, y: -10}
+        - {x: -10, y: -7}
+        - {x: -10, y: -4}
+      - - {x: 14, y: 4}
+        - {x: 11, y: 1}
+        - {x: 11, y: 0}
+        - {x: 14, y: -3}
+        - {x: 16, y: -2}
+        - {x: 16, y: 3}
+        - {x: 15, y: 4}
+      - - {x: -15, y: 7}
+        - {x: -15, y: 0}
+        - {x: -8, y: 0}
+        - {x: -8, y: 7}
+      - - {x: 10, y: 13}
+        - {x: 8, y: 11}
+        - {x: 8, y: 8}
+        - {x: 10, y: 6}
+        - {x: 13, y: 6}
+        - {x: 15, y: 8}
+        - {x: 15, y: 11}
+        - {x: 13, y: 13}
+    - name: Tips_2_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 16}
+        - {x: -6, y: 16}
+        - {x: -15, y: -3}
+        - {x: -15, y: -14}
+        - {x: -13, y: -16}
+        - {x: 9, y: -16}
+        - {x: 16, y: -9}
+        - {x: 16, y: 13}
+    - name: Tips_2_64
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 6}
+        - {x: -15, y: 5}
+        - {x: -15, y: -11}
+        - {x: -8, y: -16}
+        - {x: 9, y: -16}
+        - {x: 14, y: -7}
+        - {x: 14, y: 0}
+        - {x: 8, y: 6}
+    - name: Tips_2_65
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 1}
+        - {x: -10, y: 1}
+        - {x: -13, y: -2}
+        - {x: -13, y: -10}
+        - {x: -11, y: -16}
+        - {x: 3, y: -16}
+        - {x: 12, y: -11}
+        - {x: 13, y: -8}
+        - {x: 13, y: -3}
+    - name: Tips_2_66
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 12}
+        - {x: -11, y: 12}
+        - {x: -14, y: 7}
+        - {x: -15, y: -10}
+        - {x: -13, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -9}
+        - {x: 16, y: 0}
+        - {x: 11, y: 10}
+    - name: Tips_2_67
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -8}
+        - {x: -12, y: -16}
+        - {x: 9, y: -16}
+        - {x: 15, y: -11}
+        - {x: 15, y: 9}
+        - {x: 6, y: 16}
+    - name: Tips_2_68
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 6}
+        - {x: -14, y: -1}
+        - {x: -14, y: -8}
+        - {x: -9, y: -16}
+        - {x: 10, y: -16}
+        - {x: 15, y: -14}
+        - {x: 15, y: 4}
+        - {x: 10, y: 6}
+    - name: Tips_2_69
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 1}
+        - {x: -13, y: -3}
+        - {x: -13, y: -8}
+        - {x: -12, y: -13}
+        - {x: -5, y: -16}
+        - {x: 13, y: -16}
+        - {x: 13, y: -3}
+        - {x: 10, y: 1}
+    - name: Tips_2_70
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 12}
+        - {x: -16, y: 0}
+        - {x: -16, y: -9}
+        - {x: -7, y: -16}
+        - {x: 11, y: -16}
+        - {x: 15, y: -14}
+        - {x: 15, y: 2}
+        - {x: 11, y: 12}
+    - name: Tips_2_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 16}
+        - {x: -10, y: -15}
+        - {x: -8, y: -16}
+        - {x: 6, y: -16}
+        - {x: 10, y: -13}
+        - {x: 10, y: 16}
+    - name: Tips_2_72
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 16}
+        - {x: -16, y: 6}
+        - {x: -16, y: -13}
+        - {x: -12, y: -16}
+        - {x: 4, y: -16}
+        - {x: 10, y: -9}
+        - {x: 10, y: 16}
+    - name: Tips_2_73
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 16}
+        - {x: -10, y: 16}
+        - {x: -13, y: 11}
+        - {x: -15, y: 7}
+        - {x: -15, y: -13}
+        - {x: -14, y: -16}
+        - {x: 7, y: -16}
+        - {x: 12, y: -13}
+        - {x: 15, y: -12}
+        - {x: 15, y: 5}
+    - name: Tips_2_74
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 16}
+        - {x: -16, y: 13}
+        - {x: -16, y: -16}
+        - {x: 14, y: -16}
+        - {x: 15, y: -14}
+        - {x: 15, y: 10}
+        - {x: 12, y: 16}
+    - name: Tips_2_75
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 16}
+        - {x: -11, y: 16}
+        - {x: -16, y: 9}
+        - {x: -16, y: -9}
+        - {x: -14, y: -16}
+        - {x: 13, y: -16}
+        - {x: 16, y: -14}
+        - {x: 16, y: 1}
+    - name: Tips_2_76
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -14, y: -14}
+        - {x: 9, y: -14}
+        - {x: 15, y: -13}
+        - {x: 15, y: 10}
+        - {x: 9, y: 16}
+    - name: Tips_2_77
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 16}
+        - {x: -16, y: 11}
+        - {x: -16, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: 2}
+        - {x: 8, y: 16}
+    - name: Tips_2_78
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 15}
+        - {x: 7, y: 16}
+        - {x: 3, y: 16}
+        - {x: 1, y: 15}
+        - {x: -10, y: 8}
+        - {x: -14, y: 5}
+        - {x: -14, y: -3}
+        - {x: -13, y: -15}
+        - {x: 9, y: -15}
+        - {x: 12, y: -9}
+        - {x: 12, y: 5}
+    - name: Tips_2_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 16}
+        - {x: -10, y: -15}
+        - {x: -8, y: -16}
+        - {x: 4, y: -16}
+        - {x: 10, y: -13}
+        - {x: 10, y: 14}
+        - {x: 8, y: 16}
+    - name: Tips_2_80
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 16}
+        - {x: -10, y: -6}
+        - {x: -6, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 9}
+        - {x: 14, y: 16}
+    - name: Tips_2_81
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -15, y: 12}
+        - {x: -15, y: -16}
+        - {x: 15, y: -16}
+        - {x: 15, y: 16}
+    - name: Tips_2_82
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 16}
+        - {x: -15, y: 7}
+        - {x: -15, y: -16}
+        - {x: 14, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 10}
+        - {x: 10, y: 16}
+    - name: Tips_2_83
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 16}
+        - {x: -16, y: 4}
+        - {x: -16, y: -12}
+        - {x: -15, y: -16}
+        - {x: 13, y: -16}
+        - {x: 16, y: -15}
+        - {x: 16, y: 7}
+        - {x: 14, y: 16}
+    - name: Tips_2_84
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 16}
+        - {x: -15, y: 4}
+        - {x: -15, y: -9}
+        - {x: -7, y: -14}
+        - {x: 15, y: -14}
+        - {x: 16, y: -12}
+        - {x: 16, y: 11}
+        - {x: 12, y: 16}
+    - name: Tips_2_85
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 16}
+        - {x: -12, y: -16}
+        - {x: 14, y: -16}
+        - {x: 16, y: -14}
+        - {x: 16, y: 11}
+        - {x: 3, y: 16}
+    - name: Tips_2_86
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 16}
+        - {x: -12, y: 8}
+        - {x: -12, y: -10}
+        - {x: -4, y: -15}
+        - {x: 9, y: -15}
+        - {x: 10, y: -14}
+        - {x: 14, y: -7}
+        - {x: 14, y: 7}
+        - {x: 3, y: 16}
+    - name: Tips_2_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -1}
+        - {x: -2, y: -6}
+        - {x: 6, y: -6}
+        - {x: 16, y: 1}
+        - {x: 16, y: 10}
+        - {x: 4, y: 16}
+    - name: Tips_2_88
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -16, y: 10}
+        - {x: -16, y: -1}
+        - {x: -2, y: -6}
+        - {x: 6, y: -6}
+        - {x: 16, y: 1}
+        - {x: 16, y: 10}
+        - {x: 4, y: 16}
+    - name: Tips_2_89
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: -16}
+        - {x: 7, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 10}
+        - {x: 7, y: 15}
+        - {x: -2, y: 15}
+        - {x: -16, y: 9}
+        - {x: -16, y: -11}
+        - {x: -15, y: -15}
+        - {x: -11, y: -16}
+        - {x: -3, y: -16}
+        - {x: -1, y: -13}
+        - {x: -1, y: -8}
+        - {x: 0, y: -14}
+    - name: Tips_2_90
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 13}
+        - {x: -14, y: 9}
+        - {x: -14, y: -10}
+        - {x: -6, y: -13}
+        - {x: 13, y: -13}
+        - {x: 14, y: -11}
+        - {x: 14, y: 7}
+        - {x: 3, y: 13}
+    - name: Tips_2_91
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -8, y: 11}
+        - {x: -8, y: -8}
+        - {x: -4, y: -12}
+        - {x: 6, y: -14}
+        - {x: 16, y: -14}
+        - {x: 16, y: 12}
+        - {x: 8, y: 16}
+    - name: Tips_2_92
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 13}
+        - {x: -16, y: -15}
+        - {x: -11, y: -16}
+        - {x: 10, y: -16}
+        - {x: 10, y: 10}
+        - {x: 5, y: 13}
+    - name: Tips_2_93
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 13}
+        - {x: -10, y: 9}
+        - {x: -10, y: -16}
+        - {x: 10, y: -16}
+        - {x: 16, y: -12}
+        - {x: 16, y: 10}
+        - {x: 15, y: 13}
+    - name: Tips_2_94
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -13}
+        - {x: -15, y: -14}
+        - {x: -3, y: -14}
+        - {x: 8, y: -8}
+        - {x: 8, y: 16}
+    - name: Tips_2_95
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 16}
+        - {x: -6, y: 13}
+        - {x: -10, y: 10}
+        - {x: -10, y: -7}
+        - {x: -9, y: -9}
+        - {x: -8, y: -10}
+        - {x: 2, y: -10}
+        - {x: 8, y: 5}
+        - {x: 8, y: 16}
+    - name: Tips_2_96
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 16}
+        - {x: 4, y: 16}
+        - {x: -12, y: 9}
+        - {x: -12, y: -11}
+        - {x: 3, y: -11}
+        - {x: 6, y: -5}
+        - {x: 8, y: 11}
+    - name: Tips_2_97
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 13}
+        - {x: -6, y: 13}
+        - {x: -10, y: 10}
+        - {x: -12, y: 9}
+        - {x: -12, y: 1}
+        - {x: -10, y: -10}
+        - {x: -1, y: -10}
+        - {x: 2, y: -7}
+        - {x: 2, y: 11}
+    - name: Tips_2_98
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 3}
+        - {x: -15, y: 3}
+        - {x: -16, y: 1}
+        - {x: -16, y: -2}
+        - {x: -14, y: -3}
+        - {x: -9, y: -9}
+        - {x: -7, y: -11}
+        - {x: -6, y: -11}
+        - {x: 5, y: -9}
+        - {x: 6, y: -7}
+        - {x: 6, y: -2}
+    - name: Tips_2_99
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 12}
+        - {x: -10, y: -3}
+        - {x: -10, y: -11}
+        - {x: -3, y: -11}
+        - {x: 4, y: -9}
+        - {x: 8, y: 3}
+        - {x: 8, y: 12}
+    - name: Tips_2_100
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 3}
+        - {x: 10, y: 11}
+        - {x: 3, y: 13}
+        - {x: -10, y: 13}
+        - {x: -16, y: 5}
+        - {x: -16, y: -3}
+        - {x: -9, y: -10}
+        - {x: -1, y: -10}
+        - {x: 3, y: -8}
+        - {x: 8, y: -6}
+        - {x: 12, y: -3}
+    - name: Tips_2_101
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 2}
+        - {x: 1, y: -6}
+        - {x: 8, y: -6}
+        - {x: 12, y: -5}
+        - {x: 12, y: 2}
+        - {x: 11, y: 4}
+        - {x: 0, y: 10}
+        - {x: -8, y: 10}
+        - {x: -12, y: 9}
+    - name: Tips_2_102
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 12}
+        - {x: 9, y: 12}
+        - {x: 1, y: 10}
+        - {x: -2, y: 8}
+        - {x: -2, y: -14}
+        - {x: 7, y: -14}
+        - {x: 10, y: -11}
+        - {x: 16, y: 5}
+    - name: Tips_2_103
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 12}
+        - {x: -4, y: 6}
+        - {x: -4, y: -15}
+        - {x: 16, y: -15}
+        - {x: 16, y: 12}
+    - name: Tips_2_104
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 9}
+        - {x: 2, y: 9}
+        - {x: -3, y: 7}
+        - {x: -4, y: 3}
+        - {x: -4, y: -2}
+        - {x: -1, y: -14}
+        - {x: 7, y: -14}
+        - {x: 10, y: -11}
+        - {x: 10, y: 7}
+    - name: Tips_2_105
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: -2}
+        - {x: -2, y: -1}
+        - {x: -7, y: -1}
+        - {x: -8, y: -2}
+        - {x: -8, y: -8}
+        - {x: -1, y: -15}
+        - {x: 2, y: -15}
+        - {x: 13, y: -13}
+        - {x: 14, y: -11}
+        - {x: 14, y: -6}
+    - name: Tips_2_106
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 8}
+        - {x: 4, y: 5}
+        - {x: -2, y: -11}
+        - {x: -2, y: -15}
+        - {x: 4, y: -15}
+        - {x: 16, y: -10}
+        - {x: 16, y: 8}
+    - name: Tips_2_107
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 10}
+        - {x: -12, y: -14}
+        - {x: 15, y: -14}
+        - {x: 16, y: -12}
+        - {x: 16, y: 5}
+        - {x: 14, y: 10}
+    - name: Tips_2_108
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 9}
+        - {x: -16, y: -14}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -12}
+        - {x: 16, y: 7}
+        - {x: 14, y: 9}
+    - name: Tips_2_109
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 13}
+        - {x: -15, y: 11}
+        - {x: -16, y: 9}
+        - {x: -16, y: -6}
+        - {x: -12, y: -12}
+        - {x: 9, y: -12}
+        - {x: 16, y: -9}
+        - {x: 16, y: 4}
+        - {x: 8, y: 13}
+    - name: Tips_2_110
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -6}
+        - {x: -13, y: -12}
+        - {x: 14, y: -12}
+        - {x: 16, y: -11}
+        - {x: 16, y: 11}
+        - {x: 9, y: 16}
+        - {x: -11, y: 16}
+        - {x: -16, y: 15}
+    - name: Tips_2_111
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 11}
+        - {x: -8, y: 8}
+        - {x: -8, y: -11}
+        - {x: -4, y: -15}
+        - {x: 1, y: -15}
+        - {x: 6, y: -14}
+        - {x: 11, y: -3}
+        - {x: 11, y: 3}
+        - {x: 9, y: 11}
+    - name: Tips_2_112
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 7}
+        - {x: -4, y: 7}
+        - {x: -10, y: 5}
+        - {x: -10, y: -14}
+        - {x: -7, y: -15}
+        - {x: 5, y: -15}
+        - {x: 10, y: -7}
+        - {x: 10, y: 5}
+    - name: Tips_2_113
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 1}
+        - {x: -9, y: -12}
+        - {x: -8, y: -13}
+        - {x: 2, y: -13}
+        - {x: 5, y: -12}
+        - {x: 6, y: 3}
+        - {x: 2, y: 7}
+        - {x: -2, y: 7}
+    - name: Tips_2_114
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 3}
+        - {x: -14, y: 1}
+        - {x: -14, y: -12}
+        - {x: -10, y: -15}
+        - {x: -8, y: -16}
+        - {x: 12, y: -16}
+        - {x: 14, y: -15}
+        - {x: 14, y: -1}
+        - {x: 12, y: 3}
+    - name: Tips_2_115
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 3}
+        - {x: -14, y: 2}
+        - {x: -14, y: -15}
+        - {x: -12, y: -16}
+        - {x: 11, y: -16}
+        - {x: 14, y: -13}
+        - {x: 14, y: -2}
+        - {x: 8, y: 3}
+    - name: Tips_2_116
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 16}
+        - {x: -16, y: 14}
+        - {x: -16, y: -12}
+        - {x: -9, y: -16}
+        - {x: 6, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 15}
+        - {x: 12, y: 16}
+    - name: Tips_2_117
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 12}
+        - {x: -7, y: -10}
+        - {x: -3, y: -12}
+        - {x: 5, y: -12}
+        - {x: 6, y: -11}
+        - {x: 6, y: 12}
+    - name: Tips_2_118
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 12}
+        - {x: -6, y: 12}
+        - {x: -12, y: 7}
+        - {x: -12, y: -8}
+        - {x: -4, y: -12}
+        - {x: 5, y: -12}
+        - {x: 8, y: -4}
+        - {x: 8, y: 6}
+        - {x: 5, y: 11}
+    - name: Tips_2_119
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 14}
+        - {x: -15, y: 10}
+        - {x: -15, y: -6}
+        - {x: -7, y: -16}
+        - {x: 4, y: -16}
+        - {x: 14, y: -7}
+        - {x: 14, y: 14}
+    - name: Tips_2_120
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 13}
+        - {x: -7, y: 13}
+        - {x: -16, y: 9}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 1}
+        - {x: 14, y: 11}
+    - name: Tips_2_121
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 13}
+        - {x: -13, y: 3}
+        - {x: -16, y: -4}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 8, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 7}
+        - {x: 3, y: 13}
+    - name: Tips_2_122
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 10}
+        - {x: -3, y: 10}
+        - {x: -9, y: 7}
+        - {x: -14, y: -3}
+        - {x: -14, y: -9}
+        - {x: -7, y: -15}
+        - {x: 5, y: -15}
+        - {x: 13, y: -14}
+        - {x: 15, y: -12}
+        - {x: 15, y: -6}
+        - {x: 13, y: 4}
+    - name: Tips_2_123
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 10}
+        - {x: -14, y: 2}
+        - {x: -14, y: -13}
+        - {x: -13, y: -16}
+        - {x: 13, y: -16}
+        - {x: 16, y: -10}
+        - {x: 16, y: 1}
+        - {x: 8, y: 10}
+    - name: Tips_2_124
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 5}
+        - {x: 10, y: 7}
+        - {x: 0, y: 7}
+        - {x: -14, y: -3}
+        - {x: -14, y: -13}
+        - {x: -9, y: -15}
+        - {x: -1, y: -15}
+        - {x: 10, y: -8}
+        - {x: 14, y: -3}
+    - name: Tips_2_125
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 7}
+        - {x: -12, y: 7}
+        - {x: -14, y: 4}
+        - {x: -14, y: -3}
+        - {x: -11, y: -10}
+        - {x: 3, y: -15}
+        - {x: 12, y: -15}
+        - {x: 14, y: -9}
+        - {x: 14, y: -2}
+        - {x: 11, y: 2}
+    - name: Tips_2_126
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 7}
+        - {x: -10, y: 1}
+        - {x: -14, y: -2}
+        - {x: -14, y: -9}
+        - {x: -11, y: -15}
+        - {x: 0, y: -15}
+        - {x: 14, y: -6}
+        - {x: 14, y: 2}
+        - {x: 11, y: 7}
+    - name: Tips_2_127
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: -7}
+        - {x: -9, y: -15}
+        - {x: 14, y: -15}
+        - {x: 14, y: -5}
+        - {x: 11, y: 2}
+        - {x: -4, y: 7}
+        - {x: -14, y: 7}
+    - name: Tips_2_128
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 11}
+        - {x: -3, y: 7}
+        - {x: -14, y: -4}
+        - {x: -14, y: -12}
+        - {x: -9, y: -15}
+        - {x: 0, y: -15}
+        - {x: 14, y: -6}
+        - {x: 14, y: 3}
+        - {x: 8, y: 11}
+    - name: Tips_2_129
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 11}
+        - {x: -14, y: 7}
+        - {x: -14, y: -5}
+        - {x: 0, y: -15}
+        - {x: 10, y: -15}
+        - {x: 14, y: -13}
+        - {x: 14, y: -1}
+        - {x: 3, y: 11}
+    - name: Tips_2_130
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 11}
+        - {x: -3, y: 7}
+        - {x: -14, y: -4}
+        - {x: -14, y: -12}
+        - {x: -9, y: -15}
+        - {x: 0, y: -15}
+        - {x: 14, y: -6}
+        - {x: 14, y: 3}
+        - {x: 8, y: 11}
+    - name: Tips_2_131
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 11}
+        - {x: -14, y: 7}
+        - {x: -14, y: -5}
+        - {x: 0, y: -15}
+        - {x: 10, y: -15}
+        - {x: 14, y: -13}
+        - {x: 14, y: -1}
+        - {x: 3, y: 11}
+    - name: Tips_2_132
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 14}
+        - {x: -8, y: 10}
+        - {x: -8, y: -9}
+        - {x: -5, y: -13}
+        - {x: 3, y: -13}
+        - {x: 8, y: -12}
+        - {x: 8, y: 13}
+        - {x: 7, y: 14}
+    - name: Tips_2_133
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 9}
+        - {x: -12, y: 9}
+        - {x: -14, y: 5}
+        - {x: -14, y: -14}
+        - {x: -9, y: -16}
+        - {x: 2, y: -16}
+        - {x: 14, y: -10}
+        - {x: 14, y: 7}
+        - {x: 11, y: 8}
+    - name: Tips_2_134
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 6}
+        - {x: -16, y: 0}
+        - {x: -16, y: -13}
+        - {x: 16, y: -13}
+        - {x: 16, y: 4}
+        - {x: 10, y: 6}
+    - name: Tips_2_135
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 9}
+        - {x: -14, y: 4}
+        - {x: -14, y: -9}
+        - {x: -12, y: -15}
+        - {x: -4, y: -16}
+        - {x: 11, y: -16}
+        - {x: 14, y: -14}
+        - {x: 14, y: 9}
+    - name: Tips_2_136
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 6}
+        - {x: -10, y: 6}
+        - {x: -10, y: -13}
+        - {x: -8, y: -15}
+        - {x: 11, y: -15}
+        - {x: 14, y: -9}
+        - {x: 14, y: 0}
+        - {x: 13, y: 3}
+    - name: Tips_2_137
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 2}
+        - {x: -14, y: -2}
+        - {x: -14, y: -12}
+        - {x: -11, y: -15}
+        - {x: 12, y: -15}
+        - {x: 14, y: -13}
+        - {x: 14, y: 2}
+    - name: Tips_2_138
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 6}
+        - {x: -14, y: 4}
+        - {x: -14, y: -8}
+        - {x: -11, y: -14}
+        - {x: -6, y: -15}
+        - {x: 9, y: -15}
+        - {x: 10, y: -14}
+        - {x: 10, y: 2}
+        - {x: 9, y: 6}
+    - name: Tips_2_139
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 13}
+        - {x: -16, y: 0}
+        - {x: -16, y: -12}
+        - {x: -5, y: -16}
+        - {x: 9, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 0}
+        - {x: 10, y: 13}
+    - name: Tips_2_140
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 13}
+        - {x: -8, y: 11}
+        - {x: -8, y: -10}
+        - {x: -5, y: -13}
+        - {x: 3, y: -13}
+        - {x: 8, y: -12}
+        - {x: 8, y: 11}
+        - {x: 5, y: 13}
+    - name: Tips_2_141
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 14}
+        - {x: -5, y: 11}
+        - {x: -9, y: 7}
+        - {x: -9, y: -1}
+        - {x: -1, y: -11}
+        - {x: 8, y: -11}
+        - {x: 16, y: -7}
+        - {x: 16, y: 8}
+        - {x: 11, y: 14}
+    - name: Tips_2_142
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 13}
+        - {x: -8, y: 11}
+        - {x: -12, y: 7}
+        - {x: -12, y: -9}
+        - {x: -6, y: -13}
+        - {x: 4, y: -13}
+        - {x: 12, y: -9}
+        - {x: 12, y: 6}
+        - {x: 5, y: 13}
+    - name: Tips_2_143
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 14}
+        - {x: -16, y: 10}
+        - {x: -16, y: -11}
+        - {x: -1, y: -11}
+        - {x: 9, y: -3}
+        - {x: 9, y: 9}
+        - {x: 4, y: 14}
+    - name: Tips_2_144
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 10}
+        - {x: 0, y: 8}
+        - {x: -4, y: 1}
+        - {x: -4, y: -8}
+        - {x: 0, y: -13}
+        - {x: 12, y: -13}
+        - {x: 16, y: -9}
+        - {x: 16, y: 5}
+        - {x: 10, y: 10}
+    - name: Tips_2_145
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 16}
+        - {x: -7, y: 16}
+        - {x: -11, y: 15}
+        - {x: -15, y: 8}
+        - {x: -15, y: -6}
+        - {x: -10, y: -13}
+        - {x: 8, y: -13}
+        - {x: 11, y: -12}
+        - {x: 15, y: -5}
+        - {x: 15, y: 4}
+        - {x: 12, y: 8}
+    - name: Tips_2_146
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 10}
+        - {x: -10, y: 10}
+        - {x: -16, y: 6}
+        - {x: -16, y: -9}
+        - {x: -11, y: -13}
+        - {x: -1, y: -13}
+        - {x: 4, y: -7}
+        - {x: 4, y: -1}
+        - {x: 2, y: 5}
+    - name: Tips_2_147
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 13}
+        - {x: -10, y: 11}
+        - {x: -16, y: 1}
+        - {x: -16, y: -12}
+        - {x: -15, y: -15}
+        - {x: -8, y: -16}
+        - {x: 6, y: -16}
+        - {x: 16, y: -11}
+        - {x: 16, y: 0}
+        - {x: 6, y: 13}
+    - name: Tips_2_148
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 13}
+        - {x: -8, y: 11}
+        - {x: -8, y: -10}
+        - {x: -5, y: -13}
+        - {x: 3, y: -13}
+        - {x: 8, y: -12}
+        - {x: 8, y: 11}
+        - {x: 5, y: 13}
+    - name: Tips_2_149
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 14}
+        - {x: -16, y: 9}
+        - {x: -16, y: -13}
+        - {x: -7, y: -16}
+        - {x: 10, y: -16}
+        - {x: 15, y: -14}
+        - {x: 15, y: -4}
+        - {x: 12, y: 7}
+        - {x: 8, y: 14}
+    - name: Tips_2_150
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 11}
+        - {x: -15, y: 8}
+        - {x: -16, y: 1}
+        - {x: -16, y: -6}
+        - {x: -11, y: -10}
+        - {x: 8, y: -10}
+        - {x: 16, y: -7}
+        - {x: 16, y: 7}
+        - {x: 6, y: 11}
+    - name: Tips_2_151
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 14}
+        - {x: -15, y: 6}
+        - {x: -15, y: -14}
+        - {x: -13, y: -16}
+        - {x: 4, y: -16}
+        - {x: 9, y: -13}
+        - {x: 16, y: -9}
+        - {x: 16, y: 5}
+        - {x: 6, y: 14}
+    - name: Tips_2_152
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 10}
+        - {x: -13, y: 6}
+        - {x: -13, y: -10}
+        - {x: -9, y: -12}
+        - {x: 9, y: -12}
+        - {x: 13, y: -9}
+        - {x: 13, y: 8}
+        - {x: 8, y: 10}
+    - name: Tips_2_153
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 8}
+        - {x: -12, y: 8}
+        - {x: -15, y: 1}
+        - {x: -15, y: -8}
+        - {x: -12, y: -10}
+        - {x: 10, y: -10}
+        - {x: 15, y: -5}
+        - {x: 15, y: 0}
+        - {x: 14, y: 5}
+    - name: Tips_2_154
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 10}
+        - {x: -7, y: 8}
+        - {x: -13, y: 4}
+        - {x: -13, y: -10}
+        - {x: -9, y: -12}
+        - {x: 0, y: -12}
+        - {x: 10, y: -9}
+        - {x: 13, y: -7}
+        - {x: 13, y: 0}
+        - {x: 10, y: 10}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

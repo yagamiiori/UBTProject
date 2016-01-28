@@ -237,7 +237,7 @@ public class AbilitySelect : MonoBehaviour
             textFieldID.text = abilityName;
 
             // ユニット選択判定をユニット未選択状態に設定
-            selectedUnitID = 100;
+            selectedUnitID = Defines.ABL_NON_VALUE;
 
             // クリックエフェクト再生メソッドをコール
             playEffect.PlayOnce(effectSprite, GameObject.FindWithTag("Abl_SetAbilityName" + unitid_STR), new Vector3(0, 0, 0f));

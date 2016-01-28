@@ -40,11 +40,11 @@ Material:
       data:
         first:
           name: _Shininess
-        second: .435373098
+        second: 0.4353731
       data:
         first:
           name: _Parallax
-        second: .00499999989
+        second: 0.005
     m_Colors:
       data:
         first:
@@ -53,7 +53,7 @@ Material:
       data:
         first:
           name: _SpecColor
-        second: {r: .208955228, g: .193361551, b: .193361551, a: 1}
+        second: {r: 0.20895523, g: 0.19336155, b: 0.19336155, a: 1}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6

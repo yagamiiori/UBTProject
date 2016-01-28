@@ -54,9 +54,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: .270598084, y: -.65328151, z: .270598114, w: .65328151}
+  m_LocalRotation: {x: 0.27059808, y: -0.6532815, z: 0.2705981, w: 0.6532815}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 400002}
   m_RootOrder: 0
@@ -67,8 +67,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .281871259, z: 0}
-  m_LocalScale: {x: .557172, y: 1, z: .194981784}
+  m_LocalPosition: {x: 0, y: 0.28187126, z: 0}
+  m_LocalScale: {x: 0.557172, y: 1, z: 0.19498178}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 400004}
@@ -104,8 +104,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -129,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeadTransform: {fileID: 0}
-  HeightOffset: .5
+  HeightOffset: 0.5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

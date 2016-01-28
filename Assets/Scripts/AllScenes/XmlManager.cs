@@ -36,7 +36,7 @@ public class XmlManager : MonoBehaviour
     [SerializeField]
     private bool isDontDestroy = true;
     /// <summary>XMLファイルの保存ディレクトリ（クォートストリング指定）</summary>
-    private string xmlFileDirectory = @"C:\Users\user\AppData\Local\var.xml";
+    private string xmlFileDirectory = @"C:\Users\miz\AppData\Local\var.xml";
 
     /// <summary>コンスタント</summary>
     public XmlManager() { }

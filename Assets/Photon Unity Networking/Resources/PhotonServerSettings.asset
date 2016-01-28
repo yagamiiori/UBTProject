@@ -47,4 +47,5 @@ MonoBehaviour:
   - SendingUserNameRPC
   - RecivedUserHelpRPC
   - SendingUserHelpRPC
+  - Flash
   DisableAutoOpenWizard: 1
